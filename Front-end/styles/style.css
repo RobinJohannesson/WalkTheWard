@@ -1,0 +1,10 @@
+.btn-new-user {
+    display: inline-block;
+    min-height: 250px;
+    min-width: 250px;
+    border: 3px solid #252525;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 25px 0px rgba(87,87,87,0.8);
+    -moz-box-shadow: 5px 5px 25px 0px rgba(87,87,87,0.8);
+    box-shadow: 5px 5px 25px 0px rgba(87,87,87,0.8);
+}
