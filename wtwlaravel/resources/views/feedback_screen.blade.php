@@ -27,7 +27,7 @@
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
             <div class="col-md">
-                registrering
+                feedback
             </div>
 
         </div>
