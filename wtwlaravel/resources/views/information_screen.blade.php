@@ -20,24 +20,29 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
+            
+                <h1 class="text-center">Syftet av spelet</h1>
+                
             </div>
-            <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
-            </div>
-            <div class="col-md">
-                information
-            </div>
+        
 
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="btn-new-user">
-
-                </div>
+            <div class="col-md-6">
+                
+             <p>Spelet heter ”Walk the Ward” eller som på svenska ”Vandring i vården”. Spelet innebär att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset, utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
+             </p>
+            
             </div>
         </div>
+        
+        <div class="row justify-content-end">
+            <div class="col col-md-2">
+                <button type="button" class="btn btn-primary btn-lg">Fortsätt</button>
+        
+             </div>
+        </div>
+    
     </div>
 
     <!-- Optional JavaScript -->
