@@ -20,22 +20,18 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
+                
             </div>
             <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
+                <h1 class="text-center">Välj en del av Skåne</h1>
+                
             </div>
-            <div class="col-md">
-                map
-            </div>
+            
 
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <div class="btn-new-user">
-
-                </div>
+            <p>map</p>
             </div>
         </div>
     </div>
