@@ -11,42 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome_screen');
-});
+Route::resource('', "WelcomeController");
 
-Route::get('/registration', function () {
-    return view('registration_screen');
-});
+Route::resource('registration', "RegistrationController");
 
-Route::get('/information', function () {
-    return view('information_screen');
-});
+Route::resource('information', "InformationController");
 
-Route::get('/map', function () {
-    return view('map_screen');
-});
+Route::resource('map', "MapController");
 
-Route::get('/theme', function () {
-    return view('theme_screen');
-});
+Route::resource('theme', "ThemeController");
 
-Route::get('/scan', function () {
-    return view('scan_screen');
-});
+Route::resource('scan', "ScanController");
 
-Route::get('/question', function () {
-    return view('question_screen');
-});
+Route::resource('question', "QuestionController");
 
-Route::get('/bonus', function () {
-    return view('bonus_screen');
-});
+Route::resource('bonus', "BonusController");
 
-Route::get('/home', function () {
-    return view('home_screen');
-});
+Route::resource('home', "HomeController");
 
-Route::get('/feedback', function () {
-    return view('feedback_screen');
-});
+Route::resource('feedback', "FeedbackController");
+
+Route::resource('statistics', "StatisticsController");
