@@ -21,8 +21,7 @@
         <div class="row justify-content-center">
             <div class="col-md">
                 
-            </div>
-            <div class="col-md-6">
+        
                 <h1 class="text-center">Välj en del av Skåne</h1>
                 
             </div>
@@ -31,7 +30,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
-            <p>map</p>
+            <img src="./images/map-pic.png" alt="Map">
             </div>
         </div>
     </div>
