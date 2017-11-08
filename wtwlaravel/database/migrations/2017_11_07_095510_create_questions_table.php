@@ -20,7 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->string('answer2');
             $table->string('answer3');
             $table->string('answer4');
-            $table->string('correctAnswer');
+            $table->integer('correctAnswer');
             $table->string('imageSource');
             $table->string('videoSource');
             $table->unsignedInteger('themeId');

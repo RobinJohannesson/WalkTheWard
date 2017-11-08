@@ -7,23 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $name
- * @property string $imageSource
  * @property string $created_at
  * @property string $updated_at
- * @property Patient[] $patients
+ * @property Area[] $areas
  */
-class character extends Model
+class maps extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['name', 'imageSource', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function patients()
+    public function areas()
     {
-        return $this->hasMany('App\Patient', 'characterId');
+        return $this->hasMany('App\Area', 'mapId');
     }
 }

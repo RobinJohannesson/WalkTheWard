@@ -13,7 +13,9 @@
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
+        "krlove/eloquent-model-generator": "^1.2",
         "mockery/mockery": "0.9.*",
+        "orangehill/iseed": "^2.5",
         "phpunit/phpunit": "~6.0"
     },
     "autoload": {

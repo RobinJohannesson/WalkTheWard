@@ -1,0 +1,29 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property int $id
+ * @property string $imageSource
+ * @property int $wardId
+ * @property string $created_at
+ * @property string $updated_at
+ * @property Ward $ward
+ */
+class stations extends Model
+{
+    /**
+     * @var array
+     */
+    protected $fillable = ['imageSource', 'wardId', 'created_at', 'updated_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function ward()
+    {
+        return $this->belongsTo('App\Ward', 'wardId');
+    }
+}
