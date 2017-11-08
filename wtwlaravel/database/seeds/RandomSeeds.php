@@ -11,17 +11,23 @@ class RandomSeeds extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+
         DB::table('areas')->insert([
             'name' => str_random(10),
+            'mapId' => 1,
         ]);
 
         DB::table('bonus_games')->insert([
             'lettersToDiscard' => str_random(10),
             'imageSource' => str_random(10),
+            'placeId' => 1,
         ]);
 
         DB::table('bonus_games_in_games')->insert([
             'isCompleted' => true,
+            'bonusGameId' => 1,
+            'gameId' => 1,
         ]);
 
         DB::table('characters')->insert([
@@ -46,6 +52,7 @@ class RandomSeeds extends Seeder
             'distanceInMeter' => 1000,
             'gameId' => 1,
             'characterId' => 1,
+            'statisticId' => 1,
             'wardId' => 1,
         ]);
 
@@ -75,10 +82,9 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('questions_in_games')->insert([
-            'hasGoneHome' => 1,
-            'dayAmount' => 2,
-            'wasEasyToPlay' => 1,
-            'patientId' => 1,
+            'questionId' => 1,
+            'gameId' => 1,
+            'isAnswerd' => 1,
         ]);
 
         DB::table('stations')->insert([
@@ -90,7 +96,6 @@ class RandomSeeds extends Seeder
             'hasGoneHome' => 1,
             'dayAmount' => 2,
             'wasEasyToPlay' => 1,
-            'patientId' => 1,
         ]);
 
         DB::table('themes')->insert([
@@ -104,6 +109,7 @@ class RandomSeeds extends Seeder
             'imageSource' => str_random(10),
         ]);
 
+        Schema::enableForeignKeyConstraints();
 
 
     }
