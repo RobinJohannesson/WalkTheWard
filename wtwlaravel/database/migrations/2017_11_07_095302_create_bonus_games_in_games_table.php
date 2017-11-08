@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBonusGameInGamesTable extends Migration
+class CreateBonusGamesInGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -29,6 +29,6 @@ class CreateBonusGameInGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bonus_game_in_games');
+        Schema::dropIfExists('bonus_games_in_games');
     }
 }
