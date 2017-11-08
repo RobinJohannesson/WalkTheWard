@@ -18,8 +18,6 @@ class CreatePlaceInGamesTable extends Migration
             $table->unsignedInteger('placeId');
             $table->unsignedInteger('gameId');
             $table->integer('numberOfStars');
-            $table->foreign('placeId')->references('id')->on('places')->onDelete('cascade');
-            $table->foreign('gameId')->references('id')->on('games')->onDelete('cascade');
             $table->timestamps();
         });
     }

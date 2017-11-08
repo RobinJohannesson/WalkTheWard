@@ -17,9 +17,8 @@ class CreateBonusGamesTable extends Migration
             $table->increments('id');
             $table->string('letterToDiscard');
             $table->string('imageSource');
-            $table->integer('placeId')->unsigned;
+            $table->unsignedInteger('placeId');
             $table->timestamps();
-            $table->foreign('placeId')->references('id')->on('places');
         });
     }
 

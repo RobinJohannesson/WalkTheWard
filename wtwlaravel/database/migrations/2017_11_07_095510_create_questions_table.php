@@ -23,9 +23,8 @@ class CreateQuestionsTable extends Migration
             $table->string('correctAnswer');
             $table->string('imageSource');
             $table->string('videoSource');
-            $table->integer('themeId')->unsigned;
+            $table->unsignedInteger('themeId');
             $table->timestamps();
-            $table->foreign('themeId')->references('id')->on('themes');
         });
     }
 

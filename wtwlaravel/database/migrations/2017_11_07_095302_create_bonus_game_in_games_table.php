@@ -18,8 +18,6 @@ class CreateBonusGameInGamesTable extends Migration
             $table->unsignedInteger('bonusGameId');
             $table->unsignedInteger('gameId');
             $table->boolean('isCompleted');
-            $table->foreign('bonusGamesId')->references('id')->on('bonus_games')->onDelete('cascade');
-            $table->foreign('gameId')->references('id')->on('games')->onDelete('cascade');
             $table->timestamps();
         });
     }

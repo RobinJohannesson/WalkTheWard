@@ -18,9 +18,8 @@ class CreateStatisticsTable extends Migration
             $table->boolean('goHome');
             $table->integer('dayAmount');
             $table->boolean('wasEasyToPlay');
-            $table->integer('patientId')->unsigned;
+            $table->unsignedInteger('patientId');
             $table->timestamps();
-            $table->foreign('patientId')->references('id')->on('patients');
         });
     }
 

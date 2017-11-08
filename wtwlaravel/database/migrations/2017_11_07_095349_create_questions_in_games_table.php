@@ -18,8 +18,6 @@ class CreateQuestionsInGamesTable extends Migration
             $table->unsignedInteger('questionId');
             $table->unsignedInteger('gameId');
             $table->boolean('isAnswered');
-            $table->foreign('questionId')->references('id')->on('questions')->onDelete('cascade');
-            $table->foreign('gameId')->references('id')->on('games')->onDelete('cascade');
             $table->timestamps();
         });
     }

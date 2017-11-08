@@ -18,13 +18,10 @@ class CreatePatientsTable extends Migration
             $table->integer('age');
             $table->string('gender');
             $table->integer('roomType');
-            $table->integer('gameId')->unsigned;
-            $table->integer('characterId')->unsigned;
-            $table->integer('wardId')->unsigned;
+            $table->unsignedInteger('gameId');
+            $table->unsignedInteger('characterId');
+            $table->unsignedInteger('wardId');
             $table->timestamps();
-            $table->foreign('gameId')->references('id')->on('games');
-            $table->foreign('characterId')->references('id')->on('characters');
-            $table->foreign('wardId')->references('id')->on('wards');
         });
     }
 

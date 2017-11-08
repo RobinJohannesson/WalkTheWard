@@ -16,9 +16,8 @@ class CreateStationsTable extends Migration
         Schema::create('stations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('imageSource');
-            $table->integer('wardId')->unsigned;
+            $table->unsignedInteger('wardId');
             $table->timestamps();
-            $table->foreign('wardId')->references('id')->on('wards');
         });
     }
 
