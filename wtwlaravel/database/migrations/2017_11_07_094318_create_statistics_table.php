@@ -15,7 +15,7 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('goHome');
+            $table->boolean('hasGoneHome');
             $table->integer('dayAmount');
             $table->boolean('wasEasyToPlay');
             $table->unsignedInteger('patientId');
