@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\maps;
+
 class WelcomeController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome_screen');
+        $map = Maps::find(1);
+        return view('welcome_screen', ['map' => $map]);
     }
 
     /**
