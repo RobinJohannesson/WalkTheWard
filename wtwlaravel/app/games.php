@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Area $area
  * @property Theme $theme
- * @property BonusGameInGame[] $bonusGameInGames
+ * @property BonusGamesInGame[] $bonusGamesInGames
  * @property Patient[] $patients
- * @property PlaceInGame[] $placeInGames
+ * @property PlacesInGame[] $placesInGames
  * @property QuestionsInGame[] $questionsInGames
  */
 class games extends Model
@@ -43,9 +43,9 @@ class games extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bonusGameInGames()
+    public function bonusGamesInGames()
     {
-        return $this->hasMany('App\BonusGameInGame', 'gameId');
+        return $this->hasMany('App\BonusGamesInGame', 'gameId');
     }
 
     /**
@@ -59,9 +59,9 @@ class games extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function placeInGames()
+    public function placesInGames()
     {
-        return $this->hasMany('App\PlaceInGame', 'gameId');
+        return $this->hasMany('App\PlacesInGame', 'gameId');
     }
 
     /**

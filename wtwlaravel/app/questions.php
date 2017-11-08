@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $answer2
  * @property string $answer3
  * @property string $answer4
- * @property string $correctAnswer
+ * @property int $correctAnswer
  * @property string $imageSource
  * @property string $videoSource
  * @property int $themeId

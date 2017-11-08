@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Patient[] $patients
  */
-class character extends Model
+class characters extends Model
 {
     /**
      * @var array

@@ -5,28 +5,20 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $bonusGameId
+ * @property int $placeId
  * @property int $gameId
- * @property boolean $isCompleted
+ * @property int $numberOfStars
  * @property string $created_at
  * @property string $updated_at
- * @property BonusGame $bonusGame
  * @property Game $game
+ * @property Place $place
  */
-class bonus_game_in_games extends Model
+class places_in_games extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['isCompleted', 'created_at', 'updated_at'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function bonusGame()
-    {
-        return $this->belongsTo('App\BonusGame', 'bonusGameId');
-    }
+    protected $fillable = ['numberOfStars', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -34,5 +26,13 @@ class bonus_game_in_games extends Model
     public function game()
     {
         return $this->belongsTo('App\Game', 'gameId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function place()
+    {
+        return $this->belongsTo('App\Place', 'placeId');
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  * @property Place $place
- * @property BonusGameInGame[] $bonusGameInGames
+ * @property BonusGamesInGame[] $bonusGamesInGames
  */
 class bonus_games extends Model
 {
@@ -32,8 +32,8 @@ class bonus_games extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bonusGameInGames()
+    public function bonusGamesInGames()
     {
-        return $this->hasMany('App\BonusGameInGame', 'bonusGameId');
+        return $this->hasMany('App\BonusGamesInGame', 'bonusGameId');
     }
 }

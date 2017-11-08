@@ -12,8 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Map $map
  * @property Game[] $games
+ * @property Place[] $places
  */
-class Area extends Model
+class areas extends Model
 {
     /**
      * @var array
@@ -34,5 +35,13 @@ class Area extends Model
     public function games()
     {
         return $this->hasMany('App\Game', 'areaId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function places()
+    {
+        return $this->hasMany('App\Place', 'areaId');
     }
 }

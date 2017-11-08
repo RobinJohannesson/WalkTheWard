@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  * @property Ward $ward
+ * @property Place[] $places
  */
 class stations extends Model
 {
@@ -25,5 +26,13 @@ class stations extends Model
     public function ward()
     {
         return $this->belongsTo('App\Ward', 'wardId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function places()
+    {
+        return $this->hasMany('App\Place', 'stationId');
     }
 }
