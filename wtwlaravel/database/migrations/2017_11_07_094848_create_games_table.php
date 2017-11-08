@@ -17,7 +17,6 @@ class CreateGamesTable extends Migration
             $table->increments('id');
             $table->integer('currentArea');
             $table->integer('currentTheme');
-            $table->unsignedInteger('patientId');
             $table->timestamps();
         });
     }

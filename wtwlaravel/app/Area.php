@@ -9,6 +9,6 @@ class Area extends Model
     protected $fillable = array('name');
     
     public function Map() {
-        return $this->belongsTo('Map');
+        return $this->belongsTo('App\Map');
     }
 }
