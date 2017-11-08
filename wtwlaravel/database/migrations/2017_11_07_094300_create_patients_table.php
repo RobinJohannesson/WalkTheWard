@@ -24,7 +24,8 @@ class CreatePatientsTable extends Migration
             $table->unsignedInteger('characterId');
             $table->unsignedInteger('statisticId');
             $table->unsignedInteger('wardId');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

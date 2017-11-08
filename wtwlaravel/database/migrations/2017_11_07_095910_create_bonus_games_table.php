@@ -18,7 +18,8 @@ class CreateBonusGamesTable extends Migration
             $table->string('lettersToDiscard');
             $table->string('imageSource');
             $table->unsignedInteger('placeId');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

@@ -18,7 +18,8 @@ class CreateQuestionsInGamesTable extends Migration
             $table->unsignedInteger('questionId');
             $table->unsignedInteger('gameId');
             $table->boolean('isAnswered');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

@@ -19,7 +19,8 @@ class CreatePlacesTable extends Migration
             $table->string('description');
             $table->unsignedInteger('stationId');
             $table->unsignedInteger('areaId');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

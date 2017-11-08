@@ -18,7 +18,8 @@ class CreateStatisticsTable extends Migration
             $table->boolean('hasGoneHome');
             $table->integer('dayAmount');
             $table->boolean('wasEasyToPlay');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

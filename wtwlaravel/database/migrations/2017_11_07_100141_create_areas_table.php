@@ -17,7 +17,8 @@ class CreateAreasTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedInteger('mapId');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

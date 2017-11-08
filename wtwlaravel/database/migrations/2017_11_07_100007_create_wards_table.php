@@ -19,7 +19,8 @@ class CreateWardsTable extends Migration
             $table->string('address');
             $table->string('description');
             $table->string('imageSource');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

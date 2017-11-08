@@ -18,7 +18,8 @@ class CreatePlacesInGamesTable extends Migration
             $table->unsignedInteger('placeId');
             $table->unsignedInteger('gameId');
             $table->integer('numberOfStars');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

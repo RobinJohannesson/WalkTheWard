@@ -17,7 +17,8 @@ class CreateStationsTable extends Migration
             $table->increments('id');
             $table->string('imageSource');
             $table->unsignedInteger('wardId');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

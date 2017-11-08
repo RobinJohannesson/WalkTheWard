@@ -18,7 +18,8 @@ class CreateBonusGamesInGamesTable extends Migration
             $table->unsignedInteger('bonusGameId');
             $table->unsignedInteger('gameId');
             $table->boolean('isCompleted');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
