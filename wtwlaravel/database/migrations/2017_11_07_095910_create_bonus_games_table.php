@@ -15,7 +15,7 @@ class CreateBonusGamesTable extends Migration
     {
         Schema::create('bonus_games', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('letterToDiscard');
+            $table->string('lettersToDiscard');
             $table->string('imageSource');
             $table->unsignedInteger('placeId');
             $table->timestamps();
