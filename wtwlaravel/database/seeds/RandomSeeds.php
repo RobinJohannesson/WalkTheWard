@@ -84,7 +84,7 @@ class RandomSeeds extends Seeder
         DB::table('questions_in_games')->insert([
             'questionId' => 1,
             'gameId' => 1,
-            'isAnswerd' => 1,
+            'isAnswered' => 1,
         ]);
 
         DB::table('stations')->insert([
