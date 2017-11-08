@@ -23,6 +23,11 @@ class EditForeignKey extends Migration
             $table->foreign('patientId')->references('id')->on('patients');
         });
         
+        Schema::table('games', function (Blueprint $table){
+            $table->foreign('areaId')->references('id')->on('areas');
+            $table->foreign('themeId')->references('id')->on('themes');
+        });
+        
         Schema::table('place_in_games', function (Blueprint $table){
             $table->foreign('gameId')->references('id')->on('games');
             $table->foreign('placeId')->references('id')->on('places');

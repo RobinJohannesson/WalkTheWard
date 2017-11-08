@@ -15,8 +15,8 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('currentArea');
-            $table->integer('currentTheme');
+            $table->unsignedInteger('areaId');
+            $table->unsignedInteger('themeId');
             $table->timestamps();
         });
     }
