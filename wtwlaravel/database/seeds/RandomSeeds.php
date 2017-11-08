@@ -20,7 +20,7 @@ class RandomSeeds extends Seeder
             'imageSource' => str_random(10),
         ]);
 
-        DB::table('bonus_game_in_games')->insert([
+        DB::table('bonus_games_in_games')->insert([
             'isCompleted' => true,
         ]);
 
@@ -56,7 +56,7 @@ class RandomSeeds extends Seeder
             'areaId' => 1,
         ]);
 
-        DB::table('place_in_games')->insert([
+        DB::table('places_in_games')->insert([
             'placeId' => 1,
             'gameId' => 1,
             'numberOfStars' => 1,
