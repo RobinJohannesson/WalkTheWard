@@ -17,8 +17,8 @@ class CreatePlacesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->integer('stationId');
-            $table->integer('areaId');
+            $table->unsignedInteger('stationId');
+            $table->unsignedInteger('areaId');
             $table->timestamps();
         });
     }

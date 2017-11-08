@@ -55,6 +55,11 @@ class EditForeignKey extends Migration
         Schema::table('areas', function (Blueprint $table){
             $table->foreign('mapId')->references('id')->on('maps');
         });
+                
+        Schema::table('places', function (Blueprint $table){
+            $table->foreign('stationId')->references('id')->on('stations');
+            $table->foreign('areaId')->references('id')->on('areas');
+        });
     }
 
     /**
