@@ -22,6 +22,7 @@ class CreatePatientsTable extends Migration
             $table->integer('distanceInMeter');
             $table->unsignedInteger('gameId');
             $table->unsignedInteger('characterId');
+            $table->unsignedInteger('statisticId');
             $table->unsignedInteger('wardId');
             $table->timestamps();
         });

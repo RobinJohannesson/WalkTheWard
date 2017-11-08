@@ -9,23 +9,22 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $hasGoneHome
  * @property int $dayAmount
  * @property boolean $wasEasyToPlay
- * @property int $patientId
  * @property string $created_at
  * @property string $updated_at
- * @property Patient $patient
+ * @property Patient[] $patients
  */
 class statistics extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'patientId', 'created_at', 'updated_at'];
+    protected $fillable = ['hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'created_at', 'updated_at'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function patient()
+    public function patients()
     {
-        return $this->belongsTo('App\Patient', 'patientId');
+        return $this->hasMany('App\Patient', 'statisticId');
     }
 }

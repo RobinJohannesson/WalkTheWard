@@ -13,20 +13,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $distanceInMeter
  * @property int $gameId
  * @property int $characterId
+ * @property int $statisticId
  * @property int $wardId
  * @property string $created_at
  * @property string $updated_at
  * @property Character $character
  * @property Game $game
+ * @property Statistic $statistic
  * @property Ward $ward
- * @property Statistic[] $statistics
  */
 class patients extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['age', 'gender', 'roomType', 'cookie', 'distanceInMeter', 'gameId', 'characterId', 'wardId', 'created_at', 'updated_at'];
+    protected $fillable = ['age', 'gender', 'roomType', 'cookie', 'distanceInMeter', 'gameId', 'characterId', 'statisticId', 'wardId', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -47,16 +48,16 @@ class patients extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function ward()
+    public function statistic()
     {
-        return $this->belongsTo('App\Ward', 'wardId');
+        return $this->belongsTo('App\Statistic', 'statisticId');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function statistics()
+    public function ward()
     {
-        return $this->hasMany('App\Statistic', 'patientId');
+        return $this->belongsTo('App\Ward', 'wardId');
     }
 }
