@@ -13,7 +13,7 @@ class CreatePlaceInGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('place_in_games', function (Blueprint $table) {
+        Schema::create('places_in_games', function (Blueprint $table) {
             $table->primary(['placeId', 'gameId']);
             $table->unsignedInteger('placeId');
             $table->unsignedInteger('gameId');

@@ -25,12 +25,12 @@ class EditForeignKey extends Migration
             $table->foreign('themeId')->references('id')->on('themes');
         });
         
-        Schema::table('place_in_games', function (Blueprint $table){
+        Schema::table('places_in_games', function (Blueprint $table){
             $table->foreign('gameId')->references('id')->on('games');
             $table->foreign('placeId')->references('id')->on('places');
         });
         
-        Schema::table('bonus_game_in_games', function (Blueprint $table){
+        Schema::table('bonus_games_in_games', function (Blueprint $table){
             $table->foreign('bonusGameId')->references('id')->on('bonus_games');
             $table->foreign('gameId')->references('id')->on('games');
         });
