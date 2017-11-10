@@ -99,6 +99,7 @@ class RandomSeeds extends Seeder
 
         DB::table('themes')->insert([
             'name' => str_random(10),
+            'isActive' => 0,
         ]);
 
         DB::table('wards')->insert([
