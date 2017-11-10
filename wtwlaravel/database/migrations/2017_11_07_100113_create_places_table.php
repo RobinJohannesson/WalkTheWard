@@ -16,9 +16,9 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
-            $table->unsignedInteger('stationId');
-            $table->unsignedInteger('areaId');
+            $table->string('description')->nullable();
+            $table->unsignedInteger('stationId')->nullable();
+            $table->unsignedInteger('areaId')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

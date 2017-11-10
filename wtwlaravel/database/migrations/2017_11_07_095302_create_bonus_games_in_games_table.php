@@ -15,9 +15,9 @@ class CreateBonusGamesInGamesTable extends Migration
     {
         Schema::create('bonus_games_in_games', function (Blueprint $table) {
             $table->primary(['bonusGameId', 'gameId']);
-            $table->unsignedInteger('bonusGameId');
-            $table->unsignedInteger('gameId');
-            $table->boolean('isCompleted');
+            $table->unsignedInteger('bonusGameId')->nullable();
+            $table->unsignedInteger('gameId')->nullable();
+            $table->boolean('isCompleted')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

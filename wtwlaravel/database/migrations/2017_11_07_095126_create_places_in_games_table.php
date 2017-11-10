@@ -15,9 +15,9 @@ class CreatePlacesInGamesTable extends Migration
     {
         Schema::create('places_in_games', function (Blueprint $table) {
             $table->primary(['placeId', 'gameId']);
-            $table->unsignedInteger('placeId');
-            $table->unsignedInteger('gameId');
-            $table->integer('numberOfStars');
+            $table->unsignedInteger('placeId')->nullable();
+            $table->unsignedInteger('gameId')->nullable();
+            $table->integer('numberOfStars')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

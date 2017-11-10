@@ -15,8 +15,8 @@ class CreateStationsTable extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('imageSource');
-            $table->unsignedInteger('wardId');
+            $table->string('imageSource')->nullable();
+            $table->unsignedInteger('wardId')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });
