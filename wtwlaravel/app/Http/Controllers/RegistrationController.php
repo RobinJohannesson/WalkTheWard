@@ -43,11 +43,6 @@ class RegistrationController extends Controller
         $Patient->age = $request->age;
         $Patient->gender = $request->gender;
         $Patient->roomType = $request->roomType;
-        $Patient->distanceInMeter = 123;
-        $Patient->gameId = 1;
-        $Patient->characterId = 1;
-        $Patient->statisticId = 1;
-        $Patient->wardId = 1;
         $Patient->save();
         $cookie = cookie('patientId', $Patient->id, 2628000);
         return redirect('map')->withCookie($cookie);
