@@ -101,6 +101,14 @@ class RandomSeeds extends Seeder
             'name' => str_random(10),
             'isActive' => 0,
         ]);
+        DB::table('themes')->insert([
+            'name' => str_random(10),
+            'isActive' => 1,
+        ]);
+        DB::table('themes')->insert([
+            'name' => str_random(10),
+            'isActive' => 1,
+        ]);
 
         DB::table('wards')->insert([
             'name' => str_random(10),
