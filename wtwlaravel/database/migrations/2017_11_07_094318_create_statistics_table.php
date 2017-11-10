@@ -15,9 +15,9 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('hasGoneHome');
-            $table->integer('dayAmount');
-            $table->boolean('wasEasyToPlay');
+            $table->boolean('hasGoneHome')->nullable();
+            $table->integer('dayAmount')->nullable();
+            $table->boolean('wasEasyToPlay')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

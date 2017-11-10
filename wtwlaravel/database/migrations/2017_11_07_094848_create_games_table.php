@@ -15,8 +15,8 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('areaId');
-            $table->unsignedInteger('themeId');
+            $table->unsignedInteger('areaId')->nullable();
+            $table->unsignedInteger('themeId')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

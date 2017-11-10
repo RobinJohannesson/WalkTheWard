@@ -18,11 +18,11 @@ class CreatePatientsTable extends Migration
             $table->integer('age');
             $table->string('gender');
             $table->integer('roomType');
-            $table->integer('distanceInMeter');
-            $table->unsignedInteger('gameId');
-            $table->unsignedInteger('characterId');
-            $table->unsignedInteger('statisticId');
-            $table->unsignedInteger('wardId');
+            $table->integer('distanceInMeter')->default(0);
+            $table->unsignedInteger('gameId')->nullable();
+            $table->unsignedInteger('characterId')->nullable();
+            $table->unsignedInteger('statisticId')->nullable();
+            $table->unsignedInteger('wardId')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

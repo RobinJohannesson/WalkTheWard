@@ -15,9 +15,9 @@ class CreateQuestionsInGamesTable extends Migration
     {
         Schema::create('questions_in_games', function (Blueprint $table) {
             $table->primary(['questionId', 'gameId']);
-            $table->unsignedInteger('questionId');
-            $table->unsignedInteger('gameId');
-            $table->boolean('isAnswered');
+            $table->unsignedInteger('questionId')->nullable();
+            $table->unsignedInteger('gameId')->nullable();
+            $table->boolean('isAnswered')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

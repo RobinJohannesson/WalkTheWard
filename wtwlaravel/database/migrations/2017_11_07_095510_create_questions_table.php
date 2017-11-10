@@ -21,9 +21,9 @@ class CreateQuestionsTable extends Migration
             $table->string('answer3');
             $table->string('answer4');
             $table->integer('correctAnswer');
-            $table->string('imageSource');
-            $table->string('videoSource');
-            $table->unsignedInteger('themeId');
+            $table->string('imageSource')->nullable();
+            $table->string('videoSource')->nullable();
+            $table->unsignedInteger('themeId')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });
