@@ -14,7 +14,7 @@ class ThemeController extends Controller
      */
     public function index()
     {
-        $theme = Themes::first();
+        $theme = Themes::all();
         return view('theme_screen', compact("theme"));
     }
 

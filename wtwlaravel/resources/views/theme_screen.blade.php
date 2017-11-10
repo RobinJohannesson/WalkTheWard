@@ -27,9 +27,9 @@
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
             <div class="col-md">
-                @foreach $theme
-                {{$theme->name}}
-                @end
+                @foreach ($theme as $t)
+                {{ $t->name }}
+                @endforeach
                 theme
             </div>
 
