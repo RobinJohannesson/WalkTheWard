@@ -43,7 +43,6 @@ class RegistrationController extends Controller
         $Patient->age = $request->age;
         $Patient->gender = $request->gender;
         $Patient->roomType = $request->roomType;
-        $Patient->cookie = "asdasfd";
         $Patient->distanceInMeter = 123;
         $Patient->gameId = 1;
         $Patient->characterId = 1;
