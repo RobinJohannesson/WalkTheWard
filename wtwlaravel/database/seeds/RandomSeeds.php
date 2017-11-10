@@ -48,7 +48,6 @@ class RandomSeeds extends Seeder
             'age' => 18,
             'gender' => "Female",
             'roomType' => 1,
-            'cookie' => str_random(10),
             'distanceInMeter' => 1000,
             'gameId' => 1,
             'characterId' => 1,

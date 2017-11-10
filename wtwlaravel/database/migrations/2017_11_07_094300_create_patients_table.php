@@ -18,7 +18,6 @@ class CreatePatientsTable extends Migration
             $table->integer('age');
             $table->string('gender');
             $table->integer('roomType');
-            $table->string('cookie');
             $table->integer('distanceInMeter');
             $table->unsignedInteger('gameId');
             $table->unsignedInteger('characterId');

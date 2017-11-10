@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\patients;
 
 class MapController extends Controller
 {
@@ -11,9 +13,14 @@ class MapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('map_screen');
+        //$map = Maps::find(1);
+        //return view('welcome_screen', ['map' => $map]);
+        $patientId = $request->cookie('patientId');
+        $patient = patients::find($patientId);
+        //Request::cookie('patientId');
+        return view('map_screen', ['patient' => $patient]);
     }
 
     /**

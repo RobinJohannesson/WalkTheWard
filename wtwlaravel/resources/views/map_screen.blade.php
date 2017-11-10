@@ -20,7 +20,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md">
-                
+                {{$patient->gender}}
+                {{$patient->age}}
         
                 <h1 class="text-center">Välj en del av Skåne</h1>
                 

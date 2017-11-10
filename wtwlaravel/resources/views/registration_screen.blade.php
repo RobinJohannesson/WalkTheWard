@@ -30,6 +30,16 @@
             <div class="col-md">
                 registration
             </div>
+            <form action="{{{ url("registration") }}}" method="POST">
+                {{ csrf_field() }}
+                Age: 
+                <input type="number" name="age"><br>
+                Gender: 
+                <input type="text" name="gender"><br>
+                Room Type:
+                <input type="number" name="roomType"><br>
+                <input type="submit" value="Submit">
+            </form>
 
         </div>
         <div class="row justify-content-center">

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\patients;
+use App\Http\Controllers\Cookie;
+
 class RegistrationController extends Controller
 {
     /**
@@ -34,12 +37,21 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        $Patient = new Patient;
+        
+        $Patient = new Patients;
+        
         $Patient->age = $request->age;
         $Patient->gender = $request->gender;
         $Patient->roomType = $request->roomType;
-        $Patient->characterId = $request->characterId;
+        $Patient->cookie = "asdasfd";
+        $Patient->distanceInMeter = 123;
+        $Patient->gameId = 1;
+        $Patient->characterId = 1;
+        $Patient->statisticId = 1;
+        $Patient->wardId = 1;
         $Patient->save();
+        $cookie = cookie('patientId', $Patient->id, 2628000);
+        return redirect('map')->withCookie($cookie);
     }
 
     /**

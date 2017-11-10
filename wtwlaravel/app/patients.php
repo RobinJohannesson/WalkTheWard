@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $age
  * @property string $gender
  * @property int $roomType
- * @property string $cookie
  * @property int $distanceInMeter
  * @property int $gameId
  * @property int $characterId
@@ -27,7 +26,7 @@ class patients extends Model
     /**
      * @var array
      */
-    protected $fillable = ['age', 'gender', 'roomType', 'cookie', 'distanceInMeter', 'gameId', 'characterId', 'statisticId', 'wardId', 'created_at', 'updated_at'];
+    protected $fillable = ['age', 'gender', 'roomType', 'distanceInMeter', 'gameId', 'characterId', 'statisticId', 'wardId', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

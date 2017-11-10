@@ -13,7 +13,13 @@
 
 Route::resource('', "WelcomeController");
 
-Route::resource('registration', "RegistrationController");
+Route::get('get-cookie', function() {
+   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
+});
+
+Route::GET('registration', "RegistrationController@index");
+
+Route::POST('registration', "RegistrationController@store");
 
 Route::resource('information', "InformationController");
 
@@ -32,3 +38,7 @@ Route::resource('home', "HomeController");
 Route::resource('feedback', "FeedbackController");
 
 Route::resource('statistics', "StatisticsController");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
