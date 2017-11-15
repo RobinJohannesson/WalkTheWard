@@ -79,6 +79,18 @@ class RandomSeeds extends Seeder
             'videoSource' => str_random(10),
             'themeId' => 1,
         ]);
+        
+        DB::table('questions')->insert([
+            'question' => "Svenska Deckarakademin delar varje år ut pris för bästa svenska och bästa översatt kriminallroman. Vad heter priset?",
+            'answer1' => "Sherlock Holmes hatten",
+            'answer2' => "Guldbatongen",
+            'answer3' => "Den gyllene kofoten",
+            'answer4' => "Den blodiga pennan",
+            'correctAnswer' => 2,
+            'imageSource' => str_random(10),
+            'videoSource' => str_random(10),
+            'themeId' => 2,
+        ]);
 
         DB::table('questions_in_games')->insert([
             'questionId' => 1,
@@ -102,7 +114,7 @@ class RandomSeeds extends Seeder
             'isActive' => 0,
         ],
         [
-            'name' => str_random(10),
+            'name' => "Konst och Kultur",
             'isActive' => 1,
         ],
         [
