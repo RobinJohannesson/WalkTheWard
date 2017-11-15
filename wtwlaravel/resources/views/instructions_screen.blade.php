@@ -21,7 +21,7 @@
         <div class="row justify-content-center">
             <div class="col-md">
             
-                <h1 class="text-center">Syftet av spelet</h1>
+                <h1 class="text-center">Instruktioner</h1>
                 
             </div>
         

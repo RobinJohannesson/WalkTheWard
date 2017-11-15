@@ -23,6 +23,8 @@ Route::POST('registration', "RegistrationController@store");
 
 Route::resource('information', "InformationController");
 
+Route::resource('instructions', "InstructionsController");
+
 Route::resource('map', "MapController");
 
 Route::resource('theme', "ThemeController");
