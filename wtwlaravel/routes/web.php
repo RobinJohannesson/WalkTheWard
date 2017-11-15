@@ -11,42 +11,34 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome_screen');
+Route::resource('', "WelcomeController");
+
+Route::get('get-cookie', function() {
+   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
 });
 
-Route::get('/registration', function () {
-    return view('registration_screen');
-});
+Route::GET('registration', "RegistrationController@index");
 
-Route::get('/information', function () {
-    return view('information_screen');
-});
+Route::POST('registration', "RegistrationController@store");
 
-Route::get('/map', function () {
-    return view('map_screen');
-});
+Route::resource('information', "InformationController");
 
-Route::get('/theme', function () {
-    return view('theme_screen');
-});
+Route::resource('map', "MapController");
 
-Route::get('/scan', function () {
-    return view('scan_screen');
-});
+Route::resource('theme', "ThemeController");
 
-Route::get('/question', function () {
-    return view('question_screen');
-});
+Route::resource('scan', "ScanController");
 
-Route::get('/bonus', function () {
-    return view('bonus_screen');
-});
+Route::resource('question', "QuestionController");
 
-Route::get('/home', function () {
-    return view('home_screen');
-});
+Route::resource('bonus', "BonusController");
 
-Route::get('/feedback', function () {
-    return view('feedback_screen');
-});
+Route::resource('home', "HomeController");
+
+Route::resource('feedback', "FeedbackController");
+
+Route::resource('statistics', "StatisticsController");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
