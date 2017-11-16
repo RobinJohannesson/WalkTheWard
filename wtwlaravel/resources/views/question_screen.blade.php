@@ -34,13 +34,6 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="btn-new-user">
-<<<<<<< HEAD
-                    {{$patient}}
-                    <br>
-                    {{$stationId}}
-=======
-                    
->>>>>>> 2bb1fcbe85daca02302805777a5b868b0db7ccf4
                 </div>
             </div>
         </div>
