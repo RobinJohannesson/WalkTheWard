@@ -16,7 +16,7 @@ class MapController extends Controller
     public function index(Request $request)
     {
         $patientId = $request->cookie('patientId');
-        $patient = patients::find($patientId);
+        $patient = patient::find($patientId);
         return view('map_screen', ['patient' => $patient]);
     }
 

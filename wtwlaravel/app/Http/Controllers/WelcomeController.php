@@ -15,7 +15,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $map = Maps::find(1);
+        $map = Map::find(1);
         return view('welcome_screen', ['map' => $map]);
     }
 
