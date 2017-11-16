@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\patients;
+use App\game;
+use App\places_in_games;
+use App\areas;
 
 class QuestionController extends Controller
 {
@@ -11,9 +15,15 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('question_screen');
+        $stationId = "2";
+        $patientId = $request->cookie('patientId');
+        $patient = patients::find($patientId);
+
+        $patient->Game()->areaId;
+        return view('question_screen', compact(['patient', 'stationId']));
+        // return view('question_screen');
     }
 
     /**
@@ -83,5 +93,13 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function stationId($id)
+    {
+        $stationId = $id;
+        $patientId = $request->cookie('patientId');
+        $patient = patients::find($patientId);
+        return view('question_screen', compact(['patientId', 'stationId']));
     }
 }
