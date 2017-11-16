@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\patient;
 use App\game;
+use App\place;
 use App\place_in_game;
 use App\area;
+use App\theme;
+use App\question;
+use App\question_in_game;
 
 class QuestionController extends Controller
 {
@@ -44,9 +48,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
-        $QuestionsInGame->isAnswered = $request->questionid;
-        $QuestionsInGame->save();
+        //$QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
+        //$QuestionsInGame->isAnswered = $request->questionid;
+        //$QuestionsInGame->save();
     }
 
     /**
@@ -60,10 +64,37 @@ class QuestionController extends Controller
         $stationId = $id;
         $patientId = $request->cookie('patientId');
         $patient = patient::find($patientId);
-        $patientgame = $patient::with('game')->find($id)->games;
-        return view('backend_screen', compact(['patient', 'stationId', 'patientgame']));
-    }
+        $gameId = Patient::find($patientId)->game->id;
+        $area = Patient::find($patientId)->game->area->id;
+        $place = Place::where('stationId', $stationId)->where('areaId', $area)->first();
+        $placeId = $place->id;
+        $place_in_game = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
+        $currentThemeId = Patient::find($patientId)->game->themeId;
+        $question_in_game = Question_in_game::where('gameId', $gameId)->first();
+        $question = $question_in_game->question;
+        $theme = $question->theme;
+        $themeId = $question->theme->id;
+        $themequestion = $theme->questions;
+        $themequestionIds = Question::where('themeId', $themeId)->pluck('id')->toArray();
+        $qinGArray = array();
+        foreach ($themequestion as $q) {
+            if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
+                    array_push($qinGArray, $q->id);
+            }
 
+
+            //$qinG = Question_in_game::where('questionId', $q->id)->where('gameId', $gameId)->pluck('isAnswered')->toArray();
+
+            //foreach ($qinG as $qg) {
+                //$qg = $q->question_in_game->where('gameId', $gameId)->where('isAnswered', 1)->get('questionId');
+            //}
+        }
+        //$question_in_game = Game::find($gameId)->questionInGame->isAnswered;
+        //$patientgame = $patient::with('game')->find($id)->game;
+        //$gameid = $patientgame->id;
+        //$gamearea = $patientgame::with('area')->find($gameid)->area;
+        return view('backend_screen', compact(['patient', 'stationId', 'area', 'place', 'placeId', 'place_in_game', 'question_in_game', 'question', 'theme', 'themeId', 'themequestion', 'themequestionIds', 'qinGArray']));
+    }
     /**
      * Show the form for editing the specified resource.
      *
