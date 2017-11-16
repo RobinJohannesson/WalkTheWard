@@ -31,7 +31,7 @@ Route::resource('scan', "ScanController");
 
 Route::resource('question', "QuestionController");
 
-Route::resource('question?stationId={id}', 'QuestionController@stationId');
+Route::resource('question/{bajs}', 'QuestionController@stationId');
 
 Route::resource('bonus', "BonusController");
 

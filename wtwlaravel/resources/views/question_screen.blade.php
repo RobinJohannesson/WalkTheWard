@@ -35,6 +35,7 @@
             <div class="col-md-3">
                 <div class="btn-new-user">
                     {{$patient}}
+                    <br>
                     {{$stationId}}
                 </div>
             </div>

@@ -55,10 +55,12 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $bajs)
     {
-        $Question = Question::with('id')->find($id);
-        return view('question_screen', compact("Question"));
+        $stationId = $bajs;
+        $patientId = $request->cookie('patientId');
+        $patient = patients::find($patientId);
+        return view('question_screen', compact(['patient', 'stationId']));
     }
 
     /**
