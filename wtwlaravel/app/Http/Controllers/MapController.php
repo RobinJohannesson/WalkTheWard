@@ -15,11 +15,8 @@ class MapController extends Controller
      */
     public function index(Request $request)
     {
-        //$map = Maps::find(1);
-        //return view('welcome_screen', ['map' => $map]);
         $patientId = $request->cookie('patientId');
         $patient = patients::find($patientId);
-        //Request::cookie('patientId');
         return view('map_screen', ['patient' => $patient]);
     }
 
