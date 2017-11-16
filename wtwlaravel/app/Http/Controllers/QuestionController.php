@@ -19,7 +19,7 @@ class QuestionController extends Controller
     {
         $stationId = "2";
         $patientId = $request->cookie('patientId');
-        $patient = patients::find($patientId);
+        $patient = patient::find($patientId);
 
         //$patient->Game()->areaId;
         return view('question_screen', compact(['patient', 'stationId']));
