@@ -38,7 +38,7 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
 
-        $Patient = new Patients;
+        $Patient = new Patient;
 
         $Patient->age = $request->age;
         $Patient->gender = $request->gender;

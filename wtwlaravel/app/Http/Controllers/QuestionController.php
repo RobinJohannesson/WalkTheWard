@@ -59,7 +59,7 @@ class QuestionController extends Controller
     {
         $stationId = $id;
         $patientId = $request->cookie('patientId');
-        $patient = patients::find($patientId);
+        $patient = patient::find($patientId);
         $patientgame = $patient::with('game')->find($id)->games;
         return view('backend_screen', compact(['patient', 'stationId', 'patientgame']));
     }
