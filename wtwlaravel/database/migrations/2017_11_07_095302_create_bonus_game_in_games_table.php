@@ -13,7 +13,7 @@ class CreateBonusGamesInGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bonus_games_in_games', function (Blueprint $table) {
+        Schema::create('bonus_game_in_games', function (Blueprint $table) {
             $table->primary(['bonusGameId', 'gameId']);
             $table->unsignedInteger('bonusGameId')->nullable();
             $table->unsignedInteger('gameId')->nullable();
@@ -30,6 +30,6 @@ class CreateBonusGamesInGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bonus_games_in_games');
+        Schema::dropIfExists('bonus_game_in_games');
     }
 }

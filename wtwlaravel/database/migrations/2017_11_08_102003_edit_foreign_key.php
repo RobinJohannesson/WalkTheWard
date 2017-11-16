@@ -19,43 +19,43 @@ class EditForeignKey extends Migration
             $table->foreign('statisticId')->references('id')->on('statistics');
             $table->foreign('wardId')->references('id')->on('wards');
         });
-        
+
         Schema::table('games', function (Blueprint $table){
             $table->foreign('areaId')->references('id')->on('areas');
             $table->foreign('themeId')->references('id')->on('themes');
         });
-        
-        Schema::table('places_in_games', function (Blueprint $table){
+
+        Schema::table('place_in_games', function (Blueprint $table){
             $table->foreign('gameId')->references('id')->on('games');
             $table->foreign('placeId')->references('id')->on('places');
         });
-        
-        Schema::table('bonus_games_in_games', function (Blueprint $table){
+
+        Schema::table('bonus_game_in_games', function (Blueprint $table){
             $table->foreign('bonusGameId')->references('id')->on('bonus_games');
             $table->foreign('gameId')->references('id')->on('games');
         });
-        
-        Schema::table('questions_in_games', function (Blueprint $table){
+
+        Schema::table('question_in_games', function (Blueprint $table){
             $table->foreign('questionId')->references('id')->on('questions');
             $table->foreign('gameId')->references('id')->on('games');
         });
-        
+
         Schema::table('questions', function (Blueprint $table){
             $table->foreign('themeId')->references('id')->on('themes');
         });
-        
+
         Schema::table('bonus_games', function (Blueprint $table){
             $table->foreign('placeId')->references('id')->on('places');
         });
-        
+
         Schema::table('stations', function (Blueprint $table){
             $table->foreign('wardId')->references('id')->on('wards');
         });
-        
+
         Schema::table('areas', function (Blueprint $table){
             $table->foreign('mapId')->references('id')->on('maps');
         });
-                
+
         Schema::table('places', function (Blueprint $table){
             $table->foreign('stationId')->references('id')->on('stations');
             $table->foreign('areaId')->references('id')->on('areas');
