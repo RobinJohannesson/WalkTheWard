@@ -34,8 +34,7 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="btn-new-user">
-                    {{$patient}}
-                    {{$stationId}}
+                    
                 </div>
             </div>
         </div>
