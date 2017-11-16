@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\patients;
+use App\patient;
 use App\Http\Controllers\Cookie;
 
 class RegistrationController extends Controller
@@ -37,9 +37,9 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $Patient = new Patients;
-        
+
         $Patient->age = $request->age;
         $Patient->gender = $request->gender;
         $Patient->roomType = $request->roomType;

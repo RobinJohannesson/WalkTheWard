@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\maps;
+use App\map;
 
 class WelcomeController extends Controller
 {

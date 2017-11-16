@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\patients;
-use App\games;
-use App\places_in_games;
-use App\areas;
+use App\patient;
+use App\game;
+use App\place_in_game;
+use App\area;
 
 class QuestionController extends Controller
 {
