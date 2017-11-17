@@ -117,7 +117,6 @@ class RandomSeeds extends Seeder
             'themeId' => 1,
         ]);
 
-        /* -- RÖRELSE/MOVEMENT --*/
         DB::table('questions')->insert([
             'question' => "Idag förknippar vi ofta boxbom med kyrkogårdar, men boxbom är en mycket gammal kulturväxt som användes som medicinalväxt i klostren. Var har den sitt ursprung?",
             'answer1' => "Medelhavsländerna",
@@ -125,11 +124,24 @@ class RandomSeeds extends Seeder
             'answer3' => "Sydamerika, Mexiko",
             'answer4' => "Nordafrika",
             'correctAnswer' => 2,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t1q3.jpg,
+            'videoSource' => null,
             'themeId' => 1,
         ]);
 
+        DB::table('questions')->insert([
+            'question' => "Vad heter programledaren som förknippades med trädgård under 80- och 90-talet? Starta filmklippet.",
+            'answer1' => "Bo Swensson",
+            'answer2' => "Bengt Swensson",
+            'answer3' => "Bengt Bedrup",
+            'answer4' => "Bertil Svensson",
+            'correctAnswer' => 4,
+            'imageSource' => null,
+            'videoSource' => t1q4.mp4,
+            'themeId' => 1,
+        ]);
+
+        /* -- RÖRELSE/MOVEMENT --*/
         DB::table('questions')->insert([
             'question' => "Vad kan du tänka på när det är snö och is ute på vägarna?",
             'answer1' => "Att inte gå ut alls",
