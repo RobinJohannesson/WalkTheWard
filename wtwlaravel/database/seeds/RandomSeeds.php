@@ -165,7 +165,19 @@ class RandomSeeds extends Seeder
             'themeId' => 1,
         ]);
 
-        /* -- RÖRELSE/MOVEMENT --*/
+        DB::table('questions')->insert([
+            'question' => "Vilken av följande växter nedan är inte giftig?",
+            'answer1' => "Gullregn",
+            'answer2' => "Odört",
+            'answer3' => "Malva",
+            'answer4' => "Fingerborgsblomma",
+            'correctAnswer' => 3,
+            'imageSource' => t1q7.jpg,
+            'videoSource' => null,
+            'themeId' => 1,
+        ]);
+
+        /* -- FALL --*/
         DB::table('questions')->insert([
             'question' => "Vad kan du tänka på när det är snö och is ute på vägarna?",
             'answer1' => "Att inte gå ut alls",
@@ -186,6 +198,66 @@ class RandomSeeds extends Seeder
             'answer4' => "Kanelbullar, sockerkaka och veteskorpor",
             'correctAnswer' => 3,
             'imageSource' => t2q2.jpg,
+            'videoSource' => null,
+            'themeId' => 2,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Orsakerna till yrsel kan vara många. Vad är sant gällande yrsel?",
+            'answer1' => "Man bör alltid kontakta sin vårdcentral för bedömning av bakomliggande orsak och eventuell behandling",
+            'answer2' => "Yrsel på äldre dar går inte att behandla",
+            'answer3' => "Yrsel minskar fallrisken eftersom man blir mer försiktig",
+            'answer4' => "Man kan röra sig försikigt så minskar risken för fall",
+            'correctAnswer' => 1,
+            'imageSource' => t2q3.jpg,
+            'videoSource' => null,
+            'themeId' => 2,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Synen förändras när vi blir äldre. Exempelvis blir pupillen stelare och ögat får svårare att ställa om mellan ljus och mörker. Vad ska du tänka på gällande syn och fallrisk?",
+            'answer1' => "Att ha mörkt och mysigt hemma för att inte bli bländad",
+            'answer2' => "Att aldrig gå runt med läsglasögon på eftersom de försvårar avståndsbedömningen",
+            'answer3' => "Det är inte lönt att gå till optikern när man är gammal",
+            'answer4' => "Jag vet var allt finns hemma, så jag behöver inte se så bra",
+            'correctAnswer' => 2,
+            'imageSource' => t2q4.jpg,
+            'videoSource' => null,
+            'themeId' => 2,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Vad är sant gällande träning på äldre dar?",
+            'answer1' => "Träning kan till exempel vara en promenad, dans, gå i trappor eller gymnastik",
+            'answer2' => "Det är för sent att börja träna när man är över 75 år",
+            'answer3' => "Att städa hemmet kan inte räknas som naturlig träning",
+            'answer4' => "Man behöver inte träna",
+            'correctAnswer' => 1,
+            'imageSource' => t2q5.jpg,
+            'videoSource' => null,
+            'themeId' => 2,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Vilken är den vanligaste typen av fallolycka bland äldre?",
+            'answer1' => "Fall från hög höjd, till exempel stege eller köksstol",
+            'answer2' => "Fall i samband med träning",
+            'answer3' => "När man hämtar posten",
+            'answer4' => "Fall på markplan, exempelvis halkning, snubbling eller snavning",
+            'correctAnswer' => 4,
+            'imageSource' => t2q6.jpg,
+            'videoSource' => null,
+            'themeId' => 2,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Vad kan du göra om du känner dig ostadig och rädd för att falla?",
+            'answer1' => "Undvika att gå ut",
+            'answer2' => "Sitta så mycket som möjligt inomhus",
+            'answer3' => "Ansöka om trygghetslarm",
+            'answer4' => "Använda käpp",
+            'correctAnswer' => 3,
+            'imageSource' => t2q7.jpg,
             'videoSource' => null,
             'themeId' => 2,
         ]);
