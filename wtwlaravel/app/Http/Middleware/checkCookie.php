@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class checkCookie
+class CheckCookie
 {
     /**
      * Handle an incoming request.

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\checkCookie;
+use App\Http\Middleware\CheckCookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ Route::resource('information', "InformationController");
 
 Route::resource('instructions', "InstructionsController");
 
-Route::resource('map', "MapController")->middleware('checkCookie');
+Route::resource('map', "MapController")->middleware('CheckCookie');
 
 Route::resource('theme', "ThemeController");
 
