@@ -34,8 +34,8 @@ use App\Http\Middleware\checkCookie;
     // }
 //});
 
+Route::resource('/welcome', "WelcomeController");
 Route::resource('', "WelcomeController");
-
 // Route::get('get-cookie', function() {
 //   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
 // });
