@@ -15,11 +15,11 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('question');
-            $table->string('answer1');
-            $table->string('answer2');
-            $table->string('answer3');
-            $table->string('answer4');
+            $table->string('question', 500);
+            $table->string('answer1', 500);
+            $table->string('answer2', 500);
+            $table->string('answer3', 500);
+            $table->string('answer4', 500);
             $table->integer('correctAnswer');
             $table->string('imageSource')->nullable();
             $table->string('videoSource')->nullable();

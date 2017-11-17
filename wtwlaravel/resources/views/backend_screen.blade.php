@@ -55,9 +55,9 @@
                     <br>
                     themequestion: {{$themequestion}}
                     <br>
-                    qinGArray: {{print_r($qinGArray) }}
-                    <br>
                     themequestionIds: {{print_r($themequestionIds) }}
+                    <br>
+                    qinGArray: {{print_r($qinGArray) }}
             </div>
         </div>
     </div>

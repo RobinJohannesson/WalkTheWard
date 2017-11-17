@@ -79,7 +79,7 @@ class QuestionController extends Controller
         $qinGArray = array();
         foreach ($themequestion as $q) {
             if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
-                    array_push($qinGArray, $q->id);
+                array_push($qinGArray, $q->id);
             }
 
 
