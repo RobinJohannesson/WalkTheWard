@@ -287,6 +287,66 @@ class RandomSeeds extends Seeder
             'themeId' => 3,
         ]);
 
+        DB::table('questions')->insert([
+            'question' => "Vilken mat innehåller mest D-vitamin?",
+            'answer1' => "2 gaffelbitar inlagd sill",
+            'answer2' => "1 kokt ägg",
+            'answer3' => "10 gram berikat bordsmargarin",
+            'answer4' => "Mineralvatten",
+            'correctAnswer' => 1,
+            'imageSource' => t3q3.jpg,
+            'videoSource' => null,
+            'themeId' => 3,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Är en färdiglagad maträtt (kyld eller fryst) ett bra alternativ till den hemmalagade maten?",
+            'answer1' => "Ja, om du är trött och inte orkar laga mat är det ett utmärkt alternativ",
+            'answer2' => "Nej, den innehåller ingen näring",
+            'answer3' => "Nej, den är för kalorifattig",
+            'answer4' => "Nej, den innehåller för många kalorier",
+            'correctAnswer' => 1,
+            'imageSource' => t3q4.jpg,
+            'videoSource' => null,
+            'themeId' => 3,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "När man är äldre och blir sjuk är det viktigt att man får i sig tillräckligt med energi och protein. Näringen behövs för att man skall återhämta sig så fort som möjligt efter sjukdom. Vilket mellanmål innehåller mest protein?",
+            'answer1' => "1 banan",
+            'answer2' => "1 bit (75g) ostkaka",
+            'answer3' => "1 portion (75g) gräddglass",
+            'answer4' => "1 tomat",
+            'correctAnswer' => 2,
+            'imageSource' => t3q5.jpg,
+            'videoSource' => null,
+            'themeId' => 3,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Kalcium är nödvändigt för att bilda ben. Långvarig brist kan eventuellt ge benskörhet (osteoporos). Vilka är de bästa källorna för kalcium?",
+            'answer1' => "Kött",
+            'answer2' => "Grönsaker",
+            'answer3' => "Pasta",
+            'answer4' => "Mjölk och ost",
+            'correctAnswer' => 4,
+            'imageSource' => t3q6.jpg,
+            'videoSource' => null,
+            'themeId' => 3,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Titta på filmklippet. Vilket alternativ är rätt?",
+            'answer1' => "\"Åldersmagen\" är farlig"
+            'answer2' => "Man behöver inte mycket mat när man är gammal",
+            'answer3' => "Man behöver näringen i maten för att må bra",
+            'answer4' => "Det är bra att gå ner i vikt när man är gammal",
+            'correctAnswer' => 3,
+            'imageSource' => null,
+            'videoSource' => null,
+            'themeId' => 3,
+        ]);
+
         /* -- SUS i tiden / SUS through time -- */
         DB::table('questions')->insert([
             'question' => "Malmö allmänna sjukhus anlades på Slottsgatan 22 mitt emot Kungsparken i Malmö, år 1857. Det blev snabbt för litet med sina 67 platser och behovet blev stort för ett nytt större sjukhus. Det nya Allmänna sjukhuset anlades på Södra Förstadsgatan längs med Malmö – Ystad järnvägen. Vilket år invigdes Allmänna sjukhuset?",
