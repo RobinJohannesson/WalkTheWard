@@ -34,43 +34,51 @@ use App\Http\Middleware\CheckCookie;
     // }
 //});
 
-Route::resource('/welcome', "WelcomeController");
-Route::resource('', "WelcomeController");
 // Route::get('get-cookie', function() {
 //   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
 // });
+Route::resource('/welcome', "WelcomeController");
+
+Route::resource('', "WelcomeController");
+
+Route::middleware('checkCookie')->group(function () {
+
+    Route::resource('start', "StartController");
+
+    Route::resource('information', "InformationController");
+
+    Route::resource('instructions', "InstructionsController");
+
+    Route::resource('map', "MapController");
+
+    Route::resource('theme', "ThemeController");
+
+    Route::resource('scan', "ScanController");
+
+    Route::resource('question', "QuestionController");
+
+    Route::get('question/{id}', 'QuestionController@show');
+
+    Route::resource('bonus', "BonusController");
+
+    Route::resource('home', "HomeController");
+
+    Route::resource('feedback', "FeedbackController");
+
+    Route::resource('statistics', "StatisticsController");
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Auth::routes();
+});
 
 Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController@index"]);
 
 Route::POST('registration', "RegistrationController@store");
 
-Route::resource('start', "StartController");
-
-Route::resource('information', "InformationController");
-
-Route::resource('instructions', "InstructionsController");
-
-Route::resource('map', "MapController")->middleware('checkCookie');
-
-Route::resource('theme', "ThemeController");
-
-Route::resource('scan', "ScanController");
-
-Route::resource('question', "QuestionController");
-
-Route::resource('question/{id}', 'QuestionController');
-
-Route::resource('bonus', "BonusController");
-
-Route::resource('home', "HomeController");
-
-Route::resource('feedback', "FeedbackController");
-
-Route::resource('statistics', "StatisticsController");
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::fallback(function(){
+    return 'sorry';
+});
 
 
 
