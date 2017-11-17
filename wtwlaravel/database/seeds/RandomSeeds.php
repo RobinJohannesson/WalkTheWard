@@ -372,31 +372,67 @@ class RandomSeeds extends Seeder
             'themeId' => 4,
         ]);
 
-/* ----------- Fråga där alla svar är korrekta! // Rena händer ----------
         DB::table('questions')->insert([
-            'question' => "När och hur ofta ska du tvätta dina händer?",
-            'answer1' => "När det är synlig smuts",
-            'answer2' => "Varje gång jag varit på toaletten",
-            'answer3' => "Innan jag lagar eller äter en måltid",
-            'answer4' => "Det är bra att tvätta händerna ofta",
-            'correctAnswer' => 0,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
-            'themeId' => 5,
+            'question' => "Ruth Lundskog fick en gata på sjukhusområdet uppkallad efter sig. Vem var denna kvinna?",
+            'answer1' => "Sjuksköterska på MAS, 1913-1943. Uppskattad för sitt medmänskliga sätt.",
+            'answer2' => "Sjuksköterska som belönades med kunglig guldmedalj.",
+            'answer3' => "Sjuksköterska som 1959 var med och startade Malmö Sjuksköterskeskola.",
+            'answer4' => "Sjuksköterska och filosofie doktor.",
+            'correctAnswer' => 1,
+            'imageSource' => t4q3,
+            'videoSource' => null,
+            'themeId' => 4,
         ]);
 
         DB::table('questions')->insert([
-            'question' => "Bakterierna vandrar fort och din motståndskraft är försvagad när du är sjuk och du kan lättare bli smittad. Hur kan du förebygga att bli smittad?",
-            'answer1' => "Undvik att ta folk i händerna",
-            'answer2' => "Håll rent omkring dig",
-            'answer3' => "Desinfektera händerna ofta",
-            'answer4' => "Tvätta händerna ofta",
-            'correctAnswer' => 0,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
-            'themeId' => 5,
+            'question' => "På MAS finns det många vackra skulpturer med små springvatten som tillsammans med växter skulle skapa ro och avkoppling hos patienterna när de vistades på sjukhusområdet.Vad heter skulpturen på bilden?",
+            'answer1' => "Hälsokällan. konstnär Anders Olsson 1914",
+            'answer2' => "Flicka med fågel, konstnär Ivar Johansson 1963",
+            'answer3' => "Pluvius, konstnär Thure Thörn, 1970",
+            'answer4' => "Flicka vid källa, Ivar Ålenius-Björk, 1963",
+            'correctAnswer' => 2,
+            'imageSource' => t4q4,
+            'videoSource' => null,
+            'themeId' => 4,
         ]);
-        */
+
+        DB::table('questions')->insert([
+            'question' => "Det i folkmun kallat ”Runda huset” är den senaste sjukhusbyggnaden på SUS. Vilken viktig mottagning ligger i byggnaden?",
+            'answer1' => "Infektionsmottagning",
+            'answer2' => "Medicinens mottagning",
+            'answer3' => "Akutmottagning",
+            'answer4' => "Kirurgens mottagning",
+            'correctAnswer' => 3,
+            'imageSource' => t4q5,
+            'videoSource' => null,
+            'themeId' => 4,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Kärt barn har många namn. Först var det Malmö Allmänna sjukhus (MAS), sedan Universitetssjukhuset MAS och nu heter sjukhuset, som blev sammanslaget med Lunds Universitetssjukhus, Skånes Universitetssjukhus (SUS). Vilket år slogs sjukhusen ihop?",
+            'answer1' => "2008",
+            'answer2' => "2010",
+            'answer3' => "2012",
+            'answer4' => "2013",
+            'correctAnswer' => 2,
+            'imageSource' => t4q6,
+            'videoSource' => null,
+            'themeId' => 4,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Hennes forskning om blodets koagulationsmekanismer gav Malmökliniken internationellt rykte redan 1956. En pionjär som behandlade blödarsjuka. 2012 uppkallades en gata på SUS efter henne. Vem var hon?",
+            'answer1' => "Inga Marie Nilsson",
+            'answer2' => "Florence Nightingale",
+            'answer3' => "Kristina Nilsson",
+            'answer4' => "Charlotte Stölten",
+            'correctAnswer' => 1,
+            'imageSource' => t4q7,
+            'videoSource' => null,
+            'themeId' => 4,
+        ]);
+
+
 
         DB::table('question_in_games')->insert([
             'questionId' => 1,
@@ -448,11 +484,11 @@ class RandomSeeds extends Seeder
             'name' => "SUS i tiden",
             'isActive' => 1,
         ]);
-        DB::table('themes')->insert(
+        /*DB::table('themes')->insert(
         [
             'name' => "Rena händer",
             'isActive' => 1,
-        ]);
+        ]);*/
 
 
         DB::table('wards')->insert([
