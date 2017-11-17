@@ -81,19 +81,11 @@ class QuestionController extends Controller
             if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
                 array_push($qinGArray, $q->id);
             }
-
-
-            //$qinG = Question_in_game::where('questionId', $q->id)->where('gameId', $gameId)->pluck('isAnswered')->toArray();
-
-            //foreach ($qinG as $qg) {
-                //$qg = $q->question_in_game->where('gameId', $gameId)->where('isAnswered', 1)->get('questionId');
-            //}
+            $availableQuestion =  array_diff($themequestionIds, $qinGArray);
         }
-        //$question_in_game = Game::find($gameId)->questionInGame->isAnswered;
-        //$patientgame = $patient::with('game')->find($id)->game;
-        //$gameid = $patientgame->id;
-        //$gamearea = $patientgame::with('area')->find($gameid)->area;
-        return view('backend_screen', compact(['patient', 'stationId', 'area', 'place', 'placeId', 'place_in_game', 'question_in_game', 'question', 'theme', 'themeId', 'themequestion', 'themequestionIds', 'qinGArray']));
+        $randomQuestionId = array_random($availableQuestion);
+        $showQuestion = Question::find($randomQuestionId);
+        return view('backend_screen', compact(['patient', 'stationId', 'area', 'place', 'placeId', 'place_in_game', 'question_in_game', 'question', 'theme', 'themeId', 'themequestion', 'themequestionIds', 'qinGArray', 'availableQuestion', 'randomQuestionId', 'showQuestion']));
     }
     /**
      * Show the form for editing the specified resource.
