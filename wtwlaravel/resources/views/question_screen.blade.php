@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-
 </head>
 <body>
     <div class="container-fluid">
@@ -20,25 +19,27 @@
                 <p class="text-center">Hjälp</p>
             </div>
         </div>
+        <div class="row justify-content-start">
+            <div class="col-md-8">
+                <p class="questionparagraph">Malmö allmänna sjukhus anlades på Slottsgatan 22 mitt emot Kungsparken i Malmö, år 1857?.</p>
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-6">
+                <p class="text-center">Rätt svar!</p>
+            </div>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
+            <div class="col-md-6"><img src="./images/pic1.png" alt="diabetes" height="300px" width="auto" class="images-responsive center-block">
             </div>
             <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
-            </div>
-            <div class="col-md">
-                question
-            </div>
-
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="btn-new-user">
+                <button class="button">Svar1</button>
+                <button class="button">Svar2</button>
+                <button class="button">Svar3</button>
+                <button class="button">Svar4</button>
                 </div>
-            </div>
-        </div>
+         </div>
     </div>
 
     <!-- Optional JavaScript -->

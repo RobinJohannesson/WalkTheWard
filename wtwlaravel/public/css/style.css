@@ -12,3 +12,19 @@
 body{
     font-family: 'Amatic SC', cursive;
 }
+
+.questionparagraph {
+    font-size: 40px;
+}
+
+button {
+    display: inline-block;
+}
+
+button, input, optgroup, select, textarea {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 40px;
+    
+}
