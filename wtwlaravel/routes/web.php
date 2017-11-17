@@ -34,7 +34,7 @@
 //});
 //if($request->hasCookie('patientId')) {
     // do something
-//}
+/}
 
 Route::resource('', "WelcomeController");
 
@@ -46,7 +46,7 @@ Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationContr
 
 Route::POST('registration', "RegistrationController@store");
 
-Route::resource('start', "StartController@index");
+Route::resource('start', "StartController");
 
 Route::resource('information', "InformationController");
 
