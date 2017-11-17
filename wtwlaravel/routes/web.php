@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\checkCookie;
+use App\Http\Middleware\CheckCookie;
 
 /*
 |--------------------------------------------------------------------------
