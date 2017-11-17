@@ -92,6 +92,7 @@ class RandomSeeds extends Seeder
             'themeId' => 2,
         ]); */
 
+        /* -- TRÄDGÅRD/GARDEN --*/
         DB::table('questions')->insert([
             'question' => "Vilka av följande gräsarter kan användas för att anlägga en klippt gräsmatta?",
             'answer1' => "Tuvtåtel och Hakonegräs",
@@ -99,8 +100,8 @@ class RandomSeeds extends Seeder
             'answer3' => "Rödsvingel och Ängsröe",
             'answer4' => "Hakonegräs och Lampborstgräs",
             'correctAnswer' => 3,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => theme1q1.jpg,
+            'videoSource' => null,
             'themeId' => 1,
         ]);
         DB::table('questions')->insert([
@@ -110,11 +111,12 @@ class RandomSeeds extends Seeder
             'answer3' => "När som helst på året",
             'answer4' => "December till februari",
             'correctAnswer' => 1,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t1q2.jpg,
+            'videoSource' => null,
             'themeId' => 1,
         ]);
 
+        /* -- RÖRELSE/MOVEMENT --*/
         DB::table('questions')->insert([
             'question' => "Vad kan du tänka på när det är snö och is ute på vägarna?",
             'answer1' => "Att inte gå ut alls",
@@ -122,8 +124,8 @@ class RandomSeeds extends Seeder
             'answer3' => "Att det är bättre att pulsa i djupsnö än att gå på vägen",
             'answer4' => "Att gå försiktigt",
             'correctAnswer' => 2,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t2q1.jpg,
+            'videoSource' => null,
             'themeId' => 2,
         ]);
 
@@ -134,11 +136,12 @@ class RandomSeeds extends Seeder
             'answer3' => "Mjölk, yoghurt och ost",
             'answer4' => "Kanelbullar, sockerkaka och veteskorpor",
             'correctAnswer' => 3,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t2q2.jpg,
+            'videoSource' => null,
             'themeId' => 2,
         ]);
 
+        /* -- KOST/NUTRITION -- */
         DB::table('questions')->insert([
             'question' => "När man är äldre och blir sjuk är det viktigt att man får i sig tillräckligt med energi och protein. Näringen behövs för att man skall återhämta sig så fort som möjligt efter sjukdom. Vilket mellanmål innehåller mest energi?",
             'answer1' => "1 bit sockerkaka",
@@ -146,8 +149,8 @@ class RandomSeeds extends Seeder
             'answer3' => "1 digestivekex med milda, prästost och marmelad",
             'answer4' => "1 kardemummaskorpa",
             'correctAnswer' => 3,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t3q1,
+            'videoSource' => null,
             'themeId' => 3,
         ]);
 
@@ -158,11 +161,12 @@ class RandomSeeds extends Seeder
             'answer3' => "Äta 3-4 energirika mellanmål om dagen. Välj kex med dessertost, delikatessyoghurt, kräm med gräddmjölk eller nyponsoppa med biskvier och glass",
             'answer4' => "Småäta lite hela tiden",
             'correctAnswer' => 3,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t3q2.jpg,
+            'videoSource' => null,
             'themeId' => 3,
         ]);
 
+        /* -- SUS i tiden / SUS through time -- */
         DB::table('questions')->insert([
             'question' => "Malmö allmänna sjukhus anlades på Slottsgatan 22 mitt emot Kungsparken i Malmö, år 1857. Det blev snabbt för litet med sina 67 platser och behovet blev stort för ett nytt större sjukhus. Det nya Allmänna sjukhuset anlades på Södra Förstadsgatan längs med Malmö – Ystad järnvägen. Vilket år invigdes Allmänna sjukhuset?",
             'answer1' => "1867",
@@ -170,8 +174,8 @@ class RandomSeeds extends Seeder
             'answer3' => "1908",
             'answer4' => "1930",
             'correctAnswer' => 2,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t4q1.jpg,
+            'videoSource' => null,
             'themeId' => 4,
         ]);
 
@@ -182,12 +186,12 @@ class RandomSeeds extends Seeder
             'answer3' => "Jan G Waldenström",
             'answer4' => "Helge B Wulff",
             'correctAnswer' => 1,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
+            'imageSource' => t4q2,
+            'videoSource' => null,
             'themeId' => 4,
         ]);
 
-/* ----------- Fråga där alla svar är korrekta! ----------
+/* ----------- Fråga där alla svar är korrekta! // Rena händer ----------
         DB::table('questions')->insert([
             'question' => "När och hur ofta ska du tvätta dina händer?",
             'answer1' => "När det är synlig smuts",
