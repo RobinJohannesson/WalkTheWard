@@ -18,7 +18,7 @@ class CheckCookie
         if($request->hasCookie('patientId')) {
             return $next($request);
         }
-        return redirect('welcome');
+        return redirect('');
 
     }
 }
