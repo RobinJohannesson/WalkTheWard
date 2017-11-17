@@ -432,31 +432,7 @@ class RandomSeeds extends Seeder
             'themeId' => 4,
         ]);
 
-/* ----------- Fråga där alla svar är korrekta! // Rena händer ----------
-        DB::table('questions')->insert([
-            'question' => "När och hur ofta ska du tvätta dina händer?",
-            'answer1' => "När det är synlig smuts",
-            'answer2' => "Varje gång jag varit på toaletten",
-            'answer3' => "Innan jag lagar eller äter en måltid",
-            'answer4' => "Det är bra att tvätta händerna ofta",
-            'correctAnswer' => 0,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
-            'themeId' => 5,
-        ]);
 
-        DB::table('questions')->insert([
-            'question' => "Bakterierna vandrar fort och din motståndskraft är försvagad när du är sjuk och du kan lättare bli smittad. Hur kan du förebygga att bli smittad?",
-            'answer1' => "Undvik att ta folk i händerna",
-            'answer2' => "Håll rent omkring dig",
-            'answer3' => "Desinfektera händerna ofta",
-            'answer4' => "Tvätta händerna ofta",
-            'correctAnswer' => 0,
-            'imageSource' => str_random(10),
-            'videoSource' => str_random(10),
-            'themeId' => 5,
-        ]);
-        */
 
         DB::table('question_in_games')->insert([
             'questionId' => 1,
@@ -508,11 +484,11 @@ class RandomSeeds extends Seeder
             'name' => "SUS i tiden",
             'isActive' => 1,
         ]);
-        DB::table('themes')->insert(
+        /*DB::table('themes')->insert(
         [
             'name' => "Rena händer",
             'isActive' => 1,
-        ]);
+        ]);*/
 
 
         DB::table('wards')->insert([
