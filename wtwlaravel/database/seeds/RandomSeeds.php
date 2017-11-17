@@ -103,6 +103,7 @@ class RandomSeeds extends Seeder
             'videoSource' => str_random(10),
             'themeId' => 1,
         ]);
+
         DB::table('questions')->insert([
             'question' => "När bör gamla äppelträd helst beskäras?",
             'answer1' => "Under JAS (juli, augusti, september)",
@@ -110,6 +111,18 @@ class RandomSeeds extends Seeder
             'answer3' => "När som helst på året",
             'answer4' => "December till februari",
             'correctAnswer' => 1,
+            'imageSource' => str_random(10),
+            'videoSource' => str_random(10),
+            'themeId' => 1,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Idag förknippar vi ofta boxbom med kyrkogårdar, men boxbom är en mycket gammal kulturväxt som användes som medicinalväxt i klostren. Var har den sitt ursprung?",
+            'answer1' => "Medelhavsländerna",
+            'answer2' => "Östasien, Indien",
+            'answer3' => "Sydamerika, Mexiko",
+            'answer4' => "Nordafrika",
+            'correctAnswer' => 2,
             'imageSource' => str_random(10),
             'videoSource' => str_random(10),
             'themeId' => 1,
