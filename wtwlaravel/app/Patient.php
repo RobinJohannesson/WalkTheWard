@@ -14,19 +14,19 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $characterId
  * @property int $statisticId
  * @property int $wardId
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Character $character
  * @property Game $game
  * @property Statistic $statistic
  * @property Ward $ward
  */
-class patients extends Model
+class Patient extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['age', 'gender', 'roomType', 'distanceInMeter', 'gameId', 'characterId', 'statisticId', 'wardId', 'created_at', 'updated_at'];
+    protected $fillable = ['age', 'gender', 'roomType', 'distanceInMeter', 'gameId', 'characterId', 'statisticId', 'wardId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

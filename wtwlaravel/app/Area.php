@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property int $mapId
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Map $map
  * @property Game[] $games
  * @property Place[] $places
  */
-class areas extends Model
+class Area extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['name', 'mapId', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'mapId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

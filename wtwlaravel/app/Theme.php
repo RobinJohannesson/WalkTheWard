@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property boolean $isActive
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Game[] $games
  * @property Question[] $questions
  */
-class themes extends Model
+class Theme extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['name', "isActive", 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'isActive', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

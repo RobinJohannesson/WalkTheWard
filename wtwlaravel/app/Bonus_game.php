@@ -9,17 +9,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $lettersToDiscard
  * @property string $imageSource
  * @property int $placeId
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Place $place
- * @property BonusGamesInGame[] $bonusGamesInGames
+ * @property BonusGameInGame[] $bonusGameInGames
  */
-class bonus_games extends Model
+class Bonus_game extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['lettersToDiscard', 'imageSource', 'placeId', 'created_at', 'updated_at'];
+    protected $fillable = ['lettersToDiscard', 'imageSource', 'placeId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -32,8 +32,8 @@ class bonus_games extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bonusGamesInGames()
+    public function bonusGameInGames()
     {
-        return $this->hasMany('App\BonusGamesInGame', 'bonusGameId');
+        return $this->hasMany('App\BonusGameInGame', 'bonusGameId');
     }
 }

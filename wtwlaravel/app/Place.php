@@ -10,19 +10,19 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property int $stationId
  * @property int $areaId
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Area $area
  * @property Station $station
  * @property BonusGame[] $bonusGames
- * @property PlacesInGame[] $placesInGames
+ * @property PlaceInGame[] $placeInGames
  */
-class places extends Model
+class Place extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['name', 'description', 'stationId', 'areaId', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'description', 'stationId', 'areaId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -51,8 +51,8 @@ class places extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function placesInGames()
+    public function placeInGames()
     {
-        return $this->hasMany('App\PlacesInGame', 'placeId');
+        return $this->hasMany('App\PlaceInGame', 'placeId');
     }
 }

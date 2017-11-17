@@ -9,16 +9,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $hasGoneHome
  * @property int $dayAmount
  * @property boolean $wasEasyToPlay
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Patient[] $patients
  */
-class statistics extends Model
+class Statistics extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'created_at', 'updated_at'];
+    protected $fillable = ['hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

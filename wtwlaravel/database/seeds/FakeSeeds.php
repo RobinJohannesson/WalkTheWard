@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RandomSeeds extends Seeder
+class FakeSeeds extends Seeder
 {
     /**
      * Run the database seeds.
@@ -24,7 +24,7 @@ class RandomSeeds extends Seeder
             'placeId' => 1,
         ]);
 
-        DB::table('bonus_games_in_games')->insert([
+        DB::table('bonus_game_in_games')->insert([
             'isCompleted' => true,
             'bonusGameId' => 1,
             'gameId' => 1,
@@ -62,7 +62,7 @@ class RandomSeeds extends Seeder
             'areaId' => 1,
         ]);
 
-        DB::table('places_in_games')->insert([
+        DB::table('place_in_games')->insert([
             'placeId' => 1,
             'gameId' => 1,
             'numberOfStars' => 1,
@@ -79,7 +79,7 @@ class RandomSeeds extends Seeder
             'videoSource' => str_random(10),
             'themeId' => 1,
         ]);
-        
+
         DB::table('questions')->insert([
             'question' => "Svenska Deckarakademin delar varje år ut pris för bästa svenska och bästa översatt kriminallroman. Vad heter priset?",
             'answer1' => "Sherlock Holmes hatten",
@@ -92,7 +92,7 @@ class RandomSeeds extends Seeder
             'themeId' => 2,
         ]);
 
-        DB::table('questions_in_games')->insert([
+        DB::table('question_in_games')->insert([
             'questionId' => 1,
             'gameId' => 1,
             'isAnswered' => 1,
@@ -131,7 +131,5 @@ class RandomSeeds extends Seeder
         ]);
 
         Schema::enableForeignKeyConstraints();
-
-
     }
 }

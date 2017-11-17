@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBonusGamesInGamesTable extends Migration
+class CreatePlaceInGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateBonusGamesInGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bonus_games_in_games', function (Blueprint $table) {
-            $table->primary(['bonusGameId', 'gameId']);
-            $table->unsignedInteger('bonusGameId')->nullable();
+        Schema::create('place_in_games', function (Blueprint $table) {
+            $table->primary(['placeId', 'gameId']);
+            $table->unsignedInteger('placeId')->nullable();
             $table->unsignedInteger('gameId')->nullable();
-            $table->boolean('isCompleted')->nullable();
+            $table->integer('numberOfStars')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });
@@ -30,6 +30,6 @@ class CreateBonusGamesInGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bonus_games_in_games');
+        Schema::dropIfExists('place_in_games');
     }
 }

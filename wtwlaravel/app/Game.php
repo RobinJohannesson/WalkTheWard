@@ -8,21 +8,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $areaId
  * @property int $themeId
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Area $area
  * @property Theme $theme
- * @property BonusGamesInGame[] $bonusGamesInGames
+ * @property BonusGameInGame[] $bonusGameInGames
  * @property Patient[] $patients
- * @property PlacesInGame[] $placesInGames
- * @property QuestionsInGame[] $questionsInGames
+ * @property PlaceInGame[] $placeInGames
+ * @property QuestionInGame[] $questionInGames
  */
-class games extends Model
+class Game extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['areaId', 'themeId', 'created_at', 'updated_at'];
+    protected $fillable = ['areaId', 'themeId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -43,9 +43,9 @@ class games extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bonusGamesInGames()
+    public function bonusGameInGames()
     {
-        return $this->hasMany('App\BonusGamesInGame', 'gameId');
+        return $this->hasMany('App\BonusGameInGame', 'gameId');
     }
 
     /**
@@ -59,16 +59,16 @@ class games extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function placesInGames()
+    public function placeInGames()
     {
-        return $this->hasMany('App\PlacesInGame', 'gameId');
+        return $this->hasMany('App\PlaceInGame', 'gameId');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function questionsInGames()
+    public function questionInGames()
     {
-        return $this->hasMany('App\QuestionsInGame', 'gameId');
+        return $this->hasMany('App\QuestionInGame', 'gameId');
     }
 }

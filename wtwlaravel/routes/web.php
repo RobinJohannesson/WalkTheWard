@@ -33,6 +33,8 @@ Route::resource('scan', "ScanController");
 
 Route::resource('question', "QuestionController");
 
+Route::resource('question/{id}', 'QuestionController');
+
 Route::resource('bonus', "BonusController");
 
 Route::resource('home', "HomeController");

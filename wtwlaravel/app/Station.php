@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $imageSource
  * @property int $wardId
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Ward $ward
  * @property Place[] $places
  */
-class stations extends Model
+class Station extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['imageSource', 'wardId', 'created_at', 'updated_at'];
+    protected $fillable = ['imageSource', 'wardId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

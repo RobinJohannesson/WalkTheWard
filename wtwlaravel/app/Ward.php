@@ -10,17 +10,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $address
  * @property string $description
  * @property string $imageSource
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Patient[] $patients
  * @property Station[] $stations
  */
-class wards extends Model
+class Ward extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['name', 'address', 'description', 'imageSource', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'address', 'description', 'imageSource', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

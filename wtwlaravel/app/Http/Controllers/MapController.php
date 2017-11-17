@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\patients;
+use App\patient;
 
 class MapController extends Controller
 {
@@ -15,11 +15,8 @@ class MapController extends Controller
      */
     public function index(Request $request)
     {
-        //$map = Maps::find(1);
-        //return view('welcome_screen', ['map' => $map]);
         $patientId = $request->cookie('patientId');
-        $patient = patients::find($patientId);
-        //Request::cookie('patientId');
+        $patient = patient::find($patientId);
         return view('map_screen', ['patient' => $patient]);
     }
 

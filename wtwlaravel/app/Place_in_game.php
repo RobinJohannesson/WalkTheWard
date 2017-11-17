@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $placeId
  * @property int $gameId
  * @property int $numberOfStars
- * @property string $created_at
  * @property string $updated_at
+ * @property string $created_at
  * @property Game $game
  * @property Place $place
  */
-class places_in_games extends Model
+class Place_in_game extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['numberOfStars', 'created_at', 'updated_at'];
+    protected $fillable = ['numberOfStars', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
