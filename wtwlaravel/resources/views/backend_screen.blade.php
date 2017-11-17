@@ -60,6 +60,8 @@
                     qinGArray: {{print_r($qinGArray) }}
                     <br>
                     availableQuestion: {{print_r($availableQuestion) }}
+                    <br>
+                    randomQuestion: {{$randomQuestion}}
             </div>
         </div>
     </div>
