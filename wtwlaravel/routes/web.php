@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\checkCookie;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +40,7 @@ Route::resource('', "WelcomeController");
 //   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
 // });
 
-Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController"]);
+Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController@index"]);
 
 Route::POST('registration', "RegistrationController@store");
 
@@ -48,7 +50,7 @@ Route::resource('information', "InformationController");
 
 Route::resource('instructions', "InstructionsController");
 
-Route::resource('map', "MapController");
+Route::resource('map', "MapController")->middleware('checkCookie');
 
 Route::resource('theme', "ThemeController");
 
