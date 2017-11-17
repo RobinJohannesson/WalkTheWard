@@ -58,6 +58,8 @@
                     themequestionIds: {{print_r($themequestionIds) }}
                     <br>
                     qinGArray: {{print_r($qinGArray) }}
+                    <br>
+                    availableQuestion: {{print_r($availableQuestion) }}
             </div>
         </div>
     </div>
