@@ -61,7 +61,9 @@
                     <br>
                     availableQuestion: {{print_r($availableQuestion) }}
                     <br>
-                    randomQuestion: {{$randomQuestion}}
+                    randomQuestionId: {{$randomQuestionId}}
+                    <br>
+                    showQuestion: {{$showQuestion}}
             </div>
         </div>
     </div>
