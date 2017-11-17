@@ -61,6 +61,8 @@ class QuestionController extends Controller
      */
     public function show(Request $request, $id)
     {
+        $testing = "testing";
+
         $stationId = $id;
         $patientId = $request->cookie('patientId');
         $patient = patient::find($patientId);
@@ -69,6 +71,9 @@ class QuestionController extends Controller
         $place = Place::where('stationId', $stationId)->where('areaId', $area)->first();
         $placeId = $place->id;
         $place_in_game = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
+        if ($place_in_game->numberOfStars != null) {
+            $testing = "not null";
+        }
         $currentThemeId = Patient::find($patientId)->game->themeId;
         $question_in_game = Question_in_game::where('gameId', $gameId)->first();
         $question = $question_in_game->question;
@@ -79,21 +84,14 @@ class QuestionController extends Controller
         $qinGArray = array();
         foreach ($themequestion as $q) {
             if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
-                    array_push($qinGArray, $q->id);
+                array_push($qinGArray, $q->id);
             }
-
-
-            //$qinG = Question_in_game::where('questionId', $q->id)->where('gameId', $gameId)->pluck('isAnswered')->toArray();
-
-            //foreach ($qinG as $qg) {
-                //$qg = $q->question_in_game->where('gameId', $gameId)->where('isAnswered', 1)->get('questionId');
-            //}
+            $availableQuestion =  array_diff($themequestionIds, $qinGArray);
         }
-        //$question_in_game = Game::find($gameId)->questionInGame->isAnswered;
-        //$patientgame = $patient::with('game')->find($id)->game;
-        //$gameid = $patientgame->id;
-        //$gamearea = $patientgame::with('area')->find($gameid)->area;
-        return view('backend_screen', compact(['patient', 'stationId', 'area', 'place', 'placeId', 'place_in_game', 'question_in_game', 'question', 'theme', 'themeId', 'themequestion', 'themequestionIds', 'qinGArray']));
+        // TEST
+        $randomQuestionId = array_random($availableQuestion);
+        $showQuestion = Question::find($randomQuestionId);
+        return view('backend_screen', compact(['testing', 'showQuestion']));
     }
     /**
      * Show the form for editing the specified resource.
