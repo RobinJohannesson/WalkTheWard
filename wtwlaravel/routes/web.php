@@ -38,7 +38,7 @@ Route::resource('', "WelcomeController");
 //   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
 // });
 
-Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController@index"]);
+Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController"]);
 
 Route::POST('registration', "RegistrationController@store");
 
