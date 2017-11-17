@@ -62,11 +62,11 @@ class RandomSeeds extends Seeder
             'areaId' => 1,
         ]);
 
-        /*DB::table('places_in_games')->insert([
+        DB::table('place_in_games')->insert([
             'placeId' => 1,
             'gameId' => 1,
             'numberOfStars' => 1,
-        ]);*/
+        ]);
 
         /*DB::table('questions')->insert([
             'question' => str_random(10),
