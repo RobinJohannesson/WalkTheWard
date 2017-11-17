@@ -1,6 +1,6 @@
 <?php
 
-use App\Illuminate\Http\Request;
+//use App\Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +32,9 @@ use App\Illuminate\Http\Request;
         //return redirect()->route($all);
     // }
 //});
-if($request->hasCookie('patientId')) {
+//if($request->hasCookie('patientId')) {
     // do something
-}
+//}
 
 Route::resource('', "WelcomeController");
 
@@ -45,6 +45,8 @@ Route::resource('', "WelcomeController");
 Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController@index"]);
 
 Route::POST('registration', "RegistrationController@store");
+
+Route::resource('start', "StartController@index");
 
 Route::resource('information', "InformationController");
 
