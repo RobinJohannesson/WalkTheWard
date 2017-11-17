@@ -50,7 +50,7 @@ Route::resource('information', "InformationController");
 
 Route::resource('instructions', "InstructionsController");
 
-Route::resource('map', "MapController")->middleware('CheckCookie');
+Route::resource('map', "MapController")->middleware('checkCookie');
 
 Route::resource('theme', "ThemeController");
 

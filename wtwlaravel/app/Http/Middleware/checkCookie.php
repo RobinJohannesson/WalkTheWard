@@ -16,8 +16,9 @@ class CheckCookie
     public function handle($request, Closure $next)
     {
         if($request->hasCookie('patientId')) {
-            return redirect('welcome');
+            return $next($request);
         }
-        return $next($request);
+        return redirect('welcome');
+
     }
 }
