@@ -1,6 +1,5 @@
 <?php
 
-//use App\Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +31,6 @@
         //return redirect()->route($all);
     // }
 //});
-//if($request->hasCookie('patientId')) {
-    // do something
-/}
 
 Route::resource('', "WelcomeController");
 
