@@ -100,7 +100,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Rödsvingel och Ängsröe",
             'answer4' => "Hakonegräs och Lampborstgräs",
             'correctAnswer' => 3,
-            'imageSource' => theme1q1.jpg,
+            'imageSource' => "theme1q1.jpg",
             'videoSource' => null,
             'themeId' => 1,
         ]);
@@ -112,7 +112,7 @@ class RandomSeeds extends Seeder
             'answer3' => "När som helst på året",
             'answer4' => "December till februari",
             'correctAnswer' => 1,
-            'imageSource' => t1q2.jpg,
+            'imageSource' => "t1q2.jpg",
             'videoSource' => null,
             'themeId' => 1,
         ]);
@@ -124,7 +124,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Sydamerika, Mexiko",
             'answer4' => "Nordafrika",
             'correctAnswer' => 2,
-            'imageSource' => t1q3.jpg,
+            'imageSource' => "t1q3.jpg",
             'videoSource' => null,
             'themeId' => 1,
         ]);
@@ -137,7 +137,7 @@ class RandomSeeds extends Seeder
             'answer4' => "Bertil Svensson",
             'correctAnswer' => 4,
             'imageSource' => null,
-            'videoSource' => t1q4.mp4,
+            'videoSource' => "t1q4.mp4",
             'themeId' => 1,
         ]);
 
@@ -148,7 +148,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Burbank",
             'answer4' => "The Fairy",
             'correctAnswer' => 4,
-            'imageSource' => t1q5.jpg,
+            'imageSource' => "t1q5.jpg",
             'videoSource' => null,
             'themeId' => 1,
         ]);
@@ -161,7 +161,7 @@ class RandomSeeds extends Seeder
             'answer4' => "Den blomstertid nu kommer",
             'correctAnswer' => 2,
             'imageSource' => null,
-            'videoSource' => t1q6.mp4,
+            'videoSource' => "t1q6.mp4",
             'themeId' => 1,
         ]);
 
@@ -172,7 +172,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Malva",
             'answer4' => "Fingerborgsblomma",
             'correctAnswer' => 3,
-            'imageSource' => t1q7.jpg,
+            'imageSource' => "t1q7.jpg",
             'videoSource' => null,
             'themeId' => 1,
         ]);
@@ -185,7 +185,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Att det är bättre att pulsa i djupsnö än att gå på vägen",
             'answer4' => "Att gå försiktigt",
             'correctAnswer' => 2,
-            'imageSource' => t2q1.jpg,
+            'imageSource' => "t2q1.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -197,7 +197,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Mjölk, yoghurt och ost",
             'answer4' => "Kanelbullar, sockerkaka och veteskorpor",
             'correctAnswer' => 3,
-            'imageSource' => t2q2.jpg,
+            'imageSource' => "t2q2.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -209,7 +209,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Yrsel minskar fallrisken eftersom man blir mer försiktig",
             'answer4' => "Man kan röra sig försikigt så minskar risken för fall",
             'correctAnswer' => 1,
-            'imageSource' => t2q3.jpg,
+            'imageSource' => "t2q3.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -221,7 +221,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Det är inte lönt att gå till optikern när man är gammal",
             'answer4' => "Jag vet var allt finns hemma, så jag behöver inte se så bra",
             'correctAnswer' => 2,
-            'imageSource' => t2q4.jpg,
+            'imageSource' => "t2q4.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -233,7 +233,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Att städa hemmet kan inte räknas som naturlig träning",
             'answer4' => "Man behöver inte träna",
             'correctAnswer' => 1,
-            'imageSource' => t2q5.jpg,
+            'imageSource' => "t2q5.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -245,7 +245,7 @@ class RandomSeeds extends Seeder
             'answer3' => "När man hämtar posten",
             'answer4' => "Fall på markplan, exempelvis halkning, snubbling eller snavning",
             'correctAnswer' => 4,
-            'imageSource' => t2q6.jpg,
+            'imageSource' => "t2q6.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -257,7 +257,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Ansöka om trygghetslarm",
             'answer4' => "Använda käpp",
             'correctAnswer' => 3,
-            'imageSource' => t2q7.jpg,
+            'imageSource' => "t2q7.jpg",
             'videoSource' => null,
             'themeId' => 2,
         ]);
@@ -270,7 +270,7 @@ class RandomSeeds extends Seeder
             'answer3' => "1 digestivekex med milda, prästost och marmelad",
             'answer4' => "1 kardemummaskorpa",
             'correctAnswer' => 3,
-            'imageSource' => t3q1,
+            'imageSource' => "t3q1.jpg",
             'videoSource' => null,
             'themeId' => 3,
         ]);
@@ -282,7 +282,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Äta 3-4 energirika mellanmål om dagen. Välj kex med dessertost, delikatessyoghurt, kräm med gräddmjölk eller nyponsoppa med biskvier och glass",
             'answer4' => "Småäta lite hela tiden",
             'correctAnswer' => 3,
-            'imageSource' => t3q2.jpg,
+            'imageSource' => "t3q2.jpg",
             'videoSource' => null,
             'themeId' => 3,
         ]);
@@ -294,7 +294,7 @@ class RandomSeeds extends Seeder
             'answer3' => "10 gram berikat bordsmargarin",
             'answer4' => "Mineralvatten",
             'correctAnswer' => 1,
-            'imageSource' => t3q3.jpg,
+            'imageSource' => "t3q3.jpg",
             'videoSource' => null,
             'themeId' => 3,
         ]);
@@ -306,7 +306,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Nej, den är för kalorifattig",
             'answer4' => "Nej, den innehåller för många kalorier",
             'correctAnswer' => 1,
-            'imageSource' => t3q4.jpg,
+            'imageSource' => "t3q4.jpg",
             'videoSource' => null,
             'themeId' => 3,
         ]);
@@ -318,7 +318,7 @@ class RandomSeeds extends Seeder
             'answer3' => "1 portion (75g) gräddglass",
             'answer4' => "1 tomat",
             'correctAnswer' => 2,
-            'imageSource' => t3q5.jpg,
+            'imageSource' => "t3q5.jpg",
             'videoSource' => null,
             'themeId' => 3,
         ]);
@@ -330,14 +330,14 @@ class RandomSeeds extends Seeder
             'answer3' => "Pasta",
             'answer4' => "Mjölk och ost",
             'correctAnswer' => 4,
-            'imageSource' => t3q6.jpg,
+            'imageSource' => "t3q6.jpg",
             'videoSource' => null,
             'themeId' => 3,
         ]);
 
         DB::table('questions')->insert([
             'question' => "Titta på filmklippet. Vilket alternativ är rätt?",
-            'answer1' => "\"Åldersmagen\" är farlig"
+            'answer1' => "\"Åldersmagen\" är farlig",
             'answer2' => "Man behöver inte mycket mat när man är gammal",
             'answer3' => "Man behöver näringen i maten för att må bra",
             'answer4' => "Det är bra att gå ner i vikt när man är gammal",
@@ -355,7 +355,7 @@ class RandomSeeds extends Seeder
             'answer3' => "1908",
             'answer4' => "1930",
             'correctAnswer' => 2,
-            'imageSource' => t4q1.jpg,
+            'imageSource' => "t4q1.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);
@@ -367,7 +367,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Jan G Waldenström",
             'answer4' => "Helge B Wulff",
             'correctAnswer' => 1,
-            'imageSource' => t4q2,
+            'imageSource' => "t4q2.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);
@@ -379,7 +379,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Sjuksköterska som 1959 var med och startade Malmö Sjuksköterskeskola.",
             'answer4' => "Sjuksköterska och filosofie doktor.",
             'correctAnswer' => 1,
-            'imageSource' => t4q3,
+            'imageSource' => "t4q3.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);
@@ -391,7 +391,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Pluvius, konstnär Thure Thörn, 1970",
             'answer4' => "Flicka vid källa, Ivar Ålenius-Björk, 1963",
             'correctAnswer' => 2,
-            'imageSource' => t4q4,
+            'imageSource' => "t4q4.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);
@@ -403,7 +403,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Akutmottagning",
             'answer4' => "Kirurgens mottagning",
             'correctAnswer' => 3,
-            'imageSource' => t4q5,
+            'imageSource' => "t4q5.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);
@@ -415,7 +415,7 @@ class RandomSeeds extends Seeder
             'answer3' => "2012",
             'answer4' => "2013",
             'correctAnswer' => 2,
-            'imageSource' => t4q6,
+            'imageSource' => "t4q6.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);
@@ -427,7 +427,7 @@ class RandomSeeds extends Seeder
             'answer3' => "Kristina Nilsson",
             'answer4' => "Charlotte Stölten",
             'correctAnswer' => 1,
-            'imageSource' => t4q7,
+            'imageSource' => "t4q7.jpg",
             'videoSource' => null,
             'themeId' => 4,
         ]);

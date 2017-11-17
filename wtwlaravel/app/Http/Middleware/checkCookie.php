@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class checkCookie
+class CheckCookie
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,9 @@ class checkCookie
     public function handle($request, Closure $next)
     {
         if($request->hasCookie('patientId')) {
-            return redirect('welcome');
+            return $next($request);
         }
-        return $next($request);
+        return redirect('welcome');
+
     }
 }
