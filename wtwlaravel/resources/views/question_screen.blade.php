@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
@@ -15,13 +15,18 @@
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col col-md-3">
+                <p class="text-center">{{ $currentTheme->name }}</p>
+            </div>
+            <div class="col col-md-3">
                 <img src="./images/help.png" alt="Help">
                 <p class="text-center">Hjälp</p>
             </div>
         </div>
         <div class="row justify-content-start">
             <div class="col-md-8">
-                <p class="questionparagraph">Malmö allmänna sjukhus anlades på Slottsgatan 22 mitt emot Kungsparken i Malmö, år 1857?.</p>
+                {{-- <p class="questionparagraph">Malmö allmänna sjukhus anlades på Slottsgatan 22 mitt emot Kungsparken i Malmö, år 1857?.</p> --}}
+                <p class="questionparagraph">{{ $questionObjToShow->question }}</p>
+
             </div>
             <div class="col-md"></div>
         </div>

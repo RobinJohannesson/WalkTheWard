@@ -63,24 +63,34 @@ class QuestionController extends Controller
     {
         $testing = "testing";
 
+        // StationId från URL question/{stationId}
         $stationId = $id;
+
+        // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
-        $patient = patient::find($patientId);
-        $gameId = Patient::find($patientId)->game->id;
-        $area = Patient::find($patientId)->game->area->id;
-        $place = Place::where('stationId', $stationId)->where('areaId', $area)->first();
+
+        $patient = Patient::find($patientId);
+        $areaId = $patient->game->area->id;
+
+        $place = Place::where('stationId', $stationId)->where('areaId', $areaId)->first();
         $placeId = $place->id;
+
+        $gameId = $patient->game->id;
+
         $place_in_game = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
         if ($place_in_game->numberOfStars != null) {
             $testing = "not null";
         }
-        $currentThemeId = Patient::find($patientId)->game->themeId;
+
+        $currentThemeId = $patient->game->themeId;
+
         $question_in_game = Question_in_game::where('gameId', $gameId)->first();
         $question = $question_in_game->question;
         $theme = $question->theme;
-        $themeId = $question->theme->id;
-        $themequestion = $theme->questions;
-        $themequestionIds = Question::where('themeId', $themeId)->pluck('id')->toArray();
+        $currentTheme = Theme::Find($currentThemeId);
+        // $themeId = $question->theme->id;
+        $themequestion = $currentTheme->questions;
+        $themequestionIds = Question::where('themeId', $currentThemeId)->pluck('id')->toArray();
         $qinGArray = array();
         foreach ($themequestion as $q) {
             if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
@@ -90,8 +100,10 @@ class QuestionController extends Controller
         }
         // TEST
         $randomQuestionId = array_random($availableQuestion);
-        $showQuestion = Question::find($randomQuestionId);
-        return view('backend_screen', compact(['testing', 'showQuestion']));
+        // $showQuestion = Question::find($randomQuestionId);
+        // return view('backend_screen', compact(['testing', 'showQuestion']));
+        $questionObjToShow = Question::find($randomQuestionId);
+        return view('question_screen', compact(['currentTheme', 'questionObjToShow']));
     }
     /**
      * Show the form for editing the specified resource.
