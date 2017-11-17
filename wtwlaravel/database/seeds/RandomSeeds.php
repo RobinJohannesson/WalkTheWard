@@ -141,6 +141,30 @@ class RandomSeeds extends Seeder
             'themeId' => 1,
         ]);
 
+        DB::table('questions')->insert([
+            'question' => "Den småblommiga polyantharosen på bilden kallas bl.a. Perle Rose och har sitt ursprung i Storbritanien under 30-talet. Den kallas även för...?",
+            'answer1' => "Coral Cluster",
+            'answer2' => "Brittania",
+            'answer3' => "Burbank",
+            'answer4' => "The Fairy",
+            'correctAnswer' => 4,
+            'imageSource' => t1q5.jpg,
+            'videoSource' => null,
+            'themeId' => 1,
+        ]);
+
+        DB::table('questions')->insert([
+            'question' => "Liljor, akleja och rosor kan vi ha i trädgården. Vad heter sången som spelas?",
+            'answer1' => "Änglamark",
+            'answer2' => "Uti vår hage",
+            'answer3' => "Sjösala vals",
+            'answer4' => "Den blomstertid nu kommer",
+            'correctAnswer' => 2,
+            'imageSource' => null,
+            'videoSource' => t1q6.mp4,
+            'themeId' => 1,
+        ]);
+
         /* -- RÖRELSE/MOVEMENT --*/
         DB::table('questions')->insert([
             'question' => "Vad kan du tänka på när det är snö och is ute på vägarna?",
