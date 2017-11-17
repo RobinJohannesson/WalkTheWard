@@ -24,11 +24,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
+                <img src="./images/logo.png" alt="Logo" class="img-responsive center-block">
             </div>
             <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
+                 <h1 class="text-center">Walk The Ward </h1>
+                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel </h2>
             </div>
             <div class="col-md">
                 <a href="{{url('/')}}/registration">col-sm</a>
