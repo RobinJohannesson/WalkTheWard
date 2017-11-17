@@ -61,6 +61,8 @@ class QuestionController extends Controller
      */
     public function show(Request $request, $id)
     {
+        $testing = "testing";
+
         $stationId = $id;
         $patientId = $request->cookie('patientId');
         $patient = patient::find($patientId);
@@ -69,6 +71,9 @@ class QuestionController extends Controller
         $place = Place::where('stationId', $stationId)->where('areaId', $area)->first();
         $placeId = $place->id;
         $place_in_game = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
+        if ($place_in_game->numberOfStars != null) {
+            $testing = "not null";
+        }
         $currentThemeId = Patient::find($patientId)->game->themeId;
         $question_in_game = Question_in_game::where('gameId', $gameId)->first();
         $question = $question_in_game->question;
@@ -83,9 +88,10 @@ class QuestionController extends Controller
             }
             $availableQuestion =  array_diff($themequestionIds, $qinGArray);
         }
+        // TEST
         $randomQuestionId = array_random($availableQuestion);
         $showQuestion = Question::find($randomQuestionId);
-        return view('backend_screen', compact(['patient', 'stationId', 'area', 'place', 'placeId', 'place_in_game', 'question_in_game', 'question', 'theme', 'themeId', 'themequestion', 'themequestionIds', 'qinGArray', 'availableQuestion', 'randomQuestionId', 'showQuestion']));
+        return view('backend_screen', compact(['testing', 'showQuestion']));
     }
     /**
      * Show the form for editing the specified resource.

@@ -33,35 +33,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-12">
-                    patient: {{$patient}}
                     <br>
-                    station id: {{$stationId}}
-                    <br>
-                    area: {{$area}}
-                    <br>
-                    place: {{$place}}
-                    <br>
-                    place id: {{$placeId}}
-                    <br>
-                    place in game: {{$place_in_game}}
-                    <br>
-                    question in game: {{$question_in_game}}
-                    <br>
-                    question: {{$question}}
-                    <br>
-                    theme: {{$theme}}
-                    <br>
-                    themeId: {{$themeId}}
-                    <br>
-                    themequestion: {{$themequestion}}
-                    <br>
-                    themequestionIds: {{print_r($themequestionIds) }}
-                    <br>
-                    qinGArray: {{print_r($qinGArray) }}
-                    <br>
-                    availableQuestion: {{print_r($availableQuestion) }}
-                    <br>
-                    randomQuestionId: {{$randomQuestionId}}
+                    testing: {{$testing}}
                     <br>
                     showQuestion: {{$showQuestion}}
             </div>

@@ -11,38 +11,55 @@
 |
 */
 
-Route::resource('', "WelcomeController");
+// Route::group([], function () {
+  // if (dd(Cookie::get('patientId') == null)
+  // if (true)
+  // {
+  //
+  //   return redirect()->route("registration");
+  //
+  // }
+  // vvv Add Routes Under This vvv
 
-Route::get('get-cookie', function() {
-   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
-});
 
-Route::GET('registration', "RegistrationController@index");
+  Route::resource('', "WelcomeController");
 
-Route::POST('registration', "RegistrationController@store");
+  // Route::get('get-cookie', function() {
+  //   dd(Cookie::get('patientId')); // showing you different ways to set / get the cookie
+  // });
 
-Route::resource('information', "InformationController");
+  Route::GET('registration', ['as' => 'registration', 'uses' => "RegistrationController@index"]);
 
-Route::resource('instructions', "InstructionsController");
+  Route::POST('registration', "RegistrationController@store");
 
-Route::resource('map', "MapController");
+  Route::resource('information', "InformationController");
 
-Route::resource('theme', "ThemeController");
+  Route::resource('instructions', "InstructionsController");
 
-Route::resource('scan', "ScanController");
+  Route::resource('map', "MapController");
 
-Route::resource('question', "QuestionController");
+  Route::resource('theme', "ThemeController");
 
-Route::resource('question/{id}', 'QuestionController');
+  Route::resource('scan', "ScanController");
 
-Route::resource('bonus', "BonusController");
+  Route::resource('question', "QuestionController");
 
-Route::resource('home', "HomeController");
+  Route::resource('question/{id}', 'QuestionController');
 
-Route::resource('feedback', "FeedbackController");
+  Route::resource('bonus', "BonusController");
 
-Route::resource('statistics', "StatisticsController");
+  Route::resource('home', "HomeController");
 
-Auth::routes();
+  Route::resource('feedback', "FeedbackController");
 
-Route::get('/home', 'HomeController@index')->name('home');
+  Route::resource('statistics', "StatisticsController");
+
+  Auth::routes();
+
+  Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+// });
