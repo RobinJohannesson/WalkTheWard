@@ -14,8 +14,8 @@
 <body>
     <div class="container-fluid">
         <div class="row justify-content-end">
-            <div class="col col-md-3">
-                <p class="text-center">{{ $currentTheme->name }}</p>
+            <div class="col col-md-6">
+                <p class="text-center">Tema: {{ $currentTheme->name }}</p>
             </div>
             <div class="col col-md-3">
                 <img src="./images/help.png" alt="Help">
@@ -25,26 +25,48 @@
         <div class="row justify-content-start">
             <div class="col-md-8">
                 {{-- <p class="questionparagraph">Malmö allmänna sjukhus anlades på Slottsgatan 22 mitt emot Kungsparken i Malmö, år 1857?.</p> --}}
-                <p class="questionparagraph">{{ $questionObjToShow->question }}</p>
+                <p class="questionparagraph">{{ $question->question }}</p>
 
             </div>
             <div class="col-md"></div>
         </div>
         <div class="row justify-content-end">
             <div class="col-md-6">
-                <p class="text-center">Rätt svar!</p>
+                <p id="answer-message" class="text-center">Rätt svar!/Fel svar!</p>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-6"><img src="./images/pic1.png" alt="diabetes" height="300px" width="auto" class="images-responsive center-block">
+            <div class="col-md-6">
+                @if ($question->imageSource)
+                    <img src="{{url('/')}}/images/question_images/{{$question->imageSource}}"
+                    alt="diabetes" height="300px" width="auto" class="images-responsive center-block">
+                @elseif ($question->videoSource)
+                    <video autoplay style="width: 100%; max-height: 300px;" controls>
+                        <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                @else
+                    <p>
+                        Ingen bild eller video finns.
+                    </p>
+                @endif
             </div>
             <div class="col-md-6">
-                <button class="button">Svar1</button>
-                <button class="button">Svar2</button>
-                <button class="button">Svar3</button>
-                <button class="button">Svar4</button>
-                </div>
-         </div>
+                <button id="answer-1" class="button {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
+                    {{ $question->answer1 }}
+                </button>
+                <button id="answer-2" class="button {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
+                    {{ $question->answer2 }}
+                </button>
+                <button id="answer-3" class="button {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
+                    {{ $question->answer3 }}
+                </button>
+                <button id="answer-4" class="button {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
+                    {{ $question->answer4 }}
+                </button>
+
+            </div>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->

@@ -61,7 +61,7 @@ class QuestionController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $testing = "testing";
+        $message = "";
 
         // StationId från URL question/{stationId}
         $stationId = $id;
@@ -69,41 +69,61 @@ class QuestionController extends Controller
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
 
+        // Hämta CurrentAreaId
         $patient = Patient::find($patientId);
         $areaId = $patient->game->area->id;
 
+        // Hämta PlaceId
         $place = Place::where('stationId', $stationId)->where('areaId', $areaId)->first();
         $placeId = $place->id;
 
+        // Hämta GameId
         $gameId = $patient->game->id;
 
+        // Hämta Place_in_Game (antal stjärnor)
         $place_in_game = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
+
         if ($place_in_game->numberOfStars != null) {
-            $testing = "not null";
+            $message = "Number of stars is not null";
         }
 
+        // Hämta currentThemeId
         $currentThemeId = $patient->game->themeId;
 
-        $question_in_game = Question_in_game::where('gameId', $gameId)->first();
-        $question = $question_in_game->question;
-        $theme = $question->theme;
+        // Hämta currentTheme
         $currentTheme = Theme::Find($currentThemeId);
+
+        // $question_in_game = Question_in_game::where('gameId', $gameId)->first();
+        // $question = $question_in_game->question;
+        // $theme = $question->theme;
         // $themeId = $question->theme->id;
-        $themequestion = $currentTheme->questions;
+
+
+
+        $themeQuestions = $currentTheme->questions;
         $themequestionIds = Question::where('themeId', $currentThemeId)->pluck('id')->toArray();
         $qinGArray = array();
-        foreach ($themequestion as $q) {
+        foreach ($themeQuestions as $q) {
             if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
                 array_push($qinGArray, $q->id);
             }
             $availableQuestion =  array_diff($themequestionIds, $qinGArray);
         }
-        // TEST
+
         $randomQuestionId = array_random($availableQuestion);
-        // $showQuestion = Question::find($randomQuestionId);
+
+        $question = Question::find($randomQuestionId);
+
+        if (Question_in_game::where('gameId', $gameId)->where('questionId', $randomQuestionId)->first() == null) {
+            $newQuestionInGame = new question_in_game;
+            $newQuestionInGame->gameId = $gameId;
+            $newQuestionInGame->questionId = $randomQuestionId;
+            $newQuestionInGame->isAnswered = 0;
+            $newQuestionInGame->save();
+        }
+
+        return view('question_screen', compact(['currentTheme', 'question']));
         // return view('backend_screen', compact(['testing', 'showQuestion']));
-        $questionObjToShow = Question::find($randomQuestionId);
-        return view('question_screen', compact(['currentTheme', 'questionObjToShow']));
     }
     /**
      * Show the form for editing the specified resource.

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\patient;
 
 class CheckCookie
 {
@@ -15,7 +16,8 @@ class CheckCookie
      */
     public function handle($request, Closure $next)
     {
-        if($request->hasCookie('patientId')) {
+        // Om patientId cookie finns samt om patient med id finns
+        if($request->hasCookie('patientId') && Patient::find($request->cookie('patientId'))) {
             return $next($request);
         }
         return redirect('');
