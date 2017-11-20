@@ -48,7 +48,7 @@ Route::middleware('checkCookie')->group(function () {
     Auth::routes();
 });
 
-Route::GET('registration', "RegistrationController@index"]);
+Route::GET('registration', "RegistrationController@index");
 
 Route::POST('registration', "RegistrationController@store");
 
