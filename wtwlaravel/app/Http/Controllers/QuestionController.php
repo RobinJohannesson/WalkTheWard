@@ -48,29 +48,28 @@ class QuestionController extends Controller
     */
     public function store(Request $request)
     {
-        //$QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
-        //$QuestionsInGame->isAnswered = $request->questionid;
-        //$QuestionsInGame->save();
-
         try {
-            $place_in_game = Place_in_game::where('placeId', $request->$placeId)->where('gameId', $request->$gameId);
-            $place_in_game->numberOfStars = 0;
-            $place_in_game->save();
+            $gameId = $request->gameId;
+            $questionId = $request->questionId;
+            Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 1]);
+
+            $placeId = $request->placeId;
+            $numberOfStars = $request->starsAmount;
+            Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['numberOfStars' => $numberOfStars]);
         }
         catch (\Exception $e) {
             $error = $e->getMessage();
+            $response = array(
+                'status' => 'error',
+                'msg' => $error
+            );
+            return response()->json($response);
         }
 
         $response = array(
-            'status' => 'success',
-            'msg' => $error,
-            // 'gid' => $request->$gameId,
-            // 'pid' => $request->$placeId,
-            'pid' => 1,
-            'gid' => 1,
-
+            'status' => 'success'
         );
-        // return \Response::json($response);
+
         return response()->json($response);
     }
 
