@@ -28,15 +28,15 @@
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
             <div class="col-md">
-                registration
+                registrering
             </div>
             <form action="{{{ url("registration") }}}" method="POST">
                 {{ csrf_field() }}
-                Age:
+                Ålder:
                 <input type="number" name="age"><br>
-                Gender:
+                Kön:
                 <input type="text" name="gender"><br>
-                Room Type:
+                Typ av rum:
                 <input type="number" name="roomType"><br>
                 <input type="submit" value="Submit">
             </form>

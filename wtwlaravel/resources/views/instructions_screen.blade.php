@@ -31,8 +31,9 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
 
-             <p>För att starta ett spel börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter det väljer du ett av de teman som finns som du vill svara frågor på.. Sedan kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och scannar en QR-kod för att få fram en fråga.</p>
-             <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren.Börja med att leta upp en station. Stationen innehåller en QR kod som du scannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
+             <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
+
+             <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
 
             </div>
         </div>
