@@ -15,10 +15,10 @@ use App\question_in_game;
 class QuestionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index(Request $request)
     {
         $stationId = "2";
@@ -31,34 +31,55 @@ class QuestionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
-        $QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
-        $QuestionsInGame->isAnswered = $request->questionid;
-        $QuestionsInGame->save();
+        //$QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
+        //$QuestionsInGame->isAnswered = $request->questionid;
+        //$QuestionsInGame->save();
+
+        try {
+            $place_in_game = Place_in_game::where('placeId', $request->$placeId)->where('gameId', $request->$gameId);
+            $place_in_game->numberOfStars = 0;
+            $place_in_game->save();
+        }
+        catch (\Exception $e) {
+            $error = $e->getMessage();
+        }
+
+        $response = array(
+            'status' => 'success',
+            'msg' => $error,
+            // 'gid' => $request->$gameId,
+            // 'pid' => $request->$placeId,
+            'pid' => 1,
+            'gid' => 1,
+
+        );
+        // return \Response::json($response);
+        return response()->json($response);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show(Request $request, $id)
     {
         $message = "";
@@ -79,6 +100,15 @@ class QuestionController extends Controller
 
         // Hämta GameId
         $gameId = $patient->game->id;
+
+        // Skapa placeInGame om det inte redan finns
+        if (Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first() == null) {
+            $newPlaceInGame = new place_in_game;
+            $newPlaceInGame->gameId = $gameId;
+            $newPlaceInGame->placeId = $placeId;
+            $newPlaceInGame->numberOfStars = 0;
+            $newPlaceInGame->save();
+        }
 
         // Hämta Place_in_Game (antal stjärnor)
         $place_in_game = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
@@ -122,38 +152,38 @@ class QuestionController extends Controller
             $newQuestionInGame->save();
         }
 
-        return view('question_screen', compact(['currentTheme', 'question']));
+        return view('question_screen', compact(['currentTheme', 'question', 'gameId', 'placeId']));
         // return view('backend_screen', compact(['testing', 'showQuestion']));
     }
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
         //
