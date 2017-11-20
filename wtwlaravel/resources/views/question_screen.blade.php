@@ -54,16 +54,16 @@
                     @endif
                 </div>
                 <div class="col-md-6">
-                    <button id="answer-1" class="button {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
+                    <button id="answer-1" class="button button-answer {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
                         {{ $question->answer1 }}
                     </button>
-                    <button id="answer-2" class="button {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
+                    <button id="answer-2" class="button button-answer {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
                         {{ $question->answer2 }}
                     </button>
-                    <button id="answer-3" class="button {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
+                    <button id="answer-3" class="button button-answer {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
                         {{ $question->answer3 }}
                     </button>
-                    <button id="answer-4" class="button {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
+                    <button id="answer-4" class=" button button-answer {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
                         {{ $question->answer4 }}
                     </button>
                     <input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
@@ -72,7 +72,30 @@
                 </div>
             </div>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Launch demo modal
+        </button>
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        ...
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+        </div>
+        </div>
 
 
         <!-- Optional JavaScript -->
