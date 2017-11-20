@@ -56,6 +56,25 @@ class QuestionController extends Controller
             $placeId = $request->placeId;
             $numberOfStars = $request->starsAmount;
             Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['numberOfStars' => $numberOfStars]);
+            $question = Question::find($questionId)->first();
+            $correctAnswerId = $question->correctAnswer;
+
+            $correctAnswer = "";
+            if ($correctAnswerId == 1) {
+                $correctAnswer = $question->answer1;
+            }
+            elseif ($correctAnswerId == 2) {
+                $correctAnswer = $question->answer2;
+            }
+            elseif ($correctAnswerId == 3) {
+                $correctAnswer = $question->answer3;
+            }
+            elseif ($correctAnswerId == 4) {
+                $correctAnswer = $question->answer4;
+            }
+            else {
+                $correctAnswer = null;
+            }
         }
         catch (\Exception $e) {
             $error = $e->getMessage();
@@ -67,7 +86,9 @@ class QuestionController extends Controller
         }
 
         $response = array(
-            'status' => 'success'
+            'status' => 'success',
+            'numberOfStars' => $numberOfStars,
+            'correctAnswer' => $correctAnswer
         );
 
         return response()->json($response);

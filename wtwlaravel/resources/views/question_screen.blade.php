@@ -72,12 +72,12 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static">
-          Launch demo modal
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal" data-backdrop="static">
+            Launch result modal
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -113,7 +113,7 @@
                 $(this).hide();
                 console.log(this.className);
                 console.log($(this).attr('class').split(' ')[1]);
-                if ($(this).attr('class').split(' ')[1] == "correct-answer"){
+                if ($(this).hasClass("correct-answer")){
                     console.log("smartass");
                     $("button").off("click");
                     var placeId = $('#placeId').val();
@@ -129,6 +129,10 @@
                         dataType: 'json',
                         success: function(data) {
                             console.log(data);
+                            $('#resultsModal').modal({
+                                backdrop: "static"
+                            });
+                            $('#resultsModal').modal('show');
                         },
                         error: function(xhr, textStatus, errorThrown,) {
                             console.log(xhr);
@@ -138,7 +142,7 @@
                     });
                 };
 
-                if ($(this).attr('class').split(' ')[1] != "correct-answer"){
+                if (!($(this).hasClass("correct-answer"))){
                     console.log("It's wrong dude");
                     starsAmount = starsAmount - 1;
                     console.log(starsAmount);
