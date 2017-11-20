@@ -30,17 +30,13 @@ body{
     font-size: 40px;
 }
 
-button {
-    display: inline-block;
-}
-
-button, input, optgroup, select, textarea {
+.button-answer {
     display: inline-block;
     width: 100%;
     margin-bottom: 20px;
     font-size: 40px;
-    
 }
+
 
 .fa_custom {
     color: steelblue;
