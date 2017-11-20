@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
@@ -32,13 +32,14 @@
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel </h2>
             </div>
 
-
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <a href="{{url('/')}}/registration" id="link-new-user">
                 <div class="btn-new-user">
-                     <a href="{{url('/')}}/registration">create new user</a>
+                     <img src="{{url('/')}}/images/start-user.png" alt="user" height="200px">
                 </div>
+                </a>
             </div>
         </div>
     </div>
