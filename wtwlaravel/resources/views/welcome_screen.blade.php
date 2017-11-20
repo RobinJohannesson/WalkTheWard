@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hello, world!</title>
+    <title>Walk the Ward</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,12 +21,14 @@
                 <img src="./images/logo.png" alt="Logo" class="img-responsive center-block">
             </div>
             <div class="col col-md-3">
-                <img src="./images/help.png" alt="Help">
+                 <div class="text-center">
+                <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
                 <p class="text-center">Hjälp</p>
+                     </div>
             </div>
         </div>
         <div class="row justify-content-center">
-            
+
             <div class="col-md-6">
                  <h1 class="text-center">Walk The Ward </h1>
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel </h2>

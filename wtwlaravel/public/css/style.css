@@ -30,3 +30,8 @@ button, input, optgroup, select, textarea {
     font-size: 40px;
     
 }
+
+.fa_custom {
+    color: steelblue;
+}
+

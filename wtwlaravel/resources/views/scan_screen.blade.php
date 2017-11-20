@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hello, world!</title>
+    <title>Walk the Ward</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,7 @@
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
             <div class="col-md">
-                scan
+                Skanna
             </div>
 
         </div>
