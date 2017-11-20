@@ -39,7 +39,7 @@
         </div>
         <div class="row justify-content-end">
             <div class="col col-md-2">
-                <button type="button" class="btn btn-primary btn-lg">Fortsätt</button>
+                <button type="button" class=" button playbutton">Spela</button>
 
              </div>
         </div>

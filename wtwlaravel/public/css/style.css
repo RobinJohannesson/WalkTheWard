@@ -43,4 +43,16 @@ body{
     padding: 40px;
 }
 
-
+.playbutton{
+    background-color: #4CAF50; 
+    box-shadow: 5px 5px 5px #888888;
+    border: none;
+    color: white;
+    padding: 10px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+    font-size: 50px;
+    border-radius: 10px;
+}
