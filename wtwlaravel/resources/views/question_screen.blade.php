@@ -87,7 +87,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        #YOLO
+                        <h2 id="title-value">
+                            #YOLO
+                        </h2>
+                        <p>
+                            Rätt svar: <span id="answer-value"></span>
+                        </p>
+                        <p>
+                            Antal stjärnor: <span id="stars-value"></span>
+                        </p>
+                        <p>
+                            Antal steg: <span id="steps-value"></span>
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -96,7 +107,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -129,6 +139,29 @@
                         dataType: 'json',
                         success: function(data) {
                             console.log(data);
+                            console.log(parseInt(data['numberOfStars']));
+                            console.log(data['numberOfStars']);
+                            $("#answer-value").html(data['correctAnswer']);
+
+                            var starsHtml = "";
+                            var i = 0;
+                            var numberOfStars = parseInt(data['numberOfStars'])
+                            // var numberOfStars = 2;
+                            if (numberOfStars === 0) {
+                                starsHtml = "Inga stjärnor";
+                            }
+                            else {
+                                while (i < numberOfStars) {
+                                    starsHtml += "<img src='{{url('/')}}/images/icon-star.png' alt='Stjärna'>";
+                                    i++;
+                                    console.log("while was fired!");
+                                }
+                            }
+
+
+                            $("#stars-value").html(starsHtml);
+                            $("#steps-value").html('9001');
+
                             $('#resultsModal').modal({
                                 backdrop: "static"
                             });
