@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
 
-
 </head>
 <body>
     <div class="container-fluid">
@@ -21,10 +20,9 @@
                 <img src="./images/logo.png" alt="Logo" class="img-responsive center-block">
             </div>
             <div class="col col-md-3">
-                 <div class="text-center">
+                <div class="text-center">
                 <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
-                
-                     </div>
+                </div>
             </div>
         </div>
         <div class="row justify-content-center">
