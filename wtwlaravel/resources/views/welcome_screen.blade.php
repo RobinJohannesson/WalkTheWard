@@ -23,7 +23,7 @@
             <div class="col col-md-3">
                  <div class="text-center">
                 <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
-                <p class="text-center">Hjälp</p>
+                
                      </div>
             </div>
         </div>
