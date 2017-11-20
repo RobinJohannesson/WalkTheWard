@@ -21,8 +21,10 @@
                 <img src="./images/logo.png" alt="Logo" class="img-responsive center-block">
             </div>
             <div class="col col-md-3">
-                <img src="./images/help.png" alt="Help">
+                 <div class="text-center">
+                <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
                 <p class="text-center">Hjälp</p>
+                     </div>
             </div>
         </div>
         <div class="row justify-content-center">
