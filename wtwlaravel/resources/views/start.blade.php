@@ -2,7 +2,7 @@
 
 @section('title', 'Start!')
 
-@section('script')
+@section('head-script')
 <link rel="stylesheet" href="{{url('/')}}/css/test.css">
 @endsection
 
