@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hello, world!</title>
+    <title>Walk the Ward</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,9 +32,9 @@
             </div>
             <form action="{{{ url("registration") }}}" method="POST">
                 {{ csrf_field() }}
-                Age: 
+                Age:
                 <input type="number" name="age"><br>
-                Gender: 
+                Gender:
                 <input type="text" name="gender"><br>
                 Room Type:
                 <input type="number" name="roomType"><br>
