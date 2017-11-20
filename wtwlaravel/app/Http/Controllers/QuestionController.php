@@ -48,9 +48,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //$QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
-        //$QuestionsInGame->isAnswered = $request->questionid;
-        //$QuestionsInGame->save();
+        $QuestionsInGame = QuestionsInGame::where("gameId", "=", $request->gameId)->first();
+        $QuestionsInGame->isAnswered = $request->questionid;
+        $QuestionsInGame->save();
     }
 
     /**
