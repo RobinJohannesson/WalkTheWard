@@ -9,6 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
 </head>
 <body>
@@ -18,16 +20,14 @@
                <div class="text-center">
                 <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
                 </div>
-            </div>
-        <div class="row justify-content-center">
+              </div>
+         </div>
+            <div class="row justify-content-center">
             <div class="col-md">
-
                 <h1 class="text-center">Välj en del av Skåne</h1>
-
             </div>
-
-
         </div>
+
         <div class="row justify-content-center">
             <div class="col-md-9">
             <img src="./images/map-pic.png" height="auto" alt="Map" class="img-responsive center-block" />
@@ -37,10 +37,10 @@
         <div class="row justify-content-end">
             <div class="col col-md-2">
                 <button type="button" class="btn btn-primary btn-lg">Fortsätt</button>
-
-             </div>
+            </div>
         </div>
-
+            
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
