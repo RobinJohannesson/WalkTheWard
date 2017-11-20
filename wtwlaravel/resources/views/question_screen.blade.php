@@ -73,6 +73,8 @@
             </div>
         </div>
 
+
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
@@ -100,15 +102,13 @@
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
                         url: "{{url('/')}}/question/store",
-                        data: {placeId: placeId, gameId: gameId, questionId: questionId},
+                        data: {placeId: placeId, gameId: gameId, questionId: questionId, starsAmount: starsAmount},
                         dataType: 'json',
-                        success: function( msg ) {
-                            // $("#ajaxResponse").append("<div>"+msg+"</div>");
-                            console.log(msg);
+                        success: function(data) {
+                            console.log(data);
                         },
-                        error: function(XMLHttpRequest, textStatus, errorThrown,) {
-                            console.log(XMLHttpRequest);
-                            // console.log("msg"+ msg + "pid" + pid + "gid" + gid);
+                        error: function(xhr, textStatus, errorThrown,) {
+                            console.log(xhr);
                             console.log(textStatus);
                             console.log(errorThrown);
                         }
