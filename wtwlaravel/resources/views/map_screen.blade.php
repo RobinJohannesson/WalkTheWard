@@ -15,10 +15,10 @@
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col col-md-3">
-                <img src="./images/help.png" alt="Help">
-                <p class="text-center">Hjälp</p>
+               <div class="text-center">
+                <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
+                </div>
             </div>
-        </div>
         <div class="row justify-content-center">
             <div class="col-md">
 
