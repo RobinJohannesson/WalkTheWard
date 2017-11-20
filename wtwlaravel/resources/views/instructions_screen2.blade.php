@@ -31,7 +31,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
-             <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
+                <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
+                <p>Behöver du hjälp under spelets gång, tryck på det blåa frågetecknet uppe i högra hörnet för mer instruktioner.</p>
             </div>
         </div>
         <div class="row justify-content-end">

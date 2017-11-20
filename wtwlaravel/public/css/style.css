@@ -2,11 +2,11 @@
     display: block;
     min-height: 250px;
     min-width: 250px;
-    border: 3px solid #252525;
+    border: 1px solid #252525;
     border-radius: 10px;
-    -webkit-box-shadow: 5px 5px 25px 0px rgba(87,87,87,0.8);
-    -moz-box-shadow: 5px 5px 25px 0px rgba(87,87,87,0.8);
-    box-shadow: 5px 5px 25px 0px rgba(87,87,87,0.8);
+    -webkit-box-shadow: 0px 0px 25px 3px rgba(87,87,87,0.8);
+    -moz-box-shadow: 0px 0px 5px 3px rgba(87,87,87,0.8);
+    box-shadow: 0px 0px 25px 3px rgba(87,87,87,0.8);
      margin: 0 auto;
 }
 
@@ -35,4 +35,5 @@ button, input, optgroup, select, textarea {
     color: steelblue;
     padding: 40px;
 }
+
 
