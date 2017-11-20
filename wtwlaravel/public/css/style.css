@@ -43,6 +43,30 @@ body{
     padding: 40px;
 }
 
+.continue_button{
+    background-color: mediumblue;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+    font-size: 40px;
+}
+
+.return_button{
+   background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+    font-size: 40px; 
+}
+
 .playbutton{
     background-color: #4CAF50; 
     box-shadow: 5px 5px 5px #888888;

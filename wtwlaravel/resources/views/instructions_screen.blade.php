@@ -32,9 +32,14 @@
              <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
             </div>
         </div>
-        <div class="row justify-content-end">
-            <div class="col col-md-2">
-                <button type="button" class="btn btn-primary btn-lg">Fortsätt</button>
+        
+    
+        <div class="row justify-content-around">
+            <div class="col col-4">
+                <button type="button" class="return_button">Tillbaka</button>
+             </div>
+            <div class="col col-4">
+                <button type="button" class="button continue_button">Fortsätt</button>
              </div>
         </div>
         
