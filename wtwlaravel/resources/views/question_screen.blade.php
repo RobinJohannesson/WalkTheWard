@@ -181,7 +181,7 @@
             if ($(this).hasClass('correct-answer')) {
 
                 $(this).addClass('answered-right');
-                
+
                 // Pausa video om den finns
                 if (document.getElementById("question-video")) {
                     document.getElementById("question-video").pause();
@@ -189,11 +189,16 @@
 
                 $('#answer-message').text('Rätt svar! Bra jobbat!');
                 document.getElementById("audio-right").play();
+
+                // Ta bort click event från svarsknapparna
                 $('.button-answer').off("click");
 
+                // Hämta den data som ska skickas med till servern
                 var placeId = $('#placeId').val();
                 var gameId = $('#gameId').val();
                 var questionId = $('#questionId').val();
+
+                // Skicka in data med AJAX POST
                 $.ajax({
                     type: "POST",
                     headers: {
@@ -202,7 +207,7 @@
                     url: "{{url('/')}}/question/store",
                     data: {placeId: placeId, gameId: gameId, questionId: questionId, starsAmount: starsAmount},
                     dataType: 'json',
-                    success: function(data) {
+                    success: function(data) { // Om det LYCKADES att spara data
                         console.log(data);
                         $("#answer-value").html(data['correctAnswer']);
 
@@ -214,21 +219,31 @@
                         else {
                             var i = 0;
                             while (i < numberOfStars) {
+                                // Lägg in en stjärnbild
                                 starsHtml += "<img src='{{url('/')}}/images/icon-star.png' alt='Stjärna' class='star-score-img'>";
                                 i++;
-                                console.log("while was fired!");
                             }
                         }
 
                         $("#stars-value").html(starsHtml);
+
                         $("#steps-value").html('9001');
 
-                        $(".star-score-img").click(function() {
+
+                        $('.star-score-img').off('click').on('click', function() {
+                            // Hindrar animationen från att köras mer en engång i taget
+                            if ($(this).is(':animated')) {
+                                return false;
+                            }
+                            // Kör animation
                             $(this).effect( "bounce", "slow");
+
+                            // Spola tillbaka ljudeffekten och spela upp den
+                            var starAudio = document.getElementById("audio-star1");
+                            starAudio.pause();
+                            starAudio.currentTime = 0;
+                            starAudio.play();
                         });
-
-
-
 
                         setTimeout(function(){
                             // Visa modal
@@ -238,25 +253,37 @@
                         }, 1000);
 
                         $('#resultsModal').on('shown.bs.modal', function (e) {
-                            // $(".star-score-img").effect( "bounce", "slow");
                             $.each($(".star-score-img"), function(i, el){
                                 setTimeout(function(){
                                     $(el).show();
                                     $(el).effect( "bounce", "slow");
 
-                                    document.getElementById("audio-star"+(i+1)).play();
+                                    var starAudio = document.getElementById("audio-star"+(i+1));
+                                    starAudio.pause();
+                                    starAudio.currentTime = 0;
+                                    starAudio.play();
 
                                 },500 + ( i * 400 ));
                             });
-
                         });
-                    },
-                    error: function(xhr, textStatus, errorThrown,) {
+
+                        $('#resultsModal').on('hide.bs.modal', function (e) {
+                            $.each($(".star-score-img"), function(i, el){
+                                    var starAudio = document.getElementById("audio-star"+(i+1));
+                                    starAudio.pause();
+                                    starAudio.currentTime = 0;
+                            });
+                        });
+
+
+
+                    }, // SLUT - Om det LYCKADES att spara data
+                    error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
                         console.log(textStatus);
                         console.log(errorThrown);
                     }
-                });
+                }); // SLUT - Om det MISSLYCKADES att spara data
             }
 
             if (!($(this).hasClass("correct-answer"))){
