@@ -41,9 +41,9 @@
             <div class="col-md-6">
                 @if ($question->imageSource)
                     <img src="{{url('/')}}/images/question_images/{{$question->imageSource}}"
-                    alt="diabetes" height="300px" width="auto" class="images-responsive center-block">
+                    alt="Bild för frågan." height="300px" width="auto" class="images-responsive center-block">
                 @elseif ($question->videoSource)
-                    <video autoplay style="width: 100%; max-height: 300px;" controls="controls" loop="loop" onclick="this.paused ? this.play() : this.pause();">
+                    <video id="question-video" autoplay style="width: 100%; max-height: 300px;" controls="controls" loop="loop" onclick="this.paused ? this.play() : this.pause();">
                         <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4"></source>
                         Your browser does not support the video tag.
                     </video>
@@ -72,23 +72,18 @@
 
                 <audio id="audio-right">
                     <source src="{{url('/')}}/audio/264981_renatalmar_sfx-magic.ogg" type="audio/ogg"></source>
-                    Your browser does not support the audio element.
                 </audio>
                 <audio id="audio-wrong">
                     <source src="{{url('/')}}/audio/362650_ethraiel_soft-alert.ogg" type="audio/ogg"></source>
-                    Your browser does not support the audio element.
                 </audio>
                 <audio id="audio-star1">
                     <source src="{{url('/')}}/audio/162467_311243-lq.mp3" type="audio/mp3"></source>
-                    Your browser does not support the audio element.
                 </audio>
                 <audio id="audio-star2">
                     <source src="{{url('/')}}/audio/162467_311243-lq.mp3" type="audio/mp3"></source>
-                    Your browser does not support the audio element.
                 </audio>
                 <audio id="audio-star3">
                     <source src="{{url('/')}}/audio/162467_311243-lq.mp3" type="audio/mp3"></source>
-                    Your browser does not support the audio element.
                 </audio>
             </div>
         </div>
@@ -186,6 +181,12 @@
             if ($(this).hasClass('correct-answer')) {
 
                 $(this).addClass('answered-right');
+                
+                // Pausa video om den finns
+                if (document.getElementById("question-video")) {
+                    document.getElementById("question-video").pause();
+                }
+
                 $('#answer-message').text('Rätt svar! Bra jobbat!');
                 document.getElementById("audio-right").play();
                 $('.button-answer').off("click");
@@ -226,6 +227,9 @@
                             $(this).effect( "bounce", "slow");
                         });
 
+
+
+
                         setTimeout(function(){
                             // Visa modal
                             $('#resultsModal').modal({
@@ -239,8 +243,9 @@
                                 setTimeout(function(){
                                     $(el).show();
                                     $(el).effect( "bounce", "slow");
+
                                     document.getElementById("audio-star"+(i+1)).play();
-                                    // play sound for star
+
                                 },500 + ( i * 400 ));
                             });
 

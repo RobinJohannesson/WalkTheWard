@@ -101,3 +101,7 @@ body {
     border-color: #888888;
     background-color: #999999;
 }
+
+#answer-message {
+    height: 50px;
+}
