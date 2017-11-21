@@ -51,7 +51,7 @@ class QuestionController extends Controller
         try {
             $gameId = $request->gameId;
             $questionId = $request->questionId;
-            Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 1]);
+            Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 0]);
 
             $placeId = $request->placeId;
             $numberOfStars = $request->starsAmount;

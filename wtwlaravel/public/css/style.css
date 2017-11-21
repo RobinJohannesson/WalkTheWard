@@ -37,6 +37,11 @@ body {
     font-size: 40px;
 }
 
+/*Tar bort blå kant som visas vid klick*/
+.button-answer:focus {
+    outline:0;
+}
+
 
 .fa_custom {
     color: steelblue;
@@ -79,4 +84,20 @@ body {
     margin: 10px 5px;
     font-size: 50px;
     border-radius: 10px;
+}
+
+.star-score-img {
+    height: 40px;
+    display: none;
+}
+
+.answered-right {
+    color: #ffffff;
+    border-color: #4CBA80;
+    background-color: #4CAF80;
+}
+.answered-wrong {
+    color: #777777;
+    border-color: #888888;
+    background-color: #999999;
 }
