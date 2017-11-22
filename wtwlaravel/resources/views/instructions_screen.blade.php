@@ -34,11 +34,13 @@
         </div>
         
     
-        <div class="row justify-content-around">
+        <div class="row justify-content-between">
             <div class="col col-md-4">
                 <button type="button" class="return_button">Tillbaka</button>
              </div>
-            <div class="col col-md-4">
+            <div class="col col-md-6">
+             </div>
+             <div class="col col-md-2">
                 <button type="button" class="button continue_button">Fortsätt</button>
              </div>
         </div>

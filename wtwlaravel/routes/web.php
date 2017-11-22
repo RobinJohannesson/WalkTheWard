@@ -29,11 +29,11 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::GET('map', "MapController@show");
 
-    Route::POST('map', "MapController@store");
+    Route::POST('map/store', "MapController@store");
 
     Route::GET('theme', "ThemeController@show");
 
-    Route::POST('theme', "ThemeController@store");
+    Route::POST('theme/store', "ThemeController@store");
 
     Route::resource('scan', "ScanController");
 
