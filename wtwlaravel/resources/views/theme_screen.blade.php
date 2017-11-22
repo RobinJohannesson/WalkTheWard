@@ -23,14 +23,20 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
+            <div class="col-md-6">
+                <h1 id="themehead"align="center">Välj ett tema</h1>
+            </div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-md-6">
+                <h2 align="center"><img src="./images/circle.png" alt="icon" width="70px" height="auto"> Rena händer</h2>
             </div>
             <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
+                <h2 align="center"><img src="./images/circle.png" alt="icon" width="70px" height="auto"> Trädgård</h2>
             </div>
-            <div class="col-md">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
                 @foreach ($theme as $t)
                 <button class="button button-theme" data-theme-id="{{ $t->id }}">
                     {{ $t->name }}
@@ -38,14 +44,7 @@
                 @endforeach
                 theme
             </div>
-
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="btn-new-user">
-
-                </div>
-            </div>
+            <div class="col-md-6"></div>
         </div>
     </div>
     <!-- Optional JavaScript -->
