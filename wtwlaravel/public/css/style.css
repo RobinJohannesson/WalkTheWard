@@ -72,7 +72,7 @@ html, body {
 }
 
 .return_button{
-    background-color: red;
+    background-color:#2A3AB7;
     border: none;
     color: white;
     display: inline-block;
@@ -85,8 +85,7 @@ html, body {
 
 .playbutton{
     background-color: #4CAF50;
-    border-style: dashed;
-    border-color: #F6E67F;
+    border: 3px dashed #F6E67F;
     border-radius: 10px;
     color: white;
     display: inline-block;
