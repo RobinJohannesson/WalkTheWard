@@ -43,7 +43,7 @@
                     <img src="{{url('/')}}/images/question_images/{{$question->imageSource}}"
                     alt="Bild för frågan." id="question-img">
                 @elseif ($question->videoSource)
-                    <video id="question-video" autoplay controls="controls" loop="loop" onclick="this.paused ? this.play() : this.pause();">
+                    <video id="question-video" autoplay loop="loop" onclick="this.paused ? this.play() : this.pause();">
                         <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4"></source>
                         Your browser does not support the video tag.
                     </video>
@@ -78,7 +78,7 @@
                     <source src="{{url('/')}}/audio/362650_ethraiel_soft-alert.ogg" type="audio/ogg"></source>
                 </audio>
                 <audio id="audio-star1">
-                    <source src="{{url('/')}}/audio/162467_311243-lq.mp3" type="audio/mp3"></source>
+                    <source src="{{url('/')}}/audio/162467_311243-lq.mp3" type="audio/mp3" ></source>
                 </audio>
                 <audio id="audio-star2">
                     <source src="{{url('/')}}/audio/162467_311243-lq.mp3" type="audio/mp3"></source>
@@ -149,8 +149,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <a href="{{url('/')}}/scan" type="button" class="btn btn-primary">Fortsätt spela</a>
             </div>
         </div>
     </div>
@@ -239,6 +238,7 @@ $(document).ready(function(){
 
                         // Spola tillbaka ljudeffekten och spela upp den
                         var starAudio = document.getElementById("audio-star1");
+                        starAudio.volume = 0.4;
                         starAudio.pause();
                         starAudio.currentTime = 0;
                         starAudio.play();
@@ -258,6 +258,7 @@ $(document).ready(function(){
                                 $(el).effect( "bounce", "slow");
 
                                 var starAudio = document.getElementById("audio-star"+(i+1));
+                                starAudio.volume = 0.4;
                                 starAudio.pause();
                                 starAudio.currentTime = 0;
                                 starAudio.play();

@@ -33,7 +33,7 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::resource('scan', "ScanController");
 
-    Route::resource('question', "QuestionController");
+    // Route::resource('question', "QuestionController");
 
     Route::GET('question/station/{id}', 'QuestionController@show');
 

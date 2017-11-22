@@ -51,12 +51,12 @@ class QuestionController extends Controller
         try {
             $gameId = $request->gameId;
             $questionId = $request->questionId;
-            Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 0]);
+            Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 1]);
 
             $placeId = $request->placeId;
             $numberOfStars = $request->starsAmount;
             Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['numberOfStars' => $numberOfStars]);
-            $question = Question::find($questionId)->first();
+            $question = Question::find($questionId);
             $correctAnswerId = $question->correctAnswer;
 
             $correctAnswer = "";
@@ -73,7 +73,7 @@ class QuestionController extends Controller
                 $correctAnswer = $question->answer4;
             }
             else {
-                $correctAnswer = null;
+                $correctAnswer == null;
             }
         }
         catch (\Exception $e) {
@@ -157,7 +157,14 @@ class QuestionController extends Controller
             if (Question_in_game::where('gameId', $gameId)->where('questionId', $q->id)->where('isAnswered', 1)->first()) {
                 array_push($qinGArray, $q->id);
             }
-            $availableQuestion =  array_diff($themequestionIds, $qinGArray);
+        }
+        $availableQuestion =  array_diff($themequestionIds, $qinGArray);
+
+        if (count($availableQuestion) == 0) {
+            foreach ($themeQuestions as $q) {
+                Question_in_game::where(['questionId' => $q->id, 'gameId' => $gameId])->update(['isAnswered' => 0]);
+            }
+             $availableQuestion = $themequestionIds;
         }
 
         $randomQuestionId = array_random($availableQuestion);
