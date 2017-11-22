@@ -85,14 +85,14 @@ html, body {
 
 .playbutton{
     background-color: #4CAF50;
-    border: none;
+    border-style: dashed;
+    border-color: #F6E67F;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px #888888;
     color: white;
     display: inline-block;
     font-size: 50px;
     margin: 10px 5px;
-    padding: 15px 80px;
+    padding: 5px 80px;
     text-align: center;
     text-decoration: none;
 }
