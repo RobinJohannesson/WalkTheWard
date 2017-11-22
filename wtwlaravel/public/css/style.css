@@ -8,6 +8,10 @@ html, body {
 
 }
 
+p {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 .btn-new-user {
     border: 1px solid #252525;
     border-radius: 10px;
@@ -138,4 +142,8 @@ html, body {
 
 h1{
     margin-bottom:40px;
+}
+
+#themehead {
+    margin-bottom: 100px;
 }
