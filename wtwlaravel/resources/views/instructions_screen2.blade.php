@@ -37,11 +37,11 @@
                 <p>Behöver du hjälp under spelets gång, tryck på det blåa frågetecknet uppe i högra hörnet för mer instruktioner.</p>
             </div>
         </div>
-        <div class="row justify-content-end">
-            <div class="col col-md">
+        <div class="row justify-content-around">
+            <div class="col col-md-4">
                 <button type="button" class="return_button">Tillbaka</button>
              </div>
-            <div class="col col-md">
+            <div class="col col-md-4">
                 <button type="button" class=" button playbutton">Spela</button>
 
              </div>
