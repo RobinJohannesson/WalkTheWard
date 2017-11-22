@@ -60,13 +60,13 @@ html, body {
 }
 
 .continue_button{
-    background-color: mediumblue;
+    background-color: #2A3AB7;
     border: none;
     color: white;
     display: inline-block;
     font-size: 40px;
     margin: 10px 5px;
-    padding: 10px 30px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
 }
@@ -78,7 +78,7 @@ html, body {
     display: inline-block;
     font-size: 40px;
     margin: 10px 5px;
-    padding: 10px 30px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
 }
@@ -90,7 +90,7 @@ html, body {
     box-shadow: 5px 5px 5px #888888;
     color: white;
     display: inline-block;
-    font-size: 60px;
+    font-size: 50px;
     margin: 10px 5px;
     padding: 10px 45px;
     text-align: center;
@@ -135,4 +135,8 @@ html, body {
 
 .modal-custom-width {
     max-width: 90%;
+}
+
+h1{
+    margin-bottom:40px;
 }

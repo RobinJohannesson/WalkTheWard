@@ -24,14 +24,10 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md">
-
-                <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
-
-            </div>
-
-
-        </div>
-        <div class="row justify-content-center">
+                  <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
+             </div>
+        
+     <div class="row justify-content-center">
             <div class="col-md-8">
 
              <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.

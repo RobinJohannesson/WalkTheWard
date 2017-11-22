@@ -38,10 +38,10 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="col col-5">
+            <div class="col col-md">
                 <button type="button" class="return_button">Tillbaka</button>
              </div>
-            <div class="col col-md-7">
+            <div class="col col-md">
                 <button type="button" class=" button playbutton">Spela</button>
 
              </div>
