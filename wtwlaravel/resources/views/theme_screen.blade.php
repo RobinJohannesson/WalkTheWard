@@ -32,7 +32,9 @@
             </div>
             <div class="col-md">
                 @foreach ($theme as $t)
-                {{ $t->name }}
+                <button id="{{ $t->id }}" class="button button-answer">
+                    {{ $t->name }}
+                </button>
                 @endforeach
                 theme
             </div>
