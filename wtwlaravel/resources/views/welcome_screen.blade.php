@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md">
-                <img src="./images/logo.png" alt="Logo" class="img-responsive center-block">
+                <img src="./images/TheLogo.png" alt="Logo" class="img-responsive center-block">
             </div>
             <div class="col col-md-3">
                 <div class="text-center">
