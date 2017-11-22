@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-md">
 
-                <h1 class="text-center">Syftet med spelet</h1>
+                <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
 
             </div>
 
@@ -41,10 +41,9 @@
         </div>
 
         <div class="row justify-content-end">
-            <div class="col col-md-2">
-                <button type="button" class="btn btn-primary btn-lg">Fortsätt</button>
-
-             </div>
+            <div class="col col-md-4">
+                <button type="button" class="button continue_button">Fortsätt</button>
+            </div>
         </div>
 
     </div>

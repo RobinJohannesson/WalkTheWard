@@ -24,7 +24,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md">
-                <h1 class="text-center">Instruktioner</h1>
+                <h1 class="text-center"><strong>Instruktioner</strong></h1>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -35,10 +35,10 @@
         
     
         <div class="row justify-content-around">
-            <div class="col col-4">
+            <div class="col col-md-4">
                 <button type="button" class="return_button">Tillbaka</button>
              </div>
-            <div class="col col-4">
+            <div class="col col-md-4">
                 <button type="button" class="button continue_button">Fortsätt</button>
              </div>
         </div>

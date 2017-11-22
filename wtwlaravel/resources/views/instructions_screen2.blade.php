@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-md">
 
-                <h1 class="text-center">Instruktioner</h1>
+                <h1 class="text-center"><strong>Instruktioner</strong></h1>
 
             </div>
 
@@ -38,7 +38,10 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="col col-md-2">
+            <div class="col col-5">
+                <button type="button" class="return_button">Tillbaka</button>
+             </div>
+            <div class="col col-md-7">
                 <button type="button" class=" button playbutton">Spela</button>
 
              </div>
