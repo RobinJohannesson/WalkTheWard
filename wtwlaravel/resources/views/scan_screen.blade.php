@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
-    <script type="text/javascript" src="instascan.min.js"></script>
+    <script type="text/javascript" src="{{url('/')}}/js/instascan.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
