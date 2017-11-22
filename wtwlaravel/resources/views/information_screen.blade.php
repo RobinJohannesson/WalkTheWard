@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -29,6 +30,12 @@
             <div class="col-md">
                   <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
              </div>
+<!--<<<<<<< HEAD
+=======
+        </div>
+     <div class="row justify-content-center">
+            <div class="col-md-8">
+>>>>>>> 0ca76d1945d2b367b1432681588e8f35738282ca -->
 
             <div id="info-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
@@ -39,6 +46,7 @@
               <li data-target="#info-carousel" data-slide-to="2"></li>
             </ol>
 
+<!-- <<<<<<< HEAD -->
             <!-- Your slides -->
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -64,6 +72,17 @@
               <button type="button" class="button continue_button">Fortsätt</button>
             </a>
           </div>
+<!-- =======
+        <div class="row justify-content-between">
+            <div class="col col-md-4">
+             </div>
+            <div class="col col-md-4">
+            </div>
+            <div class="col col-md-4">
+                <button type="button" class="button continue_button">Fortsätt</button>
+            </div>s
+        </div>
+>>>>>>> 0ca76d1945d2b367b1432681588e8f35738282ca -->
 
 </div>
 

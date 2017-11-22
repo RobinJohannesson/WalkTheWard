@@ -8,6 +8,10 @@ html, body {
 
 }
 
+p {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 .btn-new-user {
     border: 1px solid #252525;
     border-radius: 10px;
@@ -89,9 +93,9 @@ html, body {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 50px;
+    font-size: 40px;
     margin: 10px 5px;
-    padding: 5px 80px;
+    padding: 10px 70px;
     text-align: center;
     text-decoration: none;
 }
@@ -140,6 +144,7 @@ h1{
     margin-bottom:40px;
 }
 
+<<<<<<< HEAD
 .container-info {
   display: block;
   height: 500px;
@@ -182,4 +187,13 @@ ol.carousel-indicators li.active {
 
 ol.carousel-indicators li.active {
   background: blue;
+=======
+#themehead {
+    margin-bottom: 100px;
+}
+
+#maptest {
+    width: 305px;
+    height: 421px;
+>>>>>>> 0ca76d1945d2b367b1432681588e8f35738282ca
 }
