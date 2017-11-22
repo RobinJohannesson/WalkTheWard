@@ -26,7 +26,7 @@
             <div class="col-md">
                   <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
              </div>
-        
+        </div>
      <div class="row justify-content-center">
             <div class="col-md-8">
 
@@ -36,10 +36,14 @@
             </div>
         </div>
 
-        <div class="row justify-content-end">
+        <div class="row justify-content-between">
+            <div class="col col-md-4">
+             </div>
+            <div class="col col-md-4">
+            </div>
             <div class="col col-md-4">
                 <button type="button" class="button continue_button">Fortsätt</button>
-            </div>
+            </div>s
         </div>
 
     </div>
