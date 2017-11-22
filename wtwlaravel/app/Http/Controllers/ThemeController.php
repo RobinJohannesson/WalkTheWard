@@ -14,8 +14,7 @@ class ThemeController extends Controller
      */
     public function index()
     {
-        $theme = Theme::all();
-        return view('theme_screen', compact("theme"));
+        //
     }
 
     /**
@@ -47,9 +46,10 @@ class ThemeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $theme = Theme::all();
+        return view('theme_screen', compact("theme"));
     }
 
     /**

@@ -27,9 +27,13 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::GET('instructions-2', function() { return view("instructions_screen2"); });
 
-    Route::resource('map', "MapController");
+    Route::GET('map', "MapController@show");
 
-    Route::resource('theme', "ThemeController");
+    Route::POST('map', "MapController@store");
+
+    Route::GET('theme', "ThemeController@show");
+
+    Route::POST('theme', "ThemeController@store");
 
     Route::resource('scan', "ScanController");
 

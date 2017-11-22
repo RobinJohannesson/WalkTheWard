@@ -15,9 +15,7 @@ class MapController extends Controller
      */
     public function index(Request $request)
     {
-        $patientId = $request->cookie('patientId');
-        $patient = patient::find($patientId);
-        return view('map_screen', ['patient' => $patient]);
+        //
     }
 
     /**
@@ -49,9 +47,11 @@ class MapController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $patientId = $request->cookie('patientId');
+        $patient = patient::find($patientId);
+        return view('map_screen', ['patient' => $patient]);
     }
 
     /**
