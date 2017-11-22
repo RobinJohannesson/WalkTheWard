@@ -36,8 +36,8 @@
         </div>
 
         <div class="row justify-content-end">
-            <div class="col col-md-2">
-                <button type="button" class="btn btn-primary btn-lg">Fortsätt</button>
+            <div class="col col-md-4">
+                <button type="button" class="button continue_button">Fortsätt</button>
             </div>
         </div>
             
