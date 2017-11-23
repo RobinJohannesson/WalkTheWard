@@ -28,21 +28,28 @@
             </div>
         </div>
         <div class="row justify-content-start">
-            <div class="col-md-6">
-                <h2 align="center"><img src="./images/circle.png" alt="icon" width="70px" height="auto"> Rena händer</h2>
+            @foreach ($theme as $t)
+            <div class="col-md-6 col-theme">
+                <button class="button-theme">
+                    <h2>
+                        <img src="./images/circle.png" alt="icon" width="70px" height="auto" data-theme-id="{{ $t->id }}">
+                        {{ $t->name }}
+                    </h2>
+                </button>
             </div>
-            <div class="col-md-6">
+            @endforeach
+            {{-- <div class="col-md-6">
                 <h2 align="center"><img src="./images/circle.png" alt="icon" width="70px" height="auto"> Trädgård</h2>
-            </div>
+            </div> --}}
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                @foreach ($theme as $t)
+                {{-- @foreach ($theme as $t)
                     <button class="button button-theme" data-theme-id="{{ $t->id }}">
                         {{ $t->name }}
                     </button>
                 @endforeach
-                theme
+                theme --}}
             </div>
             <div class="col-md-6"></div>
         </div>

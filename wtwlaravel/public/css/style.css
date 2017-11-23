@@ -5,7 +5,6 @@ html, body {
 
 #link-new-user {
     display: block;
-
 }
 
 p {
@@ -15,21 +14,20 @@ p {
 .btn-new-user {
     border: 1px solid #252525;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(87,87,87,0.8);
+    box-shadow: 0px 0px 10px rgba(87, 87, 87, 0.8);
     display: block;
     height: 250px;
     width: 250px;
-    -webkit-box-shadow: 0px 0px 25px 3px rgba(87,87,87,0.8);
-    -moz-box-shadow: 0px 0px 5px 3px rgba(87,87,87,0.8);
+    -webkit-box-shadow: 0px 0px 25px 3px rgba(87, 87, 87, 0.8);
+    -moz-box-shadow: 0px 0px 5px 3px rgba(87, 87, 87, 0.8);
     margin: 0 auto;
 }
 
 .btn-new-user img {
-    display:block;
+    display: block;
     margin: auto;
     margin-top: 20px;
 }
-
 
 .questionparagraph {
     font-size: 40px;
@@ -49,22 +47,22 @@ p {
 }
 
 /*Tar bort blå kant som visas vid klick*/
+
 .button-answer:focus {
-    outline:0;
+    outline: 0;
 }
 
 .button-answer:active {
-    box-shadow: 0 0 0 3px rgba(0,123,255,.5);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
 }
-
 
 .fa_custom {
     color: #FF900B;
     padding: 10px;
 }
 
-.continue_button{
-    background-color:#48A2A6;
+.continue_button {
+    background-color: #48A2A6;
     border: none;
     color: white;
     display: inline-block;
@@ -75,8 +73,8 @@ p {
     text-decoration: none;
 }
 
-.return_button{
-    background-color:#48A2A6;
+.return_button {
+    background-color: #48A2A6;
     border: none;
     color: white;
     display: inline-block;
@@ -87,7 +85,7 @@ p {
     text-decoration: none;
 }
 
-.playbutton{
+.playbutton {
     background-color: #4CAF50;
     border: 3px dashed #F6E67F;
     border-radius: 10px;
@@ -99,7 +97,6 @@ p {
     text-align: center;
     text-decoration: none;
 }
-
 
 #question-img {
     max-height: 400px;
@@ -113,7 +110,6 @@ p {
     width: 100%;
 }
 
-
 .star-score-img {
     display: none;
     height: 55px;
@@ -125,6 +121,7 @@ p {
     border-color: #4CBA80;
     color: #ffffff;
 }
+
 .answered-wrong {
     background-color: #999999;
     border-color: #888888;
@@ -140,54 +137,65 @@ p {
     max-width: 90%;
 }
 
-h1{
-    margin-bottom:40px;
+h1 {
+    margin-bottom: 40px;
 }
 
 .container-info {
-  display: block;
-  height: 500px;
+    display: block;
+    height: 500px;
 }
 
 .item {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .carousel-inner {
-  height: 500px;
+    height: 500px;
 }
 
 .info-carousel {
-  position: relative;
-  width: 200px;
-  height: 500px;
+    position: relative;
+    width: 200px;
+    height: 500px;
 }
 
 ol.carousel-indicators {
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  left: 0;
-  right: 0;
-  width: auto;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: auto;
 }
 
-ol.carousel-indicators li,
-ol.carousel-indicators li.active {
-  float: left;
-  width: 33%;
-  height: 10px;
-  margin: 0;
-  border-radius: 0;
-  border: 0;
-  background: transparent;
+ol.carousel-indicators li, ol.carousel-indicators li.active {
+    float: left;
+    width: 33%;
+    height: 10px;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    background: transparent;
 }
 
 ol.carousel-indicators li.active {
-  background: blue;
+    background: blue;
+}
+
 #themehead {
     margin-bottom: 100px;
+}
+
+.col-theme {
+    display: flex;
+    justify-content: center;
+}
+
+.button-theme {
+    width: 550px;
+    background-color: white;
 }
 
 #maptest {
