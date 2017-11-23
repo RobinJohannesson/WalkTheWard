@@ -79,13 +79,13 @@
                 <source src="{{url('/')}}/audio/362650_ethraiel_soft-alert.ogg" type="audio/ogg"></source>
             </audio>
             <audio id="audio-star1">
-                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/mp3" ></source>
+                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/ogg" ></source>
             </audio>
             <audio id="audio-star2">
-                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/mp3"></source>
+                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/ogg"></source>
             </audio>
             <audio id="audio-star3">
-                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/mp3"></source>
+                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/ogg"></source>
             </audio>
         </div>
     </div>
