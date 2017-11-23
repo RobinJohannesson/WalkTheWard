@@ -29,9 +29,9 @@
         </div>
         <div class="row justify-content-start">
             <div class="col-md-2">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal" data-backdrop="static">
+                {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal" data-backdrop="static">
                     Testa modal
-                </button>
+                </button> --}}
             </div>
             <div class="col-md-8">
                 <p id="answer-message" class="text-center"></p>
@@ -43,6 +43,7 @@
                     <img src="{{url('/')}}/images/question_images/{{$question->imageSource}}"
                     alt="Bild för frågan." id="question-img">
                 @elseif ($question->videoSource)
+                    <i class="fa fa-play-circle fa-6 play-button-video-question" aria-hidden="true"></i>
                     <video id="question-video" autoplay loop="loop" onclick="this.paused ? this.play() : this.pause();">
                         <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4"></source>
                         Your browser does not support the video tag.
@@ -131,6 +132,7 @@
                     <div class="col-sm-8">
                         <p>
                             <span id="stars-value"></span>
+                            <span id="new-highscore"></span>
                         </p>
                     </div>
                 </div>

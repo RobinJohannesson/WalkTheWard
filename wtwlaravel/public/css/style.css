@@ -226,3 +226,13 @@ ol.carousel-indicators li.active {
     width: 305px;
     height: 421px;
 }
+
+.play-button-video-question {
+    display: none;
+    font-size: 150px;
+    color: white;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right: 0;
+}
