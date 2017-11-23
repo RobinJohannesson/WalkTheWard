@@ -24,13 +24,13 @@
         </div>
         
         <div class="row">
-            <div class="col-6 col-md-4"></div>
-            <div class="col-12 col-md-8"><h1 class="text-center">Syd Östra Skåne</h1></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-6"><h1 class="text-center">Syd Östra Skåne</h1></div>
         </div>
         
-        <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <img src="../images/map/WTW-mockup5.png" class="home_map_pic" alt="map">
+        <div class="row justify-content-start">
+                <div class="col-md-6">
+                    <img src="../images/map/map-pic.png" class="home_map_pic" alt="map">
                 
                 </div>
                  <div class="col-md-4">

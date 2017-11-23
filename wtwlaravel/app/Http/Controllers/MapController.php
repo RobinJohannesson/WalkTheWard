@@ -76,8 +76,13 @@ class MapController extends Controller
     public function show(Request $request)
     {
         $patientId = $request->cookie('patientId');
-        $patient = patient::find($patientId);
-        return view('map_screen', ['patient' => $patient]);
+
+        // Hämta CurrentAreaId
+        $patient = Patient::find($patientId);
+
+        // Hämta GameId
+        $gameId = $patient->game->id;
+        return view('map_screen', compact(["gameId"]));
     }
 
     /**
