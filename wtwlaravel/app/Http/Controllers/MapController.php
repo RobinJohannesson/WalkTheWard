@@ -43,9 +43,6 @@ class MapController extends Controller
      */
     public function store(Request $request)
     {
-        // $Game = Game::firstOrCreate("id", "=", $request->patientId)->first();
-        // $Game->currentArea = $request->mapSelected;
-        // $Game->save();
         try {
             $areaId = $request->areaId;
             $gameId = $request->gameId;
