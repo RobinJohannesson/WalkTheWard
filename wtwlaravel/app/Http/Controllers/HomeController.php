@@ -3,6 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\patient;
+use App\game;
+use App\place;
+use App\place_in_game;
+use App\area;
+use App\theme;
+use App\question;
+use App\question_in_game;
+use App\Map;
 
 class HomeController extends Controller
 {
@@ -37,13 +46,8 @@ class HomeController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
+
+    public function showAll(Request $request)
     {
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
@@ -54,9 +58,40 @@ class HomeController extends Controller
         // Hämta GameId
         $gameId = $patient->game->id;
 
-        $theme = Theme::all();
+        $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
-        return view('home_screen');
+        $allAreas = Map::Find(1)->areas;
+
+        $allPlaces = 0;
+        foreach ($allAreas as $area) {
+            $allPlaces += count($area->places);
+        }
+
+        $maxStars = $allPlaces * 3;
+
+        $totalStars = 0;
+        foreach ($numberOfStarslist as $numberOfStar) {
+            $totalStars =+ $numberOfStar;
+        }
+
+        return view('home_screen', compact(['totalStars', 'maxStars']));
+    }
+
+    public function showArea(Request $request)
+    {
+        // Hämta PatientId från cookie
+        $patientId = $request->cookie('patientId');
+
+        // Hämta CurrentAreaId
+        $patient = Patient::find($patientId);
+
+        // Hämta GameId
+        $gameId = $patient->game->id;
+
+        $places_in_game = Places_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
+        // $themequestionIds = Question::where('themeId', $currentThemeId)->pluck('id')->toArray();
+
+        return view('home_screen', compact(['places_in_game']));
     }
 
     /**

@@ -45,17 +45,15 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::resource('bonus', "BonusController");
 
-    Route::GET('home', "HomeController@index");
+    Route::GET('home', "HomeController@showAll");
 
-    Route::POST('home', "HomeController@store");
+    Route::POST('home', "HomeController@showArea");
 
     Route::resource('feedback', "FeedbackController");
 
-    Route::GET('statistics', "StatisticsController@index");
+    Route::GET('statistics', "StatisticsController@show");
 
     Route::POST('statistics/store', "StatisticsController@store");
-
-    Route::get('/home', 'HomeController@index')->name('home');
 
     Auth::routes();
 });
