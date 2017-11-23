@@ -22,33 +22,26 @@
                 </div>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6"><h1 class="text-center">Syd Östra Skåne</h1></div>
-        </div>
-        
         <div class="row justify-content-start">
                 <div class="col-md-6">
-                    <img src="../images/map/map-pic.png" class="home_map_pic" alt="map">
+                    <img src="../images/map-pic.png" class="home_map_pic" alt="map">
                 
                 </div>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
+                     <h1 class="text-center">Syd Östra Skåne</h1>
                      <p>Antal poäng: 12/18</p>
                      <p>Antal steg: 340</p>
                      <button type="button" class="button exercise_button">Dagens rörelse</button>
                 </div>
-         </div>
-            
+        </div>          
         <div class="row justify-content-between">
             <div class="col col-md-4">
              </div>
-            <div class="col col-md-5">
+            <div class="col col-md-4">
                </div>
-            <div class="col col-md-3">
-                <button type="button" class=" button playbutton">Spela</button>
+            <div class="col col-md-4">
+                <button type="button" id="homeplaybutton">Spela --></button>
             </div>
-            
         </div>
        
     </div>
