@@ -7,38 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col col-md-3">
-                <img src="./images/help.png" alt="Help">
-                <p class="text-center">Hjälp</p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
-            </div>
-            <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
-            </div>
-            <div class="col-md">
-                home
-            </div>
-
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="btn-new-user">
-
+                <div class="text-center">
+                <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-6 col-md-4"></div>
+            <div class="col-12 col-md-8"><h1 class="text-center">Syd Östra Skåne</h1></div>
+        </div>
+        
+        <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <img src="../images/map/WTW-mockup5.png" class="home_map_pic" alt="map">
+                
+                </div>
+                 <div class="col-md-4">
+                     <p>Antal poäng: 12/18</p>
+                     <p>Antal steg: 340</p>
+                     <button type="button" class="button exercise_button">Dagens rörelse</button>
+                </div>
+         </div>
+            
+        <div class="row justify-content-between">
+            <div class="col col-md-4">
+             </div>
+            <div class="col col-md-5">
+               </div>
+            <div class="col col-md-3">
+                <button type="button" class=" button playbutton">Spela</button>
+            </div>
+            
+        </div>
+       
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -100,6 +100,21 @@ p {
     text-decoration: none;
 }
 
+.exercise_button{
+    background-color:#E34478;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    margin: 10px 5px;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.home_map_pic{
+    width: 600px;
+}
 
 #question-img {
     max-height: 400px;
