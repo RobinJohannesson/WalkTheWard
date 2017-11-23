@@ -15,7 +15,7 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        return view("statistics_screen");
+        //
     }
 
     /**
@@ -62,7 +62,7 @@ class StatisticsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("statistics_screen");
     }
 
     /**
