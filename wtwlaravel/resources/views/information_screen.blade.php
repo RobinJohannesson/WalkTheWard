@@ -27,15 +27,6 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <!-- adjusting headers <div class="col-md">
-                  <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
-             </div> -->
-<!--<<<<<<< HEAD
-=======
-        </div>
-     <div class="row justify-content-center">
-            <div class="col-md-8">
->>>>>>> 0ca76d1945d2b367b1432681588e8f35738282ca -->
 
             <div id="info-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
@@ -46,7 +37,6 @@
               <li data-target="#info-carousel" data-slide-to="2"></li>
             </ol>
 
-<!-- <<<<<<< HEAD -->
             <!-- Your slides -->
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -74,29 +64,22 @@
                 <p>Behöver du hjälp under spelets gång, tryck på det blåa frågetecknet uppe i högra hörnet för mer instruktioner.</p>
               </div>
             </div>
+
             <a class="carousel-control-prev" href="#info-carousel" role="button" data-slide="prev">
               <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span> -->
               <button type="button" class="button continue_button">Tillbaka</button>
             </a>
-            <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
-              <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span> -->
-              <button type="button" class="button continue_button">Fortsätt</button>
-            </a>
-          </div>
-<!-- =======
-        <div class="row justify-content-between">
-            <div class="col col-md-4">
-             </div>
-            <div class="col col-md-4">
-            </div>
-            <div class="col col-md-4">
-                <button type="button" class="button continue_button">Fortsätt</button>
-            </div>s
-        </div>
->>>>>>> 0ca76d1945d2b367b1432681588e8f35738282ca -->
 
+              <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
+                <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span> -->
+
+                <button type="button" class="button continue_button">Fortsätt</button>
+              </a>
+
+
+          </div>
 </div>
 
     <!-- Optional JavaScript -->
