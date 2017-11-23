@@ -255,6 +255,10 @@ ol.carousel-indicators li.active {
   right: 0;
 }
 
+.carousel-hide-button {
+  display: none;
+}
+
 #themehead {
     margin-bottom: 100px;
 }

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -32,14 +34,15 @@
 
             <!-- Your controls -->
             <ol class="carousel-indicators">
-              <li data-target="#info-carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#info-carousel" data-slide-to="0" class="first-slide active"></li>
               <li data-target="#info-carousel" data-slide-to="1"></li>
-              <li data-target="#info-carousel" data-slide-to="2"></li>
+              <li data-target="#info-carousel" data-slide-to="2" class="third-slide"></li>
             </ol>
 
             <!-- Your slides -->
             <div class="carousel-inner">
-              <div class="carousel-item active">
+
+              <div class="carousel-item active" id="0">
                 <div class="row justify-content-end">
                   <div class="col-md">
                     <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
@@ -48,7 +51,7 @@
                 <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
                 </p>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" id="1">
                 <div class="row justify-content-center">
                     <div class="col-md">
                         <h1 class="text-center"><strong>Instruktioner</strong></h1>
@@ -56,7 +59,7 @@
                 </div>
                 <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" id="2">
                 <div class="col-md">
                     <h1 class="text-center"><strong>Instruktioner</strong></h1>
                 </div>
@@ -66,16 +69,19 @@
             </div>
 
             <a class="carousel-control-prev" href="#info-carousel" role="button" data-slide="prev">
-              <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span> -->
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+
               <button type="button" class="button continue_button">Tillbaka</button>
             </a>
 
               <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
-                <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span> -->
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
 
                 <button type="button" class="button continue_button">Fortsätt</button>
+
+                <button type="button" class="playbutton carousel-hide-button">Spela</button>
               </a>
 
 
@@ -83,10 +89,13 @@
 </div>
 
     <!-- Optional JavaScript -->
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="js/animations.js"></script>
+
 </body>
 </html>
