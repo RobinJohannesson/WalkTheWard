@@ -59,6 +59,8 @@ class QuestionController extends Controller
             $question = Question::find($questionId);
             $correctAnswerId = $question->correctAnswer;
 
+            // $oldStars = $placeId->place;
+
             $correctAnswer = "";
             if ($correctAnswerId == 1) {
                 $correctAnswer = $question->answer1;

@@ -98,6 +98,19 @@ p {
     text-decoration: none;
 }
 
+#homeplaybutton {
+    background-color: #4CAF50;
+    border: 3px dashed #F6E67F;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 50px;
+    margin: 0px 5px;
+    padding: 5px 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
 
 .exercise_button{
     background-color:#E34478;
@@ -112,8 +125,22 @@ p {
 }
 
 .home_map_pic{
-    width: 600px;
+    max-width: 100%;
 }
+
+#exit_button{
+    background-color:#F8070D;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    margin: 10px 5px;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
 
 =======
 >>>>>>> ea0b8e5102273ac1c0007b4520465fa44e2a4c06
@@ -248,4 +275,14 @@ ol.carousel-indicators li.active {
 #maptest {
     width: 305px;
     height: 421px;
+}
+
+.play-button-video-question {
+    display: none;
+    font-size: 150px;
+    color: white;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right: 0;
 }
