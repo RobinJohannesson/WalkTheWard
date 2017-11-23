@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!-- Load scripts before JS? -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 </head>
