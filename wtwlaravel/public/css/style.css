@@ -98,6 +98,19 @@ p {
     text-decoration: none;
 }
 
+#homeplaybutton {
+    background-color: #4CAF50;
+    border: 3px dashed #F6E67F;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 50px;
+    margin: 0px 5px;
+    padding: 5px 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
 
 .exercise_button{
     background-color:#E34478;
@@ -112,7 +125,11 @@ p {
 }
 
 .home_map_pic{
-    width: 600px;
+    max-width: 100%;
+}
+
+#homescore {
+    margin-top: 100px;
 }
 
 =======
