@@ -74,7 +74,7 @@ class HomeController extends Controller
             $totalStars =+ $numberOfStar;
         }
 
-        return view('home_screen', compact(['totalStars', 'maxStars']));
+        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId']));
     }
 
     public function showArea(Request $request)
@@ -88,10 +88,43 @@ class HomeController extends Controller
         // Hämta GameId
         $gameId = $patient->game->id;
 
-        $places_in_game = Places_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
-        // $themequestionIds = Question::where('themeId', $currentThemeId)->pluck('id')->toArray();
+        $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
-        return view('home_screen', compact(['places_in_game']));
+        $allAreas = Map::Find(1)->areas;
+
+        $allPlaces = 0;
+        foreach ($allAreas as $area) {
+            $allPlaces += count($area->places);
+        }
+
+        $maxStars = $allPlaces * 3;
+
+        $totalStars = 0;
+        foreach ($numberOfStarslist as $numberOfStar) {
+            $totalStars =+ $numberOfStar;
+        }
+
+        try {
+
+        }
+
+        catch (\Exception $e) {
+            $error = $e->getMessage();
+            $response = array(
+                'status' => 'error',
+                'msg' => $error
+            );
+            return response()->json($response);
+        }
+
+        $response = array(
+            'status' => 'success',
+            'totalStars' => $totalStars,
+            'maxStars' => $maxStars,
+            'gameId' => $gameId
+        );
+        // return view('home_screen', compact(['totalStars', 'maxStars', 'gameId']));
+        return response()->json($response);
     }
 
     /**
