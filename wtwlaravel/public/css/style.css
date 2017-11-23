@@ -138,7 +138,7 @@ p {
     padding: 5px 25px;
     text-align: center;
     text-decoration: none;
-    
+
 }
 
 
@@ -210,24 +210,26 @@ h1 {
 ol.carousel-indicators {
     position: absolute;
     bottom: 0;
-    margin: 0;
-    left: 0;
-    right: 0;
-    width: auto;
+    margin-top: -10%;
+    /*left: 0;
+    right: 0;*/
 }
 
 ol.carousel-indicators li, ol.carousel-indicators li.active {
     float: left;
-    width: 33%;
-    height: 10px;
-    margin: 0;
+    width: 25px;
+    height: 25px;
     border-radius: 0;
     border: 0;
-    background: transparent;
+    background: #cccccc;
+    border-radius: 25px;
+    margin-right: 3%;
 }
 
 ol.carousel-indicators li.active {
-    background: blue;
+    background: grey;
+    border-radius: 25px;
+    margin-right: 3%;
 }
 
 .carousel-control-prev {
@@ -237,7 +239,7 @@ ol.carousel-indicators li.active {
 
 .carousel-control-prev button {
   position: absolute;
-  bottom: 0;
+  bottom: -100px;
   left: 0;
 }
 
@@ -249,7 +251,7 @@ ol.carousel-indicators li.active {
 
 .carousel-control-next button {
   position: absolute;
-  bottom: 0;
+  bottom: -100px;
   right: 0;
 }
 
