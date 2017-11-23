@@ -35,7 +35,24 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="btn-new-user">
-
+                    <form action="{{{ url("statistics/store") }}}" method="POST">
+                        {{ csrf_field() }}
+                        <p>Ska du gå hem?</p>
+                        <input type="radio" name="hasGoneHome" value="1"> Ja<br>
+                        <input type="radio" name="hasGoneHome" value="0"> Nej<br>
+                        <p>Hur många dagar har du varit inlagd?</p>
+                        <select number="5" name="dayAmount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <p>Var spelet enkelt att spela?</p>
+                        <input type="radio" name="wasEasyToPlay" value="1"> Ja<br>
+                        <input type="radio" name="wasEasyToPlay" value="0"> Nej<br>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
             </div>
         </div>

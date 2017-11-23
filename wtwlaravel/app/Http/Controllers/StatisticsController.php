@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\statistics;
+use App\patient;
 
 class StatisticsController extends Controller
 {
@@ -34,12 +36,22 @@ class StatisticsController extends Controller
      */
     public function store(Request $request)
     {
+        $patientId = $request->cookie('patientId');
+
         $Statistics = new Statistics;
-        $Statistics->goHome = $request->goHome;
+
+        $Statistics->hasGoneHome = $request->hasGoneHome;
         $Statistics->dayAmount = $request->dayAmount;
         $Statistics->wasEasyToPlay = $request->wasEasyToPlay;
-        $Statistics->patiendId = $resuest->patientId;
         $Statistics->save();
+
+        $statisticId = $Statistics->id;
+
+        Patient::where(['id' => $patientId])->update(['statisticId' => $statisticId]);
+
+        $cookie = \Cookie::forget('patientId');
+
+        return redirect('/')->withCookie($cookie);
     }
 
     /**
