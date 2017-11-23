@@ -1,0 +1,50 @@
+#bonus-word {
+    font-family: monospace;
+    font-size: 80px;
+    margin: 20px;
+}
+
+#bonus-word span[class^="letter-"] {
+    margin: 0 10px;
+}
+
+.puzzle {
+    background-color: #55AF55;
+    min-width: 500px;
+    padding: 5px;
+    margin: 20px;
+}
+
+.puzzle-row {
+    height: 90px;
+}
+
+.puzzle-piece {
+    /*background-color: #ffffff;*/
+    height: 80px;
+    /*margin: 5px;*/
+    /*border-radius: 10px;*/
+    /*border: 3px solid;*/
+}
+
+.puzzle-piece.hidden-piece div {
+    background-color: transparent;
+    border: none;
+}
+
+.puzzle-piece div {
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.puzzle-piece p {
+    line-height: 2;
+    font-size: 40px;
+    margin: 0;
+    cursor: pointer;
+    pointer-events: none;
+}
