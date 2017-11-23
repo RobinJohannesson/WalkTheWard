@@ -45,7 +45,9 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::resource('bonus', "BonusController");
 
-    Route::resource('home', "HomeController");
+    Route::GET('home', "HomeController@index");
+
+    Route::POST('home', "HomeController@store");
 
     Route::resource('feedback', "FeedbackController");
 

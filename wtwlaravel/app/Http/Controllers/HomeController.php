@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home_screen');
+        //
     }
 
     /**
@@ -43,9 +43,20 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // Hämta PatientId från cookie
+        $patientId = $request->cookie('patientId');
+
+        // Hämta CurrentAreaId
+        $patient = Patient::find($patientId);
+
+        // Hämta GameId
+        $gameId = $patient->game->id;
+
+        $theme = Theme::all();
+
+        return view('home_screen');
     }
 
     /**
