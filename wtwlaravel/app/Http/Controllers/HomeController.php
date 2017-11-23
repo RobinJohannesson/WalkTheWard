@@ -95,21 +95,14 @@ class HomeController extends Controller
 
         $totalStars = 0;
         foreach ($places as $place) {
-            $pIG = Place_in_game::where('gameId', $gameId)->where('placeId', $placeId)->first();
+            $pIG = Place_in_game::where('gameId', $gameId)->where('placeId', $place->id)->first();
             if ($pIG) {
                 $totalStars += $pIG->numberOfStars;
             }
         }
-
-
-        $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
-
-        $allAreas = Map::Find(1)->areas;
-
+                
         $allPlaces = 0;
-        foreach ($allAreas as $area) {
-            $allPlaces += count($area->places);
-        }
+        $allPlaces = count(Area::find($areaId)->places);
 
         $maxStars = $allPlaces * 3;
 

@@ -59,7 +59,7 @@
                 </div>
                  <div class="col-md-6">
                      <h1 class="text-center">Syd Östra Skåne</h1>
-                     <p>Antal poäng: {{$totalStars}}/{{$maxStars}}</p>
+                     <p>Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
                      <p>Antal steg: 340</p>
                      <button type="button" class="button exercise_button">Dagens rörelse</button>
                 </div>
@@ -102,6 +102,8 @@
                     success: function(data) { // Om det LYCKADES att spara data
                         console.log(data);
 
+                         $('#totalStars').html(data['totalStars']);
+                         $('#maxStars').html(data['maxStars']);
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
