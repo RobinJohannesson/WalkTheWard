@@ -76,9 +76,58 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('places')->insert([
-            'name' => str_random(10),
-            'description' => str_random(10),
+            'name' => "Malmö",
+            'description' => "Malmö description",
             'stationId' => 1,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Lund",
+            'description' => "Lund description",
+            'stationId' => 2,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Revingehed",
+            'description' => "Revingehed description",
+            'stationId' => 3,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Svedala",
+            'description' => "Svedala description",
+            'stationId' => 4,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Skurup",
+            'description' => "Skurup description",
+            'stationId' => 5,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Smygehamn",
+            'description' => "Smygehamn description",
+            'stationId' => 6,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Trelleborg",
+            'description' => "Trelleborg description",
+            'stationId' => 7,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Höllviken",
+            'description' => "Höllviken description",
+            'stationId' => 8,
             'areaId' => 1,
         ]);
 
