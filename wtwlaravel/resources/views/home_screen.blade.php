@@ -15,7 +15,9 @@
 </head>
 <body>
     <div class="container-fluid">
+         <div id="spacerow">
         <div class="row justify-content-end">
+           
             <div class="col-md-8">
                 <button type="button" id="exit_button">Avsluta</button>
             </div>
@@ -24,6 +26,11 @@
                 <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
                 </div>
             </div>
+                
+            
+            
+        </div>
+            
         </div>
         <div class="row justify-content-start">
                 <div class="col-md-6">
