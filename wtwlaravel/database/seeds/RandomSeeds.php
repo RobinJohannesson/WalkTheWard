@@ -131,6 +131,13 @@ class RandomSeeds extends Seeder
             'areaId' => 1,
         ]);
 
+        DB::table('places')->insert([
+            'name' => "Helsingborg",
+            'description' => "Helsingborg description",
+            'stationId' => 1,
+            'areaId' => 2,
+        ]);
+
         DB::table('place_in_games')->insert([
             'placeId' => 1,
             'gameId' => 1,

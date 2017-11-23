@@ -79,6 +79,7 @@ class HomeController extends Controller
 
     public function showArea(Request $request)
     {
+        try {
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
 
@@ -87,6 +88,19 @@ class HomeController extends Controller
 
         // Hämta GameId
         $gameId = $patient->game->id;
+
+        $areaId = $request->areaId;
+
+        $places = Area::find($areaId)->places;
+
+        $totalStars = 0;
+        foreach ($places as $place) {
+            $pIG = Place_in_game::where('gameId', $gameId)->where('placeId', $placeId)->first();
+            if ($pIG) {
+                $totalStars += $pIG->numberOfStars;
+            }
+        }
+
 
         $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
@@ -99,15 +113,8 @@ class HomeController extends Controller
 
         $maxStars = $allPlaces * 3;
 
-        $totalStars = 0;
-        foreach ($numberOfStarslist as $numberOfStar) {
-            $totalStars =+ $numberOfStar;
-        }
-
-        try {
 
         }
-
         catch (\Exception $e) {
             $error = $e->getMessage();
             $response = array(
