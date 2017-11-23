@@ -30,131 +30,131 @@
         <div class="row justify-content-start">
             <div class="col-md-2">
                 {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal" data-backdrop="static">
-                    Testa modal
-                </button> --}}
-            </div>
-            <div class="col-md-8">
-                <p id="answer-message" class="text-center"></p>
-            </div>
+                Testa modal
+            </button> --}}
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                @if ($question->imageSource)
-                    <img src="{{url('/')}}/images/question_images/{{$question->imageSource}}"
-                    alt="Bild för frågan." id="question-img">
-                @elseif ($question->videoSource)
-                    <i class="fa fa-play-circle fa-6 play-button-video-question" aria-hidden="true"></i>
-                    <video id="question-video" autoplay loop="loop" onclick="this.paused ? this.play() : this.pause();">
-                        <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4"></source>
-                        Your browser does not support the video tag.
-                    </video>
-                @else
-                    <p>
-                        Ingen bild eller video finns.
+        <div class="col-md-8">
+            <p id="answer-message" class="text-center"></p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            @if ($question->imageSource)
+                <img src="{{url('/')}}/images/question_images/{{$question->imageSource}}"
+                alt="Bild för frågan." id="question-img">
+            @elseif ($question->videoSource)
+                <i class="fa fa-play-circle fa-6 play-button-video-question" aria-hidden="true"></i>
+                <video id="question-video" autoplay loop="loop">
+                    <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4"></source>
+                    Your browser does not support the video tag.
+                </video>
+            @else
+                <p>
+                    Ingen bild eller video finns.
+                </p>
+            @endif
+        </div>
+        <div class="col-md-6">
+            <button id="answer-1" class="button button-answer {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
+                {{ $question->answer1 }}
+            </button>
+            <button id="answer-2" class="button button-answer {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
+                {{ $question->answer2 }}
+            </button>
+            <button id="answer-3" class="button button-answer {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
+                {{ $question->answer3 }}
+            </button>
+            <button id="answer-4" class=" button button-answer {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
+                {{ $question->answer4 }}
+            </button>
+
+            <input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
+            <input id="placeId" type="hidden" name="placeId" value="{{$placeId}}">
+            <input id="questionId" type="hidden" name="questionId" value="{{$question->id}}">
+
+            <audio id="audio-right">
+                <source src="{{url('/')}}/audio/264981_renatalmar_sfx-magic.ogg" type="audio/ogg"></source>
+            </audio>
+            <audio id="audio-wrong">
+                <source src="{{url('/')}}/audio/362650_ethraiel_soft-alert.ogg" type="audio/ogg"></source>
+            </audio>
+            <audio id="audio-star1">
+                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/ogg" ></source>
+            </audio>
+            <audio id="audio-star2">
+                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/ogg"></source>
+            </audio>
+            <audio id="audio-star3">
+                <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/ogg"></source>
+            </audio>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal-dialog modal-lg" role="document"> --}}
+    <div class="modal-dialog modal-custom-width" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultsModalLabel">Modal title</h5>
+                {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button> --}}
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 id="title-value">
+                        #YOLO
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Rätt svar:
                     </p>
-                @endif
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="answer-value"></span>
+                    </p>
+                </div>
             </div>
-            <div class="col-md-6">
-                <button id="answer-1" class="button button-answer {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
-                    {{ $question->answer1 }}
-                </button>
-                <button id="answer-2" class="button button-answer {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
-                    {{ $question->answer2 }}
-                </button>
-                <button id="answer-3" class="button button-answer {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
-                    {{ $question->answer3 }}
-                </button>
-                <button id="answer-4" class=" button button-answer {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
-                    {{ $question->answer4 }}
-                </button>
-
-                <input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
-                <input id="placeId" type="hidden" name="placeId" value="{{$placeId}}">
-                <input id="questionId" type="hidden" name="questionId" value="{{$question->id}}">
-
-                <audio id="audio-right">
-                    <source src="{{url('/')}}/audio/264981_renatalmar_sfx-magic.ogg" type="audio/ogg"></source>
-                </audio>
-                <audio id="audio-wrong">
-                    <source src="{{url('/')}}/audio/362650_ethraiel_soft-alert.ogg" type="audio/ogg"></source>
-                </audio>
-                <audio id="audio-star1">
-                    <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/mp3" ></source>
-                </audio>
-                <audio id="audio-star2">
-                    <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/mp3"></source>
-                </audio>
-                <audio id="audio-star3">
-                    <source src="{{url('/')}}/audio/162467_311243-lq.ogg" type="audio/mp3"></source>
-                </audio>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Antal stjärnor:
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="stars-value"></span>
+                        <span id="new-highscore"></span>
+                    </p>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Antal steg:
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="steps-value"></span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="{{url('/')}}/scan" type="button" class="btn btn-primary">Fortsätt spela</a>
         </div>
     </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        {{-- <div class="modal-dialog modal-lg" role="document"> --}}
-        <div class="modal-dialog modal-custom-width" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="resultsModalLabel">Modal title</h5>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> --}}
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2 id="title-value">
-                            #YOLO
-                        </h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <p class="text-right">
-                            Rätt svar:
-                        </p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p>
-                            <span id="answer-value"></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <p class="text-right">
-                            Antal stjärnor:
-                        </p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p>
-                            <span id="stars-value"></span>
-                            <span id="new-highscore"></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <p class="text-right">
-                            Antal steg:
-                        </p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p>
-                            <span id="steps-value"></span>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <a href="{{url('/')}}/scan" type="button" class="btn btn-primary">Fortsätt spela</a>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 
 <!-- Optional JavaScript -->
@@ -175,6 +175,19 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+
+    $('#question-video').click(function(event) {
+        if (event.target.paused) {
+            $(".play-button-video-question").hide();
+            event.target.play();
+        }
+        else {
+            $(".play-button-video-question").show();
+            event.target.pause();
+        }
+    });
+
+
     var starsAmount = 3;
     $('.button-answer').click(function(){
 
@@ -184,6 +197,7 @@ $(document).ready(function(){
 
             // Pausa video om den finns
             if (document.getElementById("question-video")) {
+                $(".play-button-video-question").show();
                 document.getElementById("question-video").pause();
             }
 
