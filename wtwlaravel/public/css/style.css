@@ -196,6 +196,11 @@ ol.carousel-indicators li.active {
 .button-theme {
     width: 550px;
     background-color: white;
+    margin-bottom: 50px;
+}
+
+.align-left {
+    text-align: left;
 }
 
 #maptest {
