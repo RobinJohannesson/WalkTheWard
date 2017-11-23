@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    {{-- <link rel="stylesheet" href="{{url('/')}}/css/style.css"> --}}
+    <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
@@ -20,21 +21,14 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
-            </div>
-            <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
-            </div>
-            <div class="col-md">
-                statistics
+            <div class="col-md-6"> 
+                <h1 class="text-center">Statistik</h1>
             </div>
 
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <div class="btn-new-user">
+                <div class="btn-new-u ser">
                     <form action="{{{ url("statistics/store") }}}" method="POST">
                         {{ csrf_field() }}
                         <p>Ska du gå hem?</p>
