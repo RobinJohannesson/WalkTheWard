@@ -203,6 +203,29 @@ ol.carousel-indicators li.active {
     background: blue;
 }
 
+.carousel-control-prev {
+  height: 0;
+  position: relative;
+}
+
+.carousel-control-prev button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.carousel-control-next {
+  height: 0;
+  position: relative;
+  float: right;
+}
+
+.carousel-control-next button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 #themehead {
     margin-bottom: 100px;
 }
