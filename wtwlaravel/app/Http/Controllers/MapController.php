@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\patient;
+use App\game;
+use App\place;
+use App\place_in_game;
+use App\area;
+use App\theme;
+use App\question;
+use App\question_in_game;
 
 class MapController extends Controller
 {
@@ -36,9 +43,28 @@ class MapController extends Controller
      */
     public function store(Request $request)
     {
-        $Game = Game::firstOrCreate("id", "=", $request->patientId)->first();
-        $Game->currentArea = $request->mapSelected;
-        $Game->save();
+        // $Game = Game::firstOrCreate("id", "=", $request->patientId)->first();
+        // $Game->currentArea = $request->mapSelected;
+        // $Game->save();
+        try {
+            $areaId = $request->areaId;
+            $gameId = $request->gameId;
+            Game::where(['id' => $gameId])->update(['areaId' => $areaId]);
+        }
+        catch (\Exception $e) {
+            $error = $e->getMessage();
+            $response = array(
+                'status' => 'error',
+                'msg' => $error
+            );
+            return response()->json($response);
+        }
+
+        $response = array(
+            'status' => 'success'
+        );
+
+        return response()->json($response);
     }
 
     /**
