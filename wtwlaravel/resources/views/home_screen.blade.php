@@ -16,6 +16,9 @@
 <body>
     <div class="container-fluid">
         <div class="row justify-content-end">
+            <div class="col-md-8">
+                <button type="button" id="exit_button">Avsluta</button>
+            </div>
             <div class="col col-md-3">
                 <div class="text-center">
                 <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
