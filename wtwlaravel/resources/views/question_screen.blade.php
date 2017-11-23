@@ -224,7 +224,7 @@ $(document).ready(function(){
                 success: function(data) { // Om det LYCKADES att spara data
                     console.log(data);
                     $("#answer-value").html(data['correctAnswer']);
-
+                    
                     var starsHtml = "";
                     var numberOfStars = parseInt(data['numberOfStars'])
                     if (numberOfStars === 0) {
@@ -278,6 +278,12 @@ $(document).ready(function(){
                                 starAudio.pause();
                                 starAudio.currentTime = 0;
                                 starAudio.play();
+
+                                if ((i+1) == numberOfStars) {
+                                    if(data['isNewHighscore'] == true){
+                                        $("#new-highscore").html("Du har fått nytt rekord i " + data['placeName'] + "!" );
+                                    }
+                                }
 
                             },500 + ( i * 400 ));
                         });

@@ -54,12 +54,23 @@ class QuestionController extends Controller
             Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 1]);
 
             $placeId = $request->placeId;
+
             $numberOfStars = $request->starsAmount;
-            Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['numberOfStars' => $numberOfStars]);
+
+            $placeInGame = Place_in_game::where('placeId', $placeId)->where('gameId', $gameId)->first();
+            $oldStars = $placeInGame->numberOfStars;
+
             $question = Question::find($questionId);
             $correctAnswerId = $question->correctAnswer;
 
-            // $oldStars = $placeId->place;
+            $placeName = Place::find($placeId)->name;
+
+            $isNewHighscore = false;
+            if (intval($oldStars) < intval($numberOfStars)) {
+                $isNewHighscore = true;
+                // Uppdatera antal stjärnor om resutatet är bättre än föregående
+                Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['numberOfStars' => $numberOfStars]);
+            }
 
             $correctAnswer = "";
             if ($correctAnswerId == 1) {
@@ -90,7 +101,9 @@ class QuestionController extends Controller
         $response = array(
             'status' => 'success',
             'numberOfStars' => $numberOfStars,
-            'correctAnswer' => $correctAnswer
+            'correctAnswer' => $correctAnswer,
+            'placeName' => $placeName,
+            'isNewHighscore' => $isNewHighscore
         );
 
         return response()->json($response);
@@ -166,7 +179,7 @@ class QuestionController extends Controller
             foreach ($themeQuestions as $q) {
                 Question_in_game::where(['questionId' => $q->id, 'gameId' => $gameId])->update(['isAnswered' => 0]);
             }
-             $availableQuestion = $themequestionIds;
+            $availableQuestion = $themequestionIds;
         }
 
         $randomQuestionId = array_random($availableQuestion);
