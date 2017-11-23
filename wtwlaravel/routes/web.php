@@ -49,7 +49,9 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::resource('feedback', "FeedbackController");
 
-    Route::resource('statistics', "StatisticsController");
+    Route::GET('statistics', "StatisticsController@index");
+
+    Route::POST('statistics/store', "StatisticsController@store");
 
     Route::get('/home', 'HomeController@index')->name('home');
 
