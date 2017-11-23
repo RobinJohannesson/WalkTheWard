@@ -133,14 +133,18 @@ p {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 40px;
+    font-size: 38px;
     margin: 10px 5px;
-    padding: 5px 25px;
+    padding: 2px 10px;
     text-align: center;
     text-decoration: none;
 
 }
 
+#spacerow{
+    margin-bottom: 60px;
+    margin-top: 10px;
+}
 
 =======
 >>>>>>> ea0b8e5102273ac1c0007b4520465fa44e2a4c06

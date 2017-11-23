@@ -14,7 +14,27 @@ class RandomSeeds extends Seeder
         Schema::disableForeignKeyConstraints();
 
         DB::table('areas')->insert([
-            'name' => str_random(10),
+            'name' => "Nordvästra",
+            'mapId' => 1,
+        ]);
+
+        DB::table('areas')->insert([
+            'name' => "Nordöstra",
+            'mapId' => 1,
+        ]);
+
+        DB::table('areas')->insert([
+            'name' => "Centrala",
+            'mapId' => 1,
+        ]);
+
+        DB::table('areas')->insert([
+            'name' => "Sydvästra",
+            'mapId' => 1,
+        ]);
+
+        DB::table('areas')->insert([
+            'name' => "Sydöstra",
             'mapId' => 1,
         ]);
 
@@ -41,7 +61,7 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('maps')->insert([
-            'name' => str_random(10),
+            'name' => "Skåne",
         ]);
 
         DB::table('patients')->insert([
