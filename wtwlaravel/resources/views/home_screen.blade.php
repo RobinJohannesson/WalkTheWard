@@ -73,7 +73,30 @@
                 <button type="button" id="homeplaybutton">Spela --></button>
             </div>
         </div>
-
+        <!-- Modal -->
+        <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{-- <div class="modal-dialog modal-lg" role="document"> --}}
+            <div class="modal-dialog modal-custom-width" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resultsModalLabel">Dagens rörelse</h5>
+                </div>
+                <div class="modal-body">
+                    <video id="movement-video" loop="loop">
+                        <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4"></source>
+                    Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <p>
+                        Utförde du dagens rörelse?
+                    </p>
+                    <input type="submit" value="Ja">
+                    <input type="submit" value="Nej">
+                    <input type="submit" value="Vill inte">
+                </div>
+            </div>
+        </div>
     </div>
 
     <input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
@@ -85,6 +108,14 @@
     <script src="{{url('/')}}/js/jquery.rwdImageMaps.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(e) {
+            $('#movement-video').click(function(event) {
+                if (event.target.paused) {
+                    event.target.play();
+                }
+                else {
+                    event.target.pause();
+                }
+            });
             $('img[usemap]').rwdImageMaps();
             $('area').click(function(){
                 var areaId = $(this).attr("id");
@@ -119,6 +150,14 @@
 
             $('#exit_button').click(function(){
                 window.location.href = "{{url('/')}}/statistics";
+            });
+
+            $('.exercise_button').click(function(){
+                var video = $("#movement-video");
+                $('#resultsModal').modal({
+                    backdrop: "static"
+                });
+                video[0].play();
             });
         });
     </script>
