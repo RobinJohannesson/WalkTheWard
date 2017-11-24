@@ -74,7 +74,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="movementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             {{-- <div class="modal-dialog modal-lg" role="document"> --}}
             <div class="modal-dialog modal-custom-width" role="document">
                 <div class="modal-content">
@@ -91,9 +91,9 @@
                     <p>
                         Utförde du dagens rörelse?
                     </p>
-                    <input type="submit" value="Ja">
-                    <input type="submit" value="Nej">
-                    <input type="submit" value="Vill inte">
+                    <input class="todayMovementButton" type="submit" value="Ja">
+                    <input class="todayMovementButton" type="submit" value="Nej">
+                    <input class="todayMovementButton" type="submit" value="Vill inte">
                 </div>
             </div>
         </div>
@@ -156,10 +156,13 @@
                 var video = $("#movement-video");
                 $("#movement-video").height("100%");
                 $("#movement-video").width("100%");
-                $('#resultsModal').modal({
+                $('#movementModal').modal({
                     backdrop: "static"
                 });
                 video[0].play();
+            });
+            $('.todayMovementButton').click(function() {
+                $('#movementModal').modal('hide')
             });
         });
     </script>
