@@ -55,7 +55,7 @@
                             <label for="text-input" class="col-form-label">Förklara varför:</label>
                             <input class="form-control" type="text" id="text-input">
                         </div>
-                        <input type="submit" value="Skicka">
+                        <input type="submit" id="submit_button" value="Skicka">
                       </form>
              
             </div>

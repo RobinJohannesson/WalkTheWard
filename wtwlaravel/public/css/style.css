@@ -294,3 +294,9 @@ ol.carousel-indicators li.active {
     left: 0;
     right: 0;
 }
+
+#submit_button{
+    background-color: #1ECEC1;
+    color:white;
+    font-size: 30px;
+}
