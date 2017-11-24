@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <script type="text/javascript" src="{{url('/')}}/js/instascan.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -22,20 +23,24 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row justify-content-center">
-          
+
             <div class="col-md-6">
                 <h1 class="text-center">Walk the Ward</h1>
-                
+
             </div>
-            
+
 
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="btn-new-user">
-                    <video id="preview"></video>
+                    <video id="movement-video" autoplay loop="loop">
+                        <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4"></source>
+                    Your browser does not support the video tag.
+                    </video>
+                    {{-- <video id="preview"></video>
                     <script type="text/javascript">
                     let opts = {
                         // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
@@ -83,7 +88,7 @@
                     }).catch(function (e) {
                         console.error(e);
                     });
-                    </script>
+                    </script> --}}
                 </div>
             </div>
         </div>
