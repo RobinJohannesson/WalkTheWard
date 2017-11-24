@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <!-- Load scripts before JS? -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
+
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -46,13 +46,13 @@
                 <input type="number" name="age">
                 <br>
                 <br><p>Kön:</p>
-                <label class="radio-inline"><input type="radio" name="women" value="0"> Kvinna<br></label>
-                <label class="radio-inline"><input type="radio" name="man" value="1">Man<br></label>
-                <label class="radio-inline"><input type="radio" name="other" value="2"> Annat<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="0"> Kvinna<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="1">Man<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="2"> Annat<br></label>
                 <br>
                 <br><p>Typ av rum:</p>
-                <label class="radio-inline"><input type="radio" name="single" value="0"> singelrum<br></label>
-                <label class="radio-inline"><input type="radio" name="dubble" value="1">dubbelrum<br></label><br>
+                <label class="radio-inline"><input type="radio" name="roomType" value="0"> singelrum<br></label>
+                <label class="radio-inline"><input type="radio" name="roomType" value="1">dubbelrum<br></label><br>
                 <br><input type="submit" value="Skicka"><br>
             </form>
             </div>
