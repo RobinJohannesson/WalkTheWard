@@ -148,6 +148,43 @@
                     </p>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Du är just nu i:
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="place-value"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Du är just nu i:
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="area-value"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Du är just nu i:
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="map-value"></span>
+                    </p>
+                </div>
+            </div>
 
         </div>
         <div class="modal-footer">
@@ -243,6 +280,11 @@ $(document).ready(function(){
 
                     $("#steps-value").html(data['distanceAmount']);
 
+                    $("#place-value").html(data['placeName']);
+
+                    $("#area-value").html(data['areaName']);
+
+                    $("#map-value").html(data['mapName']);
 
                     $('.star-score-img').off('click').on('click', function() {
                         // Hindrar animationen från att köras mer en engång i taget
@@ -296,8 +338,6 @@ $(document).ready(function(){
                             starAudio.currentTime = 0;
                         });
                     });
-
-
 
                 }, // SLUT - Om det LYCKADES att spara data
                 error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data

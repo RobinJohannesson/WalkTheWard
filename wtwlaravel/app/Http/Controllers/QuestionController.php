@@ -11,6 +11,7 @@ use App\area;
 use App\theme;
 use App\question;
 use App\question_in_game;
+use App\map;
 
 class QuestionController extends Controller
 {
@@ -77,6 +78,17 @@ class QuestionController extends Controller
             $patient = Patient::find($patientId);
             $distanceAmount = $patient->distanceInMeter;
 
+            // Hämtar area
+            $game = Game::find($gameId);
+            $areaId = $game->areaId;
+            $area = Area::find($areaId);
+            $areaName = $area->name;
+
+            // Hämtar map
+            $mapId = $area->mapId;
+            $map = Map::find($mapId);
+            $mapName = $map->name;
+
             $correctAnswer = "";
             if ($correctAnswerId == 1) {
                 $correctAnswer = $question->answer1;
@@ -110,7 +122,10 @@ class QuestionController extends Controller
             'correctAnswer' => $correctAnswer,
             'placeName' => $placeName,
             'isNewHighscore' => $isNewHighscore,
-            'distanceAmount' => $distanceAmount
+            'distanceAmount' => $distanceAmount,
+            'placeName' => $placeName,
+            'areaName' => $areaName,
+            'mapName' => $mapName
         );
 
         return response()->json($response);
