@@ -274,6 +274,7 @@ ol.carousel-indicators li.active {
     width: 550px;
     background-color: white;
     margin-bottom: 50px;
+    border-radius: 10px;
 }
 
 .align-left {
