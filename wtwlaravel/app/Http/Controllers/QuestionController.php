@@ -88,6 +88,10 @@ class QuestionController extends Controller
             else {
                 $correctAnswer == null;
             }
+
+            // Skicka användaren till home om han svarat på alla (8) places (gått hela varvet)
+            $placeInGame = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
+            
         }
         catch (\Exception $e) {
             $error = $e->getMessage();
