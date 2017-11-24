@@ -76,6 +76,174 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('places')->insert([
+            'name' => "Helsingborg",
+            'description' => "Helsingborg description",
+            'stationId' => 1,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Ängelholm",
+            'description' => "Ängelholm description",
+            'stationId' => 2,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Båstad",
+            'description' => "Båstad description",
+            'stationId' => 3,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Örkelljunga",
+            'description' => "Örkelljunga description",
+            'stationId' => 4,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Perstorp",
+            'description' => "Perstorp description",
+            'stationId' => 5,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Klippan",
+            'description' => "Klippan description",
+            'stationId' => 6,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Svalöv",
+            'description' => "Svalöv description",
+            'stationId' => 7,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Landskrona",
+            'description' => "Landskrona description",
+            'stationId' => 8,
+            'areaId' => 1,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Kristianstad",
+            'description' => "Kristianstad description",
+            'stationId' => 1,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Åhus",
+            'description' => "Åhus description",
+            'stationId' => 2,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Degeberga",
+            'description' => "Degeberga description",
+            'stationId' => 3,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Tollarp",
+            'description' => "Tollarp description",
+            'stationId' => 4,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Sösdala",
+            'description' => "Sösdala description",
+            'stationId' => 5,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Hässleholm",
+            'description' => "Hässleholm description",
+            'stationId' => 6,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Broby",
+            'description' => "Broby description",
+            'stationId' => 7,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Bromölla",
+            'description' => "Bromölla description",
+            'stationId' => 8,
+            'areaId' => 2,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Eslöv",
+            'description' => "Eslöv description",
+            'stationId' => 1,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Stehag",
+            'description' => "Stehag description",
+            'stationId' => 2,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Höör",
+            'description' => "Höör description",
+            'stationId' => 3,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Fulltofta",
+            'description' => "Fulltofta description",
+            'stationId' => 4,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Hörby",
+            'description' => "Hörby description",
+            'stationId' => 5,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Långaröd",
+            'description' => "Långaröd description",
+            'stationId' => 6,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Östraby",
+            'description' => "Östraby description",
+            'stationId' => 7,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Hurva",
+            'description' => "Hurva description",
+            'stationId' => 8,
+            'areaId' => 3,
+        ]);
+
+        DB::table('places')->insert([
             'name' => "Malmö",
             'description' => "Malmö description",
             'stationId' => 1,
@@ -132,10 +300,59 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('places')->insert([
-            'name' => "Helsingborg",
-            'description' => "Helsingborg description",
+            'name' => "Ystad",
+            'description' => "Ystad description",
             'stationId' => 1,
-            'areaId' => 1,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Sjöbo",
+            'description' => "Sjöbo description",
+            'stationId' => 2,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Ravlunda",
+            'description' => "Ravlunda description",
+            'stationId' => 3,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Kivik",
+            'description' => "Kivik description",
+            'stationId' => 4,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Simrishamn",
+            'description' => "Simrishamn description",
+            'stationId' => 5,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Hammenhög",
+            'description' => "Hammenhög description",
+            'stationId' => 6,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Kåseberga",
+            'description' => "Kåseberga description",
+            'stationId' => 7,
+            'areaId' => 5,
+        ]);
+
+        DB::table('places')->insert([
+            'name' => "Tomelilla",
+            'description' => "Tomelilla description",
+            'stationId' => 8,
+            'areaId' => 5,
         ]);
 
         DB::table('place_in_games')->insert([
