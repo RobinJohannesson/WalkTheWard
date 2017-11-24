@@ -224,7 +224,7 @@ $(document).ready(function(){
                 success: function(data) { // Om det LYCKADES att spara data
                     console.log(data);
                     $("#answer-value").html(data['correctAnswer']);
-                    
+
                     var starsHtml = "";
                     var numberOfStars = parseInt(data['numberOfStars'])
                     if (numberOfStars === 0) {
@@ -241,7 +241,7 @@ $(document).ready(function(){
 
                     $("#stars-value").html(starsHtml);
 
-                    $("#steps-value").html('9001');
+                    $("#steps-value").html(data['distanceAmount']);
 
 
                     $('.star-score-img').off('click').on('click', function() {

@@ -72,6 +72,11 @@ class QuestionController extends Controller
                 Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['numberOfStars' => $numberOfStars]);
             }
 
+            // Hämtar distance för användaren(cookien)
+            $patientId = $request->cookie('patientId');
+            $patient = Patient::find($patientId);
+            $distanceAmount = $patient->distanceInMeter;
+
             $correctAnswer = "";
             if ($correctAnswerId == 1) {
                 $correctAnswer = $question->answer1;
@@ -89,7 +94,7 @@ class QuestionController extends Controller
                 $correctAnswer == null;
             }
         }
-        
+
         catch (\Exception $e) {
             $error = $e->getMessage();
             $response = array(
@@ -104,7 +109,8 @@ class QuestionController extends Controller
             'numberOfStars' => $numberOfStars,
             'correctAnswer' => $correctAnswer,
             'placeName' => $placeName,
-            'isNewHighscore' => $isNewHighscore
+            'isNewHighscore' => $isNewHighscore,
+            'distanceAmount' => $distanceAmount
         );
 
         return response()->json($response);
