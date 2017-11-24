@@ -300,3 +300,7 @@ ol.carousel-indicators li.active {
     color:white;
     font-size: 30px;
 }
+
+.radio-inline{
+    margin: 25px;
+}

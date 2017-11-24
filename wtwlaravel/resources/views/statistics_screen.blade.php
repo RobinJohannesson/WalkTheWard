@@ -49,8 +49,8 @@
                             <option value="5">5</option>
                         </select>
                         <p>Var spelet enkelt att spela?</p>
-                        <input type="radio" name="wasEasyToPlay" value="1"> Ja<br>
-                        <input type="radio" name="wasEasyToPlay" value="0"> Nej<br>
+                        <label class="radio-inline"><input type="radio" name="wasEasyToPlay" value="1"> Ja<br></label>
+                        <label class="radio-inline"><input type="radio" name="wasEasyToPlay" value="0"> Nej<br></label>
                         <div class="form-group row">
                             <label for="text-input" class="col-form-label">Förklara varför:</label>
                             <input class="form-control" type="text" id="text-input">
