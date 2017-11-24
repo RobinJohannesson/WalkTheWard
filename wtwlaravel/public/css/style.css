@@ -17,16 +17,24 @@ p {
     box-shadow: 0px 0px 10px rgba(87, 87, 87, 0.8);
     display: block;
     height: 250px;
-    width: 250px;
+    width: 300px;
     -webkit-box-shadow: 0px 0px 25px 3px rgba(87, 87, 87, 0.8);
     -moz-box-shadow: 0px 0px 5px 3px rgba(87, 87, 87, 0.8);
     margin: 0 auto;
 }
 
 .btn-new-user img {
-    display: block;
-    margin: auto;
+    display: inline-block;
+    margin: 0 0 0 20px;
     margin-top: 20px;
+}
+
+.btn-new-user i {
+    display: inline-block;
+    margin: 20px 0 0 20px;
+    margin-top: 20px;
+    color: #FF900B;
+    
 }
 
 .questionparagraph {
@@ -133,12 +141,13 @@ p {
     max-width: 100%;
 }
 .change_theme_button {
-    background-color: #007F7A;
+    background-color: #A7CA00;
     border: 3px dashed #F6E67F;
     border-radius: 10px;
     color: white;
     display: inline-block;
     font-size: 30px;
+    font-weight: bold;
     margin: 10px 5px;
     padding: 10px 30px;
     text-align: center;
