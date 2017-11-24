@@ -38,8 +38,8 @@
                     <form action="{{{ url("statistics/store") }}}" method="POST">
                         {{ csrf_field() }}
                         <p>Ska du gå hem?</p>
-                        <input type="radio" name="hasGoneHome" value="1"> Ja<br>
-                        <input type="radio" name="hasGoneHome" value="0"> Nej<br>
+                        <label class="radio-inline"><input type="radio" name="hasGoneHome" value="1"> Ja<br></label>
+                        <label class="radio-inline"><input type="radio" name="hasGoneHome" value="0"> Nej<br></label>
                         <p>Hur många dagar har du varit inlagd?</p>
                         <select number="5" name="dayAmount">
                             <option value="1">1</option>
