@@ -27,7 +27,7 @@
         <div class="row justify-content-center">
 
             <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
+                <h1 class="text-center">Skanna en QR-KOD</h1>
 
             </div>
 
@@ -35,12 +35,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <div class="btn-new-user">
-                    <video id="movement-video" autoplay loop="loop">
-                        <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4"></source>
-                    Your browser does not support the video tag.
-                    </video>
-                    {{-- <video id="preview"></video>
+                <video id="movement-video" autoplay loop="loop">
+                    <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4"></source>
+                Your browser does not support the video tag.
+                </video>
+                {{-- <video id="preview"></video>
                     <script type="text/javascript">
                     let opts = {
                         // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
@@ -89,7 +88,6 @@
                         console.error(e);
                     });
                     </script> --}}
-                </div>
             </div>
         </div>
     </div>
