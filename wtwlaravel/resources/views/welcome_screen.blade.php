@@ -34,10 +34,10 @@
 
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <a href="{{url('/')}}/registration" id="link-new-user">
                 <div class="btn-new-user">
-                     <img src="{{url('/')}}/images/start-user.png" alt="user" height="200px">
+                    <img src="{{url('/')}}/images/start-user.png" alt="user" height="200px"><i class="fa fa-plus fa-3x" aria-hidden="true"></i>
                 </div>
                 </a>
             </div>
