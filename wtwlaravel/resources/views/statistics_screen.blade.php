@@ -34,7 +34,6 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
-
                     <form action="{{{ url("statistics/store") }}}" method="POST">
                         {{ csrf_field() }}
                         <p>Ska du gå hem?</p>

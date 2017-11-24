@@ -35,11 +35,10 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h1 class="text-center">Walk the Ward</h1>
-                <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h3 align="center" id="registration">Registrering</h3>
             <form action="{{{ url("registration") }}}" method="POST">
                 {{ csrf_field() }}
@@ -54,7 +53,7 @@
                 <br><p>Typ av rum:</p>
                 <label class="radio-inline"><input type="radio" name="single" value="0"> singelrum<br></label>
                 <label class="radio-inline"><input type="radio" name="dubble" value="1">dubbelrum<br></label><br>
-                <input type="submit" value="Submit"><br>
+                <br><input type="submit" value="Skicka"><br>
             </form>
             </div>
         </div>
