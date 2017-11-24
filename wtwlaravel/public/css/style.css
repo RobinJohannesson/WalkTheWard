@@ -132,6 +132,18 @@ p {
 .home_map_pic{
     max-width: 100%;
 }
+.change_theme_button {
+    background-color: #007F7A;
+    border: 3px dashed #F6E67F;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px 5px;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+}
 
 #exit_button{
     background-color:#F8070D;

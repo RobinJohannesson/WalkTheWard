@@ -28,15 +28,12 @@
 
             <div class="col-md-6">
                 <h1 class="text-center">Skanna en QR-KOD</h1>
-
             </div>
-
-
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <video id="movement-video" autoplay loop="loop">
-                    <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4"></source>
+                    <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4" ></source>
                 Your browser does not support the video tag.
                 </video>
                 {{-- <video id="preview"></video>
@@ -90,7 +87,11 @@
                     </script> --}}
             </div>
         </div>
-    </div>
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <button type="button" class="button change_theme_button">Ändra tema</button>
+                </div>
+            </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
