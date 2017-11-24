@@ -61,7 +61,7 @@ class RegistrationController extends Controller
 
 
 
-        return redirect('map')->withCookie($cookie);
+        return redirect('information')->withCookie($cookie);
     }
 
     /**
