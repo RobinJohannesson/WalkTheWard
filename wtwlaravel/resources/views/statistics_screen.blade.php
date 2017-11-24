@@ -51,8 +51,12 @@
                         <p>Var spelet enkelt att spela?</p>
                         <input type="radio" name="wasEasyToPlay" value="1"> Ja<br>
                         <input type="radio" name="wasEasyToPlay" value="0"> Nej<br>
+                        <div class="form-group row">
+                            <label for="text-input" class="col-form-label">Förklara varför:</label>
+                            <input class="form-control" type="text" id="text-input">
+                        </div>
                         <input type="submit" value="Skicka">
-                    </form>
+                      </form>
              
             </div>
         </div>
