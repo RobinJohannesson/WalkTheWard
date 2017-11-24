@@ -98,7 +98,9 @@
     <div class="modal-dialog modal-custom-width" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="resultsModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="resultsModalLabel">
+                    Tema: {{ $currentTheme->name }}
+                </h5>
                 {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button> --}}
@@ -107,7 +109,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2 id="title-value">
-                        #YOLO
+                        <span id="map-value"></span>
                     </h2>
                 </div>
             </div>
@@ -157,31 +159,6 @@
                 <div class="col-sm-8">
                     <p>
                         <span id="place-value"></span>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <p class="text-right">
-                        Du är just nu i:
-                    </p>
-                </div>
-                <div class="col-sm-8">
-                    <p>
-                        <span id="area-value"></span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <p class="text-right">
-                        Du är just nu i:
-                    </p>
-                </div>
-                <div class="col-sm-8">
-                    <p>
-                        <span id="map-value"></span>
                     </p>
                 </div>
             </div>
@@ -280,11 +257,10 @@ $(document).ready(function(){
 
                     $("#steps-value").html(data['distanceAmount']);
 
-                    $("#place-value").html(data['placeName']);
-
-                    $("#area-value").html(data['areaName']);
-
-                    $("#map-value").html(data['mapName']);
+                    $("#map-value").append(data['mapName'] + "->");
+                    $("#map-value").append(data['areaName'] + "->");
+                    $("#map-value").append(data['placeName']);
+                    $("#place-value").append(data['placeName']);
 
                     $('.star-score-img').off('click').on('click', function() {
                         // Hindrar animationen från att köras mer en engång i taget
