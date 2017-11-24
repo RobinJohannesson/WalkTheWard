@@ -112,6 +112,14 @@
                     }
                 }); // SLUT - Om det MISSLYCKADES att spara data
             });
+
+            $('#homeplaybutton').click(function(){
+                window.location.href = "{{url('/')}}/scan";
+            });
+
+            $('#exit_button').click(function(){
+                window.location.href = "{{url('/')}}/statistics";
+            });
         });
     </script>
 </body>
