@@ -58,6 +58,9 @@ class HomeController extends Controller
         // Hämta GameId
         $gameId = $patient->game->id;
 
+        // Hämtar distanceInMeter
+        $distanceAmount = $patient->distanceInMeter;
+
         $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
         $allAreas = Map::Find(1)->areas;
@@ -74,7 +77,7 @@ class HomeController extends Controller
             $totalStars =+ $numberOfStar;
         }
 
-        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId']));
+        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount']));
     }
 
     public function showArea(Request $request)
@@ -100,7 +103,7 @@ class HomeController extends Controller
                 $totalStars += $pIG->numberOfStars;
             }
         }
-                
+
         $allPlaces = 0;
         $allPlaces = count(Area::find($areaId)->places);
 

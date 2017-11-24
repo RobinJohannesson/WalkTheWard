@@ -60,7 +60,7 @@
                  <div class="col-md-6">
                      <h1 class="text-center">Syd Östra Skåne</h1>
                      <p>Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
-                     <p>Antal steg: 340</p>
+                     <p>Antal steg: {{$distanceAmount}}</p>
                      <button type="button" class="button exercise_button">Dagens rörelse</button>
                 </div>
         </div>
@@ -154,6 +154,8 @@
 
             $('.exercise_button').click(function(){
                 var video = $("#movement-video");
+                $("#movement-video").height("100%");
+                $("#movement-video").width("100%");
                 $('#resultsModal').modal({
                     backdrop: "static"
                 });
