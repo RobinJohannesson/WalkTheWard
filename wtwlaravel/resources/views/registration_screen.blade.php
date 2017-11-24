@@ -46,13 +46,13 @@
                 <input type="number" name="age">
                 <br>
                 <br><p>Kön:</p>
-                <label class="radio-inline"><input type="radio" name="gender" value="0"> Kvinna<br></label>
-                <label class="radio-inline"><input type="radio" name="gender" value="1">Man<br></label>
-                <label class="radio-inline"><input type="radio" name="gender" value="2"> Annat<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Kvinna"> Kvinna<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Man">Man<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Annat"> Annat<br></label>
                 <br>
                 <br><p>Typ av rum:</p>
-                <label class="radio-inline"><input type="radio" name="roomType" value="0"> singelrum<br></label>
-                <label class="radio-inline"><input type="radio" name="roomType" value="1">dubbelrum<br></label><br>
+                <label class="radio-inline"><input type="radio" name="roomType" value="1"> singelrum<br></label>
+                <label class="radio-inline"><input type="radio" name="roomType" value="2">dubbelrum<br></label><br>
                 <br><input type="submit" value="Skicka"><br>
             </form>
             </div>
