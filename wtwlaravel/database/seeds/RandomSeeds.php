@@ -727,6 +727,41 @@ class RandomSeeds extends Seeder
             'wardId' => 1,
         ]);
 
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 2,
+        ]);
+
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 3,
+        ]);
+
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 4,
+        ]);
+
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 5,
+        ]);
+        
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 6,
+        ]);
+
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 7,
+        ]);
+
+        DB::table('stations')->insert([
+            'imageSource' => str_random(10),
+            'wardId' => 8,
+        ]);
+
         DB::table('statistics')->insert([
             'hasGoneHome' => 1,
             'dayAmount' => 2,
