@@ -8,28 +8,39 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
-    {{-- <link rel="stylesheet" href="{{url('/')}}/css/style.css"> --}}
+    <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!-- Load scripts before JS? -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">-->
 </head>
 <body>
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col col-md-3">
-                <img src="./images/help.png" alt="Help">
-                <p class="text-center">Hjälp</p>
+                <div class="text-center">
+                    <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
+                </div>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md">
-                <img src="./images/logo.png" alt="Logo">
-            </div>
             <div class="col-md-6">
                 <h1 class="text-center">Walk the Ward</h1>
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
-            <div class="col-md">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6" align="center">
                 registrering
-            </div>
             <form action="{{{ url("registration") }}}" method="POST">
                 {{ csrf_field() }}
                 Ålder:
@@ -40,17 +51,9 @@
                 <input type="number" name="roomType"><br>
                 <input type="submit" value="Submit">
             </form>
-
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="btn-new-user">
-
-                </div>
             </div>
         </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
