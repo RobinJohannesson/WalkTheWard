@@ -44,11 +44,11 @@ class RandomSeeds extends Seeder
             'placeId' => 1,
         ]);
 
-        /*DB::table('bonus_games_in_games')->insert([
-            'isCompleted' => true,
+        DB::table('bonus_game_in_games')->insert([
+            'isCompleted' => 1,
             'bonusGameId' => 1,
             'gameId' => 1,
-        ]);*/
+        ]);
 
         DB::table('characters')->insert([
             'name' => str_random(10),
@@ -713,8 +713,6 @@ class RandomSeeds extends Seeder
             'videoSource' => null,
             'themeId' => 4,
         ]);
-
-
 
         DB::table('question_in_games')->insert([
             'questionId' => 1,

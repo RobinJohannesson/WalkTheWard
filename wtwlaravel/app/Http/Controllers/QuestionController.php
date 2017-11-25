@@ -93,8 +93,34 @@ class QuestionController extends Controller
 
             // Kollar om bonusfråga finns
             if (Bonus_game::where('placeId', $placeId)->first()){
-                $bonusGame = "... Gissa!";
-                $bonusUrl = "/bonus";
+                $bonusGameExist = Bonus_game::where('placeId', $placeId)->first();
+                $bonusGameId = $bonusGameExist->id;
+                // Kollar om bonus_game_in_game finns, annars skapa de
+                try{
+                    $bonusGameInGame = Bonus_game_in_game::where('bonusGameId', $bonusGameId)->where('gameId', $gameId)->first();
+                    $bonusGameInGameIsCompleted = $bonusGameInGame->isCompleted;
+
+                    // Kollar om bonusfrågan är besvarad
+                    if ($bonusGameInGameIsCompleted == 1){
+                        $bonusGame = $placeName;
+                        $bonusUrl = "/scan";
+                    }
+                    else{
+                        $bonusGame = "... Gissa!";
+                        $bonusUrl = "/bonus";
+                    }
+                }
+
+                // Skapar bonus_game_in_game
+                catch (\Exception $e) {
+                    $bonusGameInGame = new Bonus_game_in_game;
+                    $bonusGameInGame->bonusGameId = $bonusGameId;
+                    $bonusGameInGame->gameId = $gameId;
+                    $bonusGameInGame->isCompleted = 0;
+                    $bonusGameInGame->save();
+                    $bonusGame = $placeName;
+                    $bonusUrl = "/bonus";
+                }
             }
             else{
                 $bonusGame = $placeName;
