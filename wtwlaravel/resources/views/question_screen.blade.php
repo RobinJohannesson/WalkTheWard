@@ -260,8 +260,9 @@ $(document).ready(function(){
                     $("#map-value").append(data['mapName'] + "->");
                     $("#map-value").append(data['areaName'] + "->");
                     $("#map-value").append(data['placeName']);
-                    $("#place-value").append(data['placeName']);
+
                     $("#bonus-value").append(data['bonusGame']);
+                    $(".btn-primary").attr("href", data['bonusUrl']);
 
                     $('.star-score-img').off('click').on('click', function() {
                         // Hindrar animationen från att köras mer en engång i taget

@@ -94,9 +94,11 @@ class QuestionController extends Controller
             // Kollar om bonusfråga finns
             if (Bonus_game::where('placeId', $placeId)->first()){
                 $bonusGame = "... Gissa!";
+                $bonusUrl = "/bonus";
             }
             else{
                 $bonusGame = $placeName;
+                $bonusUrl = "/scan";
             }
 
             $correctAnswer = "";
@@ -136,7 +138,8 @@ class QuestionController extends Controller
             'placeName' => $placeName,
             'areaName' => $areaName,
             'mapName' => $mapName,
-            'bonusGame' => $bonusGame
+            'bonusGame' => $bonusGame,
+            'bonusUrl' => $bonusUrl
         );
 
         return response()->json($response);
