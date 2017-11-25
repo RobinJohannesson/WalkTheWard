@@ -30,7 +30,7 @@
                     <div class="row no-gutters puzzle-row justify-content-around">
                         <div class="col-3 puzzle-piece">
                             <div>
-                                <p>M</p>
+                                <p>{{$bonusGameId}}</p>
                             </div>
                         </div>
                         <div class="col-3 puzzle-piece">

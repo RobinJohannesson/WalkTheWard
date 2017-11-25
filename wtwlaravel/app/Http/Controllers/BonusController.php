@@ -11,9 +11,11 @@ class BonusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $id)
     {
-        return view('bonus_screen');
+        // Hämtar bonus_game Id
+        $bonusGameId = $id;
+        return view('bonus_screen', compact(["bonusGameId"]));
     }
 
     /**
