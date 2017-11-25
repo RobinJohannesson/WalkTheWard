@@ -43,7 +43,7 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::POST('question/store', 'QuestionController@store');
 
-    Route::resource('bonus', "BonusController");
+    Route::GET('bonus/{id}', "BonusController@index");
 
     Route::GET('home', "HomeController@showAll");
 

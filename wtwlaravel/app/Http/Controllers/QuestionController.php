@@ -107,7 +107,7 @@ class QuestionController extends Controller
                     }
                     else{
                         $bonusGame = "... Gissa!";
-                        $bonusUrl = "/bonus";
+                        $bonusUrl = "/bonus/$bonusGameId";
                     }
                 }
 
@@ -119,7 +119,7 @@ class QuestionController extends Controller
                     $bonusGameInGame->isCompleted = 0;
                     $bonusGameInGame->save();
                     $bonusGame = $placeName;
-                    $bonusUrl = "/bonus";
+                    $bonusUrl = "/bonus/$bonusGameId";
                 }
             }
             else{
