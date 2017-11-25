@@ -12,6 +12,8 @@ use App\theme;
 use App\question;
 use App\question_in_game;
 use App\map;
+use App\bonus_game;
+use App\bonus_game_in_game;
 
 class QuestionController extends Controller
 {
@@ -89,6 +91,14 @@ class QuestionController extends Controller
             $map = Map::find($mapId);
             $mapName = $map->name;
 
+            // Kollar om bonusfråga finns
+            if (Bonus_game::where('placeId', $placeId)->first()){
+                $bonusGame = "... Gissa!";
+            }
+            else{
+                $bonusGame = $placeName;
+            }
+
             $correctAnswer = "";
             if ($correctAnswerId == 1) {
                 $correctAnswer = $question->answer1;
@@ -125,7 +135,8 @@ class QuestionController extends Controller
             'distanceAmount' => $distanceAmount,
             'placeName' => $placeName,
             'areaName' => $areaName,
-            'mapName' => $mapName
+            'mapName' => $mapName,
+            'bonusGame' => $bonusGame
         );
 
         return response()->json($response);

@@ -158,7 +158,7 @@
                 </div>
                 <div class="col-sm-8">
                     <p>
-                        <span id="place-value"></span>
+                        <span id="bonus-value"></span>
                     </p>
                 </div>
             </div>
@@ -261,6 +261,7 @@ $(document).ready(function(){
                     $("#map-value").append(data['areaName'] + "->");
                     $("#map-value").append(data['placeName']);
                     $("#place-value").append(data['placeName']);
+                    $("#bonus-value").append(data['bonusGame']);
 
                     $('.star-score-img').off('click').on('click', function() {
                         // Hindrar animationen från att köras mer en engång i taget
