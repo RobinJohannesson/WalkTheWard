@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bonus_game;
 
 class BonusController extends Controller
 {
@@ -15,6 +16,8 @@ class BonusController extends Controller
     {
         // Hämtar bonus_game Id
         $bonusGameId = $id;
+        $bonusGame = Bonus_game::find($bonusGameId);
+        $bonusGameLetters = $bonusGame->lettersToDiscard;
         return view('bonus_screen', compact(["bonusGameId"]));
     }
 
