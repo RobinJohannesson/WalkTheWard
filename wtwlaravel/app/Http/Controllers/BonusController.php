@@ -19,6 +19,10 @@ class BonusController extends Controller
         $bonusGame = Bonus_game::find($bonusGameId);
         $bonusGameLetters = $bonusGame->lettersToDiscard;
 
+        // Om de är färre än 5, skapar strängar
+        $bonusGameLettersShuffledCut = $bonusGameLetters;
+        $bonusGameLettersRemain = "____";
+
         // Kollar om staden innehåller fler än 5 bokstäver
         if (strlen($bonusGameLetters) > 5) {
             // Slumpar runt bokstäverna
