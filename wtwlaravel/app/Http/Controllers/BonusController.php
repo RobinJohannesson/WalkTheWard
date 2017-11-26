@@ -18,7 +18,18 @@ class BonusController extends Controller
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
         $bonusGameLetters = $bonusGame->lettersToDiscard;
-        return view('bonus_screen', compact(["bonusGameId"]));
+        // Fyller på bokstäver om de är under 12
+        while (strlen($bonusGameLetters) < 12) {
+            $bonusGameLetters = $bonusGameLetters . chr(rand(97,122));
+        }
+        // Slumpar runt bokstäverna
+        $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
+        // Gör alla bokstäver små
+        $bonusGameLettersShuffledLower = strToLower($bonusGameLettersShuffled);
+        // Skapar en lista av bokstäverna
+        $bonusGameLettersArray = str_split($bonusGameLettersShuffledLower);
+
+        return view('bonus_screen', compact(["bonusGameLettersArray"]));
     }
 
     /**

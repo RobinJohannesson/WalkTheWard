@@ -27,52 +27,35 @@
 
             <div class="col">
                 <div class="text-center puzzle">
-                    <div class="row no-gutters puzzle-row justify-content-around">
+                    {{-- <div class="row no-gutters puzzle-row justify-content-around"> --}}
+                        {{-- @foreach ($bonusGameLettersArray as $letter)
                         <div class="col-3 puzzle-piece">
                             <div>
-                                <p>{{$bonusGameId}}</p>
+                                <p>{{ $letter }}</p>
                             </div>
                         </div>
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row no-gutters puzzle-row justify-content-around">
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                        <div class="col-3 puzzle-piece">
-                            <div>
-                                <p>M</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row no-gutters puzzle-row justify-content-around">
-                        <div class="col-3 puzzle-piece">
+                        @endforeach --}}
+
+                        @php
+                        $count = 1;
+                        foreach( $bonusGameLettersArray as $letter ){
+                            if ($count%4 == 1)
+                            {
+                                echo "<div class='row no-gutters puzzle-row justify-content-around'>";
+                            }
+                            echo "<div class='col-3 puzzle-piece'>
+                                <div>
+                                    <p>$letter</p>
+                                </div>
+                            </div>";
+                            if ($count%4 == 0)
+                            {
+                                echo "</div>";
+                            }
+                            $count++;
+                        }
+                        @endphp
+                        {{-- <div class="col-3 puzzle-piece">
                             <div>
                                 <p>M</p>
                             </div>
@@ -115,6 +98,50 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row no-gutters puzzle-row justify-content-around">
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters puzzle-row justify-content-around">
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div>
+                        <div class="col-3 puzzle-piece">
+                            <div>
+                                <p>M</p>
+                            </div>
+                        </div> --}}
+                    {{-- </div> --}}
                 </div>
             </div>
 
