@@ -42,9 +42,10 @@ class BonusController extends Controller
         $whileBonusUnder12Int = strlen($bonusGameLettersShuffledCut);
         // Fyller ut till 12 bokstäver
         while ( $whileBonusUnder12Int < 12) {
-            $bonusGameLetters = $bonusGameLettersShuffledCut . chr(rand(97,122));
+            $bonusGameLettersShuffledCut .=  chr(rand(97,122));
             $whileBonusUnder12Int ++;
         }
+        $test = $whileBonusUnder12Int;
         // Slumpar runt bokstäverna
         $bonusGameLettersShuffled = str_shuffle($bonusGameLettersShuffledCut);
         // Gör alla bokstäver små
@@ -54,7 +55,7 @@ class BonusController extends Controller
         // Skapar en lista av återstående bokstäver
         $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
 
-        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters"]));
+        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "test"]));
     }
 
     /**

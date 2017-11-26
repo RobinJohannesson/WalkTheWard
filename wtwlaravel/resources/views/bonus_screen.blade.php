@@ -26,6 +26,7 @@
         <div class="row justify-content-center">
 
             <div class="col">
+                {{$test}}
                 <div class="text-center puzzle">
                     {{-- <div class="row no-gutters puzzle-row justify-content-around"> --}}
                         {{-- @foreach ($bonusGameLettersArray as $letter)
@@ -45,7 +46,7 @@
                             }
                             echo "<div class='col-3 puzzle-piece'>
                                 <div>
-                                    <p>$letter</p>
+                                    <p class='imageLetters'>$letter</p>
                                 </div>
                             </div>";
                             if ($count%4 == 0)
@@ -148,7 +149,7 @@
             <div class="col">
                 <h1 id="bonus-word" class="text-center">
                     @foreach ($bonusGameLettersShuffledRestArray as $restLetter)
-                        {{$restLetter}}
+                        <span class="fullPlaceName">{{$restLetter}}</span>
                     @endforeach
                     {{-- <span class="letter-m">_</span><span class="letter-a">_</span><span class="letter-l">_</span><span class="letter-m">_</span><span class="letter-ö">Ö</span> --}}
                 </h1>
@@ -157,6 +158,7 @@
         </div>
     </div>
 
+    <input id="bonusGameLetters" type="hidden" name="bonusGameLetters" value="{{$bonusGameLetters}}">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -165,10 +167,23 @@
 
     <script type="text/javascript">
     $(document).ready(function(e) {
+        $bonusGameLetters = $('#bonusGameLetters').val();
         $('.puzzle-piece').on('click', function(event) {
             event.preventDefault();
             $(this).addClass('hidden-piece');
             $(this).children("div").children("p").hide();
+            console.log($(this).children("div").children("p"));
+            console.log($(this).children("div").children("p")[0].innerText);
+            if($bonusGameLetters.indexOf($(this).children("div").children("p")[0].innerText) !== -1) {
+                $bonusWord = $('#bonus-word')[0].innerText;
+                console.log($bonusWord);
+                console.log($(this).children("div").children("p")[0].innerText + " finns i: " + $bonusGameLetters);
+                $bonusGameLettersPos = $bonusGameLetters.indexOf($(this).children("div").children("p")[0].innerText);
+                console.log($bonusGameLettersPos);
+                $bonusWordReturn = $bonusWord.replace("_",$(this).children("div").children("p")[0].innerText);
+                // $bonusWordReturn = $bonusWord.replace($bonusGameLettersPos,$(this).children("div").children("p")[0].innerText)
+                console.log($bonusWordReturn);
+            }
         });
     });
     </script>
