@@ -147,7 +147,10 @@
 
             <div class="col">
                 <h1 id="bonus-word" class="text-center">
-                    <span class="letter-m">_</span><span class="letter-a">_</span><span class="letter-l">_</span><span class="letter-m">_</span><span class="letter-ö">Ö</span>
+                    @foreach ($bonusGameLettersShuffledRestArray as $restLetter)
+                        {{$restLetter}}
+                    @endforeach
+                    {{-- <span class="letter-m">_</span><span class="letter-a">_</span><span class="letter-l">_</span><span class="letter-m">_</span><span class="letter-ö">Ö</span> --}}
                 </h1>
             </div>
 

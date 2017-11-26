@@ -18,18 +18,37 @@ class BonusController extends Controller
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
         $bonusGameLetters = $bonusGame->lettersToDiscard;
-        // Fyller på bokstäver om de är under 12
-        while (strlen($bonusGameLetters) < 12) {
-            $bonusGameLetters = $bonusGameLetters . chr(rand(97,122));
+
+        // Kollar om staden innehåller fler än 5 bokstäver
+        if (strlen($bonusGameLetters) > 5) {
+            // Slumpar runt bokstäverna
+            $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
+            // hämtar 5 bokstäver från staden
+            $bonusGameLettersShuffledCut = substr($bonusGameLettersShuffled, 0, 5);
+            $fiveTimes = 0;
+            $bonusGameLettersRemain = $bonusGameLetters;
+            // Ersätter alla bokstäver som ska användas till spelet till "_"
+            while ($fiveTimes < 5) {
+                $bonusGameLettersRemain = str_replace($bonusGameLettersShuffledCut[$fiveTimes],"_",$bonusGameLettersRemain);
+                $fiveTimes ++;
+            }
+        }
+        $whileBonusUnder12Int = strlen($bonusGameLettersShuffledCut);
+        // Fyller ut till 12 bokstäver
+        while ( $whileBonusUnder12Int < 12) {
+            $bonusGameLetters = $bonusGameLettersShuffledCut . chr(rand(97,122));
+            $whileBonusUnder12Int ++;
         }
         // Slumpar runt bokstäverna
-        $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
+        $bonusGameLettersShuffled = str_shuffle($bonusGameLettersShuffledCut);
         // Gör alla bokstäver små
         $bonusGameLettersShuffledLower = strToLower($bonusGameLettersShuffled);
         // Skapar en lista av bokstäverna
         $bonusGameLettersArray = str_split($bonusGameLettersShuffledLower);
+        // Skapar en lista av återstående bokstäver
+        $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
 
-        return view('bonus_screen', compact(["bonusGameLettersArray"]));
+        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray"]));
     }
 
     /**
