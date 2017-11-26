@@ -20,8 +20,10 @@ class BonusController extends Controller
         $bonusGameLetters = $bonusGame->lettersToDiscard;
 
         // Om de är färre än 5, skapar strängar
-        $bonusGameLettersShuffledCut = $bonusGameLetters;
-        $bonusGameLettersRemain = "____";
+        if (strlen($bonusGameLetters) <= 5) {
+            $bonusGameLettersShuffledCut = $bonusGameLetters;
+            $bonusGameLettersRemain = str_repeat("_",strlen($bonusGameLetters));
+        }
 
         // Kollar om staden innehåller fler än 5 bokstäver
         if (strlen($bonusGameLetters) > 5) {
@@ -52,7 +54,7 @@ class BonusController extends Controller
         // Skapar en lista av återstående bokstäver
         $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
 
-        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray"]));
+        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters"]));
     }
 
     /**
