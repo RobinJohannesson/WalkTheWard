@@ -8,17 +8,19 @@ use App\Bonus_game;
 class BonusController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index(Request $request, $id)
     {
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
         // ex. helsingborg eller lund
-        $bonusGameLetters = $bonusGame->lettersToDiscard;
+        $bonusGameLettersDB = $bonusGame->lettersToDiscard;
+        // Gör bokstäverna stora
+        $bonusGameLetters = strToUpper($bonusGameLettersDB);
 
         // Om de är färre än 5, skapar strängar
         if (strlen($bonusGameLetters) <= 5) {
@@ -33,12 +35,13 @@ class BonusController extends Controller
             // Slumpar runt bokstäverna
             // ex. hligogesnbr (helsingborg)
             $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
-            // hämtar 5 bokstäver från staden
-            // ex. hingb
+            // ex. esnbr (5 slumpmässiga bokstäver från helsingborg)
             $bonusGameLettersShuffledCut = substr($bonusGameLettersShuffled, 0, 5);
-            $fiveTimes = 0;
+
             // ex. helsingborg
             $bonusGameLettersRemain = $bonusGameLetters;
+            // Counter
+            $fiveTimes = 0;
             // Ersätter alla bokstäver som ska användas till spelet till "_"
             while ($fiveTimes < 5) {
                 $bonusGameLettersRemain = str_replace($bonusGameLettersShuffledCut[$fiveTimes],"_",$bonusGameLettersRemain);
@@ -49,16 +52,20 @@ class BonusController extends Controller
         $whileBonusUnder12Int = strlen($bonusGameLettersShuffledCut);
         // Fyller ut till 12 bokstäver med slumpmässigt mellan a-ö
         while ( $whileBonusUnder12Int < 12) {
-            $bonusGameLettersShuffledCut .=  chr(rand(97,122));
-            $whileBonusUnder12Int ++;
+            $charRand = chr(rand(65,90));
+            if(strpos($bonusGameLettersShuffledCut, $charRand) === false){
+                $bonusGameLettersShuffledCut .=  $charRand;
+                $whileBonusUnder12Int ++;
+            }
         }
+
         $test = $whileBonusUnder12Int;
         // Slumpar runt bokstäverna
         $bonusGameLettersShuffled = str_shuffle($bonusGameLettersShuffledCut);
         // Gör alla bokstäver små
-        $bonusGameLettersShuffledLower = strToLower($bonusGameLettersShuffled);
+        $bonusGameLettersShuffledUpper = strToUpper($bonusGameLettersShuffled);
         // Skapar en lista av bokstäverna
-        $bonusGameLettersArray = str_split($bonusGameLettersShuffledLower);
+        $bonusGameLettersArray = str_split($bonusGameLettersShuffledUpper);
         // Skapar en lista av återstående bokstäver
         $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
 
@@ -66,21 +73,21 @@ class BonusController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
         $BonusGameInGame = BonusGameInGame::where("gameId", "=", $request->gameId)->first();
@@ -89,45 +96,45 @@ class BonusController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
         //
