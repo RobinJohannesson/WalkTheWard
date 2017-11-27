@@ -328,4 +328,9 @@ ol.carousel-indicators li.active {
 
 .button-theme{
     background-color: cadetblue;
+    color: white;
+}
+
+#themehead_bold{
+    font-weight: bold;
 }
