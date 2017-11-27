@@ -99,7 +99,7 @@ p {
 
 .playbutton {
     background-color: #4CAF50;
-    border: 3px dashed #F6E67F;
+    border: 3px dotted #F6E67F;
     border-radius: 10px;
     color: white;
     display: inline-block;
@@ -324,4 +324,8 @@ ol.carousel-indicators li.active {
 
 .radio-inline{
     margin: 5px 30px;
+}
+
+.button-theme{
+    background-color: cadetblue;
 }
