@@ -44,7 +44,7 @@
             <!-- Your slides -->
             <div class="carousel-inner">
 
-              <div class="carousel-item active">
+              <div class="carousel-item active" id="1">
                 <div class="row justify-content-end">
                   <div class="col-md">
                     <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
@@ -71,15 +71,11 @@
             </div>
 
             <a class="carousel-control-prev" href="#info-carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
 
               <button type="button" class="button continue_button">Tillbaka</button>
             </a>
 
               <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
 
                 <button type="button" class="button continue_button">Fortsätt</button>
 
@@ -97,20 +93,29 @@
       $('#info-carousel').on('slide.bs.carousel', function (ev) {
         var id = ev.relatedTarget.id;
           switch (id) {
-            case "1":
-            if($('carousel-item').carousel(1).hasClass('active'))
+            case "0":
+            if($('carousel-item').carousel(0).hasClass('active'))
             {
               alert("this is an alert");
             };
               break;
-            case "2":
+            case "1":
               // do something the id is 2
+              if($('carousel-item').carousel(1).hasClass('active'))
+              {
+                alert("this is an alert");
+              };
               break;
-            case "3":
+            case "2":
               // do something the id is 3
+              if($('#info-carousel').carousel(2).hasClass('active'))
+              {
+                alert("this is an alert");
+              };
               break;
             default:
               //the id is none of the above
+              //alert("this is an alert");
           }
         });
       });
