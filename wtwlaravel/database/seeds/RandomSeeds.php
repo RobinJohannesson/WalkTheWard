@@ -61,27 +61,10 @@ class RandomSeeds extends Seeder
             'imageSource' => "örkelljunga.jpg",
             'placeId' => 4,
         ]);
+        
         DB::table('bonus_game_in_games')->insert([
             'isCompleted' => 1,
             'bonusGameId' => 1,
-            'gameId' => 1,
-        ]);
-
-        DB::table('bonus_game_in_games')->insert([
-            'isCompleted' => 1,
-            'bonusGameId' => 2,
-            'gameId' => 1,
-        ]);
-
-        DB::table('bonus_game_in_games')->insert([
-            'isCompleted' => 1,
-            'bonusGameId' => 3,
-            'gameId' => 1,
-        ]);
-
-        DB::table('bonus_game_in_games')->insert([
-            'isCompleted' => 1,
-            'bonusGameId' => 4,
             'gameId' => 1,
         ]);
 
