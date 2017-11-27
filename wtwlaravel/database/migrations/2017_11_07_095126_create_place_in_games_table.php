@@ -18,6 +18,7 @@ class CreatePlaceInGamesTable extends Migration
             $table->unsignedInteger('placeId')->nullable();
             $table->unsignedInteger('gameId')->nullable();
             $table->integer('numberOfStars')->nullable();
+            $table->boolean('activeRound')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });
