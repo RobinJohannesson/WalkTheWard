@@ -91,6 +91,27 @@ class QuestionController extends Controller
             $map = Map::find($mapId);
             $mapName = $map->name;
 
+            // Hämtar placeInGame activeRound
+            $placeActiveRound =  $placeInGame->activeRound;
+
+            // Uppdaterar activeRound till 1
+            Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['activeRound' => 1]);
+
+            // Hämtar en lista av gameId alla activeRound
+            $placeActiveRoundArray = Place_in_game::where('gameId', $gameId)->pluck('activeRound')->toArray();
+            $counts = array_count_values($placeActiveRoundArray);
+            $placeActiveRound = $counts[1] . " antal städer";
+            $placeInGameBool = false;
+            if ($placeActiveRound == 8) {
+                $placeActiveRound = $counts[1] . "! Du är klar med hela " . $areaName . " " . $mapName;
+
+                // Nollställer alla activeRound
+                Place_in_game::where('gameId', $gameId)->update(['activeRound' => 0]);
+
+                // Skapar variabel om användaren svarat på 8 stationer
+                $placeInGameBool = true;
+            }
+
             // Kollar om bonusfråga finns
             if (Bonus_game::where('placeId', $placeId)->first()){
                 $bonusGameExist = Bonus_game::where('placeId', $placeId)->first();
@@ -103,7 +124,15 @@ class QuestionController extends Controller
                     // Kollar om bonusfrågan är besvarad
                     if ($bonusGameInGameIsCompleted == 1){
                         $bonusGame = $placeName;
-                        $bonusUrl = "/scan";
+                        // Kollar om användaren svarat på alla 8 städer
+                        if ($placeInGameBool == true) {
+                            // Skickar användaren hem
+                            $bonusUrl = "/home";
+                        }
+                        if ($placeInGameBool == false) {
+                            // Skickar användaren till skanningen
+                            $bonusUrl = "/scan";
+                        }
                     }
                     else{
                         $bonusGame = "... Gissa!";
@@ -165,7 +194,8 @@ class QuestionController extends Controller
             'areaName' => $areaName,
             'mapName' => $mapName,
             'bonusGame' => $bonusGame,
-            'bonusUrl' => $bonusUrl
+            'bonusUrl' => $bonusUrl,
+            'placeActiveRound' => $placeActiveRound
         );
 
         return response()->json($response);
@@ -204,6 +234,7 @@ class QuestionController extends Controller
             $newPlaceInGame->gameId = $gameId;
             $newPlaceInGame->placeId = $placeId;
             $newPlaceInGame->numberOfStars = 0;
+            $newPlaceInGame->activeRound = 0;
             $newPlaceInGame->save();
         }
 

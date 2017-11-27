@@ -162,6 +162,18 @@
                     </p>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="text-right">
+                        Du har besökt:
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <p>
+                        <span id="round-value"></span>
+                    </p>
+                </div>
+            </div>
 
         </div>
         <div class="modal-footer">
@@ -260,6 +272,7 @@ $(document).ready(function(){
                     $("#map-value").append(data['mapName'] + "->");
                     $("#map-value").append(data['areaName'] + "->");
                     $("#map-value").append(data['placeName']);
+                    $("#round-value").append(data['placeActiveRound']);
 
                     $("#bonus-value").append(data['bonusGame']);
                     $(".btn-primary").attr("href", data['bonusUrl']);
