@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/css/style-theme.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
@@ -28,9 +29,12 @@
             </div>
         </div>
         <div class="row justify-content-start">
+            @php
+                $count = 1
+            @endphp
             @foreach ($theme as $t)
             <div class="col-md-6 col-theme">
-                <button class="button-theme" data-theme-id="{{ $t->id }}">
+                <button class="button-theme theme-color-{{$count++}}" data-theme-id="{{ $t->id }}">
                     <h2 class="align-center">
                         <div id="themehead_bold">
                        <img src="./images/circle2.png" alt="icon" width="70px" height="auto">
@@ -39,6 +43,11 @@
                       </h2>
                  </button>
             </div>
+            @php
+                if ($count == 7) {
+                    $count = 1;
+                }
+            @endphp
             @endforeach
             {{-- <div class="col-md-6">
                 <h2 align="center"><img src="./images/circle.png" alt="icon" width="70px" height="auto"> Trädgård</h2>
