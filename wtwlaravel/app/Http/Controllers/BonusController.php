@@ -17,21 +17,27 @@ class BonusController extends Controller
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
+        // ex. helsingborg eller lund
         $bonusGameLetters = $bonusGame->lettersToDiscard;
 
         // Om de är färre än 5, skapar strängar
         if (strlen($bonusGameLetters) <= 5) {
+            // lund
             $bonusGameLettersShuffledCut = $bonusGameLetters;
+            // _ _ _ _ (utan mellanslag)
             $bonusGameLettersRemain = str_repeat("_",strlen($bonusGameLetters));
         }
 
         // Kollar om staden innehåller fler än 5 bokstäver
         if (strlen($bonusGameLetters) > 5) {
             // Slumpar runt bokstäverna
+            // ex. hligogesnbr (helsingborg)
             $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
             // hämtar 5 bokstäver från staden
+            // ex. hingb
             $bonusGameLettersShuffledCut = substr($bonusGameLettersShuffled, 0, 5);
             $fiveTimes = 0;
+            // ex. helsingborg
             $bonusGameLettersRemain = $bonusGameLetters;
             // Ersätter alla bokstäver som ska användas till spelet till "_"
             while ($fiveTimes < 5) {
@@ -39,8 +45,9 @@ class BonusController extends Controller
                 $fiveTimes ++;
             }
         }
+        // Tar fram längden av bokstäver som ska användas för bilden bokstäverna
         $whileBonusUnder12Int = strlen($bonusGameLettersShuffledCut);
-        // Fyller ut till 12 bokstäver
+        // Fyller ut till 12 bokstäver med slumpmässigt mellan a-ö
         while ( $whileBonusUnder12Int < 12) {
             $bonusGameLettersShuffledCut .=  chr(rand(97,122));
             $whileBonusUnder12Int ++;
