@@ -27,7 +27,7 @@
 
             <div class="col">
                 {{$test}}
-                <div class="text-center puzzle">
+                <div class="text-center puzzle" style="background-image:url('{{url('/')}}/images/bonus/{{$bonusGameImageSource}}');">
                     @php
                     $count = 1;
                     foreach( $bonusGameLettersArray as $letter ){
@@ -104,7 +104,7 @@
                         console.log("$bonusGameLetters: "+$bonusGameLetters);
                         if ($bonusGameLetters === $bonusWord) {
                             console.log("success");
-                            
+
                             $('.puzzle-piece').addClass('hidden-piece');
                             $('.puzzle-piece').children("div").children("p").hide();
                         }

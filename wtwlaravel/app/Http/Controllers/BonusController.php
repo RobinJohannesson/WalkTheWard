@@ -17,6 +17,8 @@ class BonusController extends Controller
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
+        // hämtar bildnamnet
+        $bonusGameImageSource = $bonusGame->imageSource;
         // ex. helsingborg eller lund
         $bonusGameLettersDB = $bonusGame->lettersToDiscard;
         // Gör bokstäverna stora
@@ -69,7 +71,7 @@ class BonusController extends Controller
         // Skapar en lista av återstående bokstäver
         $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
 
-        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "test"]));
+        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "test"]));
     }
 
     /**
