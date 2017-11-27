@@ -53,13 +53,13 @@ class RandomSeeds extends Seeder
         DB::table('bonus_games')->insert([
             'lettersToDiscard' => "Båstad",
             'imageSource' => "båstad.jpg",
-            'placeId' => 1,
+            'placeId' => 3,
         ]);
 
         DB::table('bonus_games')->insert([
             'lettersToDiscard' => "Örkelljunga",
             'imageSource' => "örkelljunga.jpg",
-            'placeId' => 1,
+            'placeId' => 4,
         ]);
         DB::table('bonus_game_in_games')->insert([
             'isCompleted' => 1,
