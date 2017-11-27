@@ -27,8 +27,10 @@
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col col-md-3">
-                <div class="text-right">
+                <div class="ribbon">
+                    <div class="text-right">
                     <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
         </div>

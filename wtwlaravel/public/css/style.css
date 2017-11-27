@@ -81,9 +81,25 @@ p {
 
 .fa_custom {
     color: #e2d4d4;
+    background-color: white;
     padding: 10px;
+    margin-right: 20px;
 }
-
+.ribbon {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 0;
+    height: 100px;
+    margin-left: 70px;
+    border: 50px solid white;
+    border-top: 0 solid;
+    border-bottom: 35px solid rgba(0,0,0,0);
+    font: normal 100%/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,0,0,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    }
 
 
 .continue_button {
