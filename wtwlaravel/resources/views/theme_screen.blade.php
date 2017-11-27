@@ -31,7 +31,7 @@
             @foreach ($theme as $t)
             <div class="col-md-6 col-theme">
                 <button class="button-theme" data-theme-id="{{ $t->id }}">
-                    <h2 class="align-left">
+                    <h2 class="align-center">
                         <div id="themehead_bold">
                        <img src="./images/circle2.png" alt="icon" width="70px" height="auto">
                         {{ $t->name }}
