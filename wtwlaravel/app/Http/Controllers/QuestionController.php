@@ -97,6 +97,16 @@ class QuestionController extends Controller
             // Uppdaterar activeRound till 1
             Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['activeRound' => 1]);
 
+            // Hämtar en lista med alla places för specifik area
+            // $placeIdArray = Place::where('areaId', $areaId)->pluck('id')->toArray();
+            // $placeActiveRoundArray = "";
+            // foreach ($placeIdArray as $placeIdInList) {
+            //     // Hämtar en lista av gameId och areaId alla activeRound
+            //     $placeTempObject = Place_in_game::where(['placeId' => $placeIdInList[0], 'gameId' => $gameId])->get();
+            //     $placeActiveRoundArray .= $placeTempObject;
+            // }
+            // $placeActiveRoundArray = $placeActiveRoundArray->toArray();
+
             // Hämtar en lista av gameId alla activeRound
             $placeActiveRoundArray = Place_in_game::where('gameId', $gameId)->pluck('activeRound')->toArray();
             $counts = array_count_values($placeActiveRoundArray);
