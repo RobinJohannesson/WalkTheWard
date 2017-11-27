@@ -12,19 +12,19 @@
     min-width: 500px;
     padding: 5px;
     margin: 20px;
-    background-color: #55AF55;
+    /*background-color: #55AF55;*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .puzzle-row {
-    height: 90px;
+    height: 155px;
 }
 
 .puzzle-piece {
     /*background-color: #ffffff;*/
-    height: 80px;
+    /*height: 200px;*/
     /*margin: 5px;*/
     /*border-radius: 10px;*/
     /*border: 3px solid;*/
@@ -45,8 +45,8 @@
 }
 
 .puzzle-piece p {
-    line-height: 2;
-    font-size: 40px;
+    line-height: 3;
+    font-size: 50px;
     margin: 0;
     cursor: pointer;
     pointer-events: none;
