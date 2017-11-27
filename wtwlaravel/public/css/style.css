@@ -25,12 +25,14 @@ p {
 
 .btn-new-user img {
     display: inline-block;
+    vertical-align: middle;
     margin: 0 0 0 20px;
     margin-top: 20px;
 }
 
 .btn-new-user i {
     display: inline-block;
+    vertical-align: middle;
     margin: 20px 0 0 20px;
     margin-top: 20px;
     color: #FF900B;
@@ -69,10 +71,7 @@ p {
     padding: 10px;
 }
 
-.fa-question-circle {
-  position: absolute;
-  right: 0;
-}
+
 
 .continue_button {
     background-color: #48A2A6;
