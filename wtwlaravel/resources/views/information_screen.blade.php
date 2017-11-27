@@ -53,7 +53,7 @@
                 <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
                 </p>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" id="2">
                 <div class="row justify-content-center">
                     <div class="col-md">
                         <h1 class="text-center"><strong>Instruktioner</strong></h1>
@@ -61,7 +61,7 @@
                 </div>
                 <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" id="3">
                 <div class="col-md">
                     <h1 class="text-center"><strong>Instruktioner</strong></h1>
                 </div>
@@ -70,7 +70,7 @@
               </div>
             </div>
 
-            <a class="carousel-control-prev" href="#info-carousel" role="button" data-slide="prev">
+            <a class="carousel-control-prev carousel-hide-button" href="#info-carousel" role="button" data-slide="prev">
 
               <button type="button" class="button continue_button">Tillbaka</button>
             </a>
@@ -78,10 +78,13 @@
               <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
 
                 <button type="button" class="button continue_button">Fortsätt</button>
-
-                <button type="button" class="playbutton carousel-hide-button">Spela</button>
               </a>
 
+            <!--</a class="start-game carousel-hide-button" href="#info-carousel" role="button" data-slide="next">
+
+              <button type="button" class="playbutton">Spela</button>
+
+            </a>-->
 
           </div>
 </div>
@@ -93,25 +96,19 @@
       $('#info-carousel').on('slide.bs.carousel', function (ev) {
         var id = ev.relatedTarget.id;
           switch (id) {
-            case "0":
-            if($('carousel-item').carousel(0).hasClass('active'))
-            {
-              alert("this is an alert");
-            };
-              break;
             case "1":
-              // do something the id is 2
-              if($('carousel-item').carousel(1).hasClass('active'))
-              {
-                alert("this is an alert");
-              };
+              $('a.carousel-control-prev').addClass('carousel-hide-button');
+              ('a.carousel-control-next').removeClass('carousel-hide-button');
               break;
             case "2":
+              // do something the id is 2
+              $('a.carousel-control-prev').removeClass('carousel-hide-button');
+              $('a.carousel-control-next').removeClass('carousel-hide-button');
+              break;
+            case "3":
               // do something the id is 3
-              if($('#info-carousel').carousel(2).hasClass('active'))
-              {
-                alert("this is an alert");
-              };
+              $('a.carousel-control-prev').removeClass('carousel-hide-button');
+              $('a.carousel-control-next').addClass('carousel-hide-button');
               break;
             default:
               //the id is none of the above

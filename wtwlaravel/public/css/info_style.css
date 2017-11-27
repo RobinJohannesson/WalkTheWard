@@ -52,5 +52,12 @@ ol.carousel-indicators li.active {
 }
 
 .carousel-hide-button {
+  all: none;
   display: none;
+}
+
+.playbutton {
+  position: absolute;
+  bottom: -100px;
+  right: 0;
 }
