@@ -4,8 +4,12 @@
     margin: 20px;
 }
 
-#bonus-word span[class^="letter-"] {
+/*#bonus-word span[class^="letter-"] {
     margin: 0 10px;
+}*/
+
+#bonus-word .fullPlaceName {
+    margin: 0 3px;
 }
 
 .puzzle {
@@ -50,4 +54,8 @@
     margin: 0;
     cursor: pointer;
     pointer-events: none;
+}
+
+#btnNext {
+    font-size: 2rem;
 }

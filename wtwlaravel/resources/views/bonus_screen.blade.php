@@ -26,7 +26,6 @@
         <div class="row justify-content-center">
 
             <div class="col">
-                {{$test}}
                 <div class="text-center puzzle" style="background-image:url('{{url('/')}}/images/bonus/{{$bonusGameImageSource}}');">
                     @php
                     $count = 1;
@@ -63,6 +62,11 @@
                 </h2>
             </div>
 
+        </div>
+        <div class="row justify-content-center">
+            <div class="col text-right">
+                <a href="{{url('/')}}/scan" type="button" class="btn btn-primary"><span id="btnNext">Hoppa över</span></a>
+            </div>
         </div>
     </div>
 
@@ -107,62 +111,13 @@
 
                             $('.puzzle-piece').addClass('hidden-piece');
                             $('.puzzle-piece').children("div").children("p").hide();
+                            $("#btnNext").html("Fortsätt spela");
                         }
                     }
                 }
-                //     // var bonusWord = $('.fullPlaceName');
-                //     var $bonusWord = $('#bonus-word')[0].innerText;
-                //     console.log("BonusWord "+$bonusWord);
-                //     console.log($(this).children("div").children("p")[0].innerText + " finns i: " + $bonusGameLetters);
-                //     var $bonusGameLettersPos = $bonusGameLettersIndexOf;
-                //     console.log($bonusGameLettersPos);
-                //     var $bonusWordReturn = $bonusWord.replace("_","Q");
-                //     // $bonusWordReturn = $bonusWord.replace($bonusGameLettersPos,$(this).children("div").children("p")[0].innerText)
-                //     console.log($bonusWordReturn + " got replaced");
             }
         });
     });
-
-    // var cityname="MALMÖ";
-    // var res=0;
-    //
-    // function pieceClicked(index){
-    //     //Check pressed value against cityname, display correct letters.
-    //     var char=document.getElementById("piece"+index).innerHTML;
-    //     if (cityname.indexOf(char) !== -1){
-    //         //Loop and find positions.
-    //         for (var i=0;i<cityname.length;i++) {
-    //             if (cityname.charAt(i) === char) {
-    //                 document.getElementById('guess_char' + i).innerHTML = char;
-    //                 res++;
-    //                 console.log("Res" + res + ", length:" + cityname.length);
-    //                 if (res === cityname.length) {
-    //                     //Finished
-    //
-    //                     document.getElementById("puzzle").innerHTML = " <img src='http://vardspel.se/WalkTheWard2017/public/images/cities/malmo.jpg' alt='Stad'>";
-    //
-    //                     document.getElementById('guess').innerHTML +=
-    //                     "<h4>Du löste det, Bra jobbat!</h4>";
-    //
-    //                 }
-    //
-    //             }
-    //         }
-    //     }
-    //     //Remove button
-    //     document.getElementById("piece"+index).style.backgroundColor="transparent";
-    //     document.getElementById("piece"+index).innerHTML="";
-    //
-    //
-    // }
-    // function setup() {
-    //     var html="";
-    //     for(var x=0;x<cityname.length;x++){
-    //         html+="<span id='guess_char"+x+"' class='guess_letter'>_</span><span class='space'> </span>";
-    //     }
-    //     document.getElementById('guess').innerHTML=html;
-    //
-    // }
     </script>
 </body>
 </html>
