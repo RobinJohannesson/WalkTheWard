@@ -53,7 +53,7 @@
                 <br><p>Typ av rum:</p>
                 <label class="radio-inline"><input type="radio" name="roomType" value="1"> singelrum<br></label>
                 <label class="radio-inline"><input type="radio" name="roomType" value="2">dubbelrum<br></label><br>
-                <br><input type="submit" value="Skicka"><br>
+                <br><input type="submit" id="submit_button" value="Skicka"><br>
             </form>
             </div>
         </div>
