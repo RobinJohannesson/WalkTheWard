@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/css/info_style.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <!-- Load scripts before JS? -->
@@ -65,7 +66,7 @@
                     <h1 class="text-center"><strong>Instruktioner</strong></h1>
                 </div>
                 <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
-                <p>Behöver du hjälp under spelets gång, tryck på det blåa frågetecknet uppe i högra hörnet för mer instruktioner.</p>
+                <p>Behöver du hjälp under spelets gång, tryck på det orangea frågetecknet uppe i högra hörnet för mer instruktioner.</p>
               </div>
             </div>
 
@@ -90,6 +91,30 @@
 </div>
 
     <!-- Optional JavaScript -->
+
+    <script>
+    $(document).ready(function(){
+      $('#info-carousel').on('slide.bs.carousel', function (ev) {
+        var id = ev.relatedTarget.id;
+          switch (id) {
+            case "1":
+            if($('carousel-item').carousel(1).hasClass('active'))
+            {
+              alert("this is an alert");
+            };
+              break;
+            case "2":
+              // do something the id is 2
+              break;
+            case "3":
+              // do something the id is 3
+              break;
+            default:
+              //the id is none of the above
+          }
+        });
+      });
+    </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
