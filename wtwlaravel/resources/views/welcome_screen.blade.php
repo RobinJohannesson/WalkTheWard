@@ -15,10 +15,8 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md">
-                <img src="./images/TheLogo.png" alt="Logo" class="img-responsive center-block">
-            </div>
+        <div class="row justify-content-end">
+
             <div class="col col-md-3">
                 <div class="text-center">
                 <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
