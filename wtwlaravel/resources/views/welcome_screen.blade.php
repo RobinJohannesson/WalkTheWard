@@ -23,9 +23,9 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="margin-bottom: 50px;">
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                  <h1 class="text-center">Walk The Ward </h1>
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel </h2>
             </div>
