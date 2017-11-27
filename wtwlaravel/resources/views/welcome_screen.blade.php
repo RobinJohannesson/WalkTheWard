@@ -35,13 +35,12 @@
             <div class="col-md-5">
                 <a href="{{url('/')}}/registration" id="link-new-user">
                 <div class="btn-new-user">
-                    <img src="{{url('/')}}/images/start-user.png" alt="user" height="200px"><i class="fa fa-plus fa-3x" aria-hidden="true"></i>
+                    <img src="{{url('/')}}/images/start-user.png" alt="user" height="190px"><i class="fa fa-plus fa-3x" aria-hidden="true"></i>
                 </div>
                 </a>
             </div>
         </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

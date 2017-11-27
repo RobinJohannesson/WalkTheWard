@@ -1,10 +1,17 @@
 html, body {
     font-family: 'Amatic SC', cursive;
     font-size: 24px;
+    background-color: #f1f1f1;
+    background-image: url("../images/ep_naturalwhite.png");
 }
 
 #link-new-user {
     display: block;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 70px;
 }
 
 p {
@@ -12,7 +19,8 @@ p {
 }
 
 .btn-new-user {
-    border: 4px dotted #C9C900;
+    border: 6px dotted #C9C900;
+    box-sizing: content-box;
     border-radius: 10px;
     box-shadow: -2px -1px 270px -13px rgba(151,212,72,1);
     display: block;
@@ -27,8 +35,7 @@ p {
 .btn-new-user img {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 0 0 20px;
-    margin-top: 32px;
+    margin: 35px 0 0 20px;
 }
 
 .btn-new-user i {
@@ -39,6 +46,12 @@ p {
     
 }
 
+#registration {
+    border: 6px double black;
+    box-sizing: content-box;
+    background-color: #f6f6f6;
+    border-radius: 20px;
+}
 .questionparagraph {
     font-size: 40px;
 }
@@ -67,7 +80,7 @@ p {
 }
 
 .fa_custom {
-    color: #FF900B;
+    color: #e2d4d4;
     padding: 10px;
 }
 
@@ -317,7 +330,7 @@ ol.carousel-indicators li.active {
 }
 
 #submit_button{
-    background-color: #1ECEC1;
+    background-color: #e2d4d4;
     color:white;
     font-size: 30px;
 }

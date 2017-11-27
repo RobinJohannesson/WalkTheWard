@@ -32,18 +32,13 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h1 class="text-center">Walk the Ward</h1>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <h3 align="center" id="registration">Registrering</h3>
-            <form action="{{{ url("registration") }}}" method="POST">
+        <div class="row justify-content-center" >
+            <div class="col-md-6" style="padding: 15px 60px 15px 60px"id="registration">
+                <h1 align="center">Registrering</h1>
+                <form action="{{{ url("registration") }}}" method="POST">
                 {{ csrf_field() }}
                 <p>Ålder: </p>
-                <input type="number" name="age">
+                <input type="number" name="age" style="border: 1px solid; border-radius: 5px;">
                 <br>
                 <br><p>Kön:</p>
                 <label class="radio-inline"><input type="radio" name="gender" value="Kvinna"> Kvinna<br></label>
@@ -53,7 +48,11 @@
                 <br><p>Typ av rum:</p>
                 <label class="radio-inline"><input type="radio" name="roomType" value="1"> singelrum<br></label>
                 <label class="radio-inline"><input type="radio" name="roomType" value="2">dubbelrum<br></label><br>
-                <br><input type="submit" id="submit_button" value="Skicka"><br>
+                <div class="row justify-content-end">
+                    <div class="col-md-3">
+                        <br><input type="submit" id="submit_button" value="Skicka"><br>
+                    </div>
+                </div>
             </form>
             </div>
         </div>
