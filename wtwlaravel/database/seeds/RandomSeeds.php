@@ -39,11 +39,28 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('bonus_games')->insert([
-            'lettersToDiscard' => str_random(10),
-            'imageSource' => str_random(10),
+            "'lettersToDiscard' => Helsingborg",
+            'imageSource' => "helsingborg.jpg",
             'placeId' => 1,
         ]);
 
+        DB::table('bonus_games')->insert([
+            'lettersToDiscard' => "Ängelholm",
+            'imageSource' => "ängelholm.jpg",
+            'placeId' => 2,
+        ]);
+
+        DB::table('bonus_games')->insert([
+            'lettersToDiscard' => "Båstad",
+            'imageSource' => "båstad.jpg",
+            'placeId' => 1,
+        ]);
+
+        DB::table('bonus_games')->insert([
+            'lettersToDiscard' => "Örkelljunga",
+            'imageSource' => "örkelljunga.jpg",
+            'placeId' => 1,
+        ]);
         DB::table('bonus_game_in_games')->insert([
             'isCompleted' => 1,
             'bonusGameId' => 1,
