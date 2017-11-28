@@ -131,7 +131,7 @@ class QuestionController extends Controller
             $placeIdAmount = count($placeIdArray);
             // Skapar en bool för att senare användas för att kontrollera om användaren är klar med alla stationer för area
             $placeInGameBool = false;
-            if ($placeActiveRound == $placeIdAmount) {
+            if ($countActiveRound == $placeIdAmount) {
                 $placeActiveRound = $counts . " antal städer! Du är klar med hela " . $areaName . " " . $mapName;
 
                 // Nollställer alla activeRound för arean
@@ -139,7 +139,7 @@ class QuestionController extends Controller
                     Place_in_game::where(['placeId' => $placeIdInList, 'gameId' => $gameId])->update(['activeRound' => 0]);
                 }
 
-                // Skapar variabel om användaren svarat på 8 stationer
+                // Skapar variabel om användaren svarat på alla stationer
                 $placeInGameBool = true;
             }
 

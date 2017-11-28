@@ -3,7 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Bonus_game;
+use App\patient;
+use App\game;
+use App\place;
+use App\place_in_game;
+use App\area;
+use App\theme;
+use App\question;
+use App\question_in_game;
+use App\map;
+use App\bonus_game;
+use App\bonus_game_in_game;
 
 class BonusController extends Controller
 {
@@ -60,7 +70,7 @@ class BonusController extends Controller
                 $whileBonusUnder12Int ++;
             }
         }
-        
+
         // Slumpar runt bokstäverna
         $bonusGameLettersShuffled = str_shuffle($bonusGameLettersShuffledCut);
         // Gör alla bokstäver små
@@ -70,7 +80,50 @@ class BonusController extends Controller
         // Skapar en lista av återstående bokstäver
         $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
 
-        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource"]));
+        // Hämta PatientId från cookie
+        $patientId = $request->cookie('patientId');
+        // Hämtar Patient från patientId
+        $patient = Patient::find($patientId);
+        // Hämtar currentAreaId
+        $areaId = $patient->game->area->id;
+        // Hämta GameId från Patient
+        $gameId = $patient->game->id;
+
+        // Hämtar en lista med alla places för specifik area
+        $placeIdArray = Place::where('areaId', $areaId)->pluck('id')->toArray();
+        $placeActiveRoundArray = "";
+        $placeTempObject = collect();
+        foreach ($placeIdArray as $placeIdInList) {
+            // Hämtar en lista av gameId och areaId alla activeRound
+            $placeTempObject->push(Place_in_game::where(['placeId' => $placeIdInList, 'gameId' => $gameId])->get());
+        }
+        $placeActiveRoundArraytest = $placeTempObject->flatten();
+
+        // Räknar antal städer i area med activeRound == 1
+        $countActiveRound = 0;
+        foreach ($placeActiveRoundArraytest as $activeRound) {
+            if ($activeRound['activeRound'] == 0) {
+                $countActiveRound++;
+            }
+        }
+        // Räknar antal id för att se hur många stationer där finns totalt
+        $placeIdAmount = count($placeIdArray);
+        // Skapar en bool för att senare användas för att kontrollera om användaren är klar med alla stationer för area
+        $placeInGameBool = false;
+        if ($countActiveRound == $placeIdAmount) {
+            // Skapar variabel om användaren svarat på alla stationer
+            $placeInGameBool = true;
+        }
+
+        // Kollar om användaren besökt alla städer
+        if ($placeInGameBool == true) {
+            $bonusUrl = "/home";
+        }
+        if ($placeInGameBool == false) {
+            $bonusUrl = "/scan";
+        }
+
+        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
     }
 
     /**

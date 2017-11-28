@@ -65,7 +65,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col text-right">
-                <a href="{{url('/')}}/scan" type="button" class="btn btn-primary"><span id="btnNext">Hoppa över</span></a>
+                <a href="{{url('/')}}{{$bonusUrl}}" type="button" class="btn btn-primary"><span id="btnNext">Hoppa över</span></a>
             </div>
         </div>
     </div>
