@@ -44,46 +44,46 @@
 
                         <area alt="" title="" shape="poly" id="1" coords="169,356,159,368,135,368,134,360,127,346,120,345,110,348,103,334,101,316,89,300,88,277,73,264,70,243,55,220,38,196,33,175,29,165,26,142,18,125,7,111,21,111,33,121,47,126,55,134,62,138,69,152,93,157,107,149,116,131,116,125,94,105,96,97,91,88,89,74,81,71,75,65,58,55,59,43,81,21,96,24,106,34,120,43,129,42,139,35,152,40,152,55,151,68,157,83,177,87,192,90,211,90,223,103,242,95,254,79,270,66,285,59,297,59,304,52,314,61,334,63,333,73,312,84,308,104,307,123,293,124,282,136,287,161,293,172,287,183,292,193,291,214,284,219,295,237,300,238,292,251,290,260,266,264,254,282,242,308,240,329,227,329,215,335,200,337,187,350,190,364" />
 
-                        <area alt="Helsingborg" title="Helsingborg" coords="67,236,10" shape="circle">
-                        <area alt="Ängelholm" title="Ängelholm" coords="113,141,10" shape="circle">
-                        <area alt="Båstad" title="Båstad" coords="119,43,10" shape="circle">
-                        <area alt="Örkelljunga" title="Örkelljunga" coords="231,120,10" shape="circle">
-                        <area alt="Perstorp" title="Perstorp" coords="253,203,10" shape="circle">
-                        <area alt="Klippan" title="Klippan" coords="171,209,10" shape="circle">
-                        <area alt="Svalöv" title="Svalöv" coords="175,304,10" shape="circle">
-                        <area alt="Landskrona" title="Landskrona" coords="109,342,10" shape="circle">
-                        <area alt="Kristianstad" title="Kristianstad" coords="525,263,10" shape="circle">
-                        <area alt="Åhus" title="Åhus" coords="551,327,10" shape="circle">
-                        <area alt="Degeberga" title="Degeberga" coords="496,367,10" shape="circle">
-                        <area alt="Tollarp" title="Tollarp" coords="464,317,10" shape="circle">
-                        <area alt="Sösdala" title="Sösdala" coords="403,224,10" shape="circle">
-                        <area alt="Hässleholm" title="Hässleholm" coords="432,176,10" shape="circle">
-                        <area alt="Broby" title="Broby" coords="520,137,10" shape="circle">
-                        <area alt="Bromölla" title="Bromölla" coords="615,234,10" shape="circle">
-                        <area alt="Eslöv" title="Eslöv" coords="253,336,10" shape="circle">
-                        <area alt="Stehag" title="Stehag" coords="275,314,10" shape="circle">
-                        <area alt="Höör" title="Höör" coords="311,295,10" shape="circle">
-                        <area alt="Fulltofta" title="Fulltofta" coords="333,320,10" shape="circle">
-                        <area alt="Hörby" title="Hörby" coords="355,337,10" shape="circle">
-                        <area alt="Långaröd" title="Långaröd" coords="403,382,10" shape="circle">
-                        <area alt="Östraby" title="Östraby" coords="336,399,10" shape="circle">
-                        <area alt="Hurva" title="Hurva" coords="287,364,10" shape="circle">
-                        <area alt="Malmö" title="Malmö" coords="159,484,10" shape="circle">
-                        <area alt="Lund" title="Lund" coords="197,444,10" shape="circle">
-                        <area alt="Revingehed" title="Revingehed" coords="280,443,10" shape="circle">
-                        <area alt="Svedala" title="Svedala" coords="209,531,10" shape="circle">
-                        <area alt="Skurup" title="Skurup" coords="283,542,10" shape="circle">
-                        <area alt="Smygehamn" title="Smygehamn" coords="257,621,10" shape="circle">
-                        <area alt="Trelleborg" title="Trelleborg" coords="192,607,10" shape="circle">
-                        <area alt="Höllviken" title="Höllviken" coords="135,589,10" shape="circle">
-                        <area alt="Ystad" title="Ystad" coords="396,584,10" shape="circle">
-                        <area alt="Sjöbo" title="Sjöbo" coords="360,477,10" shape="circle">
-                        <area alt="Ravlunda" title="Ravlunda" coords="497,434,10" shape="circle">
-                        <area alt="Kivik" title="Kivik" coords="520,464,10" shape="circle">
-                        <area alt="Simrishamn" title="Simrishamn" coords="554,530,10" shape="circle">
-                        <area alt="Hammenhög" title="Hammenhög" coords="496,558,10" shape="circle">
-                        <area alt="Kåseberga" title="Kåseberga" coords="472,608,10" shape="circle">
-                        <area alt="Tomelilla" title="Tomelilla" coords="441,523,10" shape="circle">
+                        <area alt="Helsingborg" title="Helsingborg" coords="67,236,10" shape="circle" id="1">
+                        <area alt="Ängelholm" title="Ängelholm" coords="113,141,10" shape="circle" id="1">
+                        <area alt="Båstad" title="Båstad" coords="119,43,10" shape="circle" id="1">
+                        <area alt="Örkelljunga" title="Örkelljunga" coords="231,120,10" shape="circle" id="1">
+                        <area alt="Perstorp" title="Perstorp" coords="253,203,10" shape="circle" id="1">
+                        <area alt="Klippan" title="Klippan" coords="171,209,10" shape="circle" id="1">
+                        <area alt="Svalöv" title="Svalöv" coords="175,304,10" shape="circle" id="1">
+                        <area alt="Landskrona" title="Landskrona" coords="109,342,10" shape="circle" id="1">
+                        <area alt="Kristianstad" title="Kristianstad" coords="525,263,10" shape="circle" id="2">
+                        <area alt="Åhus" title="Åhus" coords="551,327,10" shape="circle"id="2">
+                        <area alt="Degeberga" title="Degeberga" coords="496,367,10" shape="circle"id="2">
+                        <area alt="Tollarp" title="Tollarp" coords="464,317,10" shape="circle"id="2">
+                        <area alt="Sösdala" title="Sösdala" coords="403,224,10" shape="circle"id="2">
+                        <area alt="Hässleholm" title="Hässleholm" coords="432,176,10" shape="circle"id="2">
+                        <area alt="Broby" title="Broby" coords="520,137,10" shape="circle"id="2">
+                        <area alt="Bromölla" title="Bromölla" coords="615,234,10" shape="circle"id="2">
+                        <area alt="Eslöv" title="Eslöv" coords="253,336,10" shape="circle" id="3">
+                        <area alt="Stehag" title="Stehag" coords="275,314,10" shape="circle" id="3">
+                        <area alt="Höör" title="Höör" coords="311,295,10" shape="circle" id="3">
+                        <area alt="Fulltofta" title="Fulltofta" coords="333,320,10" shape="circle" id="3">
+                        <area alt="Hörby" title="Hörby" coords="355,337,10" shape="circle" id="3">
+                        <area alt="Långaröd" title="Långaröd" coords="403,382,10" shape="circle" id="3">
+                        <area alt="Östraby" title="Östraby" coords="336,399,10" shape="circle" id="3">
+                        <area alt="Hurva" title="Hurva" coords="287,364,10" shape="circle" id="3">
+                        <area alt="Malmö" title="Malmö" coords="159,484,10" shape="circle" id="4">
+                        <area alt="Lund" title="Lund" coords="197,444,10" shape="circle" id="4">
+                        <area alt="Revingehed" title="Revingehed" coords="280,443,10" shape="circle" id="4">
+                        <area alt="Svedala" title="Svedala" coords="209,531,10" shape="circle" id="4">
+                        <area alt="Skurup" title="Skurup" coords="283,542,10" shape="circle" id="4">
+                        <area alt="Smygehamn" title="Smygehamn" coords="257,621,10" shape="circle" id="4">
+                        <area alt="Trelleborg" title="Trelleborg" coords="192,607,10" shape="circle" id="4">
+                        <area alt="Höllviken" title="Höllviken" coords="135,589,10" shape="circle" id="4">
+                        <area alt="Ystad" title="Ystad" coords="396,584,10" shape="circle" id="5">
+                        <area alt="Sjöbo" title="Sjöbo" coords="360,477,10" shape="circle" id="5">
+                        <area alt="Ravlunda" title="Ravlunda" coords="497,434,10" shape="circle" id="5">
+                        <area alt="Kivik" title="Kivik" coords="520,464,10" shape="circle" id="5">
+                        <area alt="Simrishamn" title="Simrishamn" coords="554,530,10" shape="circle" id="5">
+                        <area alt="Hammenhög" title="Hammenhög" coords="496,558,10" shape="circle" id="5">
+                        <area alt="Kåseberga" title="Kåseberga" coords="472,608,10" shape="circle" id="5">
+                        <area alt="Tomelilla" title="Tomelilla" coords="441,523,10" shape="circle" id="5">
 
                         <area alt="" title="" shape="poly" id="2" coords="516,395,512,414,482,407,479,406,463,417,450,407,454,392,451,379,432,364,442,350,440,328,430,313,423,311,405,327,399,317,391,302,382,294,368,290,357,289,369,274,364,262,363,250,357,246,340,237,337,223,329,218,316,220,312,231,295,222,303,195,296,183,305,173,292,139,302,130,313,127,318,108,318,91,339,79,343,64,367,61,382,55,395,47,408,49,420,54,433,52,454,37,467,37,479,36,484,20,491,6,501,7,504,16,529,23,539,25,549,20,573,32,613,42,613,50,607,57,606,64,592,67,585,80,586,100,580,119,582,134,589,149,590,164,598,170,604,165,616,173,631,172,633,211,631,235,613,268,600,267,595,283,583,288,570,306,560,309,556,320,541,343,528,359" />
 
