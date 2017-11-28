@@ -162,7 +162,9 @@
                 video[0].play();
             });
             $('.todayMovementButton').click(function() {
-                $('#movementModal').modal('hide')
+                var video = $("#movement-video");
+                video[0].pause();
+                $('#movementModal').modal('hide');
             });
         });
     </script>
