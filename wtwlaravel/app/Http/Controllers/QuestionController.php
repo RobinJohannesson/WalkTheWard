@@ -98,25 +98,39 @@ class QuestionController extends Controller
             Place_in_game::where(['gameId' => $gameId, 'placeId' => $placeId])->update(['activeRound' => 1]);
 
             // Hämtar en lista med alla places för specifik area
-            // $placeIdArray = Place::where('areaId', $areaId)->pluck('id')->toArray();
-            // $placeActiveRoundArray = "";
-            // foreach ($placeIdArray as $placeIdInList) {
-            //     // Hämtar en lista av gameId och areaId alla activeRound
-            //     $placeTempObject = Place_in_game::where(['placeId' => $placeIdInList[0], 'gameId' => $gameId])->get();
-            //     $placeActiveRoundArray .= $placeTempObject;
-            // }
-            // $placeActiveRoundArray = $placeActiveRoundArray->toArray();
+            $placeIdArray = Place::where('areaId', $areaId)->pluck('id')->toArray();
+            $placeActiveRoundArray = "";
+            $placeTempObject = collect();
+            foreach ($placeIdArray as $placeIdInList) {
+                // Hämtar en lista av gameId och areaId alla activeRound
+                $placeTempObject->push(Place_in_game::where(['placeId' => $placeIdInList, 'gameId' => $gameId])->get());
+            }
+            $placeActiveRoundArraytest = $placeTempObject->flatten();
 
-            // Hämtar en lista av gameId alla activeRound
-            $placeActiveRoundArray = Place_in_game::where('gameId', $gameId)->pluck('activeRound')->toArray();
-            $counts = array_count_values($placeActiveRoundArray);
-            $placeActiveRound = $counts[1] . " antal städer";
+            // Räknar antal städer i area med activeRound == 1
+            $countActiveRound = 0;
+            foreach ($placeActiveRoundArraytest as $activeRound) {
+                if ($activeRound['activeRound'] == 1) {
+                    $countActiveRound++;
+                }
+            }
+            // Gör om int till string
+            $counts = "$countActiveRound";
+
+            // Lägger till vad som ska visas för användaren
+            $placeActiveRound = $counts . " antal städer";
+
+            // Räknar antal id för att se hur många stationer där finns totalt
+            $placeIdAmount = count($placeIdArray);
+            // Skapar en bool för att senare användas för att kontrollera om användaren är klar med alla stationer för area
             $placeInGameBool = false;
-            if ($placeActiveRound == 8) {
-                $placeActiveRound = $counts[1] . "! Du är klar med hela " . $areaName . " " . $mapName;
+            if ($placeActiveRound == $placeIdAmount) {
+                $placeActiveRound = $counts . "! Du är klar med hela " . $areaName . " " . $mapName;
 
-                // Nollställer alla activeRound
-                Place_in_game::where('gameId', $gameId)->update(['activeRound' => 0]);
+                // Nollställer alla activeRound för arean
+                foreach ($placeIdArray as $placeIdInList) {
+                    Place_in_game::where(['placeId' => $placeIdInList, 'gameId' => $gameId])->update(['activeRound' => 0]);
+                }
 
                 // Skapar variabel om användaren svarat på 8 stationer
                 $placeInGameBool = true;
@@ -163,7 +177,7 @@ class QuestionController extends Controller
             }
             else{
                 $bonusGame = $placeName;
-                $bonusUrl = "/scan";
+                $bonusUrl = "/home";
             }
 
             $correctAnswer = "";
