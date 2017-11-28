@@ -74,7 +74,7 @@ class HomeController extends Controller
 
         $totalStars = 0;
         foreach ($numberOfStarslist as $numberOfStar) {
-            $totalStars =+ $numberOfStar;
+            $totalStars += $numberOfStar;
         }
 
         return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount']));
