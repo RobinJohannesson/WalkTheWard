@@ -114,18 +114,25 @@ class QuestionController extends Controller
                     $countActiveRound++;
                 }
             }
+
             // Gör om int till string
             $counts = "$countActiveRound";
 
-            // Lägger till vad som ska visas för användaren
-            $placeActiveRound = $counts . " antal städer";
+            // Kontrollera om användaren besökt en stad
+            if ($countActiveRound == 1) {
+                $placeActiveRound = $counts . " stad";
+            }
+            // Kontrollerar om användaren besökt flera städer
+            if ($countActiveRound > 1) {
+                $placeActiveRound = $counts . " städer";
+            }
 
             // Räknar antal id för att se hur många stationer där finns totalt
             $placeIdAmount = count($placeIdArray);
             // Skapar en bool för att senare användas för att kontrollera om användaren är klar med alla stationer för area
             $placeInGameBool = false;
             if ($placeActiveRound == $placeIdAmount) {
-                $placeActiveRound = $counts . "! Du är klar med hela " . $areaName . " " . $mapName;
+                $placeActiveRound = $counts . " antal städer! Du är klar med hela " . $areaName . " " . $mapName;
 
                 // Nollställer alla activeRound för arean
                 foreach ($placeIdArray as $placeIdInList) {
@@ -159,7 +166,9 @@ class QuestionController extends Controller
                         }
                     }
                     else{
-                        $bonusGame = "... Gissa!";
+                        // Gör _ för varje bokstav i namnet och mellanslag mellan varje bokstav
+                        $bonusGame = implode(' ',str_split(str_repeat("_", strlen($placeName)))) . " Gissa!";
+
                         $bonusUrl = "/bonus/$bonusGameId";
                     }
                 }

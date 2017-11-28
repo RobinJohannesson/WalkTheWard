@@ -271,11 +271,12 @@ $(document).ready(function(){
 
                     $("#map-value").append(data['mapName'] + "->");
                     $("#map-value").append(data['areaName'] + "->");
-                    $("#map-value").append(data['placeName']);
-                    $("#round-value").append(data['placeActiveRound']);
+                    $("#map-value").append(data['bonusGame']);
 
                     $("#bonus-value").append(data['bonusGame']);
                     $(".btn-primary").attr("href", data['bonusUrl']);
+
+                    $("#round-value").append(data['placeActiveRound']);
 
                     $('.star-score-img').off('click').on('click', function() {
                         // Hindrar animationen från att köras mer en engång i taget
