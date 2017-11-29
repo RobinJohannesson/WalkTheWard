@@ -13,6 +13,7 @@
     <link rel="stylesheet">
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/css/style-registration.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <!-- Load scripts before JS? -->
@@ -52,12 +53,17 @@
                     <br><p>Typ av rum:</p>
                     <label class="radio-inline"><input type="radio" name="roomType" value="1" required class="registration_radio"> singelrum<br></label>
                     <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="registration_radio">dubbelrum<br></label><br>
+
                     <div class="row justify-content-end">
                         <div class="col-md-3 align-center">
-                            <br>
-                            <a href="#" class="text-center" data-toggle="modal" data-target="#characterModal" id="submit_button" type="submit">Registrera</a>
-                            <br>
-                            {{-- <br><input type="submit" id="submit_button" value="Skicka" required><br> --}}
+                            <img class="characterImage" data-character-id="0" src="{{url('/')}}/images/characters/default.png" alt="En vanlig karaktär" style="width: 50px; height: 50px;">
+                            <a href="#" class="text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal" type="button" >Vill du välja karaktär?</a>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end">
+                        <div class="col-md-3 align-center">
+                            <br><input type="submit" id="submit_button" value="Registrera"><br>
                         </div>
                     </div>
                 </form>
@@ -127,8 +133,14 @@
     $(document).ready(function(){
 
         $("#characterRegistration").on("click", function (e) {
-            $("#registrationForm").submit();
-            e.preventDefault();
+
+            if ($("#registrationForm")[0].checkValidity()){
+                $("#registrationForm").submit();
+                e.preventDefault();
+            }
+            else {
+                console.log("Something is Required!");
+            }
         });
 
         $(".characterImage").click(function(event) {
