@@ -18,8 +18,9 @@
 
             <div class="col col-md-3">
                 <div class="text-right">
-                    <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?" style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                     <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
+                    
                 </div>
             </div>
         </div>
@@ -35,7 +36,7 @@
             <div class="col-md-5">
                 <a href="{{url('/')}}/registration" id="link-new-user">
                 <div class="btn-new-user">
-                    <img src="{{url('/')}}/images/start-user.png" alt="user" height="190px"><i class="fa fa-plus fa-3x" aria-hidden="true"></i>
+                    <img src="{{url('/')}}/images/start-user.png" alt="user" height="190px" ><i class="fa fa-plus fa-3x" aria-hidden="true"></i>
                 </div>
                 </a>
             </div>
@@ -48,9 +49,15 @@
     <script src="{{url('/')}}/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $(document).ready(function(){ 
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+        // Initialize tooltip component
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Initialize popover component
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
     </script>
 </body>
 </html>
