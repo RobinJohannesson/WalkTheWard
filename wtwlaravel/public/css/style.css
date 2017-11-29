@@ -45,7 +45,7 @@ p {
     vertical-align: middle;
     margin: 20px 0 0 10px;
     color: black;
-    
+
 }
 
 #registration {
@@ -256,71 +256,9 @@ h1 {
     margin-bottom: 40px;
 }
 
-.container-info {
-    display: block;
-    height: 500px;
-}
-
 .item {
     width: 100%;
     height: auto;
-}
-
-.carousel-inner {
-    height: 500px;
-    margin-top: 10%;
-}
-
-ol.carousel-indicators {
-    position: absolute;
-    bottom: 0;
-    margin-top: -10%;
-    /*left: 0;
-    right: 0;*/
-}
-
-ol.carousel-indicators li, ol.carousel-indicators li.active {
-    float: left;
-    width: 25px;
-    height: 25px;
-    border-radius: 0;
-    border: 0;
-    background: #cccccc;
-    border-radius: 25px;
-    margin-right: 3%;
-}
-
-ol.carousel-indicators li.active {
-    background: grey;
-    border-radius: 25px;
-    margin-right: 3%;
-}
-
-.carousel-control-prev {
-  height: 0;
-  position: relative;
-}
-
-.carousel-control-prev button {
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-}
-
-.carousel-control-next {
-  height: 0;
-  position: relative;
-  float: right;
-}
-
-.carousel-control-next button {
-  position: absolute;
-  bottom: -100px;
-  right: 0;
-}
-
-.carousel-hide-button {
-  display: none;
 }
 
 #themehead {

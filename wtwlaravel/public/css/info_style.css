@@ -4,13 +4,15 @@ a {
 
 .carousel-inner {
     height: 500px;
-    margin-top: 10%;
+    /*margin-top: 10%;*/
 }
 
 ol.carousel-indicators {
     position: absolute;
     bottom: 0;
     margin-top: -10%;
+    /*left: 0;
+    right: 0;*/
 }
 
 ol.carousel-indicators li, ol.carousel-indicators li.active {
@@ -22,6 +24,7 @@ ol.carousel-indicators li, ol.carousel-indicators li.active {
     background: #cccccc;
     border-radius: 25px;
     margin-right: 3%;
+    margin-top: 5%;
     cursor: pointer;
 }
 
@@ -29,6 +32,7 @@ ol.carousel-indicators li.active {
     background: grey;
     border-radius: 25px;
     margin-right: 3%;
+    margin-top: 5%;
     cursor: pointer;
 }
 
@@ -37,19 +41,46 @@ ol.carousel-indicators li.active {
   position: relative;
 }
 
+.carousel-control-next {
+  height: 0;
+  position: relative;
+  float: right;
+}
+
 .carousel-control-prev button {
   position: absolute;
-  bottom: -100px;
+  /*bottom: -100px;*/
   left: 0;
 }
 
 .carousel-control-next button {
   position: absolute;
-  bottom: -100px;
+  /*bottom: -100px;*/
   right: 0;
 }
 
 .carousel-hide-button {
   all: none;
   display: none;
+}
+
+.info-playbutton {
+    background-color: #4CAF50;
+    border: 3px dotted #F6E67F;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    margin: 10px 5px;
+    padding: 10px 70px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    margin-top: -33px;
+}
+
+#info-carousel {
+    display: block;
+    height: 500px;
 }

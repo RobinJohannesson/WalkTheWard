@@ -32,7 +32,7 @@
     </div>
 
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" id="info-container">
 
         <!-- Information Carousel -->
         <div id="info-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -84,7 +84,7 @@
         </a>
 
         <a class="info-play carousel-hide-button" href="{{url('/')}}/map" role="button">
-          <button type="button" class="playbutton">Spela</button>
+          <button type="button" class="info-playbutton">Spela</button>
         <a/>
 
       </div>
