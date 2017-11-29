@@ -39,10 +39,8 @@ ol.carousel-indicators li.active {
   left: 0;
 }
 
-.carousel-control-next {
-  height: 0;
-  position: relative;
-  float: right;
+.info-carousel-control-next{
+  
 }
 
 .carousel-control-next button {
@@ -56,8 +54,18 @@ ol.carousel-indicators li.active {
   display: none;
 }
 
-.playbutton {
-  position: absolute;
-  bottom: -100px;
-  right: 0;
+.info-playbutton {
+    background-color: #4CAF50;
+    border: 3px dotted #F6E67F;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    margin: 10px 5px;
+    padding: 10px 70px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    bottom: -100px;
+    right: 0;
 }

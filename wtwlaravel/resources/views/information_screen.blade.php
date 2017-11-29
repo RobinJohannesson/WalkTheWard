@@ -80,11 +80,9 @@
                 <button type="button" class="button continue_button">Fortsätt</button>
               </a>
 
-            <!--</a class="start-game carousel-hide-button" href="#info-carousel" role="button" data-slide="next">
-
-              <button type="button" class="playbutton">Spela</button>
-
-            </a>-->
+            <a class="info-play carousel-hide-button" href="#" role="button">
+              <button type="button" class="playbutton">Fortsätt</button>
+            <a/>
 
           </div>
 </div>
@@ -98,17 +96,18 @@
           switch (id) {
             case "1":
               $('a.carousel-control-prev').addClass('carousel-hide-button');
-              ('a.carousel-control-next').removeClass('carousel-hide-button');
               break;
             case "2":
               // do something the id is 2
               $('a.carousel-control-prev').removeClass('carousel-hide-button');
               $('a.carousel-control-next').removeClass('carousel-hide-button');
+              $('a.info-play').addClass('carousel-hide-button');
               break;
             case "3":
               // do something the id is 3
               $('a.carousel-control-prev').removeClass('carousel-hide-button');
               $('a.carousel-control-next').addClass('carousel-hide-button');
+              $('a.info-play').removeClass('carousel-hide-button');
               break;
             default:
               //the id is none of the above
