@@ -23,7 +23,8 @@
             </div>
             <div class="col col-md-2 order-1 order-md-2">
                 <div class=" text-right">
-                    <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
+                    <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
+                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                 </div>
             </div>
         </div>
