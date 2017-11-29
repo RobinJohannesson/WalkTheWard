@@ -53,13 +53,3 @@ ol.carousel-indicators li.active {
   all: none;
   display: none;
 }
-
-.fa_custom {
-    color: #2C7AED;
-    background-color: white;
-    border-radius: 50%;
-    height: 90px;
-    width: 80px;
-    padding: 10px;
-    margin-right: 20px;
-}
