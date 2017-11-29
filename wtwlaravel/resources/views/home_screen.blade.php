@@ -25,8 +25,8 @@
             </div>
             <div class="col col-md-3">
                 <div class="text-right">
-                    <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
-                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->                </div>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>               
+                </div>
             </div>
 
 
@@ -150,6 +150,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="{{url('/')}}/js/jquery.rwdImageMaps.min.js"></script>
+               <script type="text/javascript">
+        // Initialize tooltip component
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Initialize popover component
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+    </script>
+        
     <script type="text/javascript">
     $.fn.maphilight.defaults = {
     	fill: true,
