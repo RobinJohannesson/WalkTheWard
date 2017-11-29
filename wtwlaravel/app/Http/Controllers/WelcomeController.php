@@ -16,10 +16,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-
-        $characters = Character::All();
-
-        return view('welcome_screen', compact(['characters']));
+        return view('welcome_screen');
     }
 
     /**

@@ -34,59 +34,12 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <a href="#" data-toggle="modal" data-target="#resultsModal" id="link-new-user">
+                <a href="{{url('/')}}/registration" id="link-new-user">
                     <div class="btn-new-user">
                         <img src="{{url('/')}}/images/start-user.png" alt="user" height="190px">
                         <i class="fa fa-plus fa-3x" aria-hidden="true"></i>
                     </div>
                 </a>
-            </div>
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        {{-- <div class="modal-dialog modal-lg" role="document"> --}}
-        <div class="modal-dialog modal-custom-width" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title" id="resultsModalLabel">
-                        Karaktärer
-                    </h1>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> --}}
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2 id="title-value">
-                            Välj en karaktär som du gillar
-                        </h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-8">
-
-                        @if ($characters)
-                            @foreach ($characters as $c)
-                                <img class="characterImage" data-character-id="{{$c->id}}" src="{{url('/')}}/images/characters/{{$c->imageSource}}" alt="{{$c->name}}">
-                            @endforeach
-                        @endif
-
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Tillbaka</a>
-                <a href="{{url('/')}}/welcome/store" type="button" class="btn btn-primary" id="characterRegistration">Fortsätt</a>
             </div>
         </div>
     </div>
@@ -107,21 +60,6 @@
     // Initialize popover component
     $(function () {
         $('[data-toggle="popover"]').popover()
-    });
-
-    $(document).ready(function(){
-
-        $(".characterImage").click(function(event) {
-            $.each($(".characterImage"), function(i, el){
-                if ($(el).hasClass('isSelected')) {
-                    $(el).removeClass('isSelected');
-                }
-            });
-            $(this).addClass('isSelected');
-        });
-        $('#characterRegistration').click(function(event) {
-            var charId = $(".isSelected").attr("data-character-id");
-        });
     });
     </script>
 </body>

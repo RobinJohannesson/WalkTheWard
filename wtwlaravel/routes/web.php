@@ -13,10 +13,7 @@ use App\Http\Middleware\CheckCookie;
 |
 */
 
-Route::GET('/', "WelcomeController@index");
-Route::GET('welcome', "WelcomeController@index");
-
-Route::POST('welcome/store', "WelcomeController@store");
+Route::resource('', "WelcomeController");
 
 Route::middleware('checkCookie')->group(function () {
 
@@ -61,7 +58,7 @@ Route::middleware('checkCookie')->group(function () {
 
 Route::GET('registration', "RegistrationController@index");
 
-Route::POST('registration', "RegistrationController@store");
+Route::POST('registration/store', "RegistrationController@store");
 
 Route::fallback(function(){
     return 'sorry';
