@@ -368,3 +368,9 @@ ol.carousel-indicators li.active {
 #themehead_bold{
     font-weight: bold;
 }
+
+.registration_radio{
+    margin-right: 20px;
+   transform: scale(2);
+    
+}

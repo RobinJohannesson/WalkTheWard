@@ -40,10 +40,12 @@
                 <input type="number" name="age" style="border: 1px solid; border-radius: 5px;">
                 <br>
                 <br><p>Kön:</p>
-                <label class="radio-inline"><input type="radio" name="gender" value="Kvinna"> Kvinna<br></label>
+                    
+                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna"  class="registration_radio">Kvinna<br></label>
                 <label class="radio-inline"><input type="radio" name="gender" value="Man">Man<br></label>
                 <label class="radio-inline"><input type="radio" name="gender" value="Annat"> Annat<br></label>
                 <br>
+                    
                 <br><p>Typ av rum:</p>
                 <label class="radio-inline"><input type="radio" name="roomType" value="1"> singelrum<br></label>
                 <label class="radio-inline"><input type="radio" name="roomType" value="2">dubbelrum<br></label><br>
