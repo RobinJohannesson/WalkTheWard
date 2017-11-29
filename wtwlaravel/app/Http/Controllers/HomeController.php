@@ -109,6 +109,7 @@ class HomeController extends Controller
 
         $maxStars = $allPlaces * 3;
 
+        $numberCity = $areaId . "City";
 
         }
         catch (\Exception $e) {
@@ -124,7 +125,8 @@ class HomeController extends Controller
             'status' => 'success',
             'totalStars' => $totalStars,
             'maxStars' => $maxStars,
-            'gameId' => $gameId
+            'gameId' => $gameId,
+            'numberCity' => $numberCity
         );
         // return view('home_screen', compact(['totalStars', 'maxStars', 'gameId']));
         return response()->json($response);
