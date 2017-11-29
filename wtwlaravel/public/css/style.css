@@ -49,10 +49,11 @@ p {
 }
 
 #registration {
-    border: 6px double black;
+    border: 10px double black;
     box-sizing: content-box;
     background-color: #f6f6f6;
     border-radius: 20px;
+    margin-top: -25px;
 }
 .questionparagraph {
     font-size: 40px;
@@ -82,13 +83,15 @@ p {
 }
 
 .fa_custom {
-    color: #2C7AED;
+    color: #2C7AED ;
     background-color: white;
     border-radius: 50%;
-    height: 90px;
-    width: 80px;
-    padding: 10px;
-    margin-right: 20px;
+    height: 82px;
+    width: 82px;
+    text-align: center;
+    padding: 5px;
+    margin: 20px 20px 0 0;
+    cursor: pointer;
 }
 .ribbon {
     -webkit-box-sizing: content-box;
@@ -354,6 +357,7 @@ ol.carousel-indicators li.active {
     background-color: #48A2A6;
     color:white;
     font-size: 30px;
+    width: 150px;
 }
 
 .radio-inline{
