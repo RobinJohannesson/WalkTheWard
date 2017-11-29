@@ -355,6 +355,7 @@ ol.carousel-indicators li.active {
 
 #submit_button{
     background-color: #48A2A6;
+    border-radius: 10px;
     color:white;
     font-size: 30px;
     width: 150px;
