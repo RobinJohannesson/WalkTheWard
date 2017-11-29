@@ -81,7 +81,7 @@
               </a>
 
             <a class="info-play carousel-hide-button" href="#" role="button">
-              <button type="button" class="playbutton">Fortsätt</button>
+              <button type="button" class="playbutton">Spela</button>
             <a/>
 
           </div>
@@ -111,7 +111,7 @@
               break;
             default:
               //the id is none of the above
-              //alert("this is an alert");
+              alert("There was an error!");
           }
         });
       });
