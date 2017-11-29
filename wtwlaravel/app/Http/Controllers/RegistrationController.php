@@ -52,11 +52,10 @@ class RegistrationController extends Controller
         $Patient->gender = $request->gender;
         $Patient->roomType = $request->roomType;
         $Patient->gameId = $gameId;
+        $Patient->characterId = $request->characterId;
         $Patient->save();
 
         $cookie = cookie('patientId', $Patient->id, 2628000);
-
-        
 
 
         return redirect('information')->withCookie($cookie);

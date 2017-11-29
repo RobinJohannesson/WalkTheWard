@@ -72,7 +72,7 @@
                                     <br><input type="submit" id="submit_button" value="Registrera"><br>
                                 </div>
                             </div>
-                            <input id="characterId" type="hidden" name="characterId" value="">
+                            <input id="characterId" type="hidden" name="characterId" value="7">
                         </form>
                     </div>
                     <div class="col-sm-4 text-center">
