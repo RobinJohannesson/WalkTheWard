@@ -75,6 +75,7 @@
 
 </div>
 <input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
+<input id="areaId" type="hidden" name="areaId" value="">
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -113,34 +114,39 @@
         $('img[usemap]').rwdImageMaps();
         $('area').click(function(){
             var areaId = $(this).attr("class");
+            $('#areaId').val(areaId);
             console.log(areaId);
-            var gameId = $('#gameId').val();
-            console.log(gameId);
+
             // Kartan highlightar städer beroende på area
             $("area").data('maphilight', { alwaysOn: false }).trigger('alwaysOn.maphilight');
             $("." + areaId).data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
 
-            $('.continue_button').click(function(){
-                $.ajax({
-                    type: "POST",
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    url: "{{url('/')}}/map/store",
-                    data: {areaId: areaId, gameId: gameId},
-                    dataType: 'json',
-                    success: function(data) { // Om det LYCKADES att spara data
-                        console.log(data);
-                        window.location.href = "{{url('/')}}/theme";
+        });
 
-                    }, // SLUT - Om det LYCKADES att spara data
-                    error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
-                        console.log(xhr);
-                        console.log(textStatus);
-                        console.log(errorThrown);
-                    }
-                }); // SLUT - Om det MISSLYCKADES att spara data
-            });
+        $('.continue_button').click(function(){
+            var areaId = $('#areaId').val();
+            console.log(areaId);
+            var gameId = $('#gameId').val();
+            console.log(gameId);
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{url('/')}}/map/store",
+                data: {areaId: areaId, gameId: gameId},
+                dataType: 'json',
+                success: function(data) { // Om det LYCKADES att spara data
+                    console.log(data);
+                    window.location.href = "{{url('/')}}/theme";
+
+                }, // SLUT - Om det LYCKADES att spara data
+                error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            }); // SLUT - Om det MISSLYCKADES att spara data
         });
 
     });
