@@ -77,7 +77,7 @@
 
                         @if ($characters)
                             @foreach ($characters as $c)
-                                <img src="{{url('/')}}characters/{{$c->imageSource}}" alt="{{$c->name}}">
+                                <img class="characterImage" data-character-id="{{$c->id}}" src="{{url('/')}}/images/characters/{{$c->imageSource}}" alt="{{$c->name}}">
                             @endforeach
                         @endif
 
@@ -86,7 +86,7 @@
             </div>
             <div class="modal-footer">
                 <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Tillbaka</a>
-                <a href="{{url('/')}}/registration" type="button" class="btn btn-primary">Fortsätt</a>
+                <a href="{{url('/')}}/welcome/store" type="button" class="btn btn-primary" id="characterRegistration">Fortsätt</a>
             </div>
         </div>
     </div>
@@ -102,12 +102,27 @@
     // Initialize tooltip component
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
-    })
+    });
 
     // Initialize popover component
     $(function () {
         $('[data-toggle="popover"]').popover()
-    })
+    });
+
+    $(document).ready(function(){
+
+        $(".characterImage").click(function(event) {
+            $.each($(".characterImage"), function(i, el){
+                if ($(el).hasClass('isSelected')) {
+                    $(el).removeClass('isSelected');
+                }
+            });
+            $(this).addClass('isSelected');
+        });
+        $('#characterRegistration').click(function(event) {
+            var charId = $(".isSelected").attr("data-character-id");
+        });
+    });
     </script>
 </body>
 </html>
