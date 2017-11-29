@@ -20,8 +20,7 @@
         <div class="row justify-content-end">
             <div class="col col-md-3">
                 <div class="text-right">
-                    <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
-                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hej!" data-content="Välkommen till Walk the Ward. På den här sidan väljer du en karaktär genom att klicka på ikonen. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                 </div>
             </div>
         </div>
@@ -84,6 +83,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="{{url('/')}}/js/jquery.rwdImageMaps.min.js"></script>
+<script type="text/javascript">
+// Initialize tooltip component
+     $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+     })
+// Initialize popover component
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        })
+    </script>
 <script type="text/javascript">
     $.fn.maphilight.defaults = {
         fill: true,

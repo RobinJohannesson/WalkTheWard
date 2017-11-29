@@ -18,7 +18,7 @@
 
             <div class="col col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?" style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hej!" data-content="Välkommen till Walk the Ward. På den här sidan väljer du en karaktär genom att klicka på ikonen. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                     <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                     
                 </div>
