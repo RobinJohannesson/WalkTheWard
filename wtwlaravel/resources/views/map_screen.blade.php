@@ -32,7 +32,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-4 justify-content-center">
 
                 {{-- <img src="{{url('/')}}/images/map/NW-1.png" alt="Kartdel NV" class="" />
                 <img src="{{url('/')}}/images/map/NE-1.png" alt="Kartdel NÖ" class="" />
@@ -79,6 +79,8 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Add maphilight plugin -->
+<script type="text/javascript" src="{{url('/')}}/js/jquery.maphilight.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="{{url('/')}}/js/jquery.rwdImageMaps.min.js"></script>
@@ -90,26 +92,29 @@
             console.log(areaId);
             var gameId = $('#gameId').val();
             console.log(gameId);
-            $.ajax({
-                type: "POST",
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                url: "{{url('/')}}/map/store",
-                data: {areaId: areaId, gameId: gameId},
-                dataType: 'json',
-                success: function(data) { // Om det LYCKADES att spara data
-                    console.log(data);
-                    window.location.href = "{{url('/')}}/theme";
+            $('.continue_button').click(function(){
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "{{url('/')}}/map/store",
+                    data: {areaId: areaId, gameId: gameId},
+                    dataType: 'json',
+                    success: function(data) { // Om det LYCKADES att spara data
+                        console.log(data);
+                        window.location.href = "{{url('/')}}/theme";
 
-                }, // SLUT - Om det LYCKADES att spara data
-                error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
-                    console.log(xhr);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-                }
-            }); // SLUT - Om det MISSLYCKADES att spara data
+                    }, // SLUT - Om det LYCKADES att spara data
+                    error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
+                        console.log(xhr);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    }
+                }); // SLUT - Om det MISSLYCKADES att spara data
+            });
         });
+
     });
 </script>
 </body>
