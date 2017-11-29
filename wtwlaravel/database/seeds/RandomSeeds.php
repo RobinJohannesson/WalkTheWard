@@ -69,13 +69,8 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Kalle Anka",
-            'imageSource' => "kalle_anka.gif",
-        ]);
-
-        DB::table('characters')->insert([
-            'name' => "Musse Pigg",
-            'imageSource' => "musse_pigg.png",
+            'name' => str_random(10),
+            'imageSource' => str_random(10),
         ]);
 
         DB::table('games')->insert([
@@ -834,6 +829,18 @@ class RandomSeeds extends Seeder
             'address' => str_random(10),
             'description' => str_random(10),
             'imageSource' => str_random(10),
+        ]);
+
+        DB::table('exercises')->insert([
+            'videoSource' => "balansen.mp4",
+        ]);
+
+        DB::table('exercises')->insert([
+            'videoSource' => "muskelstyrka.mp4",
+        ]);
+
+        DB::table('exercises')->insert([
+            'videoSource' => "upppata.mp4",
         ]);
 
         Schema::enableForeignKeyConstraints();

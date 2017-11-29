@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\patient;
 use App\game;
+use App\character;
 use App\Http\Controllers\Cookie;
 
 class RegistrationController extends Controller
@@ -17,7 +18,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view("registration_screen");
+        $characters = Character::All();
+        return view("registration_screen", compact(['characters']));
     }
 
     /**
@@ -41,11 +43,6 @@ class RegistrationController extends Controller
 
         $Game = new Game;
 
-        // ÄNDRA INNAN RELEASE
-        $Game->areaId = 1;
-        $Game->themeId = 1;
-        // ÄNDRA INNAN RELEASE
-
         $Game->save();
         $gameId = $Game->id;
 
@@ -59,6 +56,7 @@ class RegistrationController extends Controller
 
         $cookie = cookie('patientId', $Patient->id, 2628000);
 
+        
 
 
         return redirect('information')->withCookie($cookie);

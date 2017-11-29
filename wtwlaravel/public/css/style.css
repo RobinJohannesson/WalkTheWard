@@ -265,6 +265,20 @@ h1 {
     margin-bottom: 100px;
 }
 
+#themehead_bold {
+  height: 100%;
+}
+
+#themehead_bold img {
+  position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 70px;
+   height: 70px;
+   margin-top: -60px; /* Half the height */
+   margin-left: -230px; /* Half the width */
+}
+
 .col-theme {
     display: flex;
     justify-content: center;
@@ -275,6 +289,13 @@ h1 {
     background-color: white;
     margin-bottom: 50px;
     border-radius: 10px;
+}
+
+.button-theme h2{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 90px;
+    padding-top: 15px;
 }
 
 .align-left {

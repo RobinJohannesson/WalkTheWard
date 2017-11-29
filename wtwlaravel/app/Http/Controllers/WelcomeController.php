@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\map;
+use App\character;
 
 class WelcomeController extends Controller
 {
