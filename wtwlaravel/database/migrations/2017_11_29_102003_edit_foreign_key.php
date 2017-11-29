@@ -60,6 +60,11 @@ class EditForeignKey extends Migration
             $table->foreign('stationId')->references('id')->on('stations');
             $table->foreign('areaId')->references('id')->on('areas');
         });
+
+        Schema::table('exercises_in_games', function (Blueprint $table){
+            $table->foreign('gameId')->references('id')->on('games');
+            $table->foreign('exerciseId')->references('id')->on('exercises');
+        });
     }
 
     /**
