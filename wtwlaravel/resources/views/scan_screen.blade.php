@@ -19,8 +19,8 @@
         <div class="row justify-content-end">
             <div class="col col-md-3">
                 <div class="text-right">
-                    <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
-                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->                </div>
+                     <a href="#" data-toggle="popover" data-trigger="focus" title="Skanna en QR-kod!" data-content="Här skannar du en QR-kod genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a> 
+                </div>
             </div>
         </div>
 
@@ -94,6 +94,17 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+         <script type="text/javascript">
+        // Initialize tooltip component
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Initialize popover component
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+    </script>
     <script type="text/javascript">
         $(document).ready(function(e) {
 
