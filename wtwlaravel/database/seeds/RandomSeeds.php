@@ -69,8 +69,13 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('characters')->insert([
-            'name' => str_random(10),
-            'imageSource' => str_random(10),
+            'name' => "Kalle Anka",
+            'imageSource' => "kalle_anka.gif",
+        ]);
+
+        DB::table('characters')->insert([
+            'name' => "Musse Pigg",
+            'imageSource' => "musse_pigg.png",
         ]);
 
         DB::table('games')->insert([
