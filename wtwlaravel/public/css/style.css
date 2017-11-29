@@ -82,8 +82,12 @@ p {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
 }
 
-.fa_custom {
-    color: #2C7AED ;
+#question-mark {
+    margin-top: 15px;
+}
+
+/*.fa_custom {
+    color: #FFC013 ;
     background-color: white;
     border-radius: 50%;
     height: 82px;
@@ -92,7 +96,8 @@ p {
     padding: 5px;
     margin: 20px 20px 0 0;
     cursor: pointer;
-}
+}*/
+
 .ribbon {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -381,7 +386,7 @@ ol.carousel-indicators li.active {
 }
 
 .registration_radio{
-    margin-right: 20px;
+   margin-right: 20px;
    transform: scale(2);
 
 }

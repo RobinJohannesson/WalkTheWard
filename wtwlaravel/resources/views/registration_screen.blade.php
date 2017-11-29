@@ -27,7 +27,8 @@
         <div class="row justify-content-end">
             <div class="col col-md-3">
                     <div class="text-right">
-                    <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
+                        <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
+                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                 </div>
             </div>
         </div>
@@ -37,21 +38,21 @@
                 <form action="{{{ url("registration") }}}" method="POST">
                 {{ csrf_field() }}
                 <p>Ålder: </p>
-                <input type="number" name="age" style="border: 1px solid; border-radius: 5px;">
+                <input type="number" name="age" style="border: 1px solid; border-radius: 5px; required">
                 <br>
                 <br><p>Kön:</p>
                     
-                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna"  class="registration_radio">Kvinna<br></label>
-                <label class="radio-inline"><input type="radio" name="gender" value="Man">Man<br></label>
-                <label class="radio-inline"><input type="radio" name="gender" value="Annat"> Annat<br></label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" required class="registration_radio">Kvinna<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Man" required class="registration_radio">Man<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Annat" required class="registration_radio"> Annat<br></label>
                 <br>
                     
                 <br><p>Typ av rum:</p>
-                <label class="radio-inline"><input type="radio" name="roomType" value="1"> singelrum<br></label>
-                <label class="radio-inline"><input type="radio" name="roomType" value="2">dubbelrum<br></label><br>
+                <label class="radio-inline"><input type="radio" name="roomType" value="1" required class="registration_radio"> singelrum<br></label>
+                <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="registration_radio">dubbelrum<br></label><br>
                 <div class="row justify-content-end">
                     <div class="col-md-3">
-                        <br><input type="submit" id="submit_button" value="Skicka"><br>
+                        <br><input type="submit" id="submit_button" value="Skicka" required><br>
                     </div>
                 </div>
             </form>
