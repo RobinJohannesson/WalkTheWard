@@ -38,35 +38,49 @@
         <div class="row justify-content-center" >
             <div class="col-md-6" style="padding: 15px 60px 15px 60px"id="registration">
                 <h1 align="center">Registrering</h1>
-                <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
-                    {{ csrf_field() }}
-                    <p>Ålder: </p>
-                    <input type="number" name="age" style="border: 1px solid; border-radius: 5px;" required>
-                    <br>
-                    <br><p>Kön:</p>
+                <div class="row no-gutters">
+                    <div class="col-sm-8">
 
-                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" required class="registration_radio">Kvinna<br></label>
-                    <label class="radio-inline"><input type="radio" name="gender" value="Man" required class="registration_radio">Man<br></label>
-                    <label class="radio-inline"><input type="radio" name="gender" value="Annat" required class="registration_radio"> Annat<br></label>
-                    <br>
+                        <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
+                            {{ csrf_field() }}
+                            <div class="row no-gutters">
+                                <div class="col-sm-8">
+                                    <p>Ålder: </p>
+                                    <input type="number" name="age" style="border: 1px solid; border-radius: 5px;" required>
+                                </div>
+                            </div>
+                            <div class="row no-gutters">
+                                <div class="col-sm-12">
+                                    <br>
+                                    <p>Kön:</p>
 
-                    <br><p>Typ av rum:</p>
-                    <label class="radio-inline"><input type="radio" name="roomType" value="1" required class="registration_radio"> singelrum<br></label>
-                    <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="registration_radio">dubbelrum<br></label><br>
-
-                    <div class="row justify-content-end">
-                        <div class="col-md-3 align-center">
-                            <img class="characterImage" data-character-id="0" src="{{url('/')}}/images/characters/default.png" alt="En vanlig karaktär" style="width: 50px; height: 50px;">
-                            <a href="#" class="text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal" type="button" >Vill du välja karaktär?</a>
-                        </div>
+                                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" required class="registration_radio">Kvinna<br></label>
+                                    <label class="radio-inline"><input type="radio" name="gender" value="Man" required class="registration_radio">Man<br></label>
+                                    <label class="radio-inline"><input type="radio" name="gender" value="Annat" required class="registration_radio"> Annat<br></label>
+                                </div>
+                            </div>
+                            <div class="row no-gutters">
+                                <div class="col-sm-12">
+                                    <br>
+                                    <p>Typ av rum:</p>
+                                    <label class="radio-inline"><input type="radio" name="roomType" value="1" required class="registration_radio"> singelrum<br></label>
+                                    <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="registration_radio">dubbelrum<br></label><br>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end">
+                                <div class="col-md-3 align-center">
+                                    <br><input type="submit" id="submit_button" value="Registrera"><br>
+                                </div>
+                            </div>
+                            <input id="characterId" type="hidden" name="characterId" value="">
+                        </form>
                     </div>
+                    <div class="col-sm-4 text-center">
+                        <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
+                        <a href="#" class="btn btn-secondary text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal" type="button" >Vill du välja karaktär?</a>
 
-                    <div class="row justify-content-end">
-                        <div class="col-md-3 align-center">
-                            <br><input type="submit" id="submit_button" value="Registrera"><br>
-                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -88,7 +102,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 id="title-value">
+                        <h2 id="title-value" class="text-center">
                             Välj en karaktär som du gillar
                         </h2>
                     </div>
@@ -105,10 +119,9 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
                 <a type="button" class="btn btn-secondary" data-dismiss="modal">Tillbaka</a>
-                <a type="button" class="btn btn-primary" id="characterRegistration">Fortsätt</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -142,14 +155,16 @@
                 console.log("Something is Required!");
             }
         });
+        // <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
 
         $(".characterImage").click(function(event) {
-            $.each($(".characterImage"), function(i, el){
-                if ($(el).hasClass('isSelected')) {
-                    $(el).removeClass('isSelected');
-                }
-            });
-            $(this).addClass('isSelected');
+            $("#characterId").val($(this).attr('data-character-id'));
+            var characterImageSrc = $(this).attr('src');
+            console.log(characterImageSrc);
+            console.log($("#characterId").val());
+            $(".choosenCharacterImage").attr("src", characterImageSrc);
+            $('#characterModal').modal('hide');
+
         });
         $('#characterRegistration').click(function(event) {
             var charId = $(".isSelected").attr("data-character-id");
