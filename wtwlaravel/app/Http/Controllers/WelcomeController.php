@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\map;
+use App\character;
 
 class WelcomeController extends Controller
 {
@@ -15,7 +16,10 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome_screen');
+
+        $characters = Character::All();
+
+        return view('welcome_screen', compact(['characters']));
     }
 
     /**
