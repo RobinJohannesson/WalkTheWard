@@ -20,91 +20,97 @@
 
 </head>
 <body>
+  <!-- Page container -->
   <div class="container">
-
     <div class="container-fluid">
-        <div class="row justify-content-end">
-            <div class="col col-md-3">
-                <div class="text-right">
-                <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-
-            <div id="info-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-
-            <!-- Your controls -->
-            <ol class="carousel-indicators">
-              <li data-target="#info-carousel" data-slide-to="0" class="active"></li>
-              <li data-target="#info-carousel" data-slide-to="1"></li>
-              <li data-target="#info-carousel" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Your slides -->
-            <div class="carousel-inner">
-
-              <div class="carousel-item active" id="1">
-                <div class="row justify-content-end">
-                  <div class="col-md">
-                    <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
-                  </div>
-                </div>
-                <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
-                </p>
-              </div>
-              <div class="carousel-item" id="2">
-                <div class="row justify-content-center">
-                    <div class="col-md">
-                        <h1 class="text-center"><strong>Instruktioner</strong></h1>
-                    </div>
-                </div>
-                <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
-              </div>
-              <div class="carousel-item" id="3">
-                <div class="col-md">
-                    <h1 class="text-center"><strong>Instruktioner</strong></h1>
-                </div>
-                <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
-                <p>Behöver du hjälp under spelets gång, tryck på det orangea frågetecknet uppe i högra hörnet för mer instruktioner.</p>
-              </div>
-            </div>
-
-            <a class="carousel-control-prev carousel-hide-button" href="#info-carousel" role="button" data-slide="prev">
-
-              <button type="button" class="button continue_button">Tillbaka</button>
-            </a>
-
-              <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
-
-                <button type="button" class="button continue_button">Fortsätt</button>
-              </a>
-
-            <a class="info-play carousel-hide-button" href="#" role="button">
-              <button type="button" class="playbutton">Spela</button>
-            <a/>
-
+      <div class="row justify-content-end">
+        <div class="col col-md-3">
+          <div class="text-right">
+            <i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>
           </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+
+        <!-- Information Carousel -->
+        <div id="info-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+          <!-- Controls -->
+          <ol class="carousel-indicators">
+            <li data-target="#info-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#info-carousel" data-slide-to="1"></li>
+            <li data-target="#info-carousel" data-slide-to="2"></li>
+          </ol>
+
+            <!-- Slides -->
+          <div class="carousel-inner">
+
+            <div class="carousel-item active" id="1">
+              <div class="row justify-content-end">
+                <div class="col-md">
+                  <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
+                </div>
+              </div>
+              <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
+              </p>
+            </div>
+            <div class="carousel-item" id="2">
+              <div class="row justify-content-center">
+                <div class="col-md">
+                  <h1 class="text-center"><strong>Instruktioner</strong></h1>
+                </div>
+              </div>
+              <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
+            </div>
+
+            <div class="carousel-item" id="3">
+              <div class="col-md">
+                <h1 class="text-center"><strong>Instruktioner</strong></h1>
+            </div>
+            <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
+            <p>Behöver du hjälp under spelets gång, tryck på det orangea frågetecknet uppe i högra hörnet för mer instruktioner.</p>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <a class="carousel-control-prev carousel-hide-button" href="#info-carousel" role="button" data-slide="prev">
+          <button type="button" class="button continue_button">Tillbaka</button>
+        </a>
+
+        <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
+          <button type="button" class="button continue_button">Fortsätt</button>
+        </a>
+
+        <a class="info-play carousel-hide-button" href="{{url('/')}}/map" role="button">
+          <button type="button" class="playbutton">Spela</button>
+        <a/>
+
+      </div>
+    </div>
+  </div>
 </div>
-
-    <!-- Optional JavaScript -->
-
+    <!-- Optional Javascript -->
+    <!-- Slide button class controls -->
     <script>
     $(document).ready(function(){
       $('#info-carousel').on('slide.bs.carousel', function (ev) {
         var id = ev.relatedTarget.id;
           switch (id) {
             case "1":
+              //Slide 1
               $('a.carousel-control-prev').addClass('carousel-hide-button');
+              $('a.info-play').addClass('carousel-hide-button');
+              $('a.carousel-control-next').removeClass('carousel-hide-button');
               break;
             case "2":
-              // do something the id is 2
+              // Slide 2
               $('a.carousel-control-prev').removeClass('carousel-hide-button');
               $('a.carousel-control-next').removeClass('carousel-hide-button');
               $('a.info-play').addClass('carousel-hide-button');
               break;
             case "3":
-              // do something the id is 3
+              // Slide 3
               $('a.carousel-control-prev').removeClass('carousel-hide-button');
               $('a.carousel-control-next').addClass('carousel-hide-button');
               $('a.info-play').removeClass('carousel-hide-button');
