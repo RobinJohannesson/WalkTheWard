@@ -286,6 +286,12 @@ h1 {
     height: 421px;
 }
 
+.map{
+    background-size: cover;
+    width: auto;
+    height: 480px;
+}
+
 .play-button-video-question {
     display: none;
     font-size: 150px;
@@ -320,4 +326,8 @@ h1 {
 .registration_radio{
    margin-right: 20px;
    transform: scale(2);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 201bca948d6d5fc1f96457b0b3c1d308f082241c
 }
