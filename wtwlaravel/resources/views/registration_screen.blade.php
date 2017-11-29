@@ -41,14 +41,14 @@
                 <br>
                 <br><p>Kön:</p>
                     
-                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna"  class="registration_radio">Kvinna<br></label>
-                <label class="radio-inline"><input type="radio" name="gender" value="Man">Man<br></label>
-                <label class="radio-inline"><input type="radio" name="gender" value="Annat"> Annat<br></label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" class="registration_radio">Kvinna<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Man" class="registration_radio">Man<br></label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Annat" class="registration_radio"> Annat<br></label>
                 <br>
                     
                 <br><p>Typ av rum:</p>
-                <label class="radio-inline"><input type="radio" name="roomType" value="1"> singelrum<br></label>
-                <label class="radio-inline"><input type="radio" name="roomType" value="2">dubbelrum<br></label><br>
+                <label class="radio-inline"><input type="radio" name="roomType" value="1" class="registration_radio"> singelrum<br></label>
+                <label class="radio-inline"><input type="radio" name="roomType" value="2" class="registration_radio">dubbelrum<br></label><br>
                 <div class="row justify-content-end">
                     <div class="col-md-3">
                         <br><input type="submit" id="submit_button" value="Skicka"><br>
