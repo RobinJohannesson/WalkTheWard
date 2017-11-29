@@ -45,7 +45,7 @@ p {
     vertical-align: middle;
     margin: 20px 0 0 10px;
     color: black;
-    
+
 }
 
 #registration {
@@ -343,6 +343,12 @@ ol.carousel-indicators li.active {
     height: 421px;
 }
 
+.map{
+    background-size: cover;
+    width: auto;
+    height: 480px;
+}
+
 .play-button-video-question {
     display: none;
     font-size: 150px;
@@ -377,5 +383,5 @@ ol.carousel-indicators li.active {
 .registration_radio{
     margin-right: 20px;
    transform: scale(2);
-    
+
 }
