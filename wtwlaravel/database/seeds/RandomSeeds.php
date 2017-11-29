@@ -103,6 +103,11 @@ class RandomSeeds extends Seeder
             'imageSource' => "bigpete.gif",
         ]);
 
+        DB::table('characters')->insert([
+            'name' => "ClaraBelle Cow",
+            'imageSource' => "clarabelle.gif",
+        ]);
+
         DB::table('games')->insert([
             'areaId' => 1,
             'themeId' => 1,
