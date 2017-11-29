@@ -53,6 +53,7 @@ p {
     box-sizing: content-box;
     background-color: #f6f6f6;
     border-radius: 20px;
+    margin-top: -25px;
 }
 .questionparagraph {
     font-size: 40px;
@@ -89,7 +90,7 @@ p {
     width: 82px;
     text-align: center;
     padding: 5px;
-    margin: 20px;
+    margin: 20px 20px 0 0;
     cursor: pointer;
 }
 .ribbon {
@@ -356,6 +357,7 @@ ol.carousel-indicators li.active {
     background-color: #48A2A6;
     color:white;
     font-size: 30px;
+    width: 150px;
 }
 
 .radio-inline{
