@@ -86,7 +86,7 @@
             </div>
             <div class="modal-footer">
                 <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Tillbaka</a>
-                <a href="{{url('/')}}/registration" type="button" class="btn btn-primary" id="characterRegistration">Fortsätt</a>
+                <a href="{{url('/')}}/welcome/store" type="button" class="btn btn-primary" id="characterRegistration">Fortsätt</a>
             </div>
         </div>
     </div>

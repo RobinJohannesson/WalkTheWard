@@ -13,9 +13,10 @@ use App\Http\Middleware\CheckCookie;
 |
 */
 
-Route::resource('/welcome', "WelcomeController");
+Route::GET('/', "WelcomeController@index");
+Route::GET('welcome', "WelcomeController@index");
 
-Route::resource('', "WelcomeController");
+Route::POST('welcome/store', "WelcomeController@store");
 
 Route::middleware('checkCookie')->group(function () {
 
