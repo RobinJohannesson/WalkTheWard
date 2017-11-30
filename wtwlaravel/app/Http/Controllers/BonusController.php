@@ -144,9 +144,13 @@ class BonusController extends Controller
     */
     public function store(Request $request)
     {
-        $BonusGameInGame = BonusGameInGame::where("gameId", "=", $request->gameId)->first();
-        $BonusGameInGame->isCompleted = $request->bonusGameid;
-        $BonusGameInGame->save();
+        // $isCompletedValue = $request->isCompletedValue;
+        // $bonusGameId = $request->bonusGameid;
+        // $bonusGame = BonusGame::find($bonusGameId);
+        // $BonusGameInGame = BonusGameInGame::where("gameId", "=", $request->gameId)->first();
+        // $BonusGameInGame->bonusGameId = $request->bonusGameId;
+        // $BonusGameInGame->isCompleted = 1;
+        // $BonusGameInGame->save();
     }
 
     /**
