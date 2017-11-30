@@ -157,11 +157,15 @@
         });
         // <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
 
+        $(".choosenCharacterImage").on("click", function (e) {
+            $('#characterModal').modal('show');
+        });
+
         $(".characterImage").click(function(event) {
+            $(".characterImage").removeClass('selectedImage');
+            $(this).addClass('selectedImage');
             $("#characterId").val($(this).attr('data-character-id'));
             var characterImageSrc = $(this).attr('src');
-            console.log(characterImageSrc);
-            console.log($("#characterId").val());
             $(".choosenCharacterImage").attr("src", characterImageSrc);
             $('#characterModal').modal('hide');
 
