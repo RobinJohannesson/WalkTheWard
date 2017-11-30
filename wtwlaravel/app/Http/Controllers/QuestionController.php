@@ -178,9 +178,9 @@ class QuestionController extends Controller
                     $bonusGameInGame = new Bonus_game_in_game;
                     $bonusGameInGame->bonusGameId = $bonusGameId;
                     $bonusGameInGame->gameId = $gameId;
-                    $bonusGameInGame->isCompleted = 0;
+                    $bonusGameInGame->isCompleted = 1;
                     $bonusGameInGame->save();
-                    $bonusGame = $placeName;
+                    $bonusGame = implode(' ',str_split(str_repeat("_", strlen($placeName)))) . " Gissa!";
                     $bonusUrl = "/bonus/$bonusGameId";
                 }
             }
