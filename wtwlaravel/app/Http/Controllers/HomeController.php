@@ -63,7 +63,11 @@ class HomeController extends Controller
 
         $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
-        $allAreas = Map::Find(1)->areas;
+        $allAreas = Map::find(1)->areas;
+
+        $mapAreaObj = Map::find(1);
+
+        $mapArea = $mapAreaObj->name;
 
         $allPlaces = 0;
         foreach ($allAreas as $area) {
@@ -77,7 +81,7 @@ class HomeController extends Controller
             $totalStars += $numberOfStar;
         }
 
-        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount']));
+        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea']));
     }
 
     public function showArea(Request $request)
@@ -95,6 +99,16 @@ class HomeController extends Controller
         $areaId = $request->areaId;
 
         $places = Area::find($areaId)->places;
+
+        $mapNameObj = Map::find(1);
+
+        $mapName = $mapNameObj->name;
+
+        $areaNameObj = Area::find($areaId);
+
+        $areaName = $areaNameObj->name;
+
+        $mapArea = $areaName . " " . $mapName;
 
         $totalStars = 0;
         foreach ($places as $place) {
@@ -126,7 +140,8 @@ class HomeController extends Controller
             'totalStars' => $totalStars,
             'maxStars' => $maxStars,
             'gameId' => $gameId,
-            'numberCity' => $numberCity
+            'numberCity' => $numberCity,
+            'mapArea' => $mapArea
         );
         // return view('home_screen', compact(['totalStars', 'maxStars', 'gameId']));
         return response()->json($response);

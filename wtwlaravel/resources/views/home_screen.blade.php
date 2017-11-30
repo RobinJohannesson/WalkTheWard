@@ -25,7 +25,7 @@
             </div>
             <div class="col col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>               
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
 
                 </div>
                  <div class="col-md-6">
-                     <h1 class="text-center">Syd Östra Skåne</h1>
+                     <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
                      <p>Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
                      <p>Antal steg: {{$distanceAmount}}</p>
                      <button type="button" class="button exercise_button">Dagens rörelse</button>
@@ -161,12 +161,12 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
     </script>
-        
+
     <script type="text/javascript">
     $.fn.maphilight.defaults = {
     	fill: true,
     	fillColor: 'ffffff',
-    	fillOpacity: 0.5,
+    	fillOpacity: 1,
     	stroke: true,
     	strokeColor: '000000',
     	strokeOpacity: 1,
@@ -179,8 +179,8 @@ $(function () {
     	shadow: false,
     	shadowX: 0,
     	shadowY: 0,
-    	shadowRadius: 6,
-    	shadowColor: '000000',
+    	shadowRadius: 0,
+    	shadowColor: 'ffffff',
     	shadowOpacity: 0.8,
     	shadowPosition: 'outside',
     	shadowFrom: false
@@ -188,6 +188,13 @@ $(function () {
         $(document).ready(function(e) {
             $(function() {
                 $('.map').maphilight();
+                var counter = 0;
+                while (counter < 6) {
+                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    counter += 1;
+                    // $("." + counter.toString()).data('maphilight', {neverOn: true}).trigger('neverOn.maphilight');
+                    $("." + counter.toString()).data('maphilight', { fillOpacity: 0});
+                }
             });
             $('#movement-video').click(function(event) {
                 if (event.target.paused) {
@@ -207,8 +214,12 @@ $(function () {
                     areaId = areaId.substring(0, areaId.length-4);
                     areaId = areaId[0];
                 }
-                // Kartan highlightar städer beroende på area
-                $("area").data('maphilight', { alwaysOn: false }).trigger('alwaysOn.maphilight');
+                // Kartan highlightar städer beroende på area och släcker alla andr
+                var counter = 0;
+                while (counter < 6) {
+                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false}).trigger('alwaysOn.maphilight');
+                    counter += 1;
+                }
                 $("." + areaId + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
 
                 $.ajax({
@@ -224,6 +235,7 @@ $(function () {
 
                         $('#totalStars').html(dataSuccess['totalStars']);
                         $('#maxStars').html(dataSuccess['maxStars']);
+                        $('#mapArea-value').html(dataSuccess['mapArea']);
                         // Kartan highlightar städer beroende på area
                         // var data = $("." + dataSuccess['numberCity']).mouseout().data('maphilight') || {};
                         // data.alwaysOn = !data.alwaysOn;
