@@ -37,12 +37,13 @@
         </div>
         <div class="row justify-content-center" >
             <div class="col-md-6" style="padding: 15px 60px 15px 60px"id="registration">
-                <h1 align="center">Registrering</h1>
-                <div class="row no-gutters">
-                    <div class="col-sm-8">
+                <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
+                    {{ csrf_field() }}
+                    <h1 align="center">Registrering</h1>
+                    <div class="row no-gutters">
+                        <div class="col-sm-8">
 
-                        <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
-                            {{ csrf_field() }}
+
                             <div class="row no-gutters">
                                 <div class="col-sm-8">
                                     <p>Ålder: </p>
@@ -53,7 +54,6 @@
                                 <div class="col-sm-12">
                                     <br>
                                     <p>Kön:</p>
-
                                     <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" required class="registration_radio">Kvinna<br></label>
                                     <label class="radio-inline"><input type="radio" name="gender" value="Man" required class="registration_radio">Man<br></label>
                                     <label class="radio-inline"><input type="radio" name="gender" value="Annat" required class="registration_radio"> Annat<br></label>
@@ -67,20 +67,22 @@
                                     <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="registration_radio">dubbelrum<br></label><br>
                                 </div>
                             </div>
-                            <div class="row justify-content-end">
-                                <div class="col-sm-12 text-right">
-                                    <br><input type="submit" id="submit_button" value="Registrera"><br>
-                                </div>
-                            </div>
+
                             <input id="characterId" type="hidden" name="characterId" value="7">
-                        </form>
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
-                        <a href="#" class="btn btn-secondary text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal" type="button" >Vill du välja karaktär?</a>
+
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
+                            <a href="#" class="btn-secondary btn-choose-character text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal">Välj karaktär</a>
+                        </div>
 
                     </div>
-                </div>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-12 text-right">
+                            <input type="submit" id="submit_button" class="btn-primary" value="Registrera">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -88,40 +90,40 @@
 
     <!-- Modal -->
     <div class="modal fade" id="characterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        {{-- <div class="modal-dialog modal-lg" role="document"> --}}
         <div class="modal-dialog modal-custom-width" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title" id="resultsModalLabel">
-                        Karaktärer
+                    <h1 class="modal-title text-center" id="characterModalTitle">
+                        Välj en karaktär som du gillar
                     </h1>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> --}}
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2 id="title-value" class="text-center">
-                            Välj en karaktär som du gillar
-                        </h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class='row no-gutters justify-content-around text-center'>
+
+                                @if ($characters)
+                                    @foreach ($characters as $c)
+
+                                        <div class="col">
+                                            <img class="characterImage" data-character-id="{{$c->id}}" src="{{url('/')}}/images/characters/{{$c->imageSource}}" alt="{{$c->name}}">
+                                        </div>
+
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-
-                        @if ($characters)
-                            @foreach ($characters as $c)
-                                <img class="characterImage" data-character-id="{{$c->id}}" src="{{url('/')}}/images/characters/{{$c->imageSource}}" alt="{{$c->name}}">
-                            @endforeach
-                        @endif
-
+                <div class="modal-footer text-left">
+                    <div class="col text-left">
+                        <a href="" type="button" class="btn btn-secondary btn-back" data-dismiss="modal">Tillbaka</a>
                     </div>
                 </div>
             </div>
-            {{-- <div class="modal-footer">
-                <a type="button" class="btn btn-secondary" data-dismiss="modal">Tillbaka</a>
-            </div> --}}
         </div>
     </div>
 
@@ -155,7 +157,6 @@
                 console.log("Something is Required!");
             }
         });
-        // <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
 
         $(".choosenCharacterImage").on("click", function (e) {
             $('#characterModal').modal('show');
@@ -164,9 +165,11 @@
         $(".characterImage").click(function(event) {
             $(".characterImage").removeClass('selectedImage');
             $(this).addClass('selectedImage');
-            $("#characterId").val($(this).attr('data-character-id'));
+            var characterId = $(this).attr('data-character-id');
+            $("#characterId").val(characterId);
             var characterImageSrc = $(this).attr('src');
-            $(".choosenCharacterImage").attr("src", characterImageSrc);
+            $(".choosenCharacterImage").attr('src', characterImageSrc);
+            $(".choosenCharacterImage").attr('data-character-id', characterId);
             $('#characterModal').modal('hide');
 
         });

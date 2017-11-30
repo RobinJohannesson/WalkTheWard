@@ -8,8 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="{{url('/')}}/css/font-awesome.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/css/style-welcome.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
@@ -24,43 +25,70 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" style="margin-bottom: 50px;">
+        <div class="row justify-content-center" style="margin-bottom: 50px; margin-top: -45px;">
 
             <div class="col-md-8">
                 <h1 class="text-center">Walk The Ward </h1>
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel </h2>
             </div>
-
+            {{-- @if ($Patient)
+            <div class="col-md-8">
+            <h3>Vi har sparat en tidigare spelare. Vill du..</h3>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <a href="{{url('/')}}/registration" id="link-new-user">
-                    <div class="btn-new-user">
-                        <img src="{{url('/')}}/images/start-user.png" alt="user" height="190px">
-                        <i class="fa fa-plus fa-3x" aria-hidden="true"></i>
-                    </div>
-                </a>
+    @endif --}}
+
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-5 text-center">                
+        <a href="{{url('/')}}/registration" id="link-new-user">
+            @if ($Patient)
+                <h3>Skapa en ny spelare?</h3>
+            @endif
+            <div class="btn-new-user">
+                <img src="{{url('/')}}/images/start-user.png" alt="user">
+                <i class="fa fa-plus fa-3x" aria-hidden="true"></i>
             </div>
-        </div>
+        </a>
     </div>
+    @if ($Patient)
+        <div class="col-md-5 text-center">
+            <a href="{{url('/')}}/home" id="link-current-user">
+                <h3>Fortsätt spela som tidigare spelare?</h3>
+                <div class="btn-current-user">
+                    @if ($Character)
+                        <img class="characterImage" data-patient-id="{{$Patient->id}}" data-character-id="{{$Character->id}}" src="{{url('/')}}/images/characters/{{$Character->imageSource}}" alt="{{$Character->name}}">
+                    @else
+                        <img src="{{url('/')}}/images/start-user.png" alt="Tidigare spelare" height="190px">
+                        <p>
+                            Fortsätt spela ->
+                        </p>
+                    @endif
+                </div>
+            </a>
+        </div>
+    @endif
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="{{url('/')}}/js/tether.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-    // Initialize tooltip component
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
+</div>
+</div>
 
-    // Initialize popover component
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    });
-    </script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+{{-- <script src="{{url('/')}}/js/tether.min.js"></script> --}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script type="text/javascript">
+// Initialize tooltip component
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
+// Initialize popover component
+$(function () {
+    $('[data-toggle="popover"]').popover()
+});
+</script>
 </body>
 </html>

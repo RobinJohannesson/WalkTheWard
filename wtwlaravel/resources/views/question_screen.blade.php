@@ -177,7 +177,7 @@
 
         </div>
         <div class="modal-footer">
-            <a href="{{url('/')}}/scan" type="button" class="btn btn-primary">Fortsätt spela</a>
+            <a href="{{url('/')}}/scan" type="button" class="btn btn-primary btn-continue">Fortsätt spela</a>
         </div>
     </div>
 </div>

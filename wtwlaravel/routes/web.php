@@ -13,7 +13,7 @@ use App\Http\Middleware\CheckCookie;
 |
 */
 
-Route::resource('', "WelcomeController");
+Route::GET('', "WelcomeController@index");
 
 Route::middleware('checkCookie')->group(function () {
 

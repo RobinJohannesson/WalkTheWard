@@ -1,0 +1,77 @@
+
+.characterImage {
+    width: 215px;
+    height: 215px;
+    border: 5px dotted black;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.choosenCharacterImage {
+    width: 150px;
+    height: 150px;
+    border: 5px dotted black;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.btn-new-user {
+    border: 6px dotted #C9C900;
+    background-color: #FFFEF6;
+    box-sizing: content-box;
+    border-radius: 10px;
+    display: block;
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+    -webkit-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+    -moz-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+    box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+
+
+}
+
+.btn-new-user img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 50px 0 0 10px;
+    height: 150px;
+}
+
+.btn-new-user i {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 60px 0 0 10px;
+    color: black;
+
+}
+
+.btn-current-user {
+    border: 6px dotted #C9C900;
+    background-color: #FFFEF6;
+    box-sizing: content-box;
+    border-radius: 10px;
+    display: block;
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+    -webkit-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+    -moz-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+    box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+}
+
+.btn-current-user img {
+    margin: 25px;
+}
+
+#link-new-user, #link-current-user {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+
+#link-new-user h3, #link-current-user h3 {
+    font-weight: bold;
+}

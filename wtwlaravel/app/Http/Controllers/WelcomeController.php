@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\map;
+use App\patient;
 use App\character;
 
 class WelcomeController extends Controller
@@ -12,11 +13,23 @@ class WelcomeController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('welcome_screen');
+        $Patient = null;
+        $Character = null;
+        // Om patientId cookie finns samt om patient med id finns i DB
+        if($request->hasCookie('patientId') && Patient::find($request->cookie('patientId'))) {
+            $Patient = Patient::find($request->cookie('patientId'));
+
+            if ($Patient->character) {
+                $Character = $Patient->character;
+            }
+        }
+
+        return view('welcome_screen', compact(["Patient", "Character"]));
     }
 
     /**

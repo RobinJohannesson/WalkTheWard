@@ -5,11 +5,6 @@ html, body {
     background-image: url("../images/ep_naturalwhite.png");
 }
 
-#link-new-user {
-    display: block;
-    text-decoration: none;
-}
-
 h1 {
     font-weight: bold;
     font-size: 70px;
@@ -19,35 +14,6 @@ p {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.btn-new-user {
-    border: 6px dotted #C9C900;
-    background-color: #FFFEF6;
-    box-sizing: content-box;
-    border-radius: 10px;
-    display: block;
-    height: 270px;
-    width: 300px;
-    margin: 0 auto;
-    -webkit-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-    -moz-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-    box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-
-
-}
-
-.btn-new-user img {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 35px 0 0 20px;
-}
-
-.btn-new-user i {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 20px 0 0 10px;
-    color: black;
-
-}
 
 #registration {
     border: 10px double black;
@@ -73,8 +39,12 @@ p {
     width: 100%;
 }
 
-/*Tar bort blå kant som visas vid klick*/
+#resultsModal .btn-continue {
+    font-size: 40px;
+}
 
+
+/*Tar bort blå kant som visas vid klick*/
 .button-answer:focus {
     outline: 0;
 }
@@ -115,6 +85,9 @@ p {
     text-overflow: clip;
     }
 
+.carousel-control-next, .carousel-control-prev {
+    opacity: 1;
+}
 
 .continue_button {
     background-color: #48A2A6;
@@ -326,9 +299,10 @@ h1 {
 
 #submit_button{
     background-color: #48A2A6;
-    border-radius: 10px;
+    border-color: transparent;
+    /*border-radius: 10px;*/
     color:white;
-    font-size: 30px;
+    font-size: 40px;
     width: 150px;
 }
 
