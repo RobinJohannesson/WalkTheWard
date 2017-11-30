@@ -23,8 +23,7 @@
             </div>
             <div class="col col-md-2 order-1 order-md-2">
                 <div class=" text-right">
-                    <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
-                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
+                  <a href="#" data-toggle="popover" data-trigger="focus" title="Svara på frågan!" data-content="Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
         </div>
@@ -194,6 +193,17 @@
 <link rel="stylesheet" href="{{url('/')}}/css/jquery-ui.structure.min.css">
 <link rel="stylesheet" href="{{url('/')}}/css/jquery-ui.theme.min.css">
 <script src="{{url('/')}}/js/jquery-ui.min.js"></script>
+     <script type="text/javascript">
+        // Initialize tooltip component
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Initialize popover component
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+    </script>
 {{-- <script src="external/jquery/jquery.js"></script> --}}
 
 

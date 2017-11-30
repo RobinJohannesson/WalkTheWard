@@ -22,6 +22,7 @@
 <body>
   <!-- Page container -->
   <div class="container-fluid">
+      <!--
     <div class="row justify-content-end">
       <div class="col col-md-3">
         <div class="text-right">
@@ -29,7 +30,7 @@
         </div>
       </div>
     </div>
-
+    -->
     <div class="container">
       <div class="row justify-content-center" id="info-container">
 
@@ -48,6 +49,13 @@
 
             <div class="carousel-item active" id="1">
               <div class="row justify-content-end">
+               <div class="col col-md-3">
+                  <div class="text-right">
+                 <a href="#" data-toggle="popover" data-trigger="focus" title="Syftet med Walk The Ward!" data-content="Här finns det information om spelet. När du slutar läsa om syftet med spelet kan du klicka på knappen Fortsätt för att gå vidare. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                   </div>
+               </div>
+            </div>
+              <div class="row justify-content-end">
                 <div class="col-md">
                   <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
                 </div>
@@ -56,6 +64,13 @@
               </p>
             </div>
             <div class="carousel-item" id="2">
+                <div class="row justify-content-end">
+                 <div class="col col-md-3">
+                    <div class="text-right">
+                      <a href="#" data-toggle="popover" data-trigger="focus" title="Instruktioner!" data-content="Här finns det instruktioner om hur du kan spela Walk The Ward. Använd gärna Tillbaka knappen om du vill gå tillbaka och läsa igen syftet med spelet. Annars kan du klicka på Fortsätt knapp när du läst och förstått instruktionerna och gå vidare. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    </div>
+                </div>
+             </div>
               <div class="row justify-content-center">
                 <div class="col-md">
                   <h1 class="text-center"><strong>Instruktioner</strong></h1>
@@ -65,6 +80,13 @@
             </div>
 
             <div class="carousel-item" id="3">
+                <div class="row justify-content-end">
+                <div class="col col-md-3">
+                      <div class="text-right">
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Instruktioner!" data-content="På den här sidan finns det fler instruktioner om spelet. När du förstår instruktionerna och är redo att börja spela då kan du klicka på knappen Spela! " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                      </div>
+                 </div>
+                </div>
               <div class="col-md">
                 <h1 class="text-center"><strong>Instruktioner</strong></h1>
             </div>
