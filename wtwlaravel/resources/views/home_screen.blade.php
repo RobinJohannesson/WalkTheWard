@@ -25,7 +25,7 @@
             </div>
             <div class="col col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>               
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
 
                 </div>
                  <div class="col-md-6">
-                     <h1 class="text-center">Syd Östra Skåne</h1>
+                     <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
                      <p>Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
                      <p>Antal steg: {{$distanceAmount}}</p>
                      <button type="button" class="button exercise_button">Dagens rörelse</button>
@@ -161,7 +161,7 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
     </script>
-        
+
     <script type="text/javascript">
     $.fn.maphilight.defaults = {
     	fill: true,
@@ -224,6 +224,7 @@ $(function () {
 
                         $('#totalStars').html(dataSuccess['totalStars']);
                         $('#maxStars').html(dataSuccess['maxStars']);
+                        $('#mapArea-value').html(dataSuccess['mapArea']);
                         // Kartan highlightar städer beroende på area
                         // var data = $("." + dataSuccess['numberCity']).mouseout().data('maphilight') || {};
                         // data.alwaysOn = !data.alwaysOn;
