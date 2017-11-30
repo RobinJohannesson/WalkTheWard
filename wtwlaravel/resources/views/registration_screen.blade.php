@@ -30,7 +30,7 @@
         <div class="row justify-content-end">
             <div class="col col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Registrera dig" data-content="Skriv in din ålder, kön och vilket typ av rum du bor i på din vistelse." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Registrera dig" data-content="Skriv in din ålder, kön och vilket typ av rum du bor i under din vistelse." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                     <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                 </div>
             </div>
