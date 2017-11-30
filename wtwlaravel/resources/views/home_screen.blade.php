@@ -166,7 +166,7 @@ $(function () {
     $.fn.maphilight.defaults = {
     	fill: true,
     	fillColor: 'ffffff',
-    	fillOpacity: 0.5,
+    	fillOpacity: 1,
     	stroke: true,
     	strokeColor: '000000',
     	strokeOpacity: 1,
@@ -179,8 +179,8 @@ $(function () {
     	shadow: false,
     	shadowX: 0,
     	shadowY: 0,
-    	shadowRadius: 6,
-    	shadowColor: '000000',
+    	shadowRadius: 0,
+    	shadowColor: 'ffffff',
     	shadowOpacity: 0.8,
     	shadowPosition: 'outside',
     	shadowFrom: false
@@ -188,6 +188,13 @@ $(function () {
         $(document).ready(function(e) {
             $(function() {
                 $('.map').maphilight();
+                var counter = 0;
+                while (counter < 6) {
+                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    counter += 1;
+                    // $("." + counter.toString()).data('maphilight', {neverOn: true}).trigger('neverOn.maphilight');
+                    $("." + counter.toString()).data('maphilight', { fillOpacity: 0});
+                }
             });
             $('#movement-video').click(function(event) {
                 if (event.target.paused) {
@@ -207,8 +214,12 @@ $(function () {
                     areaId = areaId.substring(0, areaId.length-4);
                     areaId = areaId[0];
                 }
-                // Kartan highlightar städer beroende på area
-                $("area").data('maphilight', { alwaysOn: false }).trigger('alwaysOn.maphilight');
+                // Kartan highlightar städer beroende på area och släcker alla andr
+                var counter = 0;
+                while (counter < 6) {
+                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false}).trigger('alwaysOn.maphilight');
+                    counter += 1;
+                }
                 $("." + areaId + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
 
                 $.ajax({
