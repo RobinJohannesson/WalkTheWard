@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="row justify-content-end">
-                                <div class="col-md-3 align-center">
+                                <div class="col-sm-12 text-right">
                                     <br><input type="submit" id="submit_button" value="Registrera"><br>
                                 </div>
                             </div>
