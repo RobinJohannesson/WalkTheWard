@@ -212,7 +212,7 @@ p {
 }
 
 .answered-wrong {
-    background-color: #999999;
+    background-color: #ccc;
     border-color: #888888;
     color: #777777;
 }
