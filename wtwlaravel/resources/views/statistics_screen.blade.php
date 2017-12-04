@@ -48,8 +48,8 @@
                             <option value="5">5</option>
                         </select>
                         <p>Var spelet enkelt att spela?</p>
-                        <label class="radio-inline"><input id="wasEasyToPlayRadio" type="radio" name="wasEasyToPlay" value="1"> Ja<br></label>
-                        <label class="radio-inline"><input type="radio" name="wasEasyToPlay" value="0"> Nej<br></label>
+                        <label class="radio-inline"><input class="wasEasyToPlayRadio" type="radio" name="wasEasyToPlay" value="1"> Ja<br></label>
+                        <label class="radio-inline"><input class="wasEasyToPlayRadio" type="radio" name="wasEasyToPlay" value="0"> Nej<br></label>
                         <div class="form-group row">
                             <label for="text-input" class="col-form-label statisticsWhy">Förklara varför:</label>
                             <input class="form-control statisticsWhy" type="text" id="text-input">
@@ -78,15 +78,15 @@ $(function () {
 })
     </script>
     <script type="text/javascript">
-    $('.statisticsWhy').hide();
+    // $('.statisticsWhy').hide();
     $(document).ready(function(){
-        $('#statisticsForm').change(function() {
-        if ($('#wasEasyToPlayRadio').prop('checked')) {
-            $('.statisticsWhy').show();
-        } else {
-            $('.statisticsWhy').hide();
-        }
-        });
+        // $('#statisticsForm').change(function() {
+        // if ($('.wasEasyToPlayRadio').prop('checked')) {
+        //     $('.statisticsWhy').show();
+        // } else {
+        //     $('.statisticsWhy').hide();
+        // }
+        // });
     });
     </script>
 </body>
