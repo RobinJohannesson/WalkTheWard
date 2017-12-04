@@ -285,7 +285,7 @@ $(document).ready(function(){
                     $("#map-value").append(data['bonusGame']);
 
                     $("#bonus-value").append(data['bonusGame']);
-                    $(".btn-primary").attr("href", data['bonusUrl']);
+                    $(".btn-primary").attr("href", "{{url('/')}}" + data['bonusUrl']);
 
                     $("#round-value").append(data['placeActiveRound']);
 
