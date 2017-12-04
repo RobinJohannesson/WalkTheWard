@@ -41,25 +41,25 @@
 
                     <map name="Map" id="Map">
 
-                        <area rel="1" alt="Helsingborg" title="Helsingborg" coords="67,236,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Ängelholm" title="Ängelholm" coords="113,141,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Båstad" title="Båstad" coords="119,43,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Örkelljunga" title="Örkelljunga" coords="231,120,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Perstorp" title="Perstorp" coords="253,203,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Klippan" title="Klippan" coords="171,209,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Svalöv" title="Svalöv" coords="175,304,10" shape="circle" class="1 1City">
-                        <area rel="1" alt="Landskrona" title="Landskrona" coords="109,342,10" shape="circle" class="1 1City">
+                        <area rel="1" id="1Place" alt="Helsingborg" title="Helsingborg" coords="67,236,10" shape="circle" class="1City">
+                        <area rel="1" id="2Place" alt="Ängelholm" title="Ängelholm" coords="113,141,10" shape="circle" class="1City">
+                        <area rel="1" id="3Place" alt="Båstad" title="Båstad" coords="119,43,10" shape="circle" class="1City">
+                        <area rel="1" id="4Place" alt="Örkelljunga" title="Örkelljunga" coords="231,120,10" shape="circle" class="1City">
+                        <area rel="1" id="5Place" alt="Perstorp" title="Perstorp" coords="253,203,10" shape="circle" class="1City">
+                        <area rel="1" id="6Place" alt="Klippan" title="Klippan" coords="171,209,10" shape="circle" class="1City">
+                        <area rel="1" id="7Place" alt="Svalöv" title="Svalöv" coords="175,304,10" shape="circle" class="1City">
+                        <area rel="1" id="8Place" alt="Landskrona" title="Landskrona" coords="109,342,10" shape="circle" class="1City">
 
                         <area alt="" title="" shape="poly" class="1" coords="169,356,159,368,135,368,134,360,127,346,120,345,110,348,103,334,101,316,89,300,88,277,73,264,70,243,55,220,38,196,33,175,29,165,26,142,18,125,7,111,21,111,33,121,47,126,55,134,62,138,69,152,93,157,107,149,116,131,116,125,94,105,96,97,91,88,89,74,81,71,75,65,58,55,59,43,81,21,96,24,106,34,120,43,129,42,139,35,152,40,152,55,151,68,157,83,177,87,192,90,211,90,223,103,242,95,254,79,270,66,285,59,297,59,304,52,314,61,334,63,333,73,312,84,308,104,307,123,293,124,282,136,287,161,293,172,287,183,292,193,291,214,284,219,295,237,300,238,292,251,290,260,266,264,254,282,242,308,240,329,227,329,215,335,200,337,187,350,190,364" />
 
-                        <area rel="2" alt="Kristianstad" title="Kristianstad" coords="525,263,10" shape="circle" class="2 2City">
-                        <area rel="2" alt="Åhus" title="Åhus" coords="551,327,10" shape="circle"class="2 2City">
-                        <area rel="2" alt="Degeberga" title="Degeberga" coords="496,367,10" shape="circle"class="2 2City">
-                        <area rel="2" alt="Tollarp" title="Tollarp" coords="464,317,10" shape="circle"class="2 2City">
-                        <area rel="2" alt="Sösdala" title="Sösdala" coords="403,224,10" shape="circle"class="2 2City">
-                        <area rel="2" alt="Hässleholm" title="Hässleholm" coords="432,176,10" shape="circle"class="2 2City">
-                        <area rel="2" alt="Broby" title="Broby" coords="520,137,10" shape="circle"class="2 2City">
-                        <area rel="2" alt="Bromölla" title="Bromölla" coords="615,234,10" shape="circle"class="2 2City">
+                        <area rel="2" alt="Kristianstad" title="Kristianstad" coords="525,263,10" shape="circle" class="2City">
+                        <area rel="2" alt="Åhus" title="Åhus" coords="551,327,10" shape="circle"class="2City">
+                        <area rel="2" alt="Degeberga" title="Degeberga" coords="496,367,10" shape="circle"class="2City">
+                        <area rel="2" alt="Tollarp" title="Tollarp" coords="464,317,10" shape="circle"class="2City">
+                        <area rel="2" alt="Sösdala" title="Sösdala" coords="403,224,10" shape="circle"class="2City">
+                        <area rel="2" alt="Hässleholm" title="Hässleholm" coords="432,176,10" shape="circle"class="2City">
+                        <area rel="2" alt="Broby" title="Broby" coords="520,137,10" shape="circle"class="2City">
+                        <area rel="2" alt="Bromölla" title="Bromölla" coords="615,234,10" shape="circle"class="2City">
 
                         <area alt="" title="" shape="poly" class="2" coords="516,395,512,414,482,407,479,406,463,417,450,407,454,392,451,379,432,364,442,350,440,328,430,313,423,311,405,327,399,317,391,302,382,294,368,290,357,289,369,274,364,262,363,250,357,246,340,237,337,223,329,218,316,220,312,231,295,222,303,195,296,183,305,173,292,139,302,130,313,127,318,108,318,91,339,79,343,64,367,61,382,55,395,47,408,49,420,54,433,52,454,37,467,37,479,36,484,20,491,6,501,7,504,16,529,23,539,25,549,20,573,32,613,42,613,50,607,57,606,64,592,67,585,80,586,100,580,119,582,134,589,149,590,164,598,170,604,165,616,173,631,172,633,211,631,235,613,268,600,267,595,283,583,288,570,306,560,309,556,320,541,343,528,359" />
 
@@ -190,10 +190,16 @@ $(function () {
                 $('.map').maphilight();
                 var counter = 0;
                 while (counter < 6) {
-                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    // $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
                     counter += 1;
-                    // $("." + counter.toString()).data('maphilight', {neverOn: true}).trigger('neverOn.maphilight');
-                    $("." + counter.toString()).data('maphilight', { fillOpacity: 0});
+                    $("." + counter.toString()).data('maphilight', {fillColor: '000000', strokeColor: 'ffff00'});
+                }
+
+                var counterPlace = 0;
+                while (counterPlace < 9) {
+                    // $("#" + counterPlace.toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: 'ffff00'});
+                    counterPlace += 1;
+                    $("#" + counter.toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: 'ffff00'});
                 }
             });
             $('#movement-video').click(function(event) {
@@ -236,10 +242,6 @@ $(function () {
                         $('#totalStars').html(dataSuccess['totalStars']);
                         $('#maxStars').html(dataSuccess['maxStars']);
                         $('#mapArea-value').html(dataSuccess['mapArea']);
-                        // Kartan highlightar städer beroende på area
-                        // var data = $("." + dataSuccess['numberCity']).mouseout().data('maphilight') || {};
-                        // data.alwaysOn = !data.alwaysOn;
-                        // $("." + dataSuccess['numberCity']).data('maphilight', data).trigger('alwaysOn.maphilight');
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
