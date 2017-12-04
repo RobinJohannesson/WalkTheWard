@@ -166,7 +166,7 @@ $(function () {
     <script type="text/javascript">
     $.fn.maphilight.defaults = {
     	fill: true,
-    	fillColor: 'ffffff',
+    	fillColor: 'a4a4a4',
     	fillOpacity: 1,
     	stroke: true,
     	strokeColor: '000000',
@@ -191,22 +191,16 @@ $(function () {
             console.log(placeIdlist);
             $(function() {
                 $('.map').maphilight();
-
-                var counterPlace = 0;
-                while (counterPlace < 41) {
-                    // $("#" + counterPlace.toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: 'ffff00'});
-                    counterPlace += 1;
-                    $("#" + counterPlace.toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: '00ff00'});
-                }
                 for (index = 0; index < placeIdlist.length; ++index) {
                     console.log(placeIdlist[index]);
-                    $("#" + placeIdlist[index].toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: '0000ff', alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    $("#" + placeIdlist[index].toString() + "Place").data('maphilight', {fillColor: '00ff00', strokeColor: '000000', alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    $("#" + placeIdlist[index].toString() + "Place").addClass("selected");
                 }
                 var counter = 0;
                 while (counter < 6) {
                     // $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
                     counter += 1;
-                    $("." + counter.toString()).data('maphilight', {fillColor: '000000', strokeColor: 'ff0000'});
+                    $("." + counter.toString()).data('maphilight', {fillOpacity: 0});
                 }
             });
             $('#movement-video').click(function(event) {
@@ -227,19 +221,18 @@ $(function () {
                     areaId = areaId.substring(0, areaId.length-4);
                     areaId = areaId[0];
                 }
-                // Kartan highlightar städer beroende på area och släcker alla andr
+                // Kartan highlightar städer beroende på area och släcker alla andra
                 var counter = 0;
-                while (counter < 6) {
+                while (counter < 9) {
                     $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false}).trigger('alwaysOn.maphilight');
                     counter += 1;
                 }
                 $("." + areaId + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
-
-                for (index = 0; index < placeIdlist.length; ++index) {
-                    console.log(placeIdlist[index]);
-                    $("#" + placeIdlist[index].toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: '0000ff', alwaysOn: true}).trigger('alwaysOn.maphilight');
+                // hämtar alla som är markerade inom area
+                if ($("." + areaId + "City").hasClass('selected')) {
+                    var changeThese = $("." + areaId + "City").hasClass('selected');
+                    $("." + areaId + "City.selected").data('maphilight', {fillColor: '00ff00', strokeColor: '000000', alwaysOn: true}).trigger('alwaysOn.maphilight');
                 }
-
                 $.ajax({
                     type: "POST",
                     headers: {

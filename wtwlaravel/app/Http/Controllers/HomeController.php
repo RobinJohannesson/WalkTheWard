@@ -132,6 +132,11 @@ class HomeController extends Controller
 
         $numberCity = $areaId . "City";
 
+        // Hämta alla stationer där användaren varit
+        // $placeIdlist = Place_in_game::where('gameId', $gameId)->pluck('placeId')->toArray();
+        //
+        // $placeIdlistcompare = array.diff();
+
         }
         catch (\Exception $e) {
             $error = $e->getMessage();
