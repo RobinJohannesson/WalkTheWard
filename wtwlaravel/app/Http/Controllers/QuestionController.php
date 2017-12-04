@@ -149,7 +149,7 @@ class QuestionController extends Controller
             if (Bonus_game::where('placeId', $placeId)->first()){
                 $bonusGameExist = Bonus_game::where('placeId', $placeId)->first();
                 $bonusGameId = $bonusGameExist->id;
-                // Kollar om bonus_game_in_game finns, annars skapa de
+                // Kollar om bonus_game_in_game finns
                 try{
                     $bonusGameInGame = Bonus_game_in_game::where('bonusGameId', $bonusGameId)->where('gameId', $gameId)->first();
                     $bonusGameInGameIsCompleted = $bonusGameInGame->isCompleted;
@@ -187,8 +187,15 @@ class QuestionController extends Controller
                 }
             }
             else{
-                $bonusGame = $placeName;
-                $bonusUrl = "/home";
+                if ($placeInGameBool == true) {
+                    $bonusGame = $placeName;
+                    $bonusUrl = "/home";
+                }
+                if ($placeInGameBool == false) {
+                    $bonusGame = $placeName;
+                    $bonusUrl = "/scan";
+                }
+
             }
 
             $correctAnswer = "";
