@@ -250,7 +250,7 @@ $(function () {
             });
 
             $('#homeplaybutton').click(function(){
-                window.location.href = "{{url('/')}}/scan";
+                window.location.href = "{{url('/')}}/map";
             });
 
             $('#exit_button').click(function(){
