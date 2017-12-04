@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\patient;
-use App\game;
-use App\place;
-use App\place_in_game;
-use App\area;
-use App\theme;
-use App\question;
-use App\question_in_game;
-use App\map;
-use App\bonus_game;
-use App\bonus_game_in_game;
+use App\Patient;
+use App\Character;
+use App\Game;
+use App\Place;
+use App\Place_in_game;
+use App\Area;
+use App\Theme;
+use App\Question;
+use App\Question_in_game;
+use App\Map;
+use App\Bonus_game;
+use App\Bonus_game_in_game;
+use App\Http\Controllers\Cookie;
 
 class QuestionController extends Controller
 {

@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\map;
-use App\patient;
-use App\character;
+use App\Patient;
+use App\Character;
+use App\Game;
+use App\Place;
+use App\Place_in_game;
+use App\Area;
+use App\Theme;
+use App\Question;
+use App\Question_in_game;
+use App\Map;
+use App\Bonus_game;
+use App\Bonus_game_in_game;
+use App\Http\Controllers\Cookie;
 
 class WelcomeController extends Controller
 {
