@@ -31,7 +31,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-4 justify-content-center">
+            <div class="col-md-4 justify-content-center" style="min-width: 481px; padding: 0;">
 
                 {{-- <img src="{{url('/')}}/images/map/NW-1.png" alt="Kartdel NV" class="" />
                 <img src="{{url('/')}}/images/map/NE-1.png" alt="Kartdel NÖ" class="" />
