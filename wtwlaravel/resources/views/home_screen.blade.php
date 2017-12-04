@@ -36,7 +36,7 @@
         </div>
         <div class="row justify-content-start">
                 <div class="col-md-6">
-                    <img src="{{url('/')}}/images/map/map-white-stroke.png" class="map" alt="Karta kommer snart!" usemap="#Map" />
+                    <img src="{{url('/')}}/images/map/map-white-stroke.png" class="map home_map_map" alt="Karta kommer snart!" usemap="#Map"/>
 
 
                     <map name="Map" id="Map">
@@ -101,9 +101,9 @@
                 </div>
                  <div class="col-md-6">
                      <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
-                     <p>Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
-                     <p>Antal steg: {{$distanceAmount}}</p>
-                     <button type="button" class="button exercise_button">Dagens rörelse</button>
+                     <p style="text-align: center;">Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
+                     <p style="text-align: center;">Antal steg: {{$distanceAmount}}</p>
+                     <!--<button type="button" class="button exercise_button">Dagens rörelse</button> -->
                 </div>
         </div>
         <div class="row justify-content-between">
@@ -112,6 +112,7 @@
             <div class="col col-md-4">
                </div>
             <div class="col col-md-4">
+                <button type="button" class="button exercise_button">Prova dagens rörelse</button>
                 <button type="button" id="homeplaybutton">Spela --></button>
             </div>
         </div>
