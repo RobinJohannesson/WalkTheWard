@@ -68,7 +68,7 @@
 
 <div class="row justify-content-end">
     <div class="col col-md-4">
-        <button type="button" class="button continue_button">Fortsätt</button>
+        <button type="button" class="button continue_button" id="map_continue_button">Fortsätt</button>
     </div>
 </div>
 
