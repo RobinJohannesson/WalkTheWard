@@ -187,20 +187,26 @@ $(function () {
     	shadowFrom: false
     }
         $(document).ready(function(e) {
+            var placeIdlist = {{json_encode($placeIdlist)}};
+            console.log(placeIdlist);
             $(function() {
                 $('.map').maphilight();
-                var counter = 0;
-                while (counter < 6) {
-                    // $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
-                    counter += 1;
-                    $("." + counter.toString()).data('maphilight', {fillColor: '000000', strokeColor: 'ff0000'});
-                }
 
                 var counterPlace = 0;
                 while (counterPlace < 41) {
                     // $("#" + counterPlace.toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: 'ffff00'});
                     counterPlace += 1;
                     $("#" + counterPlace.toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: '00ff00'});
+                }
+                for (index = 0; index < placeIdlist.length; ++index) {
+                    console.log(placeIdlist[index]);
+                    $("#" + placeIdlist[index].toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: '0000ff', alwaysOn: true}).trigger('alwaysOn.maphilight');
+                }
+                var counter = 0;
+                while (counter < 6) {
+                    // $("." + counter.toString() + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    counter += 1;
+                    $("." + counter.toString()).data('maphilight', {fillColor: '000000', strokeColor: 'ff0000'});
                 }
             });
             $('#movement-video').click(function(event) {
@@ -228,6 +234,11 @@ $(function () {
                     counter += 1;
                 }
                 $("." + areaId + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+
+                for (index = 0; index < placeIdlist.length; ++index) {
+                    console.log(placeIdlist[index]);
+                    $("#" + placeIdlist[index].toString() + "Place").data('maphilight', {fillColor: '000000', strokeColor: '0000ff', alwaysOn: true}).trigger('alwaysOn.maphilight');
+                }
 
                 $.ajax({
                     type: "POST",
