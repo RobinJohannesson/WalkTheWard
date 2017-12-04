@@ -126,7 +126,7 @@
                 </div>
                 <div class="modal-body">
                     <video id="movement-video" loop="loop">
-                        <source src="{{url('/')}}/videos/question_videos/t1q4.mp4" type="video/mp4"></source>
+                        <source src="{{url('/')}}/videos/exercise/balansen.mp4" type="video/mp4"></source>
                     Your browser does not support the video tag.
                     </video>
                 </div>
