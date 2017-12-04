@@ -75,3 +75,26 @@
 #link-new-user h3, #link-current-user h3 {
     font-weight: bold;
 }
+
+
+#modal-confirm-new-player .modal-header .close {
+    margin: 0;
+    line-height: 2rem;
+}
+
+#modal-confirm-new-player .modal-header .close span {
+    vertical-align: middle;
+    font-size: 5rem;
+}
+
+a.btn-cancel {
+    background-color: #48A2A6;
+    border: none;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 40px;
+    /* margin: 10px 5px; */
+    padding: 10px 20px;
+    /* text-align: center; */
+    text-decoration: none;
+}
