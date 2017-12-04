@@ -335,8 +335,8 @@ h1 {
 #map_continue_button {
   margin-left: 65%;
 }
-
+/* THIS FIXES MAP LOCATION ON HOME SCREEN, BUT LEAVE UNTOUCHED FOR NOW
 .home_map_map {
   margin-left: 150px;
   margin-top: 10px;
-}
+} */
