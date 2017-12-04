@@ -326,7 +326,7 @@ $(document).ready(function(){
 
                                 if ((i+1) == numberOfStars) {
                                     if(data['isNewHighscore'] == true){
-                                        $("#new-highscore").html("Du har fått nytt rekord i " + data['placeName'] + "!" );
+                                        $("#new-highscore").html("Du har fått nytt rekord i " + data['bonusGame']);
                                     }
                                 }
 
