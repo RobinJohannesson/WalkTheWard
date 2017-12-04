@@ -20,7 +20,7 @@
         <div class="row justify-content-end">
             <div class="col col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Hej!" data-content="Välkommen till Walk the Ward. På den här sidan väljer du en del av Skåne där du vill vandra och trycker sedan på knappen för att fortsätta." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Välj en del av Skåne!" data-content="Här väljer du en del av Skåne där du vill vandra i och trycker sedan på knappen Fortsätt för att gå vidare." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                 </div>
             </div>
         </div>
