@@ -112,7 +112,7 @@
             <div class="col col-md-4">
                </div>
             <div class="col col-md-4">
-                <button type="button" class="button exercise_button">Dagens rörelse</button>
+                <button type="button" class="button exercise_button">Prova dagens rörelse</button>
                 <button type="button" id="homeplaybutton">Spela --></button>
             </div>
         </div>
