@@ -36,7 +36,7 @@
         </div>
         <div class="row justify-content-start">
                 <div class="col-md-6">
-                    <img src="{{url('/')}}/images/map/map-white-stroke.png" class="map" alt="Karta kommer snart!" usemap="#Map" />
+                    <img src="{{url('/')}}/images/map/map-white-stroke.png" class="map home_map_map" alt="Karta kommer snart!" usemap="#Map"/>
 
 
                     <map name="Map" id="Map">
