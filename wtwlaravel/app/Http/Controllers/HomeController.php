@@ -67,6 +67,9 @@ class HomeController extends Controller
 
         $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
+        // Hämta alla stationer där användaren varit
+        $placeIdlist = Place_in_game::where('gameId', $gameId)->pluck('placeId')->toArray();
+
         $allAreas = Map::find(1)->areas;
 
         $mapAreaObj = Map::find(1);
@@ -85,7 +88,7 @@ class HomeController extends Controller
             $totalStars += $numberOfStar;
         }
 
-        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea']));
+        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist']));
     }
 
     public function showArea(Request $request)
