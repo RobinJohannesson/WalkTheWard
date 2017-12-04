@@ -33,13 +33,13 @@
 
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-3">
-                    <form action="{{{ url("statistics/store") }}}" id="statisticsForm" method="POST">
+            <div class="col-md-4">
+                    <form action="{{{ url("statistics/store") }}}" id="statisticsForm" method="POST" style="font-size: 24pt; width: 500px;>
                         {{ csrf_field() }}
-                        <p>Ska du gå hem?</p>
+                        <p style="font-size: 24pt;">Ska du gå hem?</p>
                         <label class="radio-inline"><input type="radio" name="hasGoneHome" value="1"> Ja<br></label>
                         <label class="radio-inline"><input type="radio" name="hasGoneHome" value="0"> Nej<br></label>
-                        <p>Hur många dagar har du varit inlagd?</p>
+                        <p style="font-size: 24pt;">Hur många dagar har du varit inlagd?</p>
                         <select number="5" name="dayAmount">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -47,7 +47,7 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <p>Var spelet enkelt att spela?</p>
+                        <p style="font-size: 24pt;">Var spelet enkelt att spela?</p>
                         <label class="radio-inline"><input id="wasEasyToPlayRadio" type="radio" name="wasEasyToPlay" value="1"> Ja<br></label>
                         <label class="radio-inline"><input type="radio" name="wasEasyToPlay" value="0"> Nej<br></label>
                         <div class="form-group row">
