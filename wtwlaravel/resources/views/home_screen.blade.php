@@ -223,15 +223,15 @@ $(function () {
                 }
                 // Kartan highlightar städer beroende på area och släcker alla andra
                 var counter = 0;
-                while (counter < 9) {
-                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false}).trigger('alwaysOn.maphilight');
+                while (counter < 6) {
+                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false, neverOn: true}).trigger('alwaysOn.maphilight');
                     counter += 1;
                 }
-                $("." + areaId + "City").data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+                $("." + areaId + "City").data('maphilight', {alwaysOn: true, neverOn: false}).trigger('alwaysOn.maphilight');
                 // hämtar alla som är markerade inom area
                 if ($("." + areaId + "City").hasClass('selected')) {
                     var changeThese = $("." + areaId + "City").hasClass('selected');
-                    $("." + areaId + "City.selected").data('maphilight', {fillColor: '00ff00', strokeColor: '000000', alwaysOn: true}).trigger('alwaysOn.maphilight');
+                    $("." + areaId + "City.selected").data('maphilight', {fillColor: '00ff00', strokeColor: '000000', alwaysOn: true, neverOn: false}).trigger('alwaysOn.maphilight');
                 }
                 $.ajax({
                     type: "POST",
