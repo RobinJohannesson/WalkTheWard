@@ -165,7 +165,8 @@ h1 {
 }
 
 #map_continue_button {
-  margin-left: 63%;
+  margin-left: 52%;
+  padding: 20px 40px;
 }
 /*THIS FIXES MAP LOCATION ON HOME SCREEN, BUT LEAVE UNTOUCHED FOR NOW*
 .home_map_map {
