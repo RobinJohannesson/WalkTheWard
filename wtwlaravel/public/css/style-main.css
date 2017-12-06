@@ -1,16 +1,16 @@
 html, body {
     background-color: #f1f1f1;
     background-image: url("../images/ep_naturalwhite.png");
-    font-family: 'Amatic SC', cursive;
-    /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
+    /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'Averia Sans Libre', cursive, sans-serif;
     /*font-family: 'Josefin Sans', sans-serif;*/
     font-size: 24px;
     min-width: 350px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    /*font-family: 'Amatic SC', cursive, sans-serif;*/
-    font-family: 'Averia Sans Libre', cursive, sans-serif;
+    font-family: 'Amatic SC', cursive, sans-serif;
+    /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
 }
 
 h1 {
@@ -36,6 +36,7 @@ p {
 
 .popover-header {
     color: #000;
+    font-family: 'Averia Sans Libre', cursive, sans-serif;
 }
 .popover-body {
     color: #000;
