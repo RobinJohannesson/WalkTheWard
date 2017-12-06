@@ -5,13 +5,13 @@ html, body {
     /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
     /*font-family: 'Josefin Sans', sans-serif;*/
     font-family: 'Autour One', cursive;
-    font-size: 22px;
+    font-size: 18px;
     min-width: 350px;
 }
 
 h1, h2, h3, h4, h5, h6 {
      font-family: 'Autour One', cursive;
-    font-size: 50px;
+    font-size: 35px;
     /*font-family: 'Amatic SC', cursive, sans-serif;*/
     /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
 }
@@ -23,6 +23,11 @@ h1 {
 
 p {
     /*font-family: 'Josefin Sans', sans-serif;*/
+}
+
+.popover{
+   font-size: 16px;
+   font-family: 'Autour One', cursive;
 }
 
 .font-averia {
@@ -39,7 +44,7 @@ p {
 
 .popover-header {
     color: #000;
-    /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/s
+    /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
 }
 .popover-body {
     color: #000;
