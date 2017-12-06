@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $hasGoneHome
  * @property int $dayAmount
  * @property boolean $wasEasyToPlay
+ * @property string $explainWhy
  * @property string $updated_at
  * @property string $created_at
  * @property Patient[] $patients
@@ -18,7 +19,7 @@ class Statistics extends Model
     /**
      * @var array
      */
-    protected $fillable = ['hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'updated_at', 'created_at'];
+    protected $fillable = ['hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'explainWhy', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
