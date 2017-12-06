@@ -169,7 +169,9 @@ class QuestionController extends Controller
                     }
                     else{
                         // Gör _ för varje bokstav i namnet och mellanslag mellan varje bokstav
-                        $bonusGame = implode(' ',str_split(str_repeat("_", strlen($placeName)))) . " Gissa!";
+                        // $bonusGame = implode(' ',str_split(str_repeat("_", strlen($placeName)))) . " Gissa!";
+                        // skiter i ovan, och skapar bara "???" istället för stadens namn
+                        $bonusGame = "???";
 
                         $bonusUrl = "/bonus/$bonusGameId";
                     }
@@ -182,7 +184,7 @@ class QuestionController extends Controller
                     $bonusGameInGame->gameId = $gameId;
                     $bonusGameInGame->isCompleted = 1;
                     $bonusGameInGame->save();
-                    $bonusGame = implode(' ',str_split(str_repeat("_", strlen($placeName)))) . " Gissa!";
+                    $bonusGame = "???";
                     $bonusUrl = "/bonus/$bonusGameId";
                 }
             }
