@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Välkommen!')
+@section('title', 'Walk The Ward')
 
 @section('meta')
 
