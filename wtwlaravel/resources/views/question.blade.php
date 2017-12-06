@@ -139,7 +139,9 @@
                 <div class="col-sm-8">
                     <p>
                         <span id="stars-value"></span>
-                        <span id="new-highscore"></span>
+                        {{-- <span id="new-highscore"></span> --}}
+                    </p>
+                    <p id="new-highscore">
                     </p>
                 </div>
             </div>
@@ -311,6 +313,7 @@
 
                                     if ((i+1) == numberOfStars) {
                                         if(data['isNewHighscore'] == true){
+                                            $("#new-highscore").show();
                                             $("#new-highscore").html("Du har fått nytt rekord i " + data['bonusGame']);
                                         }
                                     }
