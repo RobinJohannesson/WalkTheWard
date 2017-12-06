@@ -75,27 +75,27 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Donald Duck",
+            'name' => "Kalle Anka",
             'imageSource' => "donald.gif",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Daisy Duck",
+            'name' => "Kajsa Anka",
             'imageSource' => "daisy.gif",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Mickey Mouse",
+            'name' => "Musse Pigg",
             'imageSource' => "mickey.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Minnie Mouse",
+            'name' => "Mimmi Pigg",
             'imageSource' => "minnie.gif",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Goofy",
+            'name' => "Långben",
             'imageSource' => "goofy.gif",
         ]);
 
@@ -105,12 +105,12 @@ class RandomSeeds extends Seeder
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Big Pete",
+            'name' => "Svarte Petter",
             'imageSource' => "bigpete.gif",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "ClaraBelle Cow",
+            'name' => "Klarabella Ko",
             'imageSource' => "clarabelle.gif",
         ]);
 
