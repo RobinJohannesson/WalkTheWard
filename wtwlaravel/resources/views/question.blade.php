@@ -126,13 +126,13 @@
                 </div>
                 <div class="col-sm-8">
                     <p>
-                        <span id="answer-value"></span>
+                        <span id="answer-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <p class="text-right">
+                    <p class="text-right paragraph-size-adjust">
                         Antal stjärnor:
                     </p>
                 </div>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="col-sm-8">
                     <p>
-                        <span id="steps-value"></span>
+                        <span id="steps-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col-sm-8">
                     <p>
-                        <span id="bonus-value"></span>
+                        <span id="bonus-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-sm-8">
                     <p>
-                        <span id="round-value"></span>
+                        <span id="round-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
