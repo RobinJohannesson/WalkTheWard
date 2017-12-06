@@ -182,3 +182,7 @@ h1 {
     background: url('../images/lodaing1.svg') 50% 50% no-repeat rgba(255,255,255,0.3);
     background-size: 200px;
 }
+
+.theme-button-text-adjust {
+  margin-top: 15px;
+}
