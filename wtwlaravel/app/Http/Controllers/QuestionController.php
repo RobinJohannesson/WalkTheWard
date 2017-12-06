@@ -268,7 +268,7 @@ class QuestionController extends Controller
 
         $patient = Patient::find($patientId);
         $distanceInMeter = $patient->distanceInMeter;
-        $distanceInMeterAmount = $distanceInMeter + rand(5, 20);
+        $distanceInMeterAmount = $distanceInMeter + rand(1, 5);
         // Ger distancen
         Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
 
