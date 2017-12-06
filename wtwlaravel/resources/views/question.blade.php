@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 order-2 order-md-1">
-                <p class="">Tema: {{ $currentTheme->name }}</p>
+                <p class="paragraph-size-adjust">Tema: {{ $currentTheme->name }}</p>
                 <p class="questionparagraph">{{ $question->question }}</p>
             </div>
             <div class="col col-md-2 order-1 order-md-2">
@@ -39,7 +39,7 @@
             </button> --}}
         </div>
         <div class="col-md-8">
-            <p id="answer-message" class="text-center"></p>
+            <p id="answer-message" class="text-center paragraph-size-adjust"></p>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -54,22 +54,22 @@
                     Your browser does not support the video tag.
                 </video>
             @else
-                <p>
+                <p class="paragraph-size-adjust">
                     Ingen bild eller video finns.
                 </p>
             @endif
         </div>
         <div class="col-md-6">
-            <button id="answer-1" class="button button-answer {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
+            <button id="answer-1" class="question-button button button-answer {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
                 {{ $question->answer1 }}
             </button>
-            <button id="answer-2" class="button button-answer {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
+            <button id="answer-2" class=" question-button button button-answer {{$question->correctAnswer == 2 ? "correct-answer" : ""}}">
                 {{ $question->answer2 }}
             </button>
-            <button id="answer-3" class="button button-answer {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
+            <button id="answer-3" class=" question-button button button-answer {{$question->correctAnswer == 3 ? "correct-answer" : ""}}">
                 {{ $question->answer3 }}
             </button>
-            <button id="answer-4" class=" button button-answer {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
+            <button id="answer-4" class="question-button button button-answer {{$question->correctAnswer == 4 ? "correct-answer" : ""}}">
                 {{ $question->answer4 }}
             </button>
 
@@ -120,7 +120,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <p class="text-right">
+                    <p class="text-right paragraph-size-adjust">
                         Rätt svar:
                     </p>
                 </div>
@@ -147,7 +147,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <p class="text-right">
+                    <p class="text-right paragraph-size-adjust">
                         Antal steg:
                     </p>
                 </div>
@@ -159,7 +159,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <p class="text-right">
+                    <p class="text-right paragraph-size-adjust">
                         Du är just nu i:
                     </p>
                 </div>
@@ -171,7 +171,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <p class="text-right">
+                    <p class="text-right paragraph-size-adjust">
                         Du har besökt:
                     </p>
                 </div>

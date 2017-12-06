@@ -14,6 +14,13 @@
   font-size: 18pt;
 }
 
+.questionparagraph {
+  margin-top: 10%;
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+}
+
 .header-margin {
   margin-top: 15%;
 }
@@ -189,4 +196,8 @@ h1 {
 
 .theme-button-text-adjust {
   margin-top: 15px;
+}
+
+.question-button {
+  height: 70px;
 }
