@@ -817,6 +817,7 @@ class RandomSeeds extends Seeder
             'hasGoneHome' => 1,
             'dayAmount' => 2,
             'wasEasyToPlay' => 1,
+            'explainWhy' => "Jo, men klart det var roligt!",
         ]);
 
         /*DB::table('themes')->insert([

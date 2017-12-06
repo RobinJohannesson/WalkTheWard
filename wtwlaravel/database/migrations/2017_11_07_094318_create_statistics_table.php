@@ -18,6 +18,7 @@ class CreateStatisticsTable extends Migration
             $table->boolean('hasGoneHome')->nullable();
             $table->integer('dayAmount')->nullable();
             $table->boolean('wasEasyToPlay')->nullable();
+            $table->string('explainWhy')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });
