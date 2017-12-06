@@ -26,7 +26,6 @@ class BonusController extends Controller
     */
     public function index(Request $request, $id)
     {
-        $test = "test";
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
@@ -35,27 +34,23 @@ class BonusController extends Controller
         // ex. helsingborg eller lund
         $bonusGameLettersDB = $bonusGame->lettersToDiscard;
         // Gör bokstäverna stora
-        $bonusGameLetters = mb_strtoupper($bonusGameLettersDB, 'utf-8');
-
+        $bonusGameLetters = strToUpper($bonusGameLettersDB);
 
         // Om de är färre än 5, skapar strängar
-        if (mb_strlen($bonusGameLetters, 'utf-8') <= 5) {
-            $test = "mindre än 5";
+        if (strlen($bonusGameLetters) <= 5) {
             // lund
             $bonusGameLettersShuffledCut = $bonusGameLetters;
             // _ _ _ _ (utan mellanslag)
-            $bonusGameLettersRemain = str_repeat("_", mb_strlen($bonusGameLetters, 'utf-8'));
+            $bonusGameLettersRemain = str_repeat("_",strlen($bonusGameLetters));
         }
 
         // Kollar om staden innehåller fler än 5 bokstäver
-        if (mb_strlen($bonusGameLetters, 'utf-8') > 5) {
-            $test = "mer än 5";
+        if (strlen($bonusGameLetters) > 5) {
             // Slumpar runt bokstäverna
             // ex. hligogesnbr (helsingborg)
             $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
-
             // ex. esnbr (5 slumpmässiga bokstäver från helsingborg)
-            $bonusGameLettersShuffledCut = mb_substr($bonusGameLettersShuffled, 0, 5);
+            $bonusGameLettersShuffledCut = substr($bonusGameLettersShuffled, 0, 5);
 
             // ex. helsingborg
             $bonusGameLettersRemain = $bonusGameLetters;
@@ -66,15 +61,13 @@ class BonusController extends Controller
                 $bonusGameLettersRemain = str_replace($bonusGameLettersShuffledCut[$fiveTimes],"_",$bonusGameLettersRemain);
                 $fiveTimes ++;
             }
-
         }
         // Tar fram längden av bokstäver som ska användas för bilden bokstäverna
-        $whileBonusUnder12Int = mb_strlen($bonusGameLettersShuffledCut, 'utf-8');
-
+        $whileBonusUnder12Int = strlen($bonusGameLettersShuffledCut);
         // Fyller ut till 12 bokstäver med slumpmässigt mellan a-ö
         while ( $whileBonusUnder12Int < 12) {
             $charRand = chr(rand(65,90));
-            if(mb_strpos($bonusGameLettersShuffledCut, $charRand, 0,'utf-8') === false){
+            if(strpos($bonusGameLettersShuffledCut, $charRand) === false){
                 $bonusGameLettersShuffledCut .=  $charRand;
                 $whileBonusUnder12Int ++;
             }
@@ -132,7 +125,7 @@ class BonusController extends Controller
             $bonusUrl = "/scan";
         }
 
-        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl", "test"]));
+        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
     }
 
     /**
