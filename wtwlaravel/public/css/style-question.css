@@ -33,9 +33,10 @@
 }
 
 #question-img {
-    max-height: 400px;
+    max-height: 500px;
     max-width: 100%;
     width: auto;
+    margin-bottom: 5px;
 }
 
 #question-video {
