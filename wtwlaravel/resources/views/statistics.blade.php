@@ -53,6 +53,7 @@
                         <label for="text-input" class="col-form-label statisticsWhy">Förklara varför:</label>
                         <input class="form-control statisticsWhy" type="text" id="text-input" name="explainWhy">
                     </div>
+                    <a href="{{url('/')}}/home" type="button" class="button continue_button">Tillbaka</a>
                     <input type="submit" id="submit_button" class="btn-primary" value="Skicka">
                 </form>
 
