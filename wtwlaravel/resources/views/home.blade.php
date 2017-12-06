@@ -102,8 +102,8 @@
             </div>
             <div class="col-md-6">
                 <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
-                <p style="text-align: center;">Antal poäng: <span id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
-                <p style="text-align: center;">Antal steg: {{$distanceAmount}}</p>
+                <p class="paragraph-size-adjust" style="text-align: center; ">Antal poäng: <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
+                <p class="paragraph-size-adjust" style="text-align: center;">Antal steg: {{$distanceAmount}}</p>
                 <!--<button type="button" class="button exercise_button">Dagens rörelse</button> -->
             </div>
         </div>
