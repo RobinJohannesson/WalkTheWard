@@ -63,7 +63,7 @@ Route::GET('registration', "RegistrationController@index");
 Route::POST('registration/store', "RegistrationController@store");
 
 Route::fallback(function(){
-    return 'Fel 404 - Sidan kunde inte hittas!';
+    return redirect('scan');
 });
 
 
