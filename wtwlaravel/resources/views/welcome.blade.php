@@ -90,7 +90,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5 text-center">
             @if ($Patient)
-                <h4 class="font-josefin">Ny spelare?</h4>
+                {{-- <h4 class="font-josefin">Ny spelare?</h4> --}}
                 <a href="" id="link-new-user" data-toggle="modal" data-target="#modal-confirm-new-player">
                 @else
                     <a href="{{url('/')}}/registration" id="link-new-user">
@@ -98,20 +98,30 @@
                     <div class="btn-new-user">
                         <img src="{{url('/')}}/images/start-user.png" alt="user">
                         <i class="fa fa-plus fa-3x" aria-hidden="true"></i>
+                        <p>
+                            Skapa ny spelare
+                        </p>
                     </div>
                 </a>
             </div>
             @if ($Patient)
                 <div class="col-md-5 text-center">
-                    <h4 class="font-josefin">Fortsätt spela?</h4>
+                    {{-- <h4 class="font-josefin">Fortsätt spela?</h4> --}}
                     <a href="{{url('/')}}/home" id="link-current-user">
                         <div class="btn-current-user">
                             @if ($Character)
                                 <img class="characterImage" data-patient-id="{{$Patient->id}}" data-character-id="{{$Character->id}}" src="{{url('/')}}/images/characters/{{$Character->imageSource}}" alt="{{$Character->name}}">
+                                <p>
+                                    Fortsätt spela som
+                                    <br>
+                                    <strong>{{$Character->name}}</strong>
+                                </p>
                             @else
                                 <img src="{{url('/')}}/images/start-user.png" alt="Tidigare spelare" height="190px">
                                 <p>
-                                    Fortsätt spela som tidigare spelare ->
+                                    Fortsätt spela som
+                                    <br>
+                                    <strong>{{$Character->name}}</strong>
                                 </p>
                             @endif
                         </div>
