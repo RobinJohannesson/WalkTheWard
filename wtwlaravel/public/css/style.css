@@ -11,7 +11,7 @@
 }*/
 
 .paragraph-size-adjust {
-  font-size: 18pt;
+  font-size: 1.5rem;
 }
 
 .questionparagraph {
@@ -19,6 +19,7 @@
   text-align: center;
   width: 80%;
   margin-left: auto;
+  font-size: 2rem;
 }
 
 .header-margin {
@@ -44,7 +45,6 @@
 .carousel-control-next, .carousel-control-prev {
     opacity: 1;
 }
-
 
 .playbutton {
     background-color: #4CAF50;
@@ -73,7 +73,6 @@
     margin-left: 65px;
 }
 
-
 .exercise_button{
     background-color:#E34478;
     border-radius: 10px;
@@ -91,7 +90,6 @@
 .home_map_pic{
     max-width: 100%;
 }
-
 
 #exit_button{
     background-color:#F8070D;
@@ -121,7 +119,6 @@ h1 {
     width: 100%;
     height: auto;
 }
-
 
 
 .align-left {
@@ -157,7 +154,6 @@ h1 {
     font-size: 1.2rem;
     width: 150px;
 }
-
 
 .button-theme{
     background-color:#317cbd;

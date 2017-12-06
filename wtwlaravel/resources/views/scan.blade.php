@@ -24,13 +24,8 @@
                 <button type="button" class="button change_theme_button">Ändra tema</button>
             </div>
             <div class="col-md-8 order-2 order-md-1">
-<<<<<<< HEAD
                 <h1 class="text-center header-margin">Skanna en QR-KOD</h1>
-                <div class="col-md-8 preview-col">
-=======
-                <h1 class="text-center">Skanna en QR-KOD</h1>
                 <div class="col preview-col">
->>>>>>> 134218cb0086b9a0dbad19707badfb0287d0c2fb
                     <div class="video-container">
                         <video id="preview"></video>
                     </div>
