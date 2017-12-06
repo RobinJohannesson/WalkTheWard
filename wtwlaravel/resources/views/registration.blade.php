@@ -19,61 +19,62 @@
 @section('body')
     <div class="container-fluid">
         <div class="row justify-content-end">
-            <div class="col col-md-3">
-                <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Registrera dig" data-content="Skriv in din ålder, kön och vilket typ av rum du bor i under din vistelse." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
-                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
+            <div class="col-md-8 order-2 order-md-1">
+                <div id="registration">
+
+
+                    <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
+                        {{ csrf_field() }}
+                        <h1 align="center">Registrering</h1>
+                        <div class="row no-gutters">
+                            <div class="col-sm-8">
+
+
+                                <div class="row no-gutters">
+                                    <div class="col-sm-8">
+                                        <p>Ålder: </p>
+                                        <input type="number" name="age" style="border: 1px solid; border-radius: 5px;" required>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters">
+                                    <div class="col-sm-12">
+                                        <br>
+                                        <p>Kön:</p>
+                                        <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" required class="big-radio-btn">Kvinna<br></label>
+                                        <label class="radio-inline"><input type="radio" name="gender" value="Man" required class="big-radio-btn">Man<br></label>
+                                        <label class="radio-inline"><input type="radio" name="gender" value="Annat" required class="big-radio-btn"> Annat<br></label>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters">
+                                    <div class="col-sm-12">
+                                        <br>
+                                        <p>Typ av rum:</p>
+                                        <label class="radio-inline"><input type="radio" name="roomType" value="1" required class="big-radio-btn"> singelrum<br></label>
+                                        <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="big-radio-btn">dubbelrum<br></label><br>
+                                    </div>
+                                </div>
+
+                                <input id="characterId" type="hidden" name="characterId" value="7">
+
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
+                                <a href="#" class="btn-interest btn-small text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal">Välj karaktär</a>
+                            </div>
+
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="col-sm-12 text-right">
+                                <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Registrera">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center" >
-            <div class="col-md-6" style="padding: 15px 60px 15px 60px; margin-top: 5%;"id="registration">
-                <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
-                    {{ csrf_field() }}
-                    <h1 align="center">Registrering</h1>
-                    <div class="row no-gutters">
-                        <div class="col-sm-8">
-
-
-                            <div class="row no-gutters">
-                                <div class="col-sm-8">
-                                    <p>Ålder: </p>
-                                    <input type="number" name="age" style="border: 1px solid; border-radius: 5px;" required>
-                                </div>
-                            </div>
-                            <div class="row no-gutters">
-                                <div class="col-sm-12">
-                                    <br>
-                                    <p>Kön:</p>
-                                    <label class="radio-inline"><input type="radio" name="gender" value="Kvinna" required class="registration_radio">Kvinna<br></label>
-                                    <label class="radio-inline"><input type="radio" name="gender" value="Man" required class="registration_radio">Man<br></label>
-                                    <label class="radio-inline"><input type="radio" name="gender" value="Annat" required class="registration_radio"> Annat<br></label>
-                                </div>
-                            </div>
-                            <div class="row no-gutters">
-                                <div class="col-sm-12">
-                                    <br>
-                                    <p>Typ av rum:</p>
-                                    <label class="radio-inline"><input type="radio" name="roomType" value="1" required class="registration_radio"> singelrum<br></label>
-                                    <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="registration_radio">dubbelrum<br></label><br>
-                                </div>
-                            </div>
-
-                            <input id="characterId" type="hidden" name="characterId" value="7">
-
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
-                            <a href="#" class="btn-secondary btn-choose-character text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal">Välj karaktär</a>
-                        </div>
-
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="col-sm-12 text-right">
-                            <input type="submit" id="submit_button" class="btn-primary" value="Registrera">
-                        </div>
-                    </div>
-                </form>
+            <div class="col-md-2 order-1 order-md-2">
+                <div class="text-right">
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Registrera dig" data-content="Skriv in din ålder, kön och vilket typ av rum du bor i under din vistelse." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                </div>
             </div>
         </div>
     </div>

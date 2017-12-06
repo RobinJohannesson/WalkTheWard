@@ -21,7 +21,9 @@
         <div class="row justify-content-end">
             <div class="col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Bonus fråga!" data-content="Den här är en bonus fråga. Tryck på bokstäverna för att gissa var du är! Om du vill inte svara på bonus frågan kan du trycka på “Hoppa över” knappen. " style="white-space:nowrap;><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Bonus fråga!" data-content="Den här är en bonus fråga. Tryck på bokstäverna för att gissa var du är! Om du vill inte svara på bonus frågan kan du trycka på “Hoppa över” knappen. " style="white-space:nowrap;">
+                        <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
+                    </a>
                 </div>
             </div>
         </div>
@@ -54,7 +56,6 @@
 
             <div class="col">
                 <h2 id="bonus-word" class="text-center">
-                    <span>{{$test}}</span>
                     @php
                     $count = 0;
                     foreach($bonusGameLettersShuffledRestArray as $restLetter){
@@ -69,7 +70,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col text-right">
-                <a href="{{url('/')}}{{$bonusUrl}}" type="button" class="btn btn-primary"><span id="btnNext">Hoppa över</span></a>
+                <a href="{{url('/')}}{{$bonusUrl}}" class="btn-trust btn-medium"><span id="btnNext">Hoppa över</span></a>
             </div>
         </div>
     </div>

@@ -18,7 +18,9 @@
         <div class="row justify-content-end">
             <div class="col-md-3">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Bonus fråga!" data-content="Den här är en bonus fråga. Tryck på bokstäverna för att gissa var du är! Om du vill inte svara på bonus frågan kan du trycka på “Hoppa över” knappen. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Bonus fråga!" data-content="Den här är en bonus fråga. Tryck på bokstäverna för att gissa var du är! Om du vill inte svara på bonus frågan kan du trycka på “Hoppa över” knappen. " style="white-space:nowrap;">
+                        <img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark">
+                    </a>
                 </div>
             </div>
         </div>
@@ -65,7 +67,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col text-right">
-                <a href="{{url('/')}}{{$bonusUrl}}" type="button" class="btn btn-primary"><span id="btnNext">Hoppa över</span></a>
+                <a href="{{url('/')}}{{$bonusUrl}}" type="button" class="btn-trust btn-medium"><span id="btnNext">Hoppa över</span></a>
             </div>
         </div>
     </div>
@@ -76,16 +78,16 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-           <script type="text/javascript">
-        // Initialize tooltip component
-        $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    <script type="text/javascript">
+    // Initialize tooltip component
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
-// Initialize popover component
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+    // Initialize popover component
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
     </script>
 
     <script type="text/javascript">

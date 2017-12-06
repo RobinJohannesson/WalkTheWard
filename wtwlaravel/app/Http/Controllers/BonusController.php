@@ -125,7 +125,7 @@ class BonusController extends Controller
             $bonusUrl = "/scan";
         }
 
-        return view('bonus_screen', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
+        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
     }
 
     /**

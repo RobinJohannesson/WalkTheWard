@@ -22,7 +22,7 @@
             <div class="row justify-content-end">
 
                 <div class="col-md-8">
-                    <button type="button" id="exit_button">Avsluta</button>
+                    <button type="button" class="btn-anger btn-medium" id="exit_button">Avsluta</button>
                 </div>
                 <div class="col col-md-3">
                     <div class="text-right">
@@ -101,10 +101,26 @@
 
             </div>
             <div class="col-md-6">
-                <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
-                <p class="paragraph-size-adjust" style="text-align: center; ">Antal poäng: <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
-                <p class="paragraph-size-adjust" style="text-align: center;">Antal steg: {{$distanceAmount}}</p>
-                <!--<button type="button" class="button exercise_button">Dagens rörelse</button> -->
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-12 home-stats">
+                        <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
+                        <p class="paragraph-size-adjust" style="text-align: center; ">Antal poäng: <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
+                        <p class="paragraph-size-adjust" style="text-align: center;">Antal steg: {{$distanceAmount}}</p>
+                        <!--<button type="button" class="button exercise_button">Dagens rörelse</button> -->
+                    </div>
+                </div>
+
+                <div class="row no-gutters justify-content-end">
+                    <div class="col-12 text-right">
+                        <button type="button" class="btn-interest btn-medium exercise_button">Prova dagens rörelse <i class="material-icons">accessibility</i></button>
+                        <button type="button" class="btn-joy btn-big" id="homeplaybutton">Spela <i class="material-icons">directions_walk</i> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                        {{-- <button type="button" class="btn-joy btn-big" id="homeplaybutton">Spela <br><i class="fa fa-tablet" aria-hidden="true"></i> <i class="fa fa-arrow-right" aria-hidden="true"></i> <i class="fa fa-qrcode" aria-hidden="true"></i></button> --}}
+
+
+
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="row justify-content-between">
@@ -112,10 +128,11 @@
             </div>
             <div class="col col-md-4">
             </div>
-            <div class="col col-md-4">
-                <button type="button" class="button exercise_button">Prova dagens rörelse</button>
-                <button type="button" id="homeplaybutton">Spela --></button>
-            </div>
+            {{-- <div class="col col-md-4 text-right">
+                <button type="button" class="btn-interest btn-medium exercise_button">Prova dagens rörelse</button>
+                <button type="button" class="btn-joy btn-big" id="homeplaybutton">Spela <br><i class="fa fa-tablet" aria-hidden="true"></i> <i class="fa fa-arrow-right" aria-hidden="true"></i> <i class="fa fa-qrcode" aria-hidden="true"></i></button>
+
+            </div> --}}
         </div>
         <!-- Modal -->
         <div class="modal fade" id="movementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

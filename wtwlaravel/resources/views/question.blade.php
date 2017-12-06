@@ -184,7 +184,7 @@
 
         </div>
         <div class="modal-footer">
-            <a href="{{url('/')}}/scan" type="button" class="btn btn-primary btn-continue">Fortsätt spela</a>
+            <a href="{{url('/')}}/scan" class="btn-trust btn-medium btn-to-bonus">Fortsätt spela</a>
         </div>
     </div>
 </div>
@@ -272,7 +272,7 @@
                         $("#map-value").append(data['bonusGame']);
 
                         $("#bonus-value").append(data['bonusGame']);
-                        $(".btn-primary").attr("href", "{{url('/')}}" + data['bonusUrl']);
+                        $(".btn-to-bonus").attr("href", "{{url('/')}}" + data['bonusUrl']);
 
                         $("#round-value").append(data['placeActiveRound']);
 

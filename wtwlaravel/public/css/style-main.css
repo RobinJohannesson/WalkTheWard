@@ -9,8 +9,12 @@ html, body {
     min-width: 350px;
 }
 
+body {
+    margin: 10px 10px 20px 10px;
+}
+
 h1, h2, h3, h4, h5, h6 {
-     font-family: 'Autour One', cursive;
+    font-family: 'Autour One', cursive;
     font-size: 35px;
     /*font-family: 'Amatic SC', cursive, sans-serif;*/
     /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
@@ -26,8 +30,13 @@ p {
 }
 
 .popover{
-   font-size: 16px;
-   font-family: 'Autour One', cursive;
+    font-size: 16px;
+    font-family: 'Autour One', cursive;
+}
+
+.material-icons {
+    font-size: 2rem;
+    vertical-align: middle;
 }
 
 .font-averia {
@@ -77,4 +86,89 @@ p {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
+}
+.return_button:hover {
+    text-decoration: none;
+}
+
+
+
+.btn-interest, .btn-trust, .btn-joy, .btn-fear, .btn-anger {
+    border-radius: .8rem;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+    color: white;
+    line-height: 1.5;
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+        border: none;
+}
+
+.btn-small {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+}
+.btn-medium {
+    font-size: 1.3rem;
+    padding: 15px 20px;
+}
+.btn-big {
+    font-size: 1.8rem;
+    padding: 20px 35px;
+}
+
+.btn-interest:not([disabled]):not(.disabled):active,
+.btn-trust:not([disabled]):not(.disabled):active,
+.btn-joy:not([disabled]):not(.disabled):active,
+.btn-fear:not([disabled]):not(.disabled):active,
+.btn-anger:not([disabled]):not(.disabled):active {
+    color: #fff;
+    background-color: #6c757d;
+    /*border-color: #666e76;*/
+}
+
+.btn-interest:not([disabled]):not(.disabled):hover,
+.btn-trust:not([disabled]):not(.disabled):hover,
+.btn-joy:not([disabled]):not(.disabled):hover,
+.btn-fear:not([disabled]):not(.disabled):hover,
+.btn-anger:not([disabled]):not(.disabled):hover {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+
+.btn-interest{
+    background-color: #E34478;
+}
+
+.btn-trust{
+    background-color: #48A2A6;
+}
+
+.btn-joy{
+    background-color: #4CAF50;
+    border: 5px dotted #F6E67F;
+    /*border: 5px dashed #F6E67F;*/
+}
+
+.btn-fear {
+    background-color: #6c757d;
+}
+
+.btn-anger {
+    background-color: #F8070D;
+}
+
+
+
+
+.radio-inline{
+    margin: 5px 30px;
+}
+
+.big-radio-btn{
+    margin-right: 20px;
+    transform: scale(2);
 }

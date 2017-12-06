@@ -67,7 +67,7 @@
 
     <div class="row justify-content-end">
     <div class="col col-md-4">
-        <button type="button" class="button continue_button" id="map_continue_button">Fortsätt</button>
+        <button type="button" class="btn-trust btn-big text-right" id="map_continue_button">Fortsätt</button>
     </div>
     </div>
 
@@ -107,13 +107,13 @@
             shadowFrom: false
         }
         $(document).ready(function(e) {
-            $('.continue_button').hide();
+            $('#map_continue_button').hide();
             $(function() {
                 $('.map').maphilight();
             });
             $('img[usemap]').rwdImageMaps();
             $('area').click(function(){
-                $('.continue_button').show();
+                $('#map_continue_button').show();
                 var areaId = $(this).attr("class");
                 $('#areaId').val(areaId);
                 console.log(areaId);
@@ -124,7 +124,7 @@
 
             });
 
-            $('.continue_button').click(function(){
+            $('#map_continue_button').click(function(){
                 var areaId = $('#areaId').val();
                 console.log(areaId);
                 var gameId = $('#gameId').val();

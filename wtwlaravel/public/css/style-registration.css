@@ -3,21 +3,22 @@
     box-sizing: content-box;
     background-color: #f6f6f6;
     border-radius: 20px;
-    margin-top: -25px;
+    padding: 15px 60px 15px 60px;
+    margin-top: 15px;
 }
 
 #openCharacterModal{
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 .btn-choose-character {
-    background-color: #E34478;
+    /*background-color: #E34478;
      border-radius: 0px;
     color: white;
     display: inline-block;
     font-size: 1.1rem;
-    padding: 5px 25px;
-    text-decoration: none
+    padding: 5px 10px;
+    text-decoration: none*/
 }
 
 .characterImage {
@@ -30,6 +31,8 @@
 }
 
 .choosenCharacterImage {
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     width: 150px;
     height: 150px;
     border: 5px dotted black;
@@ -70,13 +73,4 @@ a.btn-cancel {
     padding: 10px 20px;
     /* text-align: center; */
     text-decoration: none;
-}
-
-.radio-inline{
-    margin: 5px 30px;
-}
-
-.registration_radio{
-   margin-right: 20px;
-   transform: scale(2);
 }
