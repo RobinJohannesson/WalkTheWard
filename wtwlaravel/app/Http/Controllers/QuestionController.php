@@ -28,7 +28,8 @@ class QuestionController extends Controller
     {
         $stationId = "2";
         $patientId = $request->cookie('patientId');
-        $patient = patient::find($patientId);
+        $patient = Patient::find($patientId);
+        // Patient::where('patientId' => $patientId)->update('distanceInMeter'=> 14);
 
         //$patient->Game()->areaId;
         return view('question', compact(['patient', 'stationId']));
@@ -264,6 +265,12 @@ class QuestionController extends Controller
         // Hämta CurrentAreaId
         $patient = Patient::find($patientId);
         $areaId = $patient->game->area->id;
+
+        $patient = Patient::find($patientId);
+        $distanceInMeter = $patient->distanceInMeter;
+        $distanceInMeterAmount = $distanceInMeter + rand(5, 20);
+        // Ger distancen
+        Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
 
         // Hämta PlaceId
         $place = Place::where('stationId', $stationId)->where('areaId', $areaId)->first();
