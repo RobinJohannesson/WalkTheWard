@@ -31,7 +31,9 @@
     <div class="row justify-content-center" style="margin-bottom: 50px; margin-top: -45px;">
 
         <div class="col-md-8">
-            <h1 class="text-center">Walk The Ward </h1>
+           
+            
+            <h1 class="text-center"><img src="{{url('/')}}/images/favicon-200x200.png" width="56px" height="auto">Walk The Ward</h1>
             <h2 class="text-center">Vandring i vården - Ett aktivitetsspel </h2>
         </div>
 
