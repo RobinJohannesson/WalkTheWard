@@ -19,8 +19,17 @@
 @section('body')
     <div class="container-fluid">
         <div class="row justify-content-md-end">
+            <div class="col-md-2 order-2 order-md-1">
+                <p class="">Tema: {{ $Theme->name }}</p>
+                <button type="button" class="button change_theme_button">Ändra tema</button>
+            </div>
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Skanna en QR-KOD</h1>
+                <div class="col-md-8 preview-col">
+                    <div class="video-container">
+                        <video id="preview"></video>
+                    </div>
+                </div>
             </div>
             <div class="col col-md-2 order-1 order-md-2">
                 <div class="text-right">
@@ -29,19 +38,6 @@
             </div>
         </div>
 
-
-        <div class="row justify-content-center">
-            <div class="col-md-7 preview-col">
-                <div class="video-container">
-                    <video id="preview"></video>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-start">
-            <div class="col-md-3">
-                <button type="button" class="button change_theme_button">Ändra tema</button>
-            </div>
-        </div>
     @endsection
 
 
