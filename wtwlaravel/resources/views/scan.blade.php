@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Skanna en QR-KOD</h1>
-                <div class="col-md-8 preview-col">
+                <div class="col preview-col">
                     <div class="video-container">
                         <video id="preview"></video>
                     </div>

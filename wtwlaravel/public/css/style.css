@@ -10,6 +10,10 @@
     cursor: pointer;
 }*/
 
+.header-margin {
+  margin-top: 15%;
+}
+
 .ribbon {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -154,7 +158,7 @@ h1 {
 }
 
 #map_continue_button {
-  margin-left: 65%;
+  margin-left: 63%;
 }
 /*THIS FIXES MAP LOCATION ON HOME SCREEN, BUT LEAVE UNTOUCHED FOR NOW*
 .home_map_map {
@@ -177,4 +181,8 @@ h1 {
     z-index: 99999;
     background: url('../images/lodaing1.svg') 50% 50% no-repeat rgba(255,255,255,0.3);
     background-size: 200px;
+}
+
+.theme-button-text-adjust {
+  margin-top: 15px;
 }
