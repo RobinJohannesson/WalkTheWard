@@ -17,13 +17,13 @@ Route::GET('', "WelcomeController@index");
 
 Route::middleware('checkCookie')->group(function () {
 
-    Route::resource('start', "StartController");
+    // Route::resource('start', "StartController");
 
     Route::resource('information', "InformationController");
 
-    Route::resource('instructions', "InstructionsController");
+    // Route::resource('instructions', "InstructionsController");
 
-    Route::GET('instructions-2', function() { return view("instructions_screen2"); });
+    // Route::GET('instructions-2', function() { return view("instructions_screen2"); });
 
     Route::GET('map', "MapController@show");
 
@@ -63,7 +63,7 @@ Route::GET('registration', "RegistrationController@index");
 Route::POST('registration/store', "RegistrationController@store");
 
 Route::fallback(function(){
-    return 'sorry';
+    return 'Fel 404 - Sidan kunde inte hittas!';
 });
 
 

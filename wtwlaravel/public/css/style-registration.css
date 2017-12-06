@@ -1,3 +1,11 @@
+#registration {
+    border: 10px double black;
+    box-sizing: content-box;
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    margin-top: -25px;
+}
+
 #openCharacterModal{
     text-decoration: none;
 }
@@ -7,7 +15,7 @@
      border-radius: 0px;
     color: white;
     display: inline-block;
-    font-size: 30px;
+    font-size: 1.1rem;
     padding: 5px 25px;
     text-decoration: none
 }
@@ -62,4 +70,13 @@ a.btn-cancel {
     padding: 10px 20px;
     /* text-align: center; */
     text-decoration: none;
+}
+
+.radio-inline{
+    margin: 5px 30px;
+}
+
+.registration_radio{
+   margin-right: 20px;
+   transform: scale(2);
 }

@@ -14,7 +14,7 @@ class ScanController extends Controller
      */
     public function index()
     {
-        return view('scan_screen');
+        return view('scan');
     }
 
     /**

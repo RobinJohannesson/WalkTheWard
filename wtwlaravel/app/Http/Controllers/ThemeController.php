@@ -87,7 +87,7 @@ class ThemeController extends Controller
 
         $theme = Theme::all();
 
-        return view('theme_screen', compact(["theme", "gameId"]));
+        return view('theme', compact(["theme", "gameId"]));
     }
 
     /**

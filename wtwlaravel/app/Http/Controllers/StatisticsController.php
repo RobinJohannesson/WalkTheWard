@@ -74,7 +74,7 @@ class StatisticsController extends Controller
      */
     public function show()
     {
-        return view("statistics_screen");
+        return view("statistics");
     }
 
     /**

@@ -31,8 +31,8 @@ class QuestionController extends Controller
         $patient = patient::find($patientId);
 
         //$patient->Game()->areaId;
-        return view('question_screen', compact(['patient', 'stationId']));
-        // return view('question_screen');
+        return view('question', compact(['patient', 'stationId']));
+        // return view('question');
     }
 
     /**
@@ -329,8 +329,8 @@ class QuestionController extends Controller
             $newQuestionInGame->save();
         }
 
-        return view('question_screen', compact(['currentTheme', 'question', 'gameId', 'placeId']));
-        // return view('backend_screen', compact(['testing', 'showQuestion']));
+        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId']));
+        // return view('backend', compact(['testing', 'showQuestion']));
     }
     /**
     * Show the form for editing the specified resource.

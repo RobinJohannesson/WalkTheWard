@@ -39,7 +39,7 @@ class WelcomeController extends Controller
             }
         }
 
-        return view('welcome_screen', compact(["Patient", "Character"]));
+        return view('welcome', compact(["Patient", "Character"]));
     }
 
     /**

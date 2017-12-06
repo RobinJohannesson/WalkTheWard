@@ -14,7 +14,7 @@ class InstructionsController extends Controller
      */
     public function index()
     {
-        return view('instructions_screen');
+        return view('instructions');
     }
 
     /**

@@ -14,7 +14,7 @@ class InformationController extends Controller
      */
     public function index()
     {
-        return view('information_screen');
+        return view('information');
     }
 
     /**

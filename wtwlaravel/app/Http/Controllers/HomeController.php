@@ -88,7 +88,7 @@ class HomeController extends Controller
             $totalStars += $numberOfStar;
         }
 
-        return view('home_screen', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist']));
+        return view('home', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist']));
     }
 
     public function showArea(Request $request)
@@ -155,7 +155,7 @@ class HomeController extends Controller
             'numberCity' => $numberCity,
             'mapArea' => $mapArea
         );
-        // return view('home_screen', compact(['totalStars', 'maxStars', 'gameId']));
+        // return view('home', compact(['totalStars', 'maxStars', 'gameId']));
         return response()->json($response);
     }
 

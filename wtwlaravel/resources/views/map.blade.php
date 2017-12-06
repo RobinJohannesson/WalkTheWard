@@ -1,21 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Walk the Ward</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('layouts.app')
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('title', 'Karta')
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/font-awesome.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-</head>
-<body>
+@section('meta')
+
+@endsection
+
+@section('head-stylesheet')
+
+@endsection
+
+@section('head-script')
+
+@endsection
+
+
+
+@section('body')
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col col-md-3">
@@ -64,101 +65,91 @@
         </map>
 
     </div>
-</div>
+    </div>
 
-<div class="row justify-content-end">
+    <div class="row justify-content-end">
     <div class="col col-md-4">
         <button type="button" class="button continue_button" id="map_continue_button">Fortsätt</button>
     </div>
-</div>
+    </div>
 
-</div>
-<input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
-<input id="areaId" type="hidden" name="areaId" value="">
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- Add maphilight plugin -->
-<script type="text/javascript" src="{{url('/')}}/js/jquery.maphilight.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-<script src="{{url('/')}}/js/jquery.rwdImageMaps.min.js"></script>
-<script type="text/javascript">
-// Initialize tooltip component
-     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-     })
-// Initialize popover component
-        $(function () {
-          $('[data-toggle="popover"]').popover()
-        })
+    </div>
+    <input id="gameId" type="hidden" name="gameId" value="{{$gameId}}">
+    <input id="areaId" type="hidden" name="areaId" value="">
+@endsection
+
+
+
+@section('body-script')
+    <!-- Add maphilight plugin -->
+    <script type="text/javascript" src="{{url('/')}}/js/jquery.maphilight.js"></script>
+    <script src="{{url('/')}}/js/jquery.rwdImageMaps.min.js"></script>
+
+    <script type="text/javascript">
+        $.fn.maphilight.defaults = {
+            fill: true,
+            fillColor: '000000',
+            fillOpacity: 0.1,
+            stroke: true,
+            strokeColor: 'f1c40f',
+            strokeOpacity: 1,
+            strokeWidth: 10,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: 'rel',
+            wrapClass: true,
+            shadow: true,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 5,
+            shadowColor: 'ffffff',
+            shadowOpacity: 1,
+            shadowPosition: 'outside',
+            shadowFrom: false
+        }
+        $(document).ready(function(e) {
+            $(function() {
+                $('.map').maphilight();
+            });
+            $('img[usemap]').rwdImageMaps();
+            $('area').click(function(){
+                var areaId = $(this).attr("class");
+                $('#areaId').val(areaId);
+                console.log(areaId);
+
+                // Kartan highlightar städer beroende på area
+                $("area").data('maphilight', { alwaysOn: false }).trigger('alwaysOn.maphilight');
+                $("." + areaId).data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
+
+            });
+
+            $('.continue_button').click(function(){
+                var areaId = $('#areaId').val();
+                console.log(areaId);
+                var gameId = $('#gameId').val();
+                console.log(gameId);
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "{{url('/')}}/map/store",
+                    data: {areaId: areaId, gameId: gameId},
+                    dataType: 'json',
+                    success: function(data) { // Om det LYCKADES att spara data
+                        console.log(data);
+                        window.location.href = "{{url('/')}}/theme";
+
+                    }, // SLUT - Om det LYCKADES att spara data
+                    error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
+                        console.log(xhr);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    }
+                }); // SLUT - Om det MISSLYCKADES att spara data
+            });
+
+        });
     </script>
-<script type="text/javascript">
-    $.fn.maphilight.defaults = {
-        fill: true,
-        fillColor: '000000',
-        fillOpacity: 0.1,
-        stroke: true,
-        strokeColor: 'f1c40f',
-        strokeOpacity: 1,
-        strokeWidth: 10,
-        fade: true,
-        alwaysOn: false,
-        neverOn: false,
-        groupBy: 'rel',
-        wrapClass: true,
-        shadow: true,
-        shadowX: 0,
-        shadowY: 0,
-        shadowRadius: 5,
-        shadowColor: 'ffffff',
-        shadowOpacity: 1,
-        shadowPosition: 'outside',
-        shadowFrom: false
-    }
-    $(document).ready(function(e) {
-        $(function() {
-            $('.map').maphilight();
-        });
-        $('img[usemap]').rwdImageMaps();
-        $('area').click(function(){
-            var areaId = $(this).attr("class");
-            $('#areaId').val(areaId);
-            console.log(areaId);
-
-            // Kartan highlightar städer beroende på area
-            $("area").data('maphilight', { alwaysOn: false }).trigger('alwaysOn.maphilight');
-            $("." + areaId).data('maphilight', {alwaysOn: true}).trigger('alwaysOn.maphilight');
-
-        });
-
-        $('.continue_button').click(function(){
-            var areaId = $('#areaId').val();
-            console.log(areaId);
-            var gameId = $('#gameId').val();
-            console.log(gameId);
-            $.ajax({
-                type: "POST",
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                url: "{{url('/')}}/map/store",
-                data: {areaId: areaId, gameId: gameId},
-                dataType: 'json',
-                success: function(data) { // Om det LYCKADES att spara data
-                    console.log(data);
-                    window.location.href = "{{url('/')}}/theme";
-
-                }, // SLUT - Om det LYCKADES att spara data
-                error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
-                    console.log(xhr);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-                }
-            }); // SLUT - Om det MISSLYCKADES att spara data
-        });
-
-    });
-</script>
-</body>
-</html>
+@endsection

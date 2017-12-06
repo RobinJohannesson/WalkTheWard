@@ -1,10 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Start!')
+@section('title', 'Feedback')
+
+@section('meta')
+
+@endsection
+
+@section('head-stylesheet')
+
+@endsection
 
 @section('head-script')
-<link rel="stylesheet" href="{{url('/')}}/css/test.css">
+
 @endsection
+
+
 
 @section('body')
     <div class="container-fluid">
@@ -23,18 +33,22 @@
                 <h2 class="text-center">Vandring i vården - Ett aktivitetsspel :D</h2>
             </div>
             <div class="col-md">
-                <a href="{{url('/')}}/registration">col-sm</a>
+                feedback
             </div>
 
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="btn-new-user">
-                    <p>
-                        Cool new user!
-                    </p>
+
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+
+
+@section('body-script')
+
 @endsection

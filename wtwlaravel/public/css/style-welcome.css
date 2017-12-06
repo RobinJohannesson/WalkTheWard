@@ -1,3 +1,10 @@
+h1 {
+    margin-bottom: 0.4rem;
+}
+h2 {
+    margin-bottom: 0.3rem;
+}
+
 
 .characterImage {
     width: 215px;
@@ -26,9 +33,9 @@
     height: 250px;
     width: 250px;
     margin: 0 auto;
-    -webkit-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-    -moz-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-    box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(185,209,152,1);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(185,209,152,1);
+    box-shadow: 0px 0px 25px 0px rgba(185,209,152,1);
 
 
 }
@@ -57,9 +64,9 @@
     height: 250px;
     width: 250px;
     margin: 0 auto;
-    -webkit-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-    -moz-box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
-    box-shadow: -2px -1px 95px 3px rgba(185,209,152,1);
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(185,209,152,1);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(185,209,152,1);
+    box-shadow: 0px 0px 25px 0px rgba(185,209,152,1);
 }
 
 .btn-current-user img {
@@ -67,7 +74,7 @@
 }
 
 #link-new-user, #link-current-user {
-    display: block;
+    display: inline-block;
     text-decoration: none;
     color: #000000;
 }

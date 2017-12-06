@@ -4,16 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Patient;
+use App\Character;
+use App\Game;
+use App\Place;
+use App\Place_in_game;
+use App\Area;
+use App\Theme;
+use App\Question;
+use App\Question_in_game;
+use App\Map;
+use App\Bonus_game;
+use App\Bonus_game_in_game;
+use App\Http\Controllers\Cookie;
+
 class StartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('start');
+        $Patient = null;
+        $Character = null;
+        // Om patientId cookie finns samt om patient med id finns i DB
+        if($request->hasCookie('patientId') && Patient::find($request->cookie('patientId'))) {
+            $Patient = Patient::find($request->cookie('patientId'));
+
+            if ($Patient->character) {
+                $Character = $Patient->character;
+            }
+        }
+
+        return view('start', compact(["Patient", "Character"]));
     }
 
     /**

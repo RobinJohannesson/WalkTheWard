@@ -28,7 +28,7 @@ class RegistrationController extends Controller
     public function index()
     {
         $characters = Character::All();
-        return view("registration_screen", compact(['characters']));
+        return view("registration", compact(['characters']));
     }
 
     /**

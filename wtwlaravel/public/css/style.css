@@ -1,62 +1,3 @@
-html, body {
-    font-family: 'Amatic SC', cursive;
-    font-size: 24px;
-    background-color: #f1f1f1;
-    background-image: url("../images/ep_naturalwhite.png");
-}
-
-h1 {
-    font-weight: bold;
-    font-size: 70px;
-}
-
-p {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-
-#registration {
-    border: 10px double black;
-    box-sizing: content-box;
-    background-color: #f6f6f6;
-    border-radius: 20px;
-    margin-top: -25px;
-}
-.questionparagraph {
-    font-size: 40px;
-}
-
-.button-answer {
-    background-color: #ECEFF1;
-    border-color: #CFD8DC;
-    border-radius: 10px;
-    border-width: 3px;
-    color: black;
-    display: inline-block;
-    font-size: 40px;
-    /*font-weight: bold;*/
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-#resultsModal .btn-continue {
-    font-size: 40px;
-}
-
-
-/*Tar bort blå kant som visas vid klick*/
-.button-answer:focus {
-    outline: 0;
-}
-
-.button-answer:active {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
-}
-
-#question-mark {
-    margin-top: 15px;
-}
-
 /*.fa_custom {
     color: #FFC013 ;
     background-color: white;
@@ -89,29 +30,6 @@ p {
     opacity: 1;
 }
 
-.continue_button {
-    background-color: #48A2A6;
-    border: none;
-    color: white;
-    display: inline-block;
-    font-size: 40px;
-    margin: 10px 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-}
-
-.return_button {
-    background-color: #48A2A6;
-    border: none;
-    color: white;
-    display: inline-block;
-    font-size: 40px;
-    margin: 10px 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-}
 
 .playbutton {
     background-color: #4CAF50;
@@ -119,7 +37,7 @@ p {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 40px;
+    font-size: 1.5rem;
     margin: 10px 5px;
     padding: 10px 70px;
     text-align: center;
@@ -132,7 +50,7 @@ p {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 50px;
+    font-size: 1.5rem;
     margin: 0px 5px;
     padding: 5px 50px;
     text-align: center;
@@ -146,7 +64,7 @@ p {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 40px;
+    font-size: 1.2rem;
     margin: 10px 5px;
     padding: 5px 25px;
     text-align: center;
@@ -163,7 +81,7 @@ p {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 30px;
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 10px 5px;
     padding: 10px 30px;
@@ -177,7 +95,7 @@ p {
     border-radius: 10px;
     color: white;
     display: inline-block;
-    font-size: 38px;
+    font-size: 1.1rem;
     margin: 10px 5px;
     padding: 2px 10px;
     text-align: center;
@@ -192,44 +110,8 @@ p {
     margin-top: 10px;
 }
 
-#question-img {
-    max-height: 400px;
-    max-width: 100%;
-    width: auto;
-}
 
-#question-video {
-    max-height: 400px;
-    max-width: 100%;
-    width: 100%;
-}
 
-.star-score-img {
-    display: none;
-    height: 55px;
-    margin-right: 10px;
-}
-
-.answered-right {
-    background-color: #4CAF80;
-    border-color: #4CBA80;
-    color: #ffffff;
-}
-
-.answered-wrong {
-    background-color: #ccc;
-    border-color: #888888;
-    color: #777777;
-}
-
-#answer-message {
-    font-size: 1.5rem;
-    height: 50px;
-}
-
-.modal-custom-width {
-    max-width: 90%;
-}
 
 h1 {
     margin-bottom: 40px;
@@ -240,42 +122,7 @@ h1 {
     height: auto;
 }
 
-#themehead {
-    margin-bottom: 100px;
-}
 
-#themehead_bold {
-  height: 100%;
-}
-
-#themehead_bold img {
-  position: absolute;
-   top: 50%;
-   left: 50%;
-   width: 70px;
-   height: 70px;
-   margin-top: -60px; /* Half the height */
-   margin-left: -230px; /* Half the width */
-}
-
-.col-theme {
-    display: flex;
-    justify-content: center;
-}
-
-.button-theme {
-    width: 550px;
-    background-color: white;
-    margin-bottom: 50px;
-    border-radius: 10px;
-}
-
-.button-theme h2{
-    margin-bottom: 0;
-    padding-bottom: 0;
-    height: 90px;
-    padding-top: 15px;
-}
 
 .align-left {
     text-align: left;
@@ -307,13 +154,10 @@ h1 {
     border-color: transparent;
     /*border-radius: 10px;*/
     color:white;
-    font-size: 40px;
+    font-size: 1.2rem;
     width: 150px;
 }
 
-.radio-inline{
-    margin: 5px 30px;
-}
 
 .button-theme{
     background-color:#317cbd;
@@ -322,15 +166,6 @@ h1 {
 
 #themehead_bold{
     font-weight: bold;
-}
-
-.registration_radio{
-   margin-right: 20px;
-   transform: scale(2);
-<<<<<<< HEAD
-=======
-
->>>>>>> 201bca948d6d5fc1f96457b0b3c1d308f082241c
 }
 
 #map_continue_button {

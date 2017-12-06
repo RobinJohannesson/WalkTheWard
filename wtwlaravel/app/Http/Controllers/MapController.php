@@ -84,7 +84,7 @@ class MapController extends Controller
 
         // Hämta GameId
         $gameId = $patient->game->id;
-        return view('map_screen', compact(["gameId"]));
+        return view('map', compact(["gameId"]));
     }
 
     /**
