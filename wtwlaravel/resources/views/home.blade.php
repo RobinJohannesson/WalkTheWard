@@ -17,7 +17,6 @@
 
 
 @section('body')
-    <div class="loader"></div>
     <div class="container-fluid">
         <div id="spacerow">
             <div class="row justify-content-end">

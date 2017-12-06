@@ -20,7 +20,6 @@
 
 
 @section('body')
-    <div class="loader"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 order-2 order-md-1">
