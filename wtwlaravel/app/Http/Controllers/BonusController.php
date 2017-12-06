@@ -26,6 +26,7 @@ class BonusController extends Controller
     */
     public function index(Request $request, $id)
     {
+        $test = "test";
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
@@ -38,6 +39,7 @@ class BonusController extends Controller
 
         // Om de är färre än 5, skapar strängar
         if (strlen($bonusGameLetters) <= 5) {
+            $test = "mindre än 5";
             // lund
             $bonusGameLettersShuffledCut = $bonusGameLetters;
             // _ _ _ _ (utan mellanslag)
@@ -46,12 +48,14 @@ class BonusController extends Controller
 
         // Kollar om staden innehåller fler än 5 bokstäver
         if (strlen($bonusGameLetters) > 5) {
+            $test = "mer än 5";
             // Slumpar runt bokstäverna
             // ex. hligogesnbr (helsingborg)
             $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
+            $test = $bonusGameLettersShuffled;
             // ex. esnbr (5 slumpmässiga bokstäver från helsingborg)
             $bonusGameLettersShuffledCut = substr($bonusGameLettersShuffled, 0, 5);
-
+            
             // ex. helsingborg
             $bonusGameLettersRemain = $bonusGameLetters;
             // Counter
@@ -125,7 +129,7 @@ class BonusController extends Controller
             $bonusUrl = "/scan";
         }
 
-        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
+        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl", "test"]));
     }
 
     /**
