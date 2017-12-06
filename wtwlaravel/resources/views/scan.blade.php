@@ -20,11 +20,11 @@
     <div class="container-fluid">
         <div class="row justify-content-md-end">
             <div class="col-md-2 order-2 order-md-1">
-                <p class="">Tema: {{ $Theme->name }}</p>
+                <p class="paragraph-size-adjust">Tema: {{ $Theme->name }}</p>
                 <button type="button" class="button change_theme_button">Ändra tema</button>
             </div>
             <div class="col-md-8 order-2 order-md-1">
-                <h1 class="text-center">Skanna en QR-KOD</h1>
+                <h1 class="text-center header-margin">Skanna en QR-KOD</h1>
                 <div class="col-md-8 preview-col">
                     <div class="video-container">
                         <video id="preview"></video>
