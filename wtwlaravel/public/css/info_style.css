@@ -60,7 +60,7 @@ ol.carousel-indicators li.active {
   left: 0;
   cursor: pointer;
   bottom: -152px;
-
+  padding: 20px 40px;
 }
 
 .carousel-control-next button {
@@ -68,6 +68,7 @@ ol.carousel-indicators li.active {
   right: 0;
   cursor: pointer;
   bottom: -152px;
+  padding: 20px 40px;
 }
 
 .carousel-hide-button {
@@ -88,8 +89,7 @@ ol.carousel-indicators li.active {
     text-decoration: none;
     position: absolute;
     right: 0;
-    bottom: -270px;
-    /*margin-top: -33px;*/
+    bottom: -263px;
     cursor: pointer;
 }
 
