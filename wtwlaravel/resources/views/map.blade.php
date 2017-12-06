@@ -18,21 +18,19 @@
 
 @section('body')
     <div class="container-fluid">
-        <div class="row justify-content-end">
-            <div class="col col-md-3">
+        <div class="row justify-content-md-end">
+            <div class="col-md-8 order-2 order-md-1">
+                <h1 class="text-center">Välj en del av Skåne</h1>
+            </div>
+            <div class="col col-md-2 order-1 order-md-2">
                 <div class="text-right">
                     <a href="#" data-toggle="popover" data-trigger="focus" title="Välj en del av Skåne!" data-content="Här väljer du en del av Skåne där du vill vandra i och trycker sedan på knappen Fortsätt för att gå vidare." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>                    <!--<i class="fa fa-question-circle fa_custom fa-3x" aria-hidden="true"></i>-->
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md">
-                <h1 class="text-center">Välj en del av Skåne</h1>
-            </div>
-        </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-4 justify-content-center" style="min-width: 481px; padding: 0;">
+            <div class="col-md-1 justify-content-center" style="min-width: 481px; padding: 0;">
 
                 {{-- <img src="{{url('/')}}/images/map/NW-1.png" alt="Kartdel NV" class="" />
                 <img src="{{url('/')}}/images/map/NE-1.png" alt="Kartdel NÖ" class="" />
@@ -109,11 +107,13 @@
             shadowFrom: false
         }
         $(document).ready(function(e) {
+            $('.continue_button').hide();
             $(function() {
                 $('.map').maphilight();
             });
             $('img[usemap]').rwdImageMaps();
             $('area').click(function(){
+                $('.continue_button').show();
                 var areaId = $(this).attr("class");
                 $('#areaId').val(areaId);
                 console.log(areaId);
