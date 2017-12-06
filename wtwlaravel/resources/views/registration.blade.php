@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row justify-content-center" >
-            <div class="col-md-6" style="padding: 15px 60px 15px 60px"id="registration">
+            <div class="col-md-6" style="padding: 15px 60px 15px 60px; margin-top: 5%;"id="registration">
                 <form action="{{{ url("registration/store") }}}" method="POST" id="registrationForm">
                     {{ csrf_field() }}
                     <h1 align="center">Registrering</h1>
@@ -122,7 +122,7 @@
 
 
 @section('body-script')
-    <script type="text/javascript">    
+    <script type="text/javascript">
     $(document).ready(function(){
 
         $("#characterRegistration").on("click", function (e) {
