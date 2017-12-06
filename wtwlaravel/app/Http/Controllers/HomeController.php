@@ -65,6 +65,8 @@ class HomeController extends Controller
         // Hämtar distanceInMeter
         $distanceAmount = $patient->distanceInMeter;
 
+        $distanceAmount = round($distanceAmount * 1.3);
+
         $numberOfStarslist = Place_in_game::where('gameId', $gameId)->pluck('numberOfStars')->toArray();
 
         // Hämta alla stationer där användaren varit
