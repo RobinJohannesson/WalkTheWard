@@ -125,7 +125,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="resultsModalLabel">Dagens rörelse</h5>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-center">
                         <video id="movement-video" loop="loop">
                             <source src="{{url('/')}}/videos/exercise/balansen.mp4" type="video/mp4"></source>
                             Your browser does not support the video tag.
@@ -261,8 +261,8 @@
 
             $('.exercise_button').click(function(){
                 var video = $("#movement-video");
-                $("#movement-video").height("100%");
-                $("#movement-video").width("100%");
+                $("#movement-video").height("50%");
+                $("#movement-video").width("50%");
                 $('#movementModal').modal({
                     backdrop: "static"
                 });
