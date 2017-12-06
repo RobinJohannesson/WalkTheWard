@@ -159,7 +159,7 @@
             fill: true,
             fillColor: 'a4a4a4',
             fillOpacity: 1,
-            stroke: true,
+            stroke: false,
             strokeColor: '000000',
             strokeOpacity: 1,
             strokeWidth: 1,
