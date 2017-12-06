@@ -7,7 +7,7 @@
 @endsection
 
 @section('head-stylesheet')
-
+    <link rel="stylesheet" href="{{url('/')}}/css/style-home.css">
 @endsection
 
 @section('head-script')
@@ -17,6 +17,7 @@
 
 
 @section('body')
+    <div class="loader"></div>
     <div class="container-fluid">
         <div id="spacerow">
             <div class="row justify-content-end">
@@ -204,6 +205,7 @@
             });
             $('img[usemap]').rwdImageMaps();
             $('area').click(function(){
+                $(".loader").show();
                 var areaId = $(this).attr("class");
                 console.log(areaId);
                 var gameId = $('#gameId').val();
@@ -211,18 +213,6 @@
                 if (areaId.indexOf('City') >= 0) {
                     areaId = areaId.substring(0, areaId.length-4);
                     areaId = areaId[0];
-                }
-                // Kartan highlightar städer beroende på area och släcker alla andra
-                var counter = 0;
-                while (counter < 6) {
-                    $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false, neverOn: true}).trigger('alwaysOn.maphilight');
-                    counter += 1;
-                }
-                $("." + areaId + "City").data('maphilight', {alwaysOn: true, neverOn: false}).trigger('alwaysOn.maphilight');
-                // hämtar alla som är markerade inom area
-                if ($("." + areaId + "City").hasClass('selected')) {
-                    var changeThese = $("." + areaId + "City").hasClass('selected');
-                    $("." + areaId + "City.selected").data('maphilight', {fillColor: '00ff00', strokeColor: '000000', alwaysOn: true, neverOn: false}).trigger('alwaysOn.maphilight');
                 }
                 $.ajax({
                     type: "POST",
@@ -235,14 +225,29 @@
                     success: function(dataSuccess) { // Om det LYCKADES att spara data
                         console.log(dataSuccess);
 
+                        // Kartan highlightar städer beroende på area och släcker alla andra
+                        var counter = 0;
+                        while (counter < 6) {
+                            $("." + counter.toString() + "City").data('maphilight', {alwaysOn: false, neverOn: true}).trigger('alwaysOn.maphilight');
+                            counter += 1;
+                        }
+                        $("." + areaId + "City").data('maphilight', {alwaysOn: true, neverOn: false}).trigger('alwaysOn.maphilight');
+                        // hämtar alla som är markerade inom area
+                        if ($("." + areaId + "City").hasClass('selected')) {
+                            var changeThese = $("." + areaId + "City").hasClass('selected');
+                            $("." + areaId + "City.selected").data('maphilight', {fillColor: '00ff00', strokeColor: '000000', alwaysOn: true, neverOn: false}).trigger('alwaysOn.maphilight');
+                        }
                         $('#totalStars').html(dataSuccess['totalStars']);
                         $('#maxStars').html(dataSuccess['maxStars']);
                         $('#mapArea-value').html(dataSuccess['mapArea']);
+
+                        $('.loader').hide();
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
                         console.log(textStatus);
                         console.log(errorThrown);
+                        $('.loader').hide();
                     }
                 }); // SLUT - Om det MISSLYCKADES att spara data
             });
