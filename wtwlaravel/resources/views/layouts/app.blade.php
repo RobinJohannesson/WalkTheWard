@@ -20,6 +20,7 @@
     {{-- <link rel="stylesheet" href="{{url('/')}}/css/bootstrap-4.0.0-beta.2.min.css"> --}}
 
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Averia+Sans+Libre|Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Autour+One" rel="stylesheet">
     <link rel="stylesheet" href="{{url('/')}}/css/font-awesome.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style.css">
     <link rel="stylesheet" href="{{url('/')}}/css/style-main.css">
