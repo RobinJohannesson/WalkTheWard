@@ -293,10 +293,10 @@
                         });
 
                         // setTimeout(function(){
-                            // Visa modal
-                            $('#resultsModal').modal({
-                                backdrop: "static"
-                            });
+                        // Visa modal
+                        $('#resultsModal').modal({
+                            backdrop: "static"
+                        });
                         // },1000);
 
                         $('#resultsModal').on('shown.bs.modal', function (e) {
