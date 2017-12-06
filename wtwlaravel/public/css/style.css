@@ -98,9 +98,6 @@
     margin-top: 10px;
 }
 
-
-
-
 h1 {
     margin-bottom: 40px;
 }
@@ -159,11 +156,16 @@ h1 {
 #map_continue_button {
   margin-left: 65%;
 }
-/* THIS FIXES MAP LOCATION ON HOME SCREEN, BUT LEAVE UNTOUCHED FOR NOW
+/*THIS FIXES MAP LOCATION ON HOME SCREEN, BUT LEAVE UNTOUCHED FOR NOW*
 .home_map_map {
-  margin-left: 150px;
+  margin-left: 125px;
   margin-top: 10px;
-} */
+}*/
+
+.homemapadjust {
+  margin-left: 125px;
+  margin-top: 10px;
+}
 
 .loader{
     display: none;

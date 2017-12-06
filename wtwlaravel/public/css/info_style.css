@@ -2,15 +2,23 @@ a {
   cursor: pointer;
 }
 
+h1 {
+  margin-top: 5%;
+}
+
+p {
+  font-size: 18pt;
+}
+
 .carousel-inner {
-    height: 500px;
+    height: 600px;
     /*margin-top: 10%;*/
 }
 
 ol.carousel-indicators {
     position: absolute;
     bottom: 0;
-    margin-bottom: -10%;
+    margin-bottom: -20%;
     /*left: 0;
     right: 0;*/
 }
@@ -80,8 +88,8 @@ ol.carousel-indicators li.active {
     text-decoration: none;
     position: absolute;
     right: 0;
-    bottom: -152px;
-    margin-top: -33px;
+    bottom: -270px;
+    /*margin-top: -33px;*/
     cursor: pointer;
 }
 
