@@ -24,25 +24,37 @@
                 <form action="{{{ url("statistics/store") }}}" id="statisticsForm" method="POST" style="font-size: 24pt"; width: 500px;>
                     {{ csrf_field() }}
                     <p>Ska du gå hem?</p>
-                    <label class="radio-inline"><input type="radio" name="hasGoneHome" value="1" class="big-radio-btn"> Ja<br></label>
-                    <label class="radio-inline"><input type="radio" name="hasGoneHome" value="0" class="big-radio-btn"> Nej<br></label>
+                    <label class="radio-inline"><input type="radio" name="hasGoneHome" value="1" class="big-radio-btn" required> Ja<br></label>
+                    <label class="radio-inline"><input type="radio" name="hasGoneHome" value="0" class="big-radio-btn" required> Nej<br></label>
                     <p>Hur många dagar har du varit inlagd?</p>
-                    <select number="5" name="dayAmount">
+                    <select number="5" name="dayAmount" required>
+                        <option disabled value="">Välj antal dagar</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
                     <p>Var spelet enkelt att spela?</p>
-                    <label class="radio-inline"><input class="wasEasyToPlayRadio big-radio-btn" type="radio" name="wasEasyToPlay" value="1"> Ja<br></label>
-                    <label class="radio-inline"><input class="wasEasyToPlayRadio big-radio-btn" type="radio" name="wasEasyToPlay" value="0"> Nej<br></label>
+                    <label class="radio-inline"><input class="wasEasyToPlayRadio big-radio-btn" type="radio" name="wasEasyToPlay" value="1" required> Ja<br></label>
+                    <label class="radio-inline"><input class="wasEasyToPlayRadio big-radio-btn" type="radio" name="wasEasyToPlay" value="0" required> Nej<br></label>
                     <div class="form-group row">
                         <label for="text-input" class="col-form-label statisticsWhy">Förklara varför:</label>
-                        <input class="form-control statisticsWhy" type="text" id="text-input" name="explainWhy">
+                        <textarea class="form-control statisticsWhy" maxlength="180" rows="4 cols="50" id="text-input" name="explainWhy"></textarea>
                     </div>
-                    <a href="{{url('/')}}/home" type="button" class="btn btn-secondary return_button">Tillbaka</a>
-                    <input type="submit" id="submit_button" class="btn btn-primary" value="Skicka">
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <a href="{{url('/')}}/home" class="btn-fear btn-medium return_button">Tillbaka</a>
+                        </div>
+                        <div class="col-6 text-right">
+                            <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Skicka">
+                        </div>
+                    </div>
                 </form>
 
             </div>
