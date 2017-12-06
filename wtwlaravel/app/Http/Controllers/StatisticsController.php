@@ -55,6 +55,7 @@ class StatisticsController extends Controller
         $Statistics->hasGoneHome = $request->hasGoneHome;
         $Statistics->dayAmount = $request->dayAmount;
         $Statistics->wasEasyToPlay = $request->wasEasyToPlay;
+        $Statistics->explainWhy = $request->explainWhy;
         $Statistics->save();
 
         $statisticId = $Statistics->id;

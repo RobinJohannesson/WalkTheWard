@@ -20,6 +20,7 @@
 
 
 @section('body')
+    <div class="loader"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 order-2 order-md-1">
@@ -214,7 +215,7 @@
         $('.button-answer').click(function(){
 
             if ($(this).hasClass('correct-answer')) {
-
+                $(".loader").show();
                 $(this).addClass('answered-right');
 
                 // Pausa video om den finns
@@ -290,12 +291,12 @@
                             starAudio.play();
                         });
 
-                        setTimeout(function(){
+                        // setTimeout(function(){
                             // Visa modal
                             $('#resultsModal').modal({
                                 backdrop: "static"
                             });
-                        }, 1000);
+                        // },1000);
 
                         $('#resultsModal').on('shown.bs.modal', function (e) {
                             $.each($(".star-score-img"), function(i, el){
@@ -327,11 +328,14 @@
                             });
                         });
 
+                        $('.loader').hide();
+
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
                         console.log(textStatus);
                         console.log(errorThrown);
+                        $('.loader').hide();
                     }
                 }); // SLUT - Om det MISSLYCKADES att spara data
             }
