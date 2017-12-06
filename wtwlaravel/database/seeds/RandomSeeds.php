@@ -62,6 +62,12 @@ class RandomSeeds extends Seeder
             'placeId' => 4,
         ]);
 
+        DB::table('bonus_games')->insert([
+            'lettersToDiscard' => "Höör",
+            'imageSource' => "höör.jpg",
+            'placeId' => 19,
+        ]);
+
         DB::table('bonus_game_in_games')->insert([
             'isCompleted' => 1,
             'bonusGameId' => 1,

@@ -54,6 +54,7 @@
 
             <div class="col">
                 <h2 id="bonus-word" class="text-center">
+                    <span>{{$test}}</span>
                     @php
                     $count = 0;
                     foreach($bonusGameLettersShuffledRestArray as $restLetter){
