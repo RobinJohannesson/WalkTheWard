@@ -64,5 +64,7 @@
 
 #answer-message {
     font-size: 1.1rem;
-    height: 50px;
+    /* line-height: 1rem; */
+    height: 40px;
+    margin: 5px 0px;
 }
