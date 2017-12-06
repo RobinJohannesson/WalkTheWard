@@ -30,6 +30,7 @@
 
 </head>
 <body>
+    <div class="loader"></div>
     @yield('body')
 
     <!-- Optional JavaScript -->
