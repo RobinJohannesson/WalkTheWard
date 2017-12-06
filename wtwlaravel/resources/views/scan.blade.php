@@ -31,8 +31,8 @@
 
 
         <div class="row justify-content-center">
-            <div class="col-md-6 preview-col">
-                <div class="col video-container">
+            <div class="col-md-7 preview-col">
+                <div class="video-container">
                     <video id="preview"></video>
                 </div>
             </div>
