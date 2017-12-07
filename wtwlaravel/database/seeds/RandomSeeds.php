@@ -91,7 +91,7 @@ class RandomSeeds extends Seeder
 
         DB::table('characters')->insert([
             'name' => "Mimmi Pigg",
-            'imageSource' => "minnie.gif",
+            'imageSource' => "minnie.png",
         ]);
 
         DB::table('characters')->insert([
