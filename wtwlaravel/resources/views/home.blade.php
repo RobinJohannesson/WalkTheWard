@@ -120,7 +120,9 @@
                                 <p class="paragraph-size-adjust" style="text-align: right; ">Antal poäng:</p>
                                 </div>
                                 <div class="col-6">
-                                    <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span><span class="paragraph-size-adjust" id="maxStars">/{{$maxStars}}</span>
+                                    <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span>
+                                    <span class="paragraph-size-adjust">/</span>
+                                    <span class="paragraph-size-adjust" id="maxStars">{{$maxStars}}</span>
                                 </div>
                             </div>
                             <div class="row">
