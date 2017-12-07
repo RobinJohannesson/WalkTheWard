@@ -112,7 +112,7 @@
 
                 <div class="row no-gutters justify-content-end">
                     <div class="col-12 text-right">
-                        <button type="button" class="btn-interest btn-small exercise_button">Prova dagens rörelse <i class="material-icons">accessibility</i></button>
+                        <button type="button" class="btn-interest btn-medium exercise_button">Prova dagens <br /> rörelse <i class="material-icons">accessibility</i></button>
                         <button type="button" class="btn-joy btn-big start-loader" id="homeplaybutton">Spela <i class="material-icons">directions_walk</i></button>
                         {{-- <button type="button" class="btn-joy btn-big" id="homeplaybutton">Spela <br><i class="fa fa-tablet" aria-hidden="true"></i> <i class="fa fa-arrow-right" aria-hidden="true"></i> <i class="fa fa-qrcode" aria-hidden="true"></i></button> --}}
 
