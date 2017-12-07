@@ -7,7 +7,7 @@
 @endsection
 
 @section('head-stylesheet')
-
+    <link rel="stylesheet" href="{{url('/')}}/css/style-map.css">
 @endsection
 
 @section('head-script')
@@ -67,7 +67,7 @@
 
     <div class="row justify-content-end">
     <div class="col col-md-4">
-        <button type="button" class="btn-trust btn-big text-right start-loader" id="map_continue_button">Fortsätt</button>
+        <button type="button" class="btn-trust btn-big text-right" id="map_continue_button">Fortsätt</button>
     </div>
     </div>
 
@@ -107,7 +107,7 @@
             shadowFrom: false
         }
         $(document).ready(function(e) {
-            $('#map_continue_button').hide();
+            // $('#map_continue_button').hide();
             $(function() {
                 $('.map').maphilight();
             });
@@ -129,6 +129,7 @@
                 console.log(areaId);
                 var gameId = $('#gameId').val();
                 console.log(gameId);
+                startLoader();
                 $.ajax({
                     type: "POST",
                     headers: {
@@ -140,12 +141,14 @@
                     success: function(data) { // Om det LYCKADES att spara data
                         console.log(data);
                         window.location.href = "{{url('/')}}/theme";
+                        stopLoader();
 
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
                         console.log(textStatus);
                         console.log(errorThrown);
+                        stopLoader();
                     }
                 }); // SLUT - Om det MISSLYCKADES att spara data
             });

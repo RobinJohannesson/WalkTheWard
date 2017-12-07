@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="manifest" href="{{url('/')}}/manifest.json">
 
     @yield('meta')
 
