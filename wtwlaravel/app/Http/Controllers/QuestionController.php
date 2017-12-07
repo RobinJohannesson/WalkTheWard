@@ -55,6 +55,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         try {
+            $distanceInMeterAmount = $request->distanceInMeterRandom;
             $gameId = $request->gameId;
             $questionId = $request->questionId;
             Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 1]);
@@ -81,8 +82,8 @@ class QuestionController extends Controller
             // Hämtar distance för användaren(cookien)
             $patientId = $request->cookie('patientId');
             $patient = Patient::find($patientId);
-            $distanceAmountInMeter = $patient->distanceInMeter;
-            $distanceAmount = round($distanceAmountInMeter * 1.3);
+            // $distanceAmountInMeter = $patient->distanceInMeter;
+            $distanceAmount = round($distanceInMeterAmount * 1.3);
 
             // Hämtar area
             $game = Game::find($gameId);
@@ -271,7 +272,8 @@ class QuestionController extends Controller
 
         $patient = Patient::find($patientId);
         $distanceInMeter = $patient->distanceInMeter;
-        $distanceInMeterAmount = $distanceInMeter + rand(1, 5);
+        $distanceInMeterRandom = rand(5, 10);
+        $distanceInMeterAmount = $distanceInMeter + $distanceInMeterRandom;
         // Ger distancen
         Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
 
@@ -341,7 +343,7 @@ class QuestionController extends Controller
             $newQuestionInGame->save();
         }
 
-        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId']));
+        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'distanceInMeterRandom']));
         // return view('backend', compact(['testing', 'showQuestion']));
     }
     /**
