@@ -21,16 +21,10 @@
         <div id="spacerow">
             <div class="row justify-content-end">
 
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <button type="button" class="btn-anger btn-medium start-loader" id="exit_button">Avsluta</button>
                 </div>
-                <div class="col-md-6 text-center">
-                    <img id="characterImage" src="{{url('/')}}/images/characters/{{$character->imageSource}}">
-                    <p>
-                        {{$character->name}}
-                    </p>
-                </div>
-                <div class="col col-md-3">
+                <div class="col col-md-6">
                     <div class="text-right">
                         <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                     </div>
@@ -108,22 +102,50 @@
             </div>
             <div class="col-md-6">
                 <div class="row no-gutters justify-content-center">
-                    <div class="col-12 home-stats">
-                        <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
-                        <p class="paragraph-size-adjust" style="text-align: center; ">Antal poäng: <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span>/<span id="maxStars">{{$maxStars}}</span></p>
-                        <p class="paragraph-size-adjust" style="text-align: center;">Antal steg: {{$distanceAmount}}</p>
-                        <!--<button type="button" class="button exercise_button">Dagens rörelse</button> -->
+
+                    <div class="col-md-12 text-center">
+                        <img id="characterImage" src="{{url('/')}}/images/characters/{{$character->imageSource}}">
+                        <p>
+                            {{$character->name}}
+                        </p>
                     </div>
+                    <div class="col-12 home-stats">
+                        <div class="row">
+                            <div class="col-12">
+                                <h1 class="text-center" id="mapArea-value">{{$mapArea}}</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="paragraph-size-adjust" style="text-align: right; ">Antal poäng:</p>
+                                </div>
+                                <div class="col-6">
+                                    <span class="paragraph-size-adjust" id="totalStars">{{$totalStars}}</span><span class="paragraph-size-adjust" id="maxStars">/{{$maxStars}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-6">
+
+                                <p class="paragraph-size-adjust" style="text-align: right;">Antal steg:</p>
+                                </div>
+                                <div class="col-6">
+                                <span class="paragraph-size-adjust">{{$distanceAmount}}<span>
+
+                            </div>
+                        </div>
+                        </div>
+                        <!--<button type="button" class="button exercise_button">Dagens rörelse</button> -->
                 </div>
 
                 <div class="row no-gutters justify-content-end">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn-interest btn-small exercise_button">Prova dagens rörelse <i class="material-icons">accessibility</i></button>
+                    </div>
+                </div>
+                <div class="row no-gutters justify-content-end">
                     <div class="col-12 text-right">
-                        <button type="button" class="btn-interest btn-medium exercise_button">Prova dagens <br /> rörelse <i class="material-icons">accessibility</i></button>
                         <button type="button" class="btn-joy btn-big start-loader" id="homeplaybutton">Spela <i class="material-icons">directions_walk</i></button>
                         {{-- <button type="button" class="btn-joy btn-big" id="homeplaybutton">Spela <br><i class="fa fa-tablet" aria-hidden="true"></i> <i class="fa fa-arrow-right" aria-hidden="true"></i> <i class="fa fa-qrcode" aria-hidden="true"></i></button> --}}
-
-
-
                     </div>
                 </div>
 
