@@ -21,10 +21,10 @@
         <div id="spacerow">
             <div class="row justify-content-end">
 
-                <div class="col-md-6">
+                <div class="col-6">
                     <button type="button" class="btn-anger btn-medium start-loader" id="exit_button">Avsluta</button>
                 </div>
-                <div class="col col-md-6">
+                <div class="col-6">
                     <div class="text-right">
                         <a href="#" data-toggle="popover" data-trigger="focus" title="Hemskärm!" data-content="Den här sidan är hemskärmen. Här kan du titta på statistiken och ta reda på dina poäng och steg hittills. Du kan också avsluta spelet genom att klicka på knappen “Avsluta”. Om du vill fortsätta spela så klickar du knappen “Spela”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                     </div>
