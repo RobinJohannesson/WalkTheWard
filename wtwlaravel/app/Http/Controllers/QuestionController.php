@@ -81,7 +81,8 @@ class QuestionController extends Controller
             // Hämtar distance för användaren(cookien)
             $patientId = $request->cookie('patientId');
             $patient = Patient::find($patientId);
-            $distanceAmount = $patient->distanceInMeter;
+            $distanceAmountInMeter = $patient->distanceInMeter;
+            $distanceAmount = round($distanceAmountInMeter * 1.3);
 
             // Hämtar area
             $game = Game::find($gameId);
