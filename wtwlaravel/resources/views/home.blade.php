@@ -21,8 +21,11 @@
         <div id="spacerow">
             <div class="row justify-content-end">
 
-                <div class="col-md-8">
+                <div class="col-md-3">
                     <button type="button" class="btn-anger btn-medium start-loader" id="exit_button">Avsluta</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{{url('/')}}/images/characters/{{$character->imageSource}}" style="width: 100px; height: 100px;">
                 </div>
                 <div class="col col-md-3">
                     <div class="text-right">

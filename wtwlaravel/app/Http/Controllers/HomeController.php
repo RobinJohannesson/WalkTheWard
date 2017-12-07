@@ -62,6 +62,10 @@ class HomeController extends Controller
         // Hämta GameId
         $gameId = $patient->game->id;
 
+        // Hämtar karaktär
+        $characterId = $patient->characterId;
+        $character = Character::find($characterId);
+
         // Hämtar distanceInMeter
         $distanceAmount = $patient->distanceInMeter;
 
@@ -90,7 +94,7 @@ class HomeController extends Controller
             $totalStars += $numberOfStar;
         }
 
-        return view('home', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist']));
+        return view('home', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist', 'character']));
     }
 
     public function showArea(Request $request)
