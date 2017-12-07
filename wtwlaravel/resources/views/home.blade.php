@@ -25,7 +25,10 @@
                     <button type="button" class="btn-anger btn-medium start-loader" id="exit_button">Avsluta</button>
                 </div>
                 <div class="col-md-6 text-center">
-                    <img src="{{url('/')}}/images/characters/{{$character->imageSource}}" style="width: 100px; height: 100px;">
+                    <img id="characterImage" src="{{url('/')}}/images/characters/{{$character->imageSource}}">
+                    <p>
+                        {{$character->name}}
+                    </p>
                 </div>
                 <div class="col col-md-3">
                     <div class="text-right">
