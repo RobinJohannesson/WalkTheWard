@@ -149,12 +149,12 @@
                         </video>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <p>
+                        <span>
                             Utförde du dagens rörelse?
-                        </p>
-                        <input class="todayMovementButton" type="submit" value="Ja">
-                        <input class="todayMovementButton" type="submit" value="Nej">
-                        <input class="todayMovementButton" type="submit" value="Vill inte">
+                        </span>
+                        <input class="todayMovementButton btn-trust btn-small" type="submit" value="Ja">
+                        <input class="todayMovementButton btn-anger btn-small" type="submit" value="Nej">
+                        <input class="todayMovementButton btn-fear btn-small" type="submit" value="Vill inte">
                     </div>
                 </div>
             </div>
