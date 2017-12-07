@@ -231,6 +231,7 @@ class QuestionController extends Controller
         }
         // tagit bort länk till bonusfrågan
         $bonusUrl = "/scan";
+        $bonusGame = $placeName;
 
         $response = array(
             'status' => 'success',
