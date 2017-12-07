@@ -49,7 +49,7 @@
                 alt="Bild för frågan." id="question-img">
             @elseif ($question->videoSource)
                 <i class="fa fa-play-circle fa-6 play-button-video-question" aria-hidden="true"></i>
-                <video id="question-video" autoplay loop="loop">
+                <video id="question-video" controls playsinline autoplay loop="loop" preload="auto" poster="{{url('/')}}/images/video-poster.png">
                     <source src="{{url('/')}}/videos/question_videos/{{$question->videoSource}}" type="video/mp4"></source>
                     Your browser does not support the video tag.
                 </video>
@@ -208,14 +208,13 @@
     <script type="text/javascript">
 
     $(document).ready(function(){
-
         $('#question-video').click(function(event) {
             if (event.target.paused) {
-                $(".play-button-video-question").hide();
+                // $(".play-button-video-question").css('z-index', -3000);
                 event.target.play();
             }
             else {
-                $(".play-button-video-question").show();
+                // $(".play-button-video-question").css('z-index', 3000);
                 event.target.pause();
             }
         });
