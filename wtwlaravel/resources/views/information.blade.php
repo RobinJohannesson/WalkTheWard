@@ -57,7 +57,7 @@
                             <h1 class="text-center"><strong>Syftet med spelet</strong></h1>
                         </div>
                     </div>
-                    <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Utan att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
+                    <p>Spelet heter ”Walk the Ward” eller på svenska ”Vandring i vården”. Spelet går ut på att du går runt i Skåne och på vägen besvarar frågor med olika tema som du själv väljer. Syftet med spelet är att du rör på dig under din tid i vården. Det är viktigt för ditt tillfrisknande att du inte ligger stilla på sängen under din vistelse på sjukhuset. Det är viktigt att du är aktiv, rör på dig efter förmåga och medverkar i din vård.
                     </p>
                 </div>
                 <div class="carousel-item" id="2">
@@ -73,7 +73,7 @@
                             <h1 class="text-center"><strong>Instruktioner</strong></h1>
                         </div>
                     </div>
-                    <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns som du vill svara frågor på. Därefter kommer du till en sida där du använder dig av kameran från surfplattan eller telefonen och skannar en QR-kod för att få fram en fråga.</p>
+                    <p>För att starta en spelomgång börjar du med att välja en del av Skåne du vill vandra i. Skåne är indelat i 5 olika delar där du går från stad till stad inom det valda området. Efter detta väljer du ett av de teman som finns att svara frågor på. Därefter kommer du till en sida där du använder dig av kameran på surfplattan eller telefonen för att skannar en QR-kod och då få fram en fråga att svara på.</p>
                 </div>
 
                 <div class="carousel-item" id="3">
@@ -87,7 +87,7 @@
                     <div class="col-md">
                         <h1 class="text-center"><strong>Instruktioner</strong></h1>
                     </div>
-                    <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran med din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
+                    <p>Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt svar. Börja med att leta upp en station. Stationen innehåller en QR-kod som du skannar genom att hålla upp kameran på din surfplatta eller telefon. Koderna finns uppsatta i korridoren på avdelningen. Du får spela när du vill och hur länge du vill under tiden som du ligger inlagd.</p>
                     <p>Behöver du hjälp under spelets gång, tryck på det orangea frågetecknet uppe i högra hörnet för mer instruktioner.</p>
                 </div>
             </div>
