@@ -24,16 +24,14 @@
                 <form action="{{{ url("statistics/store") }}}" id="statisticsForm" method="POST" style="font-size: 24pt"; width: 500px;>
                     {{ csrf_field() }}
 
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <p>Ska du gå hem?</p>
-                        <br>
                         <label class="radio-inline"><input type="radio" name="hasGoneHome" value="1" class="big-radio-btn" required> Ja<br></label>
                         <label class="radio-inline"><input type="radio" name="hasGoneHome" value="0" class="big-radio-btn" required> Nej<br></label>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <p>Hur många dagar har du varit inlagd?</p>
-                        <br>
                         <select number="5" name="dayAmount" required>
                             <option disabled value="">Välj antal dagar</option>
                             <option value="1">1</option>
@@ -49,11 +47,11 @@
                         </select>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <p>Var spelet enkelt att spela?</p>
-                        <br>
                         <label class="radio-inline"><input class="wasEasyToPlayRadio big-radio-btn" type="radio" name="wasEasyToPlay" value="1" required> Ja<br></label>
                         <label class="radio-inline"><input class="wasEasyToPlayRadio big-radio-btn" type="radio" name="wasEasyToPlay" value="0" required> Nej<br></label>
+                        <br>
                         <label for="text-input" class="col-form-label statisticsWhy">Förklara varför:</label>
                         <textarea class="form-control statisticsWhy" maxlength="180" rows="4" cols="50" id="text-input" name="explainWhy"></textarea>
                     </div>
