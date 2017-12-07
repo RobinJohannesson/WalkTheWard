@@ -36,7 +36,7 @@
             @endphp
             @foreach ($theme as $t)
                 <div class="col-md-6 col-theme">
-                    <button class="button-theme theme-color-{{$count++}}" data-theme-id="{{ $t->id }}">
+                    <button class="button-theme theme-color-{{$count++}} start-loader" data-theme-id="{{ $t->id }}">
                         <h2 class="align-center theme-button-text-adjust">
                             <div id="themehead_bold">
                                 <img src="./images/circle2.png" alt="icon" width="70px" height="auto">

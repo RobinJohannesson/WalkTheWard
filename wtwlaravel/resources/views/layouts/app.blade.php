@@ -12,8 +12,8 @@
     @yield('meta')
 
     <link rel="icon" type="image/png" href="{{url('/')}}/images/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="{{url('/')}}/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="{{url('/')}}/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{url('/')}}/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{url('/')}}/images/favicon-96x96.png" sizes="96x96">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -52,6 +52,20 @@
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
+
+    function startLoader() {
+        $('.loader').show();
+    }
+
+    function stopLoader() {
+        $('.loader').hide();
+    }
+
+    $(document).ready(function() {
+        $('.start-loader').click(function(event) {
+            startLoader();
+        });
+    });
     </script>
     @yield('body-script')
 </body>

@@ -94,15 +94,15 @@
 
             <!-- Buttons -->
             <a class="carousel-control-prev carousel-hide-button" href="#info-carousel" role="button" data-slide="prev">
-                <button type="button" class="button continue_button">Tillbaka</button>
+                <button class="btn-fear btn-medium">Tillbaka</button>
             </a>
 
             <a class="carousel-control-next" href="#info-carousel" role="button" data-slide="next">
-                <button type="button" class="button continue_button">Fortsätt</button>
+                <button class="btn-trust btn-medium">Fortsätt</button>
             </a>
 
             <a class="info-play carousel-hide-button" href="{{url('/')}}/map" role="button">
-                <button type="button" class="info-playbutton">Spela</button>
+                <button class="btn-joy btn-big info-playbutton start-loader">Spela</button>
                 <a/>
 
             </div>

@@ -124,17 +124,11 @@
 
 @section('body-script')
     <script type="text/javascript">
+
     $(document).ready(function(){
 
-        $("#characterRegistration").on("click", function (e) {
-
-            if ($("#registrationForm")[0].checkValidity()){
-                $("#registrationForm").submit();
-                e.preventDefault();
-            }
-            else {
-                console.log("Something is Required!");
-            }
+        $("form").submit(function() {
+            startLoader();
         });
 
         $(".choosenCharacterImage").on("click", function (e) {
@@ -152,9 +146,21 @@
             $('#characterModal').modal('hide');
 
         });
-        $('#characterRegistration').click(function(event) {
-            var charId = $(".isSelected").attr("data-character-id");
-        });
+
+        // $("#characterRegistration").on("click", function (e) {
+        //
+        //     if ($("#registrationForm")[0].checkValidity()){
+        //         $("#registrationForm").submit();
+        //         e.preventDefault();
+        //     }
+        //     else {
+        //         console.log("Something is Required!");
+        //     }
+        // });
+
+        // $('#characterRegistration').click(function(event) {
+        //     var charId = $(".isSelected").attr("data-character-id");
+        // });
     });
     </script>
 @endsection

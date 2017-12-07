@@ -184,7 +184,7 @@
 
         </div>
         <div class="modal-footer">
-            <a href="{{url('/')}}/scan" class="btn-trust btn-medium btn-to-bonus">Fortsätt spela</a>
+            <a href="{{url('/')}}/scan" class="btn-trust btn-medium btn-to-bonus start-loader">Fortsätt spela</a>
         </div>
     </div>
 </div>
@@ -216,7 +216,7 @@
         $('.button-answer').click(function(){
 
             if ($(this).hasClass('correct-answer')) {
-                $(".loader").show();
+                startLoader();
                 $(this).addClass('answered-right');
 
                 // Pausa video om den finns
@@ -330,14 +330,14 @@
                             });
                         });
 
-                        $('.loader').hide();
+                        stopLoader();
 
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data
                         console.log(xhr);
                         console.log(textStatus);
                         console.log(errorThrown);
-                        $('.loader').hide();
+                        stopLoader();
                     }
                 }); // SLUT - Om det MISSLYCKADES att spara data
             }

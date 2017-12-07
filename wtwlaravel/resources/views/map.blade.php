@@ -67,7 +67,7 @@
 
     <div class="row justify-content-end">
     <div class="col col-md-4">
-        <button type="button" class="btn-trust btn-big text-right" id="map_continue_button">Fortsätt</button>
+        <button type="button" class="btn-trust btn-big text-right start-loader" id="map_continue_button">Fortsätt</button>
     </div>
     </div>
 

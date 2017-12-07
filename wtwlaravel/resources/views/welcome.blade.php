@@ -74,7 +74,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">Tillbaka</button>
 
-                        <a href="{{url('/')}}/registration" class="btn btn-warning" data-href="{{url('/')}}/registration" >
+                        <a href="{{url('/')}}/registration" class="btn btn-warning start-loader" data-href="{{url('/')}}/registration" >
                             Skapa en ny spelare
                         </a>
                     </div>
@@ -138,21 +138,12 @@
 
 @section('body-script')
     <script type="text/javascript">
-    // Initialize tooltip component
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
-
-    // Initialize popover component
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    });
-
 
     $(document).ready(function() {
         $('#confirm-delete').on('show.bs.modal', function(e) {
             $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
         });
     });
+    
     </script>
 @endsection

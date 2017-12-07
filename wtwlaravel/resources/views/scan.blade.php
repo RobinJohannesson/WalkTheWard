@@ -20,8 +20,8 @@
     <div class="container-fluid">
         <div class="row justify-content-md-end">
             <div class="col-md-2 order-2 order-md-1">
-                <p class="paragraph-size-adjust">Tema: {{ $Theme->name }}</p>
-                <button type="button" class="btn-joy btn-medium change_theme_button">Ändra tema</button>
+                <p class="paragraph-size-adjust">Tema: <strong>{{ $Theme->name }}</strong></p>
+                <button type="button" class="btn-joy btn-medium change_theme_button start-loader">Ändra tema</button>
             </div>
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center header-margin">Skanna en QR-KOD</h1>
@@ -79,6 +79,7 @@
 
         let scanner = new Instascan.Scanner(opts);
         scanner.addListener('scan', function (content) {
+            startLoader();
             console.log(content);
             window.location.href = content;
         });
