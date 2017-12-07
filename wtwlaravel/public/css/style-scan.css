@@ -5,6 +5,13 @@
     width: 100%;
 }
 
+.previewMirror {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    ctx.translate(w, 0);
+    ctx.scale(-1, 1);
+}
+
 .change_theme_button {
     /*background-color: #A7CA00;
     border: 3px dashed #F6E67F;
