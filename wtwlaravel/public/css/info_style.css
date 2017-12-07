@@ -19,6 +19,9 @@ ol.carousel-indicators {
     position: absolute;
     bottom: 0;
     margin-bottom: -20%;
+    width: 200px;
+    margin-left:auto;
+    margin-right:auto;
     /*left: 0;
     right: 0;*/
 }
@@ -31,7 +34,7 @@ ol.carousel-indicators li, ol.carousel-indicators li.active {
     border: 0;
     background: #cccccc;
     border-radius: 25px;
-    margin-right: 3%;
+    margin-right: 15%;
     margin-top: 5%;
     cursor: pointer;
 }
@@ -39,7 +42,7 @@ ol.carousel-indicators li, ol.carousel-indicators li.active {
 ol.carousel-indicators li.active {
     background: grey;
     border-radius: 25px;
-    margin-right: 3%;
+    margin-right: 15%;
     margin-top: 5%;
     cursor: pointer;
 }
