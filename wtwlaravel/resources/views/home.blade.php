@@ -289,6 +289,7 @@
                 var video = $("#movement-video");
                 video[0].pause();
                 $('#movementModal').modal('hide');
+                video[0].currentTime = 0;
             });
         });
         </script>
