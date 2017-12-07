@@ -3,7 +3,7 @@ a {
 }
 
 h1 {
-  margin-top: 5%;
+  margin-top: 1%;
 }
 
 p {
@@ -18,7 +18,7 @@ p {
 ol.carousel-indicators {
     position: absolute;
     bottom: 0;
-    margin-bottom: -20%;
+    margin-bottom: -13%;
     width: 200px;
     margin-left:auto;
     margin-right:auto;
@@ -62,7 +62,7 @@ ol.carousel-indicators li.active {
   position: absolute;
   left: 0;
   cursor: pointer;
-  bottom: -152px;
+  bottom: -50px;
   padding: 20px 40px;
 }
 
@@ -70,7 +70,7 @@ ol.carousel-indicators li.active {
   position: absolute;
   right: 0;
   cursor: pointer;
-  bottom: -152px;
+  bottom: -50px;
   padding: 20px 40px;
 }
 
@@ -92,7 +92,7 @@ ol.carousel-indicators li.active {
     text-decoration: none;*/
     position: absolute;
     right: 0;
-    bottom: -263px;
+    bottom: -160px;
     cursor: pointer;
 }
 
