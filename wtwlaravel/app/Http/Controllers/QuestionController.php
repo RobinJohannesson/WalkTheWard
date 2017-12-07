@@ -227,6 +227,8 @@ class QuestionController extends Controller
             );
             return response()->json($response);
         }
+        // tagit bort länk till bonusfrågan
+        $bonusUrl = "/scan";
 
         $response = array(
             'status' => 'success',
