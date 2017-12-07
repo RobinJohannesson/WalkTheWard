@@ -104,7 +104,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="resultsModalLabel">
-                    Tema: {{ $currentTheme->name }}
+                    Tema: <strong>{{ $currentTheme->name }}</strong>
                 </h5>
                 {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -119,24 +119,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
                         Rätt svar:
                     </p>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <p>
                         <span id="answer-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
                         Antal stjärnor:
                     </p>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <p>
                         <span id="stars-value"></span>
                         {{-- <span id="new-highscore"></span> --}}
@@ -146,36 +146,36 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
                         Antal steg:
                     </p>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <p>
                         <span id="steps-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
                         Du är just nu i:
                     </p>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <p>
                         <span id="bonus-value" class="paragraph-size-adjust"></span>
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
                         Du har besökt:
                     </p>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <p>
                         <span id="round-value" class="paragraph-size-adjust"></span>
                     </p>
@@ -184,7 +184,16 @@
 
         </div>
         <div class="modal-footer">
-            <a href="{{url('/')}}/scan" class="btn-trust btn-medium btn-to-bonus start-loader">Fortsätt spela</a>
+            <div class="container-fluid no-padding">
+                <div class="row no-gutters">
+                    <div class="col-6 text-left">
+                        <a href="{{url('/')}}/home" class="btn-anger btn-medium start-loader">Avsluta runda</a>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="{{url('/')}}/scan" class="btn-trust btn-medium btn-to-bonus start-loader">Fortsätt spela</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -269,7 +278,7 @@
 
                         $("#map-value").append(data['mapName'] + "->");
                         $("#map-value").append(data['areaName'] + "->");
-                        $("#map-value").append(data['bonusGame']);
+                        $("#map-value").append("<strong>"+data['bonusGame'] + "</strong>");
 
                         $("#bonus-value").append(data['bonusGame']);
                         $(".btn-to-bonus").attr("href", "{{url('/')}}" + data['bonusUrl']);

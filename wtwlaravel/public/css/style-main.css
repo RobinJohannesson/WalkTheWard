@@ -172,3 +172,8 @@ p {
     margin-right: 20px;
     transform: scale(2);
 }
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
