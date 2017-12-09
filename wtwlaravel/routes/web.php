@@ -55,6 +55,8 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::POST('statistics/store', "StatisticsController@store");
 
+    Route::resource('admin', "AdminController");
+
     Auth::routes();
 });
 
