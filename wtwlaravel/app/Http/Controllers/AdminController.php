@@ -26,6 +26,11 @@ class AdminController extends Controller
     */
     public function index(Request $request)
     {
+        return view('admin');
+    }
+
+    public function newQuestion(Request $request)
+    {
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
 
@@ -37,7 +42,80 @@ class AdminController extends Controller
 
         $theme = Theme::all();
 
-        return view('admin', compact(["theme", "gameId"]));
+        return view('newQuestion', compact(["theme", "gameId"]));
+    }
+
+    public function newQuestionSave(Request $request)
+    {
+        // Skapar nytt tema om de valt det
+        if ($request->newQuestionTheme == "0") {
+            $Theme = new Theme;
+            $Theme->name = $request->newQuestionNewTheme;
+            $Theme->isActive = 1;
+            $Theme->save();
+            $newThemeId = $Theme->id;
+        }
+        else {
+            $newThemeId = $request->newQuestionTheme;
+        }
+        // Skapar ny fråga utifrån användarens val
+        $Questions = new Question;
+
+        $Questions->question = $request->newQuestion;
+        $Questions->answer1 = $request->newQuestionFirstAlternative;
+        $Questions->answer2 = $request->newQuestionSecondAlternative;
+        $Questions->answer3 = $request->newQuestionThirdAlternative;
+        $Questions->answer4 = $request->newQuestionForthAlternative;
+        $Questions->correctAnswer = $request->newQuestionRightAlternative;
+        // $Questions->$fileType = $request->fileToUpload;
+        $Questions->themeId = $newThemeId;
+        $Questions->save();
+
+        return redirect('admin');
+    }
+
+    public function theme(Request $request)
+    {
+        // Hämta PatientId från cookie
+        $patientId = $request->cookie('patientId');
+
+        // Hämta CurrentAreaId
+        $patient = Patient::find($patientId);
+
+        // Hämta GameId
+        $gameId = $patient->game->id;
+
+        $theme = Theme::all();
+
+        return view('adjustTheme', compact(["theme", "gameId"]));
+    }
+
+    public function themeSave(Request $request)
+    {
+        // Skapar nytt tema om de valt det
+        if ($request->ifNewTheme == "yes") {
+            $Theme = new Theme;
+            $Theme->name = $request->newTheme;
+            $Theme->isActive = $request->ifNewThemeActive;
+            $Theme->save();
+        }
+
+        $themeIds = Theme::where('id' ,'>' ,0)->pluck('id')->toArray();
+        $themeIdsAmount = count($themeIds);
+        $counter = 0;
+        while ($counter < $themeIdsAmount) {
+            $thisTurnId = array_values($themeIds)[$counter];
+            $checkboxIdUsageValue = $request->input($thisTurnId);
+            if ($checkboxIdUsageValue == true) {
+                Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+            }
+            if ($checkboxIdUsageValue == false) {
+                Theme::where(['id' => $thisTurnId])->update(['isActive' => 0]);
+            }
+            $counter++;
+        }
+
+        return redirect('admin');
     }
 
     /**
