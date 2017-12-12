@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-2 order-1 order-md-2">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Svara på frågorna!" data-content="På den här sidan svarar du på frågorna och sedan trycker på knappen “Skicka”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Administration" data-content="Administration görs endast av personal!" style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
         </div>

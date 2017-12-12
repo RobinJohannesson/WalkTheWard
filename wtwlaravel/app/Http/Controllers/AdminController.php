@@ -34,44 +34,88 @@ class AdminController extends Controller
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
 
-        // Hämta CurrentAreaId
+        // Hämta Current Patient
         $patient = Patient::find($patientId);
 
         // Hämta GameId
         $gameId = $patient->game->id;
 
-        $theme = Theme::all();
+        $themes = Theme::all();
 
-        return view('newQuestion', compact(["theme", "gameId"]));
+        return view('newQuestion', compact(["themes", "gameId"]));
     }
 
     public function newQuestionSave(Request $request)
     {
-        // Skapar nytt tema om de valt det
-        if ($request->newQuestionTheme == "0") {
-            $Theme = new Theme;
-            $Theme->name = $request->newQuestionNewTheme;
-            $Theme->isActive = 1;
-            $Theme->save();
-            $newThemeId = $Theme->id;
-        }
-        else {
-            $newThemeId = $request->newQuestionTheme;
-        }
-        // Skapar ny fråga utifrån användarens val
-        $Questions = new Question;
+        $statusMessage = "";
+        $Question = null;
+        try {
+            // Skapar nytt tema om de valt det
+            if ($request->newQuestionTheme == "0") {
+                $Theme = new Theme;
+                $Theme->name = $request->newQuestionNewTheme;
+                $Theme->isActive = 1;
+                $Theme->save();
+                $newThemeId = $Theme->id;
+            }
+            else {
+                $newThemeId = $request->newQuestionTheme;
+            }
 
-        $Questions->question = $request->newQuestion;
-        $Questions->answer1 = $request->newQuestionFirstAlternative;
-        $Questions->answer2 = $request->newQuestionSecondAlternative;
-        $Questions->answer3 = $request->newQuestionThirdAlternative;
-        $Questions->answer4 = $request->newQuestionForthAlternative;
-        $Questions->correctAnswer = $request->newQuestionRightAlternative;
-        // $Questions->$fileType = $request->fileToUpload;
-        $Questions->themeId = $newThemeId;
-        $Questions->save();
+            // Skapar ny fråga utifrån användarens val
+            $Question = new Question;
 
-        return redirect('admin');
+            $Question->question = $request->newQuestion;
+            $Question->answer1 = $request->newQuestionFirstAlternative;
+            $Question->answer2 = $request->newQuestionSecondAlternative;
+            $Question->answer3 = $request->newQuestionThirdAlternative;
+            $Question->answer4 = $request->newQuestionForthAlternative;
+            $Question->correctAnswer = $request->newQuestionRightAlternative;
+
+            if ($request->hasFile('fileToUpload')) {
+                if ($request->file('fileToUpload')->isValid()) {
+
+                    $file = $request->file('fileToUpload');
+
+                    $fileName = time().'-'.mb_strtolower($file->getClientOriginalName(), 'UTF-8');
+
+                    $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
+
+
+                    $allowedImageTypes =  array('gif','png' ,'jpg');
+                    $allowedVideoTypes =  array('mp4');
+                    if (in_array($extesion, $allowedImageTypes)) {
+
+                        $destinationPath = public_path('\images\question_images');
+                        $file->move($destinationPath, $fileName);
+                        $Question->imageSource = $fileName;
+
+                    }
+                    elseif (in_array($extesion, $allowedVideoTypes)) {
+
+                        $destinationPath = public_path('\videos\question_videos');
+                        $file->move($destinationPath, $fileName);
+                        $Question->videoSource = $fileName;
+
+                    }
+                    else {
+                        // If no video or image was set.
+                    }
+                }
+            }
+
+            $Question->themeId = $newThemeId;
+
+            $Question->save();
+            $statusMessage = "Frågan är nu skapad!";
+
+        } catch (Exception $e) {
+            $statusMessage = "Frågan kunde INTE skapas! Pröva igen.";
+        }
+
+        $themes = Theme::all();
+
+        return view('newQuestion', compact(['statusMessage','themes', 'Question']));
     }
 
     public function theme(Request $request)
