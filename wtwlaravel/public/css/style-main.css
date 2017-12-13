@@ -168,7 +168,7 @@ p {
     margin: 5px 30px;
 }
 
-.big-radio-btn{
+.big-radio-btn, .big-checkbox{
     margin-right: 20px;
     transform: scale(2);
 }

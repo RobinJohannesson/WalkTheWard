@@ -32,3 +32,8 @@
     margin:  10px 0;
     border: 4px dotted black;
 }
+
+.instruction-checkbox {
+    transform: scale(2);
+    margin: 0 0.5rem;
+}

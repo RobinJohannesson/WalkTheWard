@@ -37,12 +37,10 @@ class AdminController extends Controller
         // Hämta Current Patient
         $patient = Patient::find($patientId);
 
-        // Hämta GameId
-        $gameId = $patient->game->id;
 
         $themes = Theme::all();
 
-        return view('newQuestion', compact(["themes", "gameId"]));
+        return view('newQuestion', compact(["themes"]));
     }
 
     public function newQuestionSave(Request $request)
@@ -73,18 +71,24 @@ class AdminController extends Controller
             $Question->answer4 = $request->newQuestionForthAlternative;
             $Question->correctAnswer = $request->newQuestionRightAlternative;
 
+            // Kolla om filen finns och om den är giltig.
             if ($request->hasFile('fileToUpload')) {
                 if ($request->file('fileToUpload')->isValid()) {
 
+                    // Hämta filen från request.
                     $file = $request->file('fileToUpload');
 
+                    // Hämta filnamnet. T.ex. my-photo.jpg
                     $fileName = time().'-'.mb_strtolower($file->getClientOriginalName(), 'UTF-8');
 
+                    // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
                     $allowedVideoTypes =  array('mp4');
+
+                    // Kontrollera om filen har en giltig bild filhändelse
                     if (in_array($extesion, $allowedImageTypes)) {
 
                         $destinationPath = public_path('\images\question_images');
@@ -92,6 +96,7 @@ class AdminController extends Controller
                         $Question->imageSource = $fileName;
 
                     }
+                    // Kontrollera om filen har en giltig video filhändelse
                     elseif (in_array($extesion, $allowedVideoTypes)) {
 
                         $destinationPath = public_path('\videos\question_videos');
@@ -100,7 +105,7 @@ class AdminController extends Controller
 
                     }
                     else {
-                        // If no video or image was set.
+                        // Om ingen giltig bild eller video laddades upp.
                     }
                 }
             }
@@ -108,11 +113,13 @@ class AdminController extends Controller
             $Question->themeId = $newThemeId;
 
             $Question->save();
+
             $statusMessage = "Frågan är nu skapad!";
-            $statusCode = "1";
+            $statusCode = 1;
 
         } catch (Exception $e) {
             $statusMessage = "Frågan kunde INTE skapas! Pröva igen.";
+            $statusCode = 0;
         }
 
         $themes = Theme::all();
@@ -138,7 +145,7 @@ class AdminController extends Controller
 
     public function themeSave(Request $request)
     {
-        // Skapar nytt tema om de valt det
+        // Skapar nytt tema om de valt det.
         if ($request->ifNewTheme == "yes") {
             $Theme = new Theme;
             $Theme->name = $request->newTheme;
@@ -146,11 +153,19 @@ class AdminController extends Controller
             $Theme->save();
         }
 
+        // Hämta en array med alla tema ids.
         $themeIds = Theme::where('id' ,'>' ,0)->pluck('id')->toArray();
+
+        // Hämta totala antal teman.
         $themeIdsAmount = count($themeIds);
+
         $counter = 0;
         while ($counter < $themeIdsAmount) {
             $thisTurnId = array_values($themeIds)[$counter];
+
+            // Hämta tema checkbox value. Value 1(true) eller null(false).
+            // När man försöker hämta en unchecked checkbox får man tillbaka
+            // null då den inte skickas inte med request.
             $checkboxIdUsageValue = $request->input($thisTurnId);
             if ($checkboxIdUsageValue == true) {
                 Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);

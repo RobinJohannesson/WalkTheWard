@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'justera teman')
+@section('title', 'Justera teman')
 
 @section('meta')
 
 @endsection
 
 @section('head-stylesheet')
-
+    <link rel="stylesheet" href="{{url('/')}}/css/style-admin.css">
 @endsection
 
 @section('head-script')
@@ -21,7 +21,7 @@
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Justera teman</h1>
-                <form action="{{{ url("admin/adjustTheme") }}}" id="newThemeForm" method="POST" style="font-size: 24pt"; width: 500px;>
+                <form action="{{{ url("admin/adjustTheme") }}}" id="newThemeForm" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <span>
@@ -42,19 +42,14 @@
                         <input type="radio" name="ifNewThemeActive" value="0">Nej
                     </div>
                     <div class="form-group">
-                        <p>Aktivera/Inaktivera valda tema</p>
-                            @foreach ($theme as $t)
-                                @php
-                                if ($t->isActive == 0) {
-                                    echo "<input type='checkbox' id='activateTheme$t->id' class='isActiveTheme$t->isActive checkboxForThemes' name='$t->id' value='unchecked'>
-                                    <label for='activateTheme$t->id' class='col-form-label'>$t->name</label>";
-                                }
-                                if ($t->isActive == 1) {
-                                    echo "<input type='checkbox' id='activateTheme$t->id' class='isActiveTheme$t->isActive checkboxForThemes' name='$t->id' value='checked' checked>
-                                    <label for='activateTheme$t->id' class='col-form-label'>$t->name</label>";
-                                }
-                                @endphp
-                            @endforeach
+                        <p>Aktivera (<input type='checkbox' class='instruction-checkbox' checked disabled>) / Inaktivera (<input type='checkbox' class='instruction-checkbox' disabled>) valda tema</p>
+                        @foreach ($theme as $t)
+                            <label for='activateTheme{{$t->id}}' class='col-form-label'>
+                                <input type='checkbox' id='activateTheme{{$t->id}}' class='isActiveTheme{{$t->isActive}} checkboxForThemes big-checkbox' name='{{$t->id}}' value='1' {{$t->isActive == 1 ? "checked" : ""}}>
+                                {{$t->name}}
+                            </label>
+                            <br />
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
@@ -69,7 +64,7 @@
             </div>
             <div class="col-md-2 order-1 order-md-2">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Svara på frågorna!" data-content="På den här sidan svarar du på frågorna och sedan trycker på knappen “Skicka”. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Skapa och justera teman" data-content="På den här sidan kan administratörer skapa och justera teman." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
         </div>
@@ -84,12 +79,19 @@
     $('.newThemeDisplay').hide();
     $(document).ready(function(){
         $('.ifNewTheme').change(function() {
-        if ($('#ifNewThemeYes').prop('checked')) {
-            $('.newThemeDisplay').show();
-        } else {
-            $('.newThemeDisplay').hide();
-        }
+            if ($('#ifNewThemeYes').prop('checked')) {
+                $('.newThemeDisplay').show();
+            } else {
+                $('.newThemeDisplay').hide();
+            }
         });
+
+        // $('.checkboxForThemes').change(function() {
+        //     if(this.checked) {
+        //
+        //     }
+        // });
+
         $("form").submit(function() {
             startLoader();
         });
