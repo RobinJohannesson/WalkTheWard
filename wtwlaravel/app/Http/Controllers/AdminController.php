@@ -48,6 +48,7 @@ class AdminController extends Controller
     public function newQuestionSave(Request $request)
     {
         $statusMessage = "";
+        $statusCode = 0;
         $Question = null;
         try {
             // Skapar nytt tema om de valt det
@@ -82,7 +83,7 @@ class AdminController extends Controller
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
 
-                    $allowedImageTypes =  array('gif','png' ,'jpg');
+                    $allowedImageTypes =  array('gif','png','jpg','jpeg');
                     $allowedVideoTypes =  array('mp4');
                     if (in_array($extesion, $allowedImageTypes)) {
 
@@ -108,6 +109,7 @@ class AdminController extends Controller
 
             $Question->save();
             $statusMessage = "Frågan är nu skapad!";
+            $statusCode = "1";
 
         } catch (Exception $e) {
             $statusMessage = "Frågan kunde INTE skapas! Pröva igen.";
@@ -115,7 +117,7 @@ class AdminController extends Controller
 
         $themes = Theme::all();
 
-        return view('newQuestion', compact(['statusMessage','themes', 'Question']));
+        return view('newQuestion', compact(['statusMessage', 'statusCode', 'themes', 'Question']));
     }
 
     public function theme(Request $request)

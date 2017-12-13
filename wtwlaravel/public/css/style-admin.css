@@ -1,0 +1,34 @@
+.status-message {
+    padding: 5px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.custom-file-control:lang(sv-se)::before {
+    content: "Välj fil";
+}
+
+.custom-file-control:lang(sv-se):empty::after {
+    content: "Ingen fil har valts";
+}
+
+.custom-file {
+    width: 100%;
+}
+
+.allowed-types {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    display: block;
+    text-align: right;
+}
+
+#image-preview, #video-preview{
+    display: inline-block;
+    max-height: 250px;
+    max-width: 100%;
+    margin:  10px 0;
+    border: 4px dotted black;
+}

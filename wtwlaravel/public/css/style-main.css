@@ -15,7 +15,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Autour One', cursive;
-    font-size: 35px;
+    /*font-size: 35px;*/
     /*font-family: 'Amatic SC', cursive, sans-serif;*/
     /*font-family: 'Averia Sans Libre', cursive, sans-serif;*/
 }
