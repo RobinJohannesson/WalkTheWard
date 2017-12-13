@@ -65,6 +65,14 @@ Route::middleware('checkCookie')->group(function () {
 
     Route::POST('admin/adjustTheme', "AdminController@themeSave");
 
+    Route::GET('admin/adjustBonus', "AdminController@bonus");
+
+    Route::POST('admin/adjustBonus', "AdminController@bonusSave");
+
+    Route::GET('admin/adjustExercise', "AdminController@exercise");
+
+    Route::POST('admin/adjustExercise', "AdminController@exerciseSave");
+
     Auth::routes();
 });
 

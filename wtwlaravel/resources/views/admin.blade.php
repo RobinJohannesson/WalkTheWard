@@ -25,6 +25,8 @@
                     <div class="form-group">
                         <a href="{{url('/')}}/admin/newQuestion" class="btn-fear btn-medium return_button start-loader">Lägg till ny fråga</a>
                         <a href="{{url('/')}}/admin/adjustTheme" class="btn-fear btn-medium return_button start-loader">Justera teman</a>
+                        <a href="{{url('/')}}/admin/adjustBonus" class="btn-fear btn-medium return_button start-loader">Hantera bonusfrågorna</a>
+                        <a href="{{url('/')}}/admin/adjustExercise" class="btn-fear btn-medium return_button start-loader">Ändra rörelsevideorna</a>
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">

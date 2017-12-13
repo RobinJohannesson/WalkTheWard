@@ -179,6 +179,15 @@ class AdminController extends Controller
         return redirect('admin');
     }
 
+    public function bonus(Request $request)
+    {
+        $bonus = Bonus_game::all();
+
+        $place = Place::all();
+
+        return view('adjustBonus', compact(["bonus", "place"]));
+    }
+
     /**
     * Show the form for creating a new resource.
     *
