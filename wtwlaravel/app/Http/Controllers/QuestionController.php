@@ -163,7 +163,7 @@ class QuestionController extends Controller
                         // Kollar om användaren svarat på alla 8 städer
                         if ($placeInGameBool == true) {
                             // Skickar användaren hem
-                            $bonusUrl = "/home";
+                            $bonusUrl = "/gameHome";
                         }
                         if ($placeInGameBool == false) {
                             // Skickar användaren till skanningen
@@ -194,7 +194,7 @@ class QuestionController extends Controller
             else{
                 if ($placeInGameBool == true) {
                     $bonusGame = $placeName;
-                    $bonusUrl = "/home";
+                    $bonusUrl = "/gameHome";
                 }
                 if ($placeInGameBool == false) {
                     $bonusGame = $placeName;

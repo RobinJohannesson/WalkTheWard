@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('title', 'Walk The Ward')
 
@@ -107,7 +107,7 @@
             @if ($Patient)
                 <div class="col-md-5 text-center">
                     {{-- <h4 class="font-josefin">Fortsätt spela?</h4> --}}
-                    <a href="{{url('/')}}/home" id="link-current-user">
+                    <a href="{{url('/')}}/gameHome" id="link-current-user">
                         <div class="btn-current-user">
                             @if ($Character)
                                 <img class="characterImage" data-patient-id="{{$Patient->id}}" data-character-id="{{$Character->id}}" src="{{url('/')}}/images/characters/{{$Character->imageSource}}" alt="{{$Character->name}}">
@@ -144,6 +144,6 @@
             $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
         });
     });
-    
+
     </script>
 @endsection

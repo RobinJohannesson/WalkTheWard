@@ -119,7 +119,7 @@ class BonusController extends Controller
 
         // Kollar om användaren besökt alla städer
         if ($placeInGameBool == true) {
-            $bonusUrl = "/home";
+            $bonusUrl = "/gameHome";
         }
         if ($placeInGameBool == false) {
             $bonusUrl = "/scan";

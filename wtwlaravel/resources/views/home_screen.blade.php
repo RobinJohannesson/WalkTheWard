@@ -238,7 +238,7 @@ $(function () {
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "{{url('/')}}/home",
+                    url: "{{url('/')}}/gameHome",
                     data: {areaId: areaId, gameId: gameId},
                     dataType: 'json',
                     success: function(dataSuccess) { // Om det LYCKADES att spara data

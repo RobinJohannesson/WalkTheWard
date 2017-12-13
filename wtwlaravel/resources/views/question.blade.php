@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('title', 'Fråga')
 
@@ -187,7 +187,7 @@
             <div class="container-fluid no-padding">
                 <div class="row no-gutters">
                     <div class="col-6 text-left">
-                        <a href="{{url('/')}}/home" class="btn-anger btn-medium start-loader">Avsluta runda</a>
+                        <a href="{{url('/')}}/gameHome" class="btn-anger btn-medium start-loader">Avsluta runda</a>
                     </div>
                     <div class="col-6 text-right">
                         <a href="{{url('/')}}/scan" class="btn-trust btn-medium btn-to-bonus start-loader">Fortsätt spela</a>

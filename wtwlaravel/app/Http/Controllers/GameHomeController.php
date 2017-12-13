@@ -17,7 +17,7 @@ use App\Bonus_game;
 use App\Bonus_game_in_game;
 use App\Http\Controllers\Cookie;
 
-class HomeController extends Controller
+class GameHomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -94,7 +94,7 @@ class HomeController extends Controller
             $totalStars += $numberOfStar;
         }
 
-        return view('home', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist', 'character']));
+        return view('gameHome', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist', 'character']));
     }
 
     public function showArea(Request $request)
@@ -161,7 +161,7 @@ class HomeController extends Controller
             'numberCity' => $numberCity,
             'mapArea' => $mapArea
         );
-        // return view('home', compact(['totalStars', 'maxStars', 'gameId']));
+        // return view('gameHome', compact(['totalStars', 'maxStars', 'gameId']));
         return response()->json($response);
     }
 

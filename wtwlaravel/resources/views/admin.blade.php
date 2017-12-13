@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('title', 'Admin')
 
@@ -28,7 +28,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <a href="{{url('/')}}/home" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
+                            <a href="{{url('/')}}/gameHome" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
                         </div>
                     </div>
 

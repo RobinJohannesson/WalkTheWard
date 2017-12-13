@@ -45,9 +45,9 @@ Route::middleware('checkCookie')->group(function () {
 
     // Route::POST('bonus/store', "BonusController@store");
 
-    Route::GET('home', "HomeController@showAll");
+    Route::GET('gameHome', "GameHomeController@showAll");
 
-    Route::POST('home', "HomeController@showArea");
+    Route::POST('gameHome', "GameHomeController@showArea");
 
     Route::resource('feedback', "FeedbackController");
 
