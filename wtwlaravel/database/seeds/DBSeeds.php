@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RandomSeeds extends Seeder
+class DBSeeds extends Seeder
 {
     /**
      * Run the database seeds.
@@ -885,8 +885,16 @@ class RandomSeeds extends Seeder
             'videoSource' => "upppata.mp4",
         ]);
 
-        Schema::enableForeignKeyConstraints();
 
+        DB::table('users')->insert([
+            'name' => 'ADMIN-1',
+            'email' => 'walkthewardteam@gmail.com',
+            'password' => '$2y$10$XmsEprtJRf0W26j93TzIN.dnx/7IAMBGeq4qZJJYlJyQf1pqfaANC',
+            'remember_token' => null,
+        ]);
+
+
+        Schema::enableForeignKeyConstraints();
 
     }
 }

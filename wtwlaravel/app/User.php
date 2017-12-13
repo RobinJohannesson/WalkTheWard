@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @property int $id
@@ -13,7 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  */
-class User extends Model
+// class User extends Model
+// class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
+class User extends Authenticatable
 {
     /**
      * @var array
