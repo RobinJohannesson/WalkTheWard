@@ -102,13 +102,70 @@
         $('.ifNewBonus').change(function() {
             if ($('#ifNewBonusYes').prop('checked')) {
                 $('.newBonusDisplay').show();
+                $('#text-input-newQuestionNewBonus').attr('required', '');
             } else {
                 $('.newBonusDisplay').hide();
+                $('#text-input-newQuestionNewBonus').removeAttr('required');
             }
         });
         $("form").submit(function() {
+            // Clear video from memory.
+            URL.revokeObjectURL(('#video-preview-src')[0].src);
+
             startLoader();
         });
+
+        $('input[type=file]').change(function(e) {
+
+            $('#image-preview').hide();
+            $('#video-preview').hide();
+
+            if (!e.target.files || e.target.files.length === 0 || !window.FileReader) {
+                $('<style>.custom-file-control:lang(sv-se):empty::after{content:"Ingen fil har valts"}</style>').appendTo('head');
+                return;
+            }
+
+
+
+            if (e.target.files[0].type.split('/')[0] == 'image') {
+                console.log(e.target.files[0].type.split('/')[0]);
+
+                var fileName = e.target.files[0].name;
+                $('<style>.custom-file-control:lang(sv-se):empty::after{content:"'+fileName+'"}</style>').appendTo('head');
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image-preview').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(e.target.files[0]);
+
+                $('#image-preview').show('1000', 'linear');
+
+
+
+            }
+            else if (e.target.files[0].type.split('/')[0] == 'video') {
+                console.log(e.target.files[0].type.split('/')[0]);
+
+                var fileName = e.target.files[0].name;
+                $('<style>.custom-file-control:lang(sv-se):empty::after{content:"'+fileName+'"}</style>').appendTo('head');
+
+                var $source = $('#video-preview-src');
+                $source[0].src = URL.createObjectURL(e.target.files[0]);
+                $source.parent()[0].load();
+
+                $('#video-preview').show('1000', 'linear');
+            }
+            else {
+
+            }
+
+        });
+        // $('.custom-file-control:lang(sv-se):empty::after');
+
+
     });
     </script>
 
