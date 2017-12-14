@@ -32,10 +32,10 @@ class AdminController extends Controller
     public function newQuestion(Request $request)
     {
         // Hämta PatientId från cookie
-        $patientId = $request->cookie('patientId');
+        // $patientId = $request->cookie('patientId');
 
         // Hämta Current Patient
-        $patient = Patient::find($patientId);
+        // $patient = Patient::find($patientId);
 
 
         $themes = Theme::all();
@@ -122,25 +122,28 @@ class AdminController extends Controller
             $statusCode = 0;
         }
 
-        $themes = Theme::all();
-
-        return view('newQuestion', compact(['statusMessage', 'statusCode', 'themes', 'Question']));
+        // $themes = Theme::all();
+        // return view('newQuestion', compact(['statusMessage', 'statusCode', 'themes', 'Question']));
+        // session(['statusMessage' => $statusMessage], ['statusCode' => $statusCode]);
+        $request->session()->flash('statusMessage', $statusMessage);
+        $request->session()->flash('statusCode', $statusCode);
+        return redirect('admin');
     }
 
     public function theme(Request $request)
     {
         // Hämta PatientId från cookie
-        $patientId = $request->cookie('patientId');
+        // $patientId = $request->cookie('patientId');
 
         // Hämta CurrentAreaId
-        $patient = Patient::find($patientId);
+        // $patient = Patient::find($patientId);
 
         // Hämta GameId
-        $gameId = $patient->game->id;
+        // $gameId = $patient->game->id;
 
         $theme = Theme::all();
 
-        return view('adjustTheme', compact(["theme", "gameId"]));
+        return view('adjustTheme', compact(["theme"]));
     }
 
     public function themeSave(Request $request)
