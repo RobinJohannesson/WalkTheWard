@@ -123,16 +123,15 @@ class DBSeeds extends Seeder
             'name' => "Skåne",
         ]);
 
-        DB::table('patients')->insert([
-            'age' => 18,
-            'gender' => "Female",
-            'roomType' => 1,
-            'distanceInMeter' => 1000,
-            'gameId' => 1,
-            'characterId' => 1,
-            'statisticId' => 1,
-            'wardId' => 1,
-        ]);
+        // DB::table('patients')->insert([
+        //     'age' => 18,
+        //     'gender' => "Female",
+        //     'roomType' => 1,
+        //     'distanceInMeter' => 1000,
+        //     'gameId' => 1,
+        //     'characterId' => 1,
+        //     'wardId' => 1,
+        // ]);
 
         DB::table('places')->insert([
             'name' => "Helsingborg",
@@ -819,12 +818,13 @@ class DBSeeds extends Seeder
             'wardId' => 1,
         ]);
 
-        DB::table('statistics')->insert([
-            'hasGoneHome' => 1,
-            'dayAmount' => 2,
-            'wasEasyToPlay' => 1,
-            'explainWhy' => "Jo, men klart det var roligt!",
-        ]);
+        // DB::table('statistics')->insert([
+        //     'patientId' => 1,
+        //     'hasGoneHome' => 1,
+        //     'dayAmount' => 2,
+        //     'wasEasyToPlay' => 1,
+        //     'explainWhy' => "Jo, men klart det var roligt!",
+        // ]);
 
         /*DB::table('themes')->insert([
             'name' => str_random(10),
@@ -867,10 +867,10 @@ class DBSeeds extends Seeder
 
 
         DB::table('wards')->insert([
-            'name' => str_random(10),
-            'address' => str_random(10),
-            'description' => str_random(10),
-            'imageSource' => str_random(10),
+            'name' => 'Medicinavdelning 2',
+            'address' => 'Jan Waldenströms gata 11 A, plan 2, Malmö',
+            'description' => 'Här vårdar vi dig som är multisjuk, med blandade svikt- och sjukdomstillstånd.',
+            'imageSource' => null,
         ]);
 
         DB::table('exercises')->insert([

@@ -88,6 +88,9 @@ Route::middleware('auth')->group(function () {
 
     Route::GET('admin/showStatistics', "AdminController@showStatistics");
 
+    Route::POST('admin/showStatistics/filter', "AdminController@filterStatistics");
+
+
 });
 
 Route::fallback(function(){

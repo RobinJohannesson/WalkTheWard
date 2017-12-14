@@ -12,13 +12,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $distanceInMeter
  * @property int $gameId
  * @property int $characterId
- * @property int $statisticId
  * @property int $wardId
  * @property string $updated_at
  * @property string $created_at
  * @property Character $character
  * @property Game $game
- * @property Statistic $statistic
+ * @property Statistics $statistics
  * @property Ward $ward
  */
 class Patient extends Model
@@ -26,7 +25,7 @@ class Patient extends Model
     /**
      * @var array
      */
-    protected $fillable = ['age', 'gender', 'roomType', 'distanceInMeter', 'gameId', 'characterId', 'statisticId', 'wardId', 'updated_at', 'created_at'];
+    protected $fillable = ['age', 'gender', 'roomType', 'distanceInMeter', 'gameId', 'characterId', 'wardId', 'updated_at', 'created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -45,11 +44,11 @@ class Patient extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function statistic()
+    public function statistics()
     {
-        return $this->belongsTo('App\Statistic', 'statisticId');
+        return $this->hasOne('App\Statistics', 'patientId');
     }
 
     /**

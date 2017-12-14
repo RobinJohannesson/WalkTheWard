@@ -18,6 +18,7 @@ use App\Bonus_game_in_game;
 use App\Exercise;
 use App\Statistics;
 use App\Http\Controllers\Cookie;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -292,6 +293,34 @@ class AdminController extends Controller
         $statisticsList = Statistics::all();
         $patientList = Patient::all();
         return view('showStatistics', compact(["statisticsList", "patientList"]));
+    }
+
+    public function filterStatistics(Request $request)
+    {
+        try {
+            $format = "Y-m-d H:i:s";
+            $fromDate = Carbon::createFromFormat($format, $request->fromDate.' 00:00:00', 2);
+            $toDate = Carbon::createFromFormat($format, $request->toDate.' 23:59:59', 2);
+
+            $statisticsList = Statistics::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->get();
+        }
+        catch (\Exception $e) {
+            $error = $e->getMessage();
+            $response = array(
+                'status' => 'error',
+                'msg' => $error
+            );
+            return response()->json($response);
+        }
+
+        $response = array(
+            'status' => 'success',
+            'statisticsList' => $statisticsList,
+            'f' => $fromDate,
+            't' => $toDate
+        );
+
+        return response()->json($response);
     }
 
     /**

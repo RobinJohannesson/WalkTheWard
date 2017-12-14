@@ -21,7 +21,7 @@
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Statistik</h1>
-                <form action="{{{ url("statistics/store") }}}" id="statisticsForm" method="POST" style="font-size: 24pt"; width: 500px;>
+                <form action="{{{ url("statistics/store") }}}" id="statisticsForm" method="POST">
                     {{ csrf_field() }}
 
                     <div class="form-group ">

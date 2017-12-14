@@ -56,11 +56,8 @@ class StatisticsController extends Controller
         $Statistics->dayAmount = $request->dayAmount;
         $Statistics->wasEasyToPlay = $request->wasEasyToPlay;
         $Statistics->explainWhy = $request->explainWhy;
-        $Statistics->save();
 
-        $statisticId = $Statistics->id;
-
-        Patient::where(['id' => $patientId])->update(['statisticId' => $statisticId]);
+        Patient::find($patientId)->statistics()->save($Statistics);
 
         $cookie = \Cookie::forget('patientId');
 

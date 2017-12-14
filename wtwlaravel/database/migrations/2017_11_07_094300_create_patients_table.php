@@ -21,7 +21,7 @@ class CreatePatientsTable extends Migration
             $table->integer('distanceInMeter')->default(0);
             $table->unsignedInteger('gameId')->nullable();
             $table->unsignedInteger('characterId')->nullable();
-            $table->unsignedInteger('statisticId')->nullable();
+            // $table->unsignedInteger('statisticId')->nullable();
             $table->unsignedInteger('wardId')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();

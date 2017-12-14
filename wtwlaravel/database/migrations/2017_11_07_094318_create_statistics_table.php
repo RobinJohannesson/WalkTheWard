@@ -14,7 +14,8 @@ class CreateStatisticsTable extends Migration
     public function up()
     {
         Schema::create('statistics', function (Blueprint $table) {
-            $table->increments('id');
+            $table->primary('patientId');
+            $table->unsignedInteger('patientId')->nullable();
             $table->boolean('hasGoneHome')->nullable();
             $table->integer('dayAmount')->nullable();
             $table->boolean('wasEasyToPlay')->nullable();

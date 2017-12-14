@@ -24,6 +24,7 @@ class CreateQuestionsTable extends Migration
             $table->string('imageSource')->nullable();
             $table->string('videoSource')->nullable();
             $table->unsignedInteger('themeId')->nullable();
+            $table->softDeletes();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });

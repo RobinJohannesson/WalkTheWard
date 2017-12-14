@@ -16,8 +16,12 @@ class EditForeignKey extends Migration
         Schema::table('patients', function (Blueprint $table){
             $table->foreign('gameId')->references('id')->on('games');
             $table->foreign('characterId')->references('id')->on('characters');
-            $table->foreign('statisticId')->references('id')->on('statistics');
+            // $table->foreign('statisticId')->references('id')->on('statistics');
             $table->foreign('wardId')->references('id')->on('wards');
+        });
+
+        Schema::table('statistics', function (Blueprint $table){
+            $table->foreign('patientId')->references('id')->on('patients');
         });
 
         Schema::table('games', function (Blueprint $table){

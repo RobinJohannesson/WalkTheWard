@@ -173,7 +173,7 @@
                         <h5 class="modal-title" id="resultsModalLabel">Dagens rörelse</h5>
                     </div>
                     <div class="modal-body text-center">
-                        <video id="movement-video" loop="loop">
+                        <video id="movement-video" loop="loop" controls>
                             <source src="{{url('/')}}/videos/exercise/balansen.mp4" type="video/mp4"></source>
                             Your browser does not support the video tag.
                         </video>
