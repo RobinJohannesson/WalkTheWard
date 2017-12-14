@@ -286,6 +286,11 @@ class AdminController extends Controller
         return redirect('admin');
     }
 
+    public function showStatistics()
+    {
+        return redirect('showStatistics');
+    }
+
     /**
     * Show the form for creating a new resource.
     *

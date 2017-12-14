@@ -42,6 +42,7 @@
                     <a href="{{url('/')}}/admin/adjustTheme" class="btn-admin btn-fear btn-medium start-loader">Justera teman</a>
                     <a href="{{url('/')}}/admin/adjustBonus" class="btn-admin btn-fear btn-medium start-loader">Hantera bonusfrågorna</a>
                     <a href="{{url('/')}}/admin/adjustExercise" class="btn-admin btn-fear btn-medium start-loader">Ändra rörelsevideorna</a>
+                    <a href="{{url('/')}}/admin/showStatistics" class="btn-admin btn-fear btn-medium start-loader">Visa statistik</a>
                 </div>
 
 

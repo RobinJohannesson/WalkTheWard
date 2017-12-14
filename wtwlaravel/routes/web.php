@@ -86,6 +86,8 @@ Route::middleware('auth')->group(function () {
 
     Route::POST('admin/adjustExercise', "AdminController@exerciseSave");
 
+    Route::GET('admin/showStatistics', "AdminController@showStatistics");
+
 });
 
 Route::fallback(function(){
