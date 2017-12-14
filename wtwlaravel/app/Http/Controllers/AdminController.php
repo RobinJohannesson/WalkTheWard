@@ -16,6 +16,7 @@ use App\Map;
 use App\Bonus_game;
 use App\Bonus_game_in_game;
 use App\Exercise;
+use App\Statistics;
 use App\Http\Controllers\Cookie;
 
 class AdminController extends Controller
@@ -260,10 +261,10 @@ class AdminController extends Controller
             $Exercise->save();
         }
 
-        // Hämta en array med alla tema ids.
+        // Hämta en array med alla rörelse ids.
         $exerciseIds = Exercise::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-        // Hämta totala antal teman.
+        // Hämta totala antal rörelse.
         $exerciseIdsAmount = count($exerciseIds);
 
         $counter = 0;
@@ -288,7 +289,9 @@ class AdminController extends Controller
 
     public function showStatistics()
     {
-        return redirect('showStatistics');
+        $statisticsList = Statistics::all();
+        $patientList = Patient::all();
+        return view('showStatistics', compact(["statisticsList", "patientList"]));
     }
 
     /**
