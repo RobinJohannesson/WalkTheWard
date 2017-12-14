@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Ändra rörelse')
+@section('title', 'Hantera rörelse')
 
 @section('meta')
 
@@ -21,32 +21,48 @@
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Justera teman</h1>
-                <form action="{{{ url("admin/adjustTheme") }}}" id="newThemeForm" method="POST">
+                <form action="{{{ url("admin/adjustExercise") }}}" id="newExerciseForm" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <span>
-                            Vill du skapa nytt tema?
+                            Vill du skapa ny dagens rörelse?
                         </span>
-                        <input type="radio" class="ifNewTheme" id="ifNewThemeYes" name="ifNewTheme" value="yes">Ja
-                        <input type="radio" class="ifNewTheme" name="ifNewTheme" value="no">Nej
+                        <input type="radio" class="ifNewExercise" id="ifNewExerciseYes" name="ifNewExercise" value="yes">Ja
+                        <input type="radio" class="ifNewExercise" name="ifNewExercise" value="no">Nej
                     </div>
-                    <div class="form-group newThemeDisplay">
-                        <label for="text-input" class="col-form-label newTheme">Namn för nytt tema</label>
-                        <textarea class="form-control newTheme" maxlength="180" rows="4" cols="50" id="text-input" name="newTheme"></textarea>
+                    <div class="form-group newExerciseDisplay">
+                        <p>Välj val av media (bild eller video) tilhörande rörelsen</p>
+                        {{-- <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*"> --}}
+                        {{-- <input type="submit" value="Upload Image" name="submit"> --}}
+                        <div class="text-center">
+
+                            <img id="image-preview" src="#" alt="Bild kunde inte förhandsgranskas!" style="display: none;"/>
+                            <video id="video-preview" controls poster="" alt="Video kunde inte förhandsgranskas!" style="display: none;">
+                                <source src="" id="video-preview-src" />
+                                Your browser does not support HTML5 video.
+                            </video>
+
+                        </div>
+                        <label class="custom-file">
+                            <input type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input" accept=".gif, .jpg, .jpeg, .png, .mp4">
+                            <span class="custom-file-control"></span>
+                        </label>
+                        <span class="allowed-types">Tillåtna filformat: <strong>.png .gif .jpg .jpeg .mp4</strong></span>
+
                     </div>
-                    <div class="form-group newThemeDisplay">
+                    <div class="form-group newExerciseDisplay">
                         <span>
-                            Ska ditt nya tema vara aktivt?
+                            Ska den nya rörelsen vara aktiv?
                         </span>
-                        <input type="radio" name="ifNewThemeActive" value="1">Ja
-                        <input type="radio" name="ifNewThemeActive" value="0">Nej
+                        <input type="radio" name="ifNewExerciseActive" value="1">Ja
+                        <input type="radio" name="ifNewExerciseActive" value="0">Nej
                     </div>
                     <div class="form-group">
-                        <p>Aktivera (<input type='checkbox' class='instruction-checkbox' checked disabled>) / Inaktivera (<input type='checkbox' class='instruction-checkbox' disabled>) valda tema</p>
-                        @foreach ($theme as $t)
-                            <label for='activateTheme{{$t->id}}' class='col-form-label'>
-                                <input type='checkbox' id='activateTheme{{$t->id}}' class='isActiveTheme{{$t->isActive}} checkboxForThemes big-checkbox' name='{{$t->id}}' value='1' {{$t->isActive == 1 ? "checked" : ""}}>
-                                {{$t->name}}
+                        <p>Aktivera (<input type='checkbox' class='instruction-checkbox' checked disabled>) / Inaktivera (<input type='checkbox' class='instruction-checkbox' disabled>) valda rörelser</p>
+                        @foreach ($exercise as $e)
+                            <label for='activateExercise{{$e->id}}' class='col-form-label'>
+                                <input type='checkbox' id='activateExercise{{$e->id}}' class='isActiveExercise{{$e->isActive}} checkboxForExercises big-checkbox' name='{{$e->id}}' value='1' {{$e->isActive == 1 ? "checked" : ""}}>
+                                {{$e->videoSource}}
                             </label>
                             <br />
                         @endforeach
@@ -76,22 +92,15 @@
 
 @section('body-script')
     <script type="text/javascript">
-    $('.newThemeDisplay').hide();
+    $('.newExerciseDisplay').hide();
     $(document).ready(function(){
-        $('.ifNewTheme').change(function() {
-            if ($('#ifNewThemeYes').prop('checked')) {
-                $('.newThemeDisplay').show();
+        $('.ifNewExercise').change(function() {
+            if ($('#ifNewExerciseYes').prop('checked')) {
+                $('.newExerciseDisplay').show();
             } else {
-                $('.newThemeDisplay').hide();
+                $('.newExerciseDisplay').hide();
             }
         });
-
-        // $('.checkboxForThemes').change(function() {
-        //     if(this.checked) {
-        //
-        //     }
-        // });
-
         $("form").submit(function() {
             startLoader();
         });

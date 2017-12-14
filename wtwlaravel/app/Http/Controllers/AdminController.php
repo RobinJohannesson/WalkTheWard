@@ -15,6 +15,7 @@ use App\Question_in_game;
 use App\Map;
 use App\Bonus_game;
 use App\Bonus_game_in_game;
+use App\Exercise;
 use App\Http\Controllers\Cookie;
 
 class AdminController extends Controller
@@ -186,9 +187,103 @@ class AdminController extends Controller
     {
         $bonus = Bonus_game::all();
 
-        $place = Place::all();
+        $bonusName = Bonus_game::pluck('lettersToDiscard')->toArray();
 
-        return view('adjustBonus', compact(["bonus", "place"]));
+        $placeName = Place::pluck('name')->toArray();
+
+
+        $placeWithoutBonus = array_diff($placeName, $bonusName);
+
+        $placeWithoutBonusObj = "";
+        $placeWithoutBonusObjList = array();
+        foreach ($placeWithoutBonus as $pwb) {
+            $placeWithoutBonusObj = Place::where("name", $pwb)->get();
+            array_push($placeWithoutBonusObjList, $placeWithoutBonusObj);
+        }
+
+        return view('adjustBonus', compact(["bonus", "placeWithoutBonus", "placeWithoutBonusObjList"]));
+    }
+
+    public function bonusSave(Request $request)
+    {
+        // Skapar nytt tema om de valt det.
+        if ($request->ifNewBonus == "yes") {
+            $placeIdFromForm = $request->choosePlace;
+            $place = Place::find($placeIdFromForm);
+            $placeName = $place->name;
+            $Bonus = new Bonus_game;
+            $Bonus->lettersToDiscard = $placeName;
+            $Bonus->imageSource = $request->fileToUpload;
+            $Bonus->placeId = $request->choosePlace;
+            $Bonus->save();
+        }
+
+        // Hämta en array med alla bonus ids.
+        $bonusIds = Bonus_game::where('id' ,'>' ,0)->pluck('id')->toArray();
+
+        // Hämta totala antal bonusfrågor.
+        $bonusIdsAmount = count($bonusIds);
+
+        $counter = 0;
+        while ($counter < $bonusIdsAmount) {
+            $thisTurnId = array_values($bonusIds)[$counter];
+
+            // Hämta tema checkbox value. Value 1(true) eller null(false).
+            // När man försöker hämta en unchecked checkbox får man tillbaka
+            // null då den inte skickas inte med request.
+            $checkboxIdUsageValue = $request->input($thisTurnId);
+            if ($checkboxIdUsageValue == true) {
+                // Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+                $bonus_game_checked = Bonus_game::find($thisTurnId);
+                $bonus_game_checked->delete();
+            }
+            $counter++;
+        }
+
+        return redirect('admin');
+    }
+
+    public function exercise(Request $request)
+    {
+        $exercise = Exercise::all();
+
+        return view('adjustExercise', compact(["exercise"]));
+    }
+
+    public function exerciseSave(Request $request)
+    {
+        // Skapar nytt tema om de valt det.
+        if ($request->ifNewExercise == "yes") {
+            $Exercise = new Exercise;
+            $Exercise->videoSource = $request->fileToUpload;
+            $Exercise->isActive = $request->ifNewExerciseActive;
+            $Exercise->save();
+        }
+
+        // Hämta en array med alla tema ids.
+        $exerciseIds = Exercise::where('id' ,'>' ,0)->pluck('id')->toArray();
+
+        // Hämta totala antal teman.
+        $exerciseIdsAmount = count($exerciseIds);
+
+        $counter = 0;
+        while ($counter < $exerciseIdsAmount) {
+            $thisTurnId = array_values($exerciseIds)[$counter];
+
+            // Hämta tema checkbox value. Value 1(true) eller null(false).
+            // När man försöker hämta en unchecked checkbox får man tillbaka
+            // null då den inte skickas inte med request.
+            $checkboxIdUsageValue = $request->input($thisTurnId);
+            if ($checkboxIdUsageValue == true) {
+                Exercise::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+            }
+            if ($checkboxIdUsageValue == false) {
+                Exercise::where(['id' => $thisTurnId])->update(['isActive' => 0]);
+            }
+            $counter++;
+        }
+
+        return redirect('admin');
     }
 
     /**

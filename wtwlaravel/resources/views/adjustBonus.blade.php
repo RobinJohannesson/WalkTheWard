@@ -35,8 +35,10 @@
                             Välj stad för bonusfrågan
                         </span>
                         <select name='choosePlace' required>
+                            @foreach ($placeWithoutBonusObjList as $place)
                             @foreach ($place as $p)
                                 <option id='choosePlace{{$p->id}}' value='{{$p->id}}'>{{$p->name}}</option>
+                            @endforeach
                             @endforeach
                         </select>
                     </div>
@@ -61,7 +63,7 @@
 
                     </div>
                     <div class="form-group">
-                        <p>Aktivera (<input type='checkbox' class='instruction-checkbox' checked disabled>) / Inaktivera (<input type='checkbox' class='instruction-checkbox' disabled>) valda tema</p>
+                        <p>Ta bort (<input type='checkbox' class='instruction-checkbox' checked disabled>) valda bonusfrågor</p>
                         @foreach ($bonus as $b)
                             <input type='checkbox' id='activateBonus{{$b->id}}' name='{{$b->id}}'>
                             <label for='activateBonus{{$b->id}}' class='col-form-label'>
