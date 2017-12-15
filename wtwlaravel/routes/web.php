@@ -88,7 +88,7 @@ Route::middleware('auth')->group(function () {
 
     Route::GET('admin/showStatistics', "AdminController@showStatistics");
 
-    Route::POST('admin/showStatistics/download', "AdminController@downloadStatistics");
+    Route::GET('admin/showStatistics/download', "AdminController@downloadStatistics");
 
     Route::POST('admin/showStatistics/filter', "AdminController@filterStatistics");
 

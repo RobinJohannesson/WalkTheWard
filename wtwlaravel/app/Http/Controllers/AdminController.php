@@ -326,16 +326,23 @@ class AdminController extends Controller
 
     public function downloadStatistics()
     {
-        $data = Statistics::get()->toArray();
-		Excel::create('Walk_the_ward_statistik', function($excel) use ($data) {
-			$excel->sheet('Statistik', function($sheet) use ($data)
+        // $statisticsList = Statistics::select('patientId', 'hasGonehome', 'dayAmount', 'wasEasyToPlay', 'explainWhy')->toArray();
+        // $patientList = Patient::select('id', 'age', 'gender', 'roomType', 'distanceInMeter')->toArray();
+        $statisticsList = Statistics::all()->toArray();
+        $patientList = Patient::all()->toArray();
+        $data = array_merge($statisticsList, $patientList);
+		$excelFileDownload = Excel::create('Walk_the_ward_statistik', function($excel) use ($data) {
+            $excel->sheet('Statistik', function($sheet) use ($data)
 	        {
 				$sheet->fromArray($data);
 	        });
-		})->download('csv');
+		});
+
+        $excelFileDownload = $excelFileDownload->string('xlsx'); //change xlsx for the format you want, default is xls
 
         $response = array(
-            'status' => 'success'
+            'name' => "Walk_the_ward_statistik", //no extention needed
+            'file' => "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,".base64_encode($excelFileDownload) //mime type of used format
         );
 
         return response()->json($response);

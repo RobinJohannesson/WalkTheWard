@@ -251,21 +251,20 @@
             event.preventDefault();
             startLoader();
             $.ajax({
-                type: "POST",
-                async: true,
-                headers: {
-                    // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
+                cache: false,
                 url: "{{url('/')}}/admin/showStatistics/download",
                 dataType: 'json',
-                success: function(data) { // Om det LYCKADES
-                    console.log(data);
+                success: function (response, textStatus, request) {
+                    var a = document.createElement("a");
+                    a.href = response.file;
+                    a.download = response.name;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
                     stopLoader();
-
                 }, // SLUT - Om det LYCKADES
-                error: function(xhr) { // Om det MISSLYCKADES
-                    console.log(xhr);
+                error: function (ajaxContext) {
+                    toastr.error('Export error: '+ajaxContext.responseText);
                     stopLoader();
                 }
             }); // SLUT - Om det MISSLYCKADES
