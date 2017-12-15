@@ -326,17 +326,28 @@ class AdminController extends Controller
 
     public function downloadStatistics()
     {
-        // $statisticsList = Statistics::select('patientId', 'hasGonehome', 'dayAmount', 'wasEasyToPlay', 'explainWhy')->toArray();
-        // $patientList = Patient::select('id', 'age', 'gender', 'roomType', 'distanceInMeter')->toArray();
-        $statisticsList = Statistics::all()->toArray();
-        $patientList = Patient::all()->toArray();
-        $data = array_merge($statisticsList, $patientList);
-		$excelFileDownload = Excel::create('Walk_the_ward_statistik', function($excel) use ($data) {
-            $excel->sheet('Statistik', function($sheet) use ($data)
-	        {
-				$sheet->fromArray($data);
-	        });
-		});
+		$excelFileDownload = Excel::create('Walk_the_ward_statistik', function($excel) {
+
+            $excel->sheet('Statistik', function($sheet) {
+                $statistics = Statistics::all();
+
+                $arr =array();
+                foreach($statistics as $statistic) {
+                    $patient = $statistic->patient;
+                    $data =  array($patient->id, $patient->age, $patient->gender, $patient->roomType, $patient->distanceInMeter, $statistic->hasGoneHome, $statistic->dayAmount, $statistic->wasEasyToPlay, $statistic->explainWhy);
+                    array_push($arr, $data);
+                }
+
+                //set the titles
+                $sheet->fromArray($arr,null,'A1',true,false)->prependRow(array(
+                        'id', 'age', 'gender', 'roomType', 'distanceInMeter', 'hasGoneHome', 'dayAmount', 'wasEasyToPlay', 'explainWhy'
+                    )
+
+                );
+
+            });
+
+        });
 
         $excelFileDownload = $excelFileDownload->string('xlsx'); //change xlsx for the format you want, default is xls
 

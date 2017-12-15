@@ -89,10 +89,11 @@
                         </thead>
                         <tbody>
                             @foreach ($patientList as $pl)
-                                {{-- @if (in_array($pl->id, (array) $statisticsList[0]))
+                                {{-- @if (in_array($pl->id, (array) $statisticsList["patientId"]))
+                                <tr class="moreInfoAboutBtn">
                                 @else <tr>
                                 @endif --}}
-                                <tr class="moreInfoAboutBtn">
+                                <tr>
                                     <td>{{$pl->id}}</td>
                                     <td>{{$pl->gender}}</td>
                                     <td>{{$pl->age}}</td>
@@ -163,7 +164,6 @@
 
         <div class="row">
             <div class="col text-right">
-{{-- href="{{url('/')}}/admin/showStatistics/download" --}}
                 <a  id="downloadStatistics" class="btn-admin btn-trust btn-medium start-loader">Ladda hem statistiken i en excel fil</a>
             </div>
         </div>
@@ -255,6 +255,7 @@
                 url: "{{url('/')}}/admin/showStatistics/download",
                 dataType: 'json',
                 success: function (response, textStatus, request) {
+                    console.log(response);
                     var a = document.createElement("a");
                     a.href = response.file;
                     a.download = response.name;
