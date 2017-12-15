@@ -112,7 +112,7 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 text-center">
                     <h2 id="title-value">
                         <span id="map-value"></span>
                     </h2>
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
-                        Rätt svar:
+                        <strong>Rätt svar:</strong>
                     </p>
                 </div>
                 <div class="col-sm-6">
@@ -133,7 +133,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
-                        Antal stjärnor:
+                        <strong>Antal stjärnor:</strong>
                     </p>
                 </div>
                 <div class="col-sm-6">
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
-                        Antal steg:
+                        <strong>Antal steg:</strong>
                     </p>
                 </div>
                 <div class="col-sm-6">
@@ -160,7 +160,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
-                        Du är just nu i:
+                        <strong>Du är just nu i:</strong>
                     </p>
                 </div>
                 <div class="col-sm-6">
@@ -172,7 +172,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="text-right paragraph-size-adjust">
-                        Du har besökt:
+                        <strong>Du har besökt:</strong>
                     </p>
                 </div>
                 <div class="col-sm-6">
@@ -277,8 +277,8 @@
 
                         $("#steps-value").html(data['distanceAmount']);
 
-                        $("#map-value").append(data['mapName'] + "->");
-                        $("#map-value").append(data['areaName'] + "->");
+                        $("#map-value").append(data['mapName'] + " > ");
+                        $("#map-value").append(data['areaName'] + " > ");
                         $("#map-value").append("<strong>"+data['bonusGame'] + "</strong>");
 
                         $("#bonus-value").append(data['bonusGame']);

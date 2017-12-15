@@ -34,6 +34,6 @@ class Bonus_game extends Model
      */
     public function bonusGameInGames()
     {
-        return $this->hasMany('App\BonusGameInGame', 'bonusGameId');
+        return $this->hasMany('App\Bonus_game_in_game', 'bonusGameId');
     }
 }

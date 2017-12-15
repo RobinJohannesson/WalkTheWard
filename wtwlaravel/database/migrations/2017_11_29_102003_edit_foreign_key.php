@@ -16,7 +16,6 @@ class EditForeignKey extends Migration
         Schema::table('patients', function (Blueprint $table){
             $table->foreign('gameId')->references('id')->on('games');
             $table->foreign('characterId')->references('id')->on('characters');
-            // $table->foreign('statisticId')->references('id')->on('statistics');
             $table->foreign('wardId')->references('id')->on('wards');
         });
 
@@ -35,7 +34,7 @@ class EditForeignKey extends Migration
         });
 
         Schema::table('bonus_game_in_games', function (Blueprint $table){
-            $table->foreign('bonusGameId')->references('id')->on('bonus_games');
+            $table->foreign('bonusGameId')->references('id')->on('bonus_games')->onDelete('cascade');
             $table->foreign('gameId')->references('id')->on('games');
         });
 

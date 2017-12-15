@@ -141,7 +141,6 @@
                     success: function(data) { // Om det LYCKADES att spara data
                         console.log(data);
                         window.location.href = "{{url('/')}}/theme";
-                        stopLoader();
 
                     }, // SLUT - Om det LYCKADES att spara data
                     error: function(xhr, textStatus, errorThrown,) { // Om det MISSLYCKADES att spara data

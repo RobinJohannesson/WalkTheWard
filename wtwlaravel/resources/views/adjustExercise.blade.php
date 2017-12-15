@@ -27,8 +27,8 @@
                         <span>
                             Vill du skapa ny dagens rörelse?
                         </span>
-                        <input type="radio" class="ifNewExercise" id="ifNewExerciseYes" name="ifNewExercise" value="yes">Ja
-                        <input type="radio" class="ifNewExercise" name="ifNewExercise" value="no">Nej
+                        <input type="radio" class="ifNewExercise big-radio-btn" id="ifNewExerciseYes" name="ifNewExercise" value="yes" required> Ja
+                        <input type="radio" class="ifNewExercise big-radio-btn" name="ifNewExercise" value="no" checked required> Nej
                     </div>
                     <div class="form-group newExerciseDisplay">
                         <p>Välj val av media (bild eller video) tilhörande rörelsen</p>
@@ -54,8 +54,8 @@
                         <span>
                             Ska den nya rörelsen vara aktiv?
                         </span>
-                        <input type="radio" name="ifNewExerciseActive" value="1">Ja
-                        <input type="radio" name="ifNewExerciseActive" value="0">Nej
+                        <input type="radio" class="big-radio-btn" name="ifNewExerciseActive" value="1" checked> Ja
+                        <input type="radio" class="big-radio-btn" name="ifNewExerciseActive" value="0"> Nej
                     </div>
                     <div class="form-group">
                         <p>Aktivera (<input type='checkbox' class='instruction-checkbox' checked disabled>) / Inaktivera (<input type='checkbox' class='instruction-checkbox' disabled>) valda rörelser</p>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <a href="{{url('/')}}/gameHome" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
+                            <a href="{{url('/')}}/admin" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
                         </div>
                         <div class="col-6 text-right">
                             <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Skicka">

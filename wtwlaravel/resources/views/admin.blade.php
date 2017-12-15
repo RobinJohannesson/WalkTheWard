@@ -53,8 +53,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-left">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-left">
                 {{-- <a href="{{url('/')}}/gameHome" class="btn-fear btn-medium return_button start-loader">Tillbaka</a> --}}
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn-fear btn-medium start-loader">
                     Logga ut

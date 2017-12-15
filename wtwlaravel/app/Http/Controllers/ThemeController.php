@@ -85,7 +85,7 @@ class ThemeController extends Controller
         // Hämta GameId
         $gameId = $patient->game->id;
 
-        $theme = Theme::all();
+        $theme = Theme::where('isActive', 1)->get();
 
         return view('theme', compact(["theme", "gameId"]));
     }

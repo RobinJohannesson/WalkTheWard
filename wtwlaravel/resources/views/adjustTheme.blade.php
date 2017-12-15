@@ -27,8 +27,8 @@
                         <span>
                             Vill du skapa nytt tema?
                         </span>
-                        <input type="radio" class="ifNewTheme" id="ifNewThemeYes" name="ifNewTheme" value="yes">Ja
-                        <input type="radio" class="ifNewTheme" name="ifNewTheme" value="no">Nej
+                        <input type="radio" class="ifNewTheme big-radio-btn" id="ifNewThemeYes" name="ifNewTheme" value="yes" required> Ja
+                        <input type="radio" class="ifNewTheme big-radio-btn" name="ifNewTheme" value="no" checked required > Nej
                     </div>
                     <div class="form-group newThemeDisplay">
                         <label for="text-input" class="col-form-label newTheme">Namn för nytt tema</label>
@@ -38,8 +38,8 @@
                         <span>
                             Ska ditt nya tema vara aktivt?
                         </span>
-                        <input type="radio" name="ifNewThemeActive" value="1">Ja
-                        <input type="radio" name="ifNewThemeActive" value="0">Nej
+                        <input type="radio" class=" big-radio-btn" name="ifNewThemeActive" value="1" checked> Ja
+                        <input type="radio" class=" big-radio-btn" name="ifNewThemeActive" value="0"> Nej
                     </div>
                     <div class="form-group">
                         <p>Aktivera (<input type='checkbox' class='instruction-checkbox' checked disabled>) / Inaktivera (<input type='checkbox' class='instruction-checkbox' disabled>) valda tema</p>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <a href="{{url('/')}}/gameHome" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
+                            <a href="{{url('/')}}/admin" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
                         </div>
                         <div class="col-6 text-right">
                             <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Skicka">

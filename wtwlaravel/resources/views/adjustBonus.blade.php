@@ -20,15 +20,15 @@
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
-                <h1 class="text-center">Justera teman</h1>
+                <h1 class="text-center">Hantera bonusfrågorna</h1>
                 <form action="{{{ url("admin/adjustBonus") }}}" id="newBonusForm" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <span>
                             Vill du skapa ny bonusfråga?
                         </span>
-                        <input type="radio" class="ifNewBonus" id="ifNewBonusYes" name="ifNewBonus" value="yes">Ja
-                        <input type="radio" class="ifNewBonus" name="ifNewBonus" value="no">Nej
+                        <input type="radio" class="ifNewBonus big-radio-btn" id="ifNewBonusYes" name="ifNewBonus" value="yes" required> Ja
+                        <input type="radio" class="ifNewBonus big-radio-btn" name="ifNewBonus" value="no" required checked> Nej
                     </div>
                     <div class="form-group newBonusDisplay">
                         <span>
@@ -65,7 +65,7 @@
                     <div class="form-group">
                         <p>Ta bort (<input type='checkbox' class='instruction-checkbox' checked disabled>) valda bonusfrågor</p>
                         @foreach ($bonus as $b)
-                            <input type='checkbox' id='activateBonus{{$b->id}}' name='{{$b->id}}'>
+                            <input type='checkbox' class="big-checkbox" id='activateBonus{{$b->id}}' name='{{$b->id}}'>
                             <label for='activateBonus{{$b->id}}' class='col-form-label'>
                                 {{$b->lettersToDiscard}}
                             </label>

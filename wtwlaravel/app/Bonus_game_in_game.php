@@ -25,7 +25,7 @@ class Bonus_game_in_game extends Model
      */
     public function bonusGame()
     {
-        return $this->belongsTo('App\BonusGame', 'bonusGameId');
+        return $this->belongsTo('App\Bonus_Game', 'bonusGameId');
     }
 
     /**
