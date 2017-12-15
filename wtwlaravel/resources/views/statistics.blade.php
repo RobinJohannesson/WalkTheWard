@@ -25,7 +25,7 @@
                     {{ csrf_field() }}
 
                     <div class="form-group ">
-                        <p>Ska du gå hem?</p>
+                        <p>Ska du hem idag?</p>
                         <label class="radio-inline"><input type="radio" name="hasGoneHome" value="1" class="big-radio-btn" required> Ja<br></label>
                         <label class="radio-inline"><input type="radio" name="hasGoneHome" value="0" class="big-radio-btn" required> Nej<br></label>
                     </div>

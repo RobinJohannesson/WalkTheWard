@@ -42,3 +42,8 @@
     transform: scale(2);
     margin: 0 0.5rem;
 }
+
+
+#filter-btn {
+    margin: 10px;
+}

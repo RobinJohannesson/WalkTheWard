@@ -92,6 +92,8 @@ Route::middleware('auth')->group(function () {
 
     Route::POST('admin/showStatistics/filter', "AdminController@filterStatistics");
 
+    // Route::GET('admin/showStatistics/filter', "AdminController@showStatistics");
+
 
 });
 
