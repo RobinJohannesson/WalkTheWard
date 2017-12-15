@@ -71,19 +71,18 @@
 
 
                 {{-- Antal patient som spelat --}}
-                {{-- Hur många steg som de har gått --}}
                 {{-- Hur många meter som de har gått --}}
                 <div class="row">
                     @if (isset($fromDateRaw) && isset($toDateRaw))
-                    <div class="col-12">
-                        <h4 id="filter-result-title">Patienter som börjat spela mella {{$fromDateRaw}} och {{$toDateRaw}}</h4>
-                        <input type="hidden" name="from-date-hidden" value="{{$fromDateRaw}}" id="from-date-hidden-input">
-                        <input type="hidden" name="to-date-hidden" value="{{$toDateRaw}}" id="to-date-hidden-input">
-                    </div>
+                        <div class="col-12">
+                            <h4 id="filter-result-title">Patienter som börjat spela mellan {{$fromDateRaw}} och {{$toDateRaw}}</h4>
+                            <input type="hidden" name="from-date-hidden" value="{{$fromDateRaw}}" id="from-date-hidden-input">
+                            <input type="hidden" name="to-date-hidden" value="{{$toDateRaw}}" id="to-date-hidden-input">
+                        </div>
                     @endif
 
                     <div class="col">
-                        <table class="table table-light table-bordered table-striped table-hover table-sm">
+                        <table class="table table-light table-bordered table-hover table-sm">
                             <thead class="thead-dark">
                                 {{-- <tr>
                                 <th>Antal patienter</th>
@@ -112,19 +111,19 @@
                             <td>{{$pl->distanceInMeter}}</td>
                         </tr>
                         @if ($pl->statistics)
-                            <tr class="moreInfoAboutExtra moreInfoAboutCloseHeader">
+                            <tr class="moreInfoAboutExtra moreInfoAboutCloseHeader table-secondary">
                                 <th scope="col"></th>
-                                <th scope="col">Om patienten slutade spela samma dag som de åkte hem</th>
-                                <th scope="col">Antal dagar patienten stannade</th>
-                                <th scope="col">Om patienten tyckte det var enkelt</th>
+                                <th scope="col">Åkte hem samma dag</th>
+                                <th scope="col">Antal dagar inlagd</th>
+                                <th scope="col">Om det var enkelt</th>
                                 <th scope="col">Kommentar till spelet</th>
                             </tr>
-                            <tr class="moreInfoAboutExtra moreInfoAboutCloseData">
+                            <tr class="moreInfoAboutExtra moreInfoAboutCloseData table-secondary">
                                 {{-- <td>{{ \App\Patient::where('statisticId', $sl->id)->first()->id }}</td> --}}
                                 <td></td>
                                 <td>{{$pl->statistics->hasGoneHome == 1 ? "Ja" : "Nej"}}</td>
                                 <td>{{$pl->statistics->dayAmount}}</td>
-                                <td>{{$pl->statistics->wasEasyToPlay == 1 ? "Enkelt" : "Svårt"}}</td>
+                                <td>{{$pl->statistics->wasEasyToPlay == 1 ? "Ja" : "Nej"}}</td>
                                 <td>{{$pl->statistics->explainWhy}}</td>
                             </tr>
                         @endif
@@ -198,9 +197,10 @@
 
 @section('body-script')
     <script type="text/javascript">
-    $('.moreInfoAboutExtra').hide();
-    $('.moreInfoAboutCloseHeader').prev().addClass('moreInfoAboutBtn');
     $(document).ready(function(){
+        $('.moreInfoAboutExtra').hide();
+        $('.moreInfoAboutCloseHeader').prev().addClass('moreInfoAboutBtn');
+
         $('.moreInfoAboutBtn').click(function() {
             $(this).next().toggle();
             $(this).next().next().toggle();
@@ -226,6 +226,11 @@
                 $('.date-input-row').show();
             } else {
                 $('.date-input-row').hide();
+            }
+
+            if ($('#ifFilterRadio1').prop('checked')) {
+                startLoader();
+                window.location.href = "{{url('/')}}/admin/showStatistics";
             }
         });
 
@@ -268,20 +273,26 @@
             var fromDate = "";
             var todate = "";
             var filterResultTitle = "";
-            if ($('#filter-result-title') && $('#from-date-hidden-input') && $('#from-date-hidden-input')) {
+            if ($('#filter-result-title') && $('#from-date-hidden-input') && $('#to-date-hidden-input')) {
                 fromDate = $('#from-date-hidden-input').val();
-                toDate = $('#from-date-hidden-input').val();
+                toDate = $('#to-date-hidden-input').val();
                 filterResultTitle = $('#filter-result-title').text();
             }
 
             startLoader();
             $.ajax({
+                type: "POST",
                 cache: false,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
                 url: "{{url('/')}}/admin/showStatistics/download",
                 data: {fromDate: fromDate, toDate: toDate, filterResultTitle: filterResultTitle},
                 dataType: 'json',
-                success: function (response, textStatus, request) {
+                success: function (response, textStatus, request) { // Om det LYCKADES
                     console.log(response);
+                    console.log(textStatus);
+                    console.log(request);
                     var a = document.createElement("a");
                     a.href = response.file;
                     a.download = response.name;
@@ -290,8 +301,10 @@
                     a.remove();
                     stopLoader();
                 }, // SLUT - Om det LYCKADES
-                error: function (ajaxContext) {
-                    toastr.error('Export error: '+ajaxContext.responseText);
+                error: function(xhr, textStatus, errorThrown) { // Om det MISSLYCKADES
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
                     stopLoader();
                 }
             }); // SLUT - Om det MISSLYCKADES

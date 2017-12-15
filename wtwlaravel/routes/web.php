@@ -88,11 +88,11 @@ Route::middleware('auth')->group(function () {
 
     Route::GET('admin/showStatistics', "AdminController@showStatistics");
 
-    Route::GET('admin/showStatistics/download', "AdminController@downloadStatistics");
+    Route::POST('admin/showStatistics/download', "AdminController@downloadStatistics");
 
     Route::POST('admin/showStatistics/filter', "AdminController@filterStatistics");
 
-    // Route::GET('admin/showStatistics/filter', "AdminController@showStatistics");
+    Route::GET('admin/showStatistics/filter', "AdminController@showStatistics");
 
 
 });

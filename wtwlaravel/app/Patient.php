@@ -27,6 +27,7 @@ class Patient extends Model
      */
     protected $fillable = ['age', 'gender', 'roomType', 'distanceInMeter', 'gameId', 'characterId', 'wardId', 'updated_at', 'created_at'];
 
+    protected $dates = ['updated_at', 'created_at'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

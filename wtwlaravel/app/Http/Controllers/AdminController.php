@@ -330,7 +330,6 @@ class AdminController extends Controller
             $fromDate = Carbon::createFromFormat($format, $fromDateRaw.' 00:00:00', 2);
             $toDate = Carbon::createFromFormat($format, $toDateRaw.' 23:59:59', 2);
             $patientList = Patient::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->get();
-            // $statisticsList = Statistics::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->get();
 
             return view('showStatistics', compact(["patientList", "fromDateRaw", "toDateRaw"]));
         }
@@ -345,35 +344,31 @@ class AdminController extends Controller
     public function downloadStatistics(Request $request)
     {
         $startFileName = 'Walk_the_ward_statistik';
-        $excelFileName = $startFileName.' '.Carbon::now(2)->toDateTimeString();
+        $excelFileName = $startFileName.' '.Carbon::now(2)->toDateTimeString(); // e.g. 'Walk_the_ward_statistik 2017-12-24 15_00_02'
 
-        $excelFileDownload = Excel::create('Walk_the_ward_statistik', function($excel) {
+        $excelFileDownload = Excel::create('Walk_the_ward_statistik', function($excel) use ($request) {
 
 
-            $sheetName = 'Statistik';
-
-            $excel->sheet($sheetName, function($sheet) {
+            $sheetName = 'Statistik'; //max 31 characters
+            $excel->sheet($sheetName, function($sheet) use ($request) {
 
 
                 $patientList = Patient::all();
-                // if ($request->has(['fromDate', 'toDate', 'filterResultTitle'])) {
+                //if filtering get filtered patients
+                if (isset($request) && $request->has(['fromDate', 'toDate', 'filterResultTitle'])) {
 
-                    // if ($request->filterResultTitle != "") {
-                    //     $sheetName = $request->filterResultTitle;
-                    // }
-                    //
-                    // if ($request->fromDate != "" && $request->toDate != "") {
-                    //     $format = "Y-m-d H:i:s";
-                    //     $fromDateRaw = $request->fromDate;
-                    //     $toDateRaw = $request->toDate;
-                    //     $fromDate = Carbon::createFromFormat($format, $fromDateRaw.' 00:00:00', 2);
-                    //     $toDate = Carbon::createFromFormat($format, $toDateRaw.' 23:59:59', 2);
-                    //     $patientList = Patient::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->get();
-                    // }
+                    if ($request->fromDate != "" && $request->toDate != "") {
+                        $format = "Y-m-d H:i:s";
+                        $fromDateRaw = $request->fromDate;
+                        $toDateRaw = $request->toDate;
+                        $fromDate = Carbon::createFromFormat($format, $fromDateRaw.' 00:00:00', 2);
+                        $toDate = Carbon::createFromFormat($format, $toDateRaw.' 23:59:59', 2);
+                        $patientList = Patient::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->get();;
+                    }
 
-                // }
+                }
 
-                $arr =array();
+                $arr = array();
                 foreach($patientList as $patient) {
                     $statistic = $patient->statistics;
 
@@ -381,100 +376,110 @@ class AdminController extends Controller
                     $patient->age,
                     $patient->gender,
                     $patient->roomType,
-                    ($patient->ward != null ? $patient->ward->name : ""),
+                    ($patient->ward != null ? $patient->ward->name : null),
                     $patient->distanceInMeter,
-                    ($statistic != null ? $statistic->hasGoneHome : ""),
-                    ($statistic != null ? $statistic->dayAmount : ""),
-                    ($statistic != null ? $statistic->wasEasyToPlay : ""),
-                    ($statistic != null ? $statistic->explainWhy : ""),
-                    ($statistic != null ? $statistic->created_at : ""),
+                    ($statistic != null ? $statistic->hasGoneHome : null),
+                    ($statistic != null ? $statistic->dayAmount : null),
+                    ($statistic != null ? $statistic->wasEasyToPlay : null),
+                    ($statistic != null ? $statistic->explainWhy : null),
+                    ($statistic != null ? $statistic->created_at : null),
                     $patient->created_at);
                     array_push($arr, $data);
                 }
 
-                //set the titles
-                $sheet->fromArray($arr,null,'A1',true,false)->prependRow(array(
-                    'patientId', 'age', 'gender', 'roomType', 'wardName', 'distanceWalkedInMeter', 'hasGoneHomeSameDay', 'amountOfDaysAtHospital', 'wasEasyToPlay', 'explainWhy', 'statisticsSubmittedAt', 'patientCreatedAt'
-                )
 
-            );
+                //set the titles
+                $sheet->fromArray($arr,null,'A1',true,false);
+                $sheet->prependRow(array(
+                    'patientId', 'age', 'gender', 'roomType', 'wardName',
+                    'distanceWalkedInMeter', 'hasGoneHomeSameDay',
+                    'amountOfDaysAtHospital', 'wasEasyToPlay', 'explainWhy',
+                    'statisticsSubmittedAt', 'patientCreatedAt'
+                ));
+
+                //if filtering set filter result title
+                if (isset($request) && $request->has(['fromDate', 'toDate', 'filterResultTitle']) && $request->filterResultTitle != "") {
+                    $sheet->prependRow(array());
+                    $sheet->mergeCells('A1:L1');
+                    $sheet->row(1, array($request->filterResultTitle));
+                }
+
+            });
 
         });
 
-    });
+        $excelFileDownload = $excelFileDownload->string('xlsx'); //change xlsx for the format you want, default is xls
 
-    $excelFileDownload = $excelFileDownload->string('xlsx'); //change xlsx for the format you want, default is xls
+        $response = array(
+            'name' => $excelFileName, //no extention needed
+            'file' => "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,".base64_encode($excelFileDownload) //mime type of used format
+        );
 
-    $response = array(
-        'name' => $excelFileName, //no extention needed
-        'file' => "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,".base64_encode($excelFileDownload) //mime type of used format
-    );
+        return response()->json($response);
+    }
 
-    return response()->json($response);
-}
+    /**
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function create()
+    {
+        //
+    }
 
-/**
-* Show the form for creating a new resource.
-*
-* @return \Illuminate\Http\Response
-*/
-public function create()
-{
-    //
-}
+    /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function store(Request $request)
+    {
+        //
+    }
 
-/**
-* Store a newly created resource in storage.
-*
-* @param  \Illuminate\Http\Request  $request
-* @return \Illuminate\Http\Response
-*/
-public function store(Request $request)
-{
-    //
-}
+    /**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function show(Request $request, $id)
+    {
+        //
+    }
+    /**
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function edit($id)
+    {
+        //
+    }
 
-/**
-* Display the specified resource.
-*
-* @param  int  $id
-* @return \Illuminate\Http\Response
-*/
-public function show(Request $request, $id)
-{
-    //
-}
-/**
-* Show the form for editing the specified resource.
-*
-* @param  int  $id
-* @return \Illuminate\Http\Response
-*/
-public function edit($id)
-{
-    //
-}
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
-/**
-* Update the specified resource in storage.
-*
-* @param  \Illuminate\Http\Request  $request
-* @param  int  $id
-* @return \Illuminate\Http\Response
-*/
-public function update(Request $request, $id)
-{
-    //
-}
-
-/**
-* Remove the specified resource from storage.
-*
-* @param  int  $id
-* @return \Illuminate\Http\Response
-*/
-public function destroy($id)
-{
-    //
-}
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function destroy($id)
+    {
+        //
+    }
 }
