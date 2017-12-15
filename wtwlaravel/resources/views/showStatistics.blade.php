@@ -89,13 +89,35 @@
                         </thead>
                         <tbody>
                             @foreach ($patientList as $pl)
-                                <tr>
+                                {{-- @if (in_array($pl->id, (array) $statisticsList[0]))
+                                @else <tr>
+                                @endif --}}
+                                <tr class="moreInfoAboutBtn">
                                     <td>{{$pl->id}}</td>
                                     <td>{{$pl->gender}}</td>
                                     <td>{{$pl->age}}</td>
                                     <td>{{$pl->roomType}}</td>
                                     <td>{{$pl->distanceInMeter}}</td>
                                 </tr>
+                                @foreach ($statisticsList as $sl)
+                                    @if ($pl->id == $sl->patientId)
+                                        <tr class="moreInfoAboutExtra moreInfoAboutCloseHeader">
+                                            <th scope="col">Patient ID</th>
+                                            <th scope="col">Om patienten gick hem</th>
+                                            <th scope="col">Antal dagar patienten stannade</th>
+                                            <th scope="col">Om patienten tyckte det var enkelt</th>
+                                            <th scope="col">Kommentar till spelet</th>
+                                        </tr>
+                                        <tr class="moreInfoAboutExtra moreInfoAboutCloseData">
+                                            {{-- <td>{{ \App\Patient::where('statisticId', $sl->id)->first()->id }}</td> --}}
+                                            <td>{{$sl->patientId}}</td>
+                                            <td>{{$sl->hasGoneHome == 1 ? "Ja" : "Nej"}}</td>
+                                            <td>{{$sl->dayAmount}}</td>
+                                            <td>{{$sl->wasEasyToPlay == 1 ? "Enkelt" : "Svårt"}}</td>
+                                            <td>{{$sl->explainWhy}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                             @endforeach
                             {{-- <tr>
                             <td>{{ $filterPatients }}8</td>
@@ -111,23 +133,23 @@
 
         {{-- LISTA --}}
         {{-- Visa statitiklista för alla patienter --}}
-        <div class="row">
+        {{-- <div class="row">
             <div class="col">
-                <table>
-                    <thead>
+                <table class="table table-light table-bordered table-striped table-hover table-sm">
+                    <thead class="thead-dark">
                         <tr>
-                            <th>Patient ID</th>
-                            <th>Om patienten gick hem</th>
-                            <th>Antal dagar patienten stannade</th>
-                            <th>Om patienten tyckte det var enkelt</th>
-                            <th>Kommentar till spelet</th>
+                            <th scope="col">Patient ID</th>
+                            <th scope="col">Om patienten gick hem</th>
+                            <th scope="col">Antal dagar patienten stannade</th>
+                            <th scope="col">Om patienten tyckte det var enkelt</th>
+                            <th scope="col">Kommentar till spelet</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($statisticsList as $sl)
-                            <tr style="border: 2px solid">
+                        @foreach ($statisticsList as $sl) --}}
+                            {{-- <tr style="border: 2px solid"> --}}
                                 {{-- <td>{{ \App\Patient::where('statisticId', $sl->id)->first()->id }}</td> --}}
-                                <td>{{$sl->patient->id}}</td>
+                                {{-- <td>{{$sl->patient->id}}</td>
                                 <td>{{$sl->hasGoneHome == 1 ? "Ja" : "Nej"}}</td>
                                 <td>{{$sl->dayAmount}}</td>
                                 <td>{{$sl->wasEasyToPlay == 1 ? "Enkelt" : "Svårt"}}</td>
@@ -137,7 +159,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> --}}
 
         <div class="row">
             <div class="col text-right">
@@ -163,7 +185,21 @@
 
 @section('body-script')
     <script type="text/javascript">
+    $('.moreInfoAboutExtra').hide();
+    $('.moreInfoAboutCloseHeader').prev().addClass('moreInfoAboutBtn');
     $(document).ready(function(){
+        $('.moreInfoAboutBtn').click(function() {
+            $(this).next().toggle();
+            $(this).next().next().toggle();
+        });
+        $('.moreInfoAboutCloseHeader').click(function(){
+            $(this).toggle();
+            $(this).next().toggle();
+        });
+        $('.moreInfoAboutCloseData').click(function(){
+            $(this).toggle();
+            $(this).prev().toggle();
+        });
 
         // $("form").submit(function() {
         //     startLoader();
