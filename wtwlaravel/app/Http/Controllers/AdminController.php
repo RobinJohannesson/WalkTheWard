@@ -18,6 +18,7 @@ use App\Bonus_game_in_game;
 use App\Exercise;
 use App\Statistics;
 use App\Http\Controllers\Cookie;
+use Excel;
 use Carbon\Carbon;
 
 class AdminController extends Controller
@@ -318,6 +319,23 @@ class AdminController extends Controller
             'statisticsList' => $statisticsList,
             'f' => $fromDate,
             't' => $toDate
+        );
+
+        return response()->json($response);
+    }
+
+    public function downloadStatistics()
+    {
+        $data = Statistics::get()->toArray();
+		Excel::create('Walk_the_ward_statistik', function($excel) use ($data) {
+			$excel->sheet('Statistik', function($sheet) use ($data)
+	        {
+				$sheet->fromArray($data);
+	        });
+		})->download('csv');
+
+        $response = array(
+            'status' => 'success'
         );
 
         return response()->json($response);

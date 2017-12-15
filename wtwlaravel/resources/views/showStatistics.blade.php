@@ -163,8 +163,8 @@
 
         <div class="row">
             <div class="col text-right">
-
-                <a href="" class="btn-admin btn-trust btn-medium start-loader">Ladda hem statistiken i en excel fil</a>
+{{-- href="{{url('/')}}/admin/showStatistics/download" --}}
+                <a  id="downloadStatistics" class="btn-admin btn-trust btn-medium start-loader">Ladda hem statistiken i en excel fil</a>
             </div>
         </div>
     </div>
@@ -241,6 +241,31 @@
                     console.log(xhr);
                     console.log(textStatus);
                     console.log(errorThrown);
+                    stopLoader();
+                }
+            }); // SLUT - Om det MISSLYCKADES
+
+            // return false;
+        });
+        $('#downloadStatistics').click(function() {
+            event.preventDefault();
+            startLoader();
+            $.ajax({
+                type: "POST",
+                async: true,
+                headers: {
+                    // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                url: "{{url('/')}}/admin/showStatistics/download",
+                dataType: 'json',
+                success: function(data) { // Om det LYCKADES
+                    console.log(data);
+                    stopLoader();
+
+                }, // SLUT - Om det LYCKADES
+                error: function(xhr) { // Om det MISSLYCKADES
+                    console.log(xhr);
                     stopLoader();
                 }
             }); // SLUT - Om det MISSLYCKADES
