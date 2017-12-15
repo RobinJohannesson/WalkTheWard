@@ -216,3 +216,4 @@ pip-log.txt
 .mr.developer.cfg
 wtwlaravel/composer.lock
 wtwlaravel/public/css/style.css
+wtwlaravel/composer.lock

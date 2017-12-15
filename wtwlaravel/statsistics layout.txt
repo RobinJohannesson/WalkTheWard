@@ -1,0 +1,21 @@
+Patient
+
+Age
+Gender
+Room type
+Distance walked (meter)
+
+Did they leave the game before they were going home
+
+endedGameBeforeLeaving
+
+WardName
+
+
+
+
+
+
+CharacterName
+NoOfQuestionsAnswered (No of question_in_games)
+TotalNoOfStars (No of place_in_games->noStars)
