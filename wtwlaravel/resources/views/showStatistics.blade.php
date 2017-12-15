@@ -102,7 +102,7 @@
                                 @foreach ($statisticsList as $sl)
                                     @if ($pl->id == $sl->patientId)
                                         <tr class="moreInfoAboutExtra moreInfoAboutCloseHeader">
-                                            <th scope="col">Patient ID</th>
+                                            <th scope="col"></th>
                                             <th scope="col">Om patienten gick hem</th>
                                             <th scope="col">Antal dagar patienten stannade</th>
                                             <th scope="col">Om patienten tyckte det var enkelt</th>
@@ -110,7 +110,7 @@
                                         </tr>
                                         <tr class="moreInfoAboutExtra moreInfoAboutCloseData">
                                             {{-- <td>{{ \App\Patient::where('statisticId', $sl->id)->first()->id }}</td> --}}
-                                            <td>{{$sl->patientId}}</td>
+                                            <td></td>
                                             <td>{{$sl->hasGoneHome == 1 ? "Ja" : "Nej"}}</td>
                                             <td>{{$sl->dayAmount}}</td>
                                             <td>{{$sl->wasEasyToPlay == 1 ? "Enkelt" : "Svårt"}}</td>
