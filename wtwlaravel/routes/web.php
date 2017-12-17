@@ -76,7 +76,7 @@ Route::middleware('auth')->group(function () {
 
     Route::GET('admin/deleteQuestion', "AdminController@showDeleteQuestion");
 
-    Route::GET('admin/deleteQuestion/getQuestions', "AdminController@getQuestions");
+    Route::POST('admin/deleteQuestion/getQuestions', "AdminController@getQuestions");
 
     Route::POST('admin/deleteQuestion/deleteQuestions', "AdminController@deleteQuestions");
 

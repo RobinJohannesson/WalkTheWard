@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group newThemeDisplay">
                         <label for="text-input" class="col-form-label newTheme">Namn för nytt tema</label>
-                        <textarea class="form-control newTheme" maxlength="180" rows="4" cols="50" id="text-input" name="newTheme"></textarea>
+                        <input class="form-control newTheme" id="text-input" type="text" name="newTheme" value="" maxlength="100">
                     </div>
                     <div class="form-group newThemeDisplay">
                         <span>

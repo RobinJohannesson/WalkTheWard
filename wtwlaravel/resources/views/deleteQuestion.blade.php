@@ -21,41 +21,58 @@
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Radera fråga</h1>
-                <form action="{{{ url("admin/deleteQuestion") }}}" id="deleteQuestionForm" method="POST">
+                <form action="{{{ url("admin/deleteQuestion/getQuestions") }}}" id="getQuestionsForm" method="POST">
                     {{ csrf_field() }}
 
                     <div class="form-group">
-                        <p>Teman</p>
-                        <select id="selected-theme" name='chooseTheme' required>
-                            <option value='' disabled>Välj ett tema</option>
+                        <label for='selected-theme' class='col-form-label'>Teman</label>
+                        <br>
+                        <select id="selected-theme" name='themeId' required>
+                            <option disabled {{!isset($selectedThemeId) ? 'selected':''}}>Välj ett tema</option>
                             @foreach ($themes as $t)
-                                <option id='choosePlace{{$t->id}}' value='{{$t->id}}'>{{$t->name}}</option>
+                                <option id='choosePlace{{$t->id}}' value='{{$t->id}}' {{(isset($selectedThemeId) && $selectedThemeId == $t->id)?'selected':''}}>{{$t->name}}{{$t->isActive == 0 ? "(inaktivt)" : ""}}</option>
                             @endforeach
                         </select>
                     </div>
-                    @if (isset($questions))
+
+                </form>
+                @if (isset($questions) && count($questions))
+                    <form action="{{{ url("admin/deleteQuestion/deleteQuestions") }}}" id="getQuestionsForm" method="POST">
+                        {{ csrf_field() }}
                         <div class="form-group">
+                            <h4 style="margin: 50px 0 30px 0">
+                                Markera de frågor som du vill radera
+                            </h4>
                             <div class="" id="questions-holder">
                                 @foreach ($questions as $q)
-                                    <input type='checkbox' class="big-checkbox" id='deleteQuestion{{$q->id}}' name='{{$q->id}}'>
-                                    <label for='deleteQuestion{{$q->id}}' class='col-form-label'>
-                                        {{$q->question}}
-                                    </label>
-                                    <br />
+                                    <div class="row no-gutters" style="border-bottom: 4px dotted black; padding: 10px 0;">
+                                        <div class="col-1">
+                                            <input type='checkbox' class="big-checkbox" id='deleteQuestion{{$q->id}}' name='{{$q->id}}'>
+                                        </div>
+                                        <div class="col-11">
+                                            <label for='deleteQuestion{{$q->id}}' class='col-form-label'>
+                                                {{$q->question}}
+                                            </label>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
+
                     @endif
 
                     <div class="row">
                         <div class="col-6 text-left">
                             <a href="{{url('/')}}/admin" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
                         </div>
-                        <div class="col-6 text-right send-btn" style="display:none;">
-                            <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Radera valda frågor">
-                        </div>
-                    </div>
-                </form>
+                        @if (isset($questions) && count($questions))
+                            <div class="col-6 text-right send-btn">
+                                <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Radera valda frågor">
+                            </div>
+                        </form>
+                    @endif
+                </div>
+
 
             </div>
             <div class="col-md-2 order-1 order-md-2">
@@ -73,39 +90,18 @@
 @section('body-script')
     <script type="text/javascript">
     $(document).ready(function(){
-        $('#selected-theme').change(function() {
+        $('#selected-theme').change(function(e) {
+            e.preventDefault();
 
-            event.preventDefault();
-            var themeId = $('#selected-theme').val();
-            console.log(themeId);
-            startLoader();
-            $.ajax({
-                type: "GET",
-                async: true,
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                url: "{{url('/')}}/admin/deleteQuestion/getQuestions",
-                data: {themeId: themeId},
-                // dataType: 'json',
-                success: function(data) { // Om det LYCKADES
-                    console.log(data);
-                    // console.log(data['questions']);
+            if ($("#getQuestionsForm")[0].checkValidity()){
+                $("#getQuestionsForm").submit();
+                e.preventDefault();
+            }
+            else {
+                console.log("Something is Required!");
+                stopLoader();
+            }
 
-                    // Visa frågorna så man kan välja vilka man ska ta bort...
-
-                    stopLoader();
-
-                }, // SLUT - Om det LYCKADES
-                error: function(xhr, textStatus, errorThrown) { // Om det MISSLYCKADES
-                    console.log(xhr);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-                    stopLoader();
-                }
-            }); // SLUT - Om det MISSLYCKADES
-
-            // return false;
         });
 
 

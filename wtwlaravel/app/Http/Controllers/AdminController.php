@@ -135,18 +135,40 @@ class AdminController extends Controller
     }
 
     public function showDeleteQuestion(Request $request) {
-        $themes = Theme::where('isActive', 1)->get();
+        $themes = Theme::orderBy('name')->get();
         return view('deleteQuestion', compact(["themes"]));
     }
 
     public function getQuestions(Request $request) {
-        $themes = Theme::where('isActive', 1)->get();
-        $questions = Theme::find($request->themeId)->questions;
-        return view('deleteQuestion', compact(["themes", "questions"]));
+        $selectedThemeId = $request->themeId;
+        $themes = Theme::orderBy('name')->get();
+        $questions = Theme::find($selectedThemeId)->questions;
+        return view('deleteQuestion', compact(["themes", "questions", "selectedThemeId"]));
     }
 
     public function deleteQuestions(Request $request) {
-        return view('admin');
+
+        // Hämta en array med alla question ids.
+        $questionIds = Question::where('id' ,'>' ,0)->pluck('id')->toArray();
+
+        // Hämta totala antal teman.
+        $questionIdsAmount = count($questionIds);
+
+        $counter = 0;
+        while ($counter < $questionIdsAmount) {
+            $thisTurnId = array_values($questionIds)[$counter];
+
+            // Hämta question checkbox value. Value 1(true) eller null(false).
+            // När man försöker hämta en unchecked checkbox får man tillbaka
+            // null då den inte skickas inte med request.
+            $checkboxIdUsageValue = $request->input($thisTurnId);
+            if ($checkboxIdUsageValue == true) {
+                Question::where(['id' => $thisTurnId])->delete();
+            }
+            $counter++;
+        }
+
+        return redirect('admin');
     }
 
     public function theme(Request $request)
@@ -167,14 +189,6 @@ class AdminController extends Controller
 
     public function themeSave(Request $request)
     {
-        // Skapar nytt tema om de valt det.
-        if ($request->ifNewTheme == "yes") {
-            $Theme = new Theme;
-            $Theme->name = $request->newTheme;
-            $Theme->isActive = $request->ifNewThemeActive;
-            $Theme->save();
-        }
-
         // Hämta en array med alla tema ids.
         $themeIds = Theme::where('id' ,'>' ,0)->pluck('id')->toArray();
 
@@ -196,6 +210,14 @@ class AdminController extends Controller
                 Theme::where(['id' => $thisTurnId])->update(['isActive' => 0]);
             }
             $counter++;
+        }
+
+        // Skapar nytt tema om de valt det.
+        if ($request->ifNewTheme == "yes") {
+            $Theme = new Theme;
+            $Theme->name = $request->newTheme;
+            $Theme->isActive = ($request->ifNewThemeActive == "1" ? 1 : 0);
+            $Theme->save();
         }
 
         return redirect('admin');
