@@ -74,6 +74,13 @@ Route::middleware('auth')->group(function () {
 
     Route::POST('admin/newQuestion', "AdminController@newQuestionSave");
 
+    Route::GET('admin/deleteQuestion', "AdminController@showDeleteQuestion");
+
+    Route::GET('admin/deleteQuestion/getQuestions', "AdminController@getQuestions");
+
+    Route::POST('admin/deleteQuestion/deleteQuestions', "AdminController@deleteQuestions");
+
+
     Route::GET('admin/adjustTheme', "AdminController@theme");
 
     Route::POST('admin/adjustTheme', "AdminController@themeSave");

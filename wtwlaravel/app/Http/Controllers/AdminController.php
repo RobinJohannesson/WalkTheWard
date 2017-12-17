@@ -134,6 +134,21 @@ class AdminController extends Controller
         return redirect('admin');
     }
 
+    public function showDeleteQuestion(Request $request) {
+        $themes = Theme::where('isActive', 1)->get();
+        return view('deleteQuestion', compact(["themes"]));
+    }
+
+    public function getQuestions(Request $request) {
+        $themes = Theme::where('isActive', 1)->get();
+        $questions = Theme::find($request->themeId)->questions;
+        return view('deleteQuestion', compact(["themes", "questions"]));
+    }
+
+    public function deleteQuestions(Request $request) {
+        return view('admin');
+    }
+
     public function theme(Request $request)
     {
         // Hämta PatientId från cookie
@@ -192,7 +207,7 @@ class AdminController extends Controller
 
         $bonusName = Bonus_game::pluck('lettersToDiscard')->toArray();
 
-        $placeName = Place::pluck('name')->toArray();
+        $placeName = Place::orderBy('name')->pluck('name')->toArray();
 
 
         $placeWithoutBonus = array_diff($placeName, $bonusName);
@@ -209,15 +224,49 @@ class AdminController extends Controller
 
     public function bonusSave(Request $request)
     {
-        // Skapar nytt tema om de valt det.
+        // Skapar ny bonus om de valt det.
         if ($request->ifNewBonus == "yes") {
             $placeIdFromForm = $request->choosePlace;
             $place = Place::find($placeIdFromForm);
             $placeName = $place->name;
             $Bonus = new Bonus_game;
             $Bonus->lettersToDiscard = $placeName;
-            $Bonus->imageSource = $request->fileToUpload;
             $Bonus->placeId = $request->choosePlace;
+
+
+
+            // Kolla om filen finns och om den är giltig.
+            if ($request->hasFile('fileToUpload')) {
+                if ($request->file('fileToUpload')->isValid()) {
+
+                    // Hämta filen från request.
+                    $file = $request->file('fileToUpload');
+
+                    // Hämta filnamnet. T.ex. my-photo.jpg
+                    $fileName = time().'-'.mb_strtolower($file->getClientOriginalName(), 'UTF-8');
+
+                    // Hämta filändelse. T.ex. jpg
+                    $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
+
+
+                    $allowedImageTypes =  array('gif','png','jpg','jpeg');
+
+                    // Kontrollera om filen har en giltig bild filhändelse
+                    if (in_array($extesion, $allowedImageTypes)) {
+
+                        $destinationPath = public_path('\images\bonus');
+                        $file->move($destinationPath, $fileName);
+                        $Bonus->imageSource = $fileName;
+
+                    }
+                    else {
+                        // Om ingen giltig bild eller video laddades upp.
+                    }
+                }
+            }
+
+
+
             $Bonus->save();
         }
 

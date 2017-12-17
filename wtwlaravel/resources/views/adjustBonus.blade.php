@@ -43,23 +43,18 @@
                         </select>
                     </div>
                     <div class="form-group newBonusDisplay">
-                        <p>Välj val av media (bild eller video) tilhörande bonusfrågan</p>
-                        {{-- <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*"> --}}
-                        {{-- <input type="submit" value="Upload Image" name="submit"> --}}
+                        <p>Välj val av bild tillhörande bonusfrågan</p>
                         <div class="text-center">
 
                             <img id="image-preview" src="#" alt="Bild kunde inte förhandsgranskas!" style="display: none;"/>
-                            <video id="video-preview" controls poster="" alt="Video kunde inte förhandsgranskas!" style="display: none;">
-                                <source src="" id="video-preview-src" />
-                                Your browser does not support HTML5 video.
-                            </video>
+
 
                         </div>
                         <label class="custom-file">
-                            <input type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input" accept=".gif, .jpg, .jpeg, .png, .mp4">
+                            <input type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input" accept=".gif, .jpg, .jpeg, .png">
                             <span class="custom-file-control"></span>
                         </label>
-                        <span class="allowed-types">Tillåtna filformat: <strong>.png .gif .jpg .jpeg .mp4</strong></span>
+                        <span class="allowed-types">Tillåtna filformat: <strong>.png .gif .jpg .jpeg</strong></span>
 
                     </div>
                     <div class="form-group">
@@ -126,7 +121,6 @@
             }
 
 
-
             if (e.target.files[0].type.split('/')[0] == 'image') {
                 console.log(e.target.files[0].type.split('/')[0]);
 
@@ -145,18 +139,6 @@
 
 
 
-            }
-            else if (e.target.files[0].type.split('/')[0] == 'video') {
-                console.log(e.target.files[0].type.split('/')[0]);
-
-                var fileName = e.target.files[0].name;
-                $('<style>.custom-file-control:lang(sv-se):empty::after{content:"'+fileName+'"}</style>').appendTo('head');
-
-                var $source = $('#video-preview-src');
-                $source[0].src = URL.createObjectURL(e.target.files[0]);
-                $source.parent()[0].load();
-
-                $('#video-preview').show('1000', 'linear');
             }
             else {
 
