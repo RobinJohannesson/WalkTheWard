@@ -173,10 +173,14 @@
                         <h5 class="modal-title" id="resultsModalLabel">Dagens rörelse</h5>
                     </div>
                     <div class="modal-body text-center">
-                        <video id="movement-video" loop="loop" controls>
-                            <source src="{{url('/')}}/videos/exercise/{{$exerciseMovieVideoSource}}" type="video/mp4"></source>
-                            Your browser does not support the video tag.
-                        </video>
+                            @if ($exerciseMovieVideoSource == "")
+                                <h4>Inga aktiva rörelsevideor finns. Be personalen aktivera rörelsevideor.</h4>
+                            @else
+                                <video id="movement-video" loop="loop" controls>
+                                    <source src="{{url('/')}}/videos/exercise/{{$exerciseMovieVideoSource}}" type="video/mp4"></source>
+                                    Your browser does not support the video tag.
+                                </video>
+                            @endif
                     </div>
                     <div class="modal-footer justify-content-center">
                         <span>
