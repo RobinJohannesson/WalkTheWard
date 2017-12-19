@@ -20,8 +20,8 @@
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
-                <h1 class="text-center">Justera teman</h1>
-                <form action="{{{ url("admin/adjustExercise") }}}" id="newExerciseForm" method="POST">
+                <h1 class="text-center">Justera rörelse</h1>
+                <form action="{{{ url("admin/adjustExercise") }}}" id="newExerciseForm" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <span>
@@ -31,9 +31,11 @@
                         <input type="radio" class="ifNewExercise big-radio-btn" name="ifNewExercise" value="no" checked required> Nej
                     </div>
                     <div class="form-group newExerciseDisplay">
-                        <p>Välj val av media (bild eller video) tilhörande rörelsen</p>
-                        {{-- <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*"> --}}
-                        {{-- <input type="submit" value="Upload Image" name="submit"> --}}
+                        <label for="text-input" class="col-form-label newTheme">Namn för ny rörelse (använd bara bokstäver och siffror)</label>
+                        <input class="form-control newExercise" id="text-input" type="text" name="newExercise" value="" maxlength="100">
+                    </div>
+                    <div class="form-group newExerciseDisplay">
+                        <p>Välj val av video tilhörande rörelsen</p>
                         <div class="text-center">
 
                             <img id="image-preview" src="#" alt="Bild kunde inte förhandsgranskas!" style="display: none;"/>
@@ -44,10 +46,10 @@
 
                         </div>
                         <label class="custom-file">
-                            <input type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input" accept=".gif, .jpg, .jpeg, .png, .mp4">
+                            <input type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input" accept=".mp4">
                             <span class="custom-file-control"></span>
                         </label>
-                        <span class="allowed-types">Tillåtna filformat: <strong>.png .gif .jpg .jpeg .mp4</strong></span>
+                        <span class="allowed-types">Tillåtna filformat: <strong>.mp4</strong></span>
 
                     </div>
                     <div class="form-group newExerciseDisplay">
@@ -80,7 +82,7 @@
             </div>
             <div class="col-md-2 order-1 order-md-2">
                 <div class="text-right">
-                    <a href="#" data-toggle="popover" data-trigger="focus" title="Skapa och justera teman" data-content="På den här sidan kan administratörer skapa och justera teman." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
+                    <a href="#" data-toggle="popover" data-trigger="focus" title="Skapa och justera rörelse" data-content="På den här sidan kan administratörer skapa och justera rörelser." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
         </div>
