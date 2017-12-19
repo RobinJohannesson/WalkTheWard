@@ -15,7 +15,7 @@ use App\Http\Middleware\CheckCookie;
 
 Route::GET('', "WelcomeController@index");
 
-Route::middleware('checkCookie')->group(function () {
+Route::middleware('CheckCookie')->group(function () {
 
     // Route::resource('start', "StartController");
 
