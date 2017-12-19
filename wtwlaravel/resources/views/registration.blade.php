@@ -58,7 +58,7 @@
 
                             </div>
                             <div class="col-sm-4 text-center">
-                                <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/bigpete.gif" alt="En vanlig karaktär">
+                                <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/ballong.png" alt="En vanlig karaktär">
                                 <a href="#" class="btn-interest btn-small text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal">Välj karaktär</a>
                             </div>
 

@@ -74,45 +74,85 @@ class DBSeeds extends Seeder
             'gameId' => 1,
         ]);
 
+        // DB::table('characters')->insert([
+        //     'name' => "Kalle Anka",
+        //     'imageSource' => "donald.gif",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Kajsa Anka",
+        //     'imageSource' => "daisy.gif",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Musse Pigg",
+        //     'imageSource' => "mickey.png",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Mimmi Pigg",
+        //     'imageSource' => "minnie.png",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Långben",
+        //     'imageSource' => "goofy.gif",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Pluto",
+        //     'imageSource' => "pluto.gif",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Svarte Petter",
+        //     'imageSource' => "bigpete.gif",
+        // ]);
+        //
+        // DB::table('characters')->insert([
+        //     'name' => "Klarabella Ko",
+        //     'imageSource' => "clarabelle.gif",
+        // ]);
+
         DB::table('characters')->insert([
-            'name' => "Kalle Anka",
-            'imageSource' => "donald.gif",
+            'name' => "Ballong Björn",
+            'imageSource' => "ballong.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Kajsa Anka",
-            'imageSource' => "daisy.gif",
+            'name' => "Dans Björn",
+            'imageSource' => "dans.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Musse Pigg",
-            'imageSource' => "mickey.png",
+            'name' => "Detektiv Björn",
+            'imageSource' => "detektiv.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Mimmi Pigg",
-            'imageSource' => "minnie.png",
+            'name' => "Fest Björn",
+            'imageSource' => "fest.png",
+        ]);
+        DB::table('characters')->insert([
+            'name' => "Kjol Björn",
+            'imageSource' => "kjol.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Långben",
-            'imageSource' => "goofy.gif",
+            'name' => "Paraply Björn",
+            'imageSource' => "paraply.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Pluto",
-            'imageSource' => "pluto.gif",
+            'name' => "Regnjacka Björn",
+            'imageSource' => "regnjacka.png",
         ]);
 
         DB::table('characters')->insert([
-            'name' => "Svarte Petter",
-            'imageSource' => "bigpete.gif",
+            'name' => "Röntgen Björn",
+            'imageSource' => "röntgen.png",
         ]);
 
-        DB::table('characters')->insert([
-            'name' => "Klarabella Ko",
-            'imageSource' => "clarabelle.gif",
-        ]);
 
         DB::table('games')->insert([
             'areaId' => 1,
