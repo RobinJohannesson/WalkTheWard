@@ -59,7 +59,7 @@ class GameHomeController extends Controller
         //spottar ut datumet ex. 1231 eller 11
         $date = $current_date->month . $current_date->day;
 
-        $idOfMovie = $date % 3;
+        $idOfMovie = $date % Exercise::count();
         $exerciseMovieName = Exercise::find($idOfMovie);
         $exerciseMovieVideoSource = $exerciseMovieName->videoSource;
 
