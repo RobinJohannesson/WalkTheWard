@@ -84,7 +84,7 @@ class AdminController extends Controller
                     // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
-                    $fileName = str_limit($fileName, 150, '.'.$extesion);
+                    $fileName = str_limit($fileName, 150, '').'.'.$extesion;
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
                     $allowedVideoTypes =  array('mp4');
@@ -201,7 +201,7 @@ class AdminController extends Controller
                     // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
-                    $fileName = str_limit($fileName, 150, '.'.$extesion);
+                    $fileName = str_limit($fileName, 150, '').'.'.$extesion;
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
                     $allowedVideoTypes =  array('mp4');
@@ -426,7 +426,7 @@ class AdminController extends Controller
                     // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
-                    $fileName = str_limit($fileName, 150, '.'.$extesion);
+                    $fileName = str_limit($fileName, 150, '').'.'.$extesion;
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
 
@@ -461,14 +461,6 @@ class AdminController extends Controller
 
     public function exerciseSave(Request $request)
     {
-        // Skapar nytt tema om de valt det.
-        if ($request->ifNewExercise == "yes") {
-            $Exercise = new Exercise;
-            $Exercise->videoSource = $request->fileToUpload;
-            $Exercise->isActive = $request->ifNewExerciseActive;
-            $Exercise->save();
-        }
-
         // Hämta en array med alla rörelse ids.
         $exerciseIds = Exercise::where('id' ,'>' ,0)->pluck('id')->toArray();
 
@@ -492,8 +484,65 @@ class AdminController extends Controller
             $counter++;
         }
 
+
+
+        // Skapar nytt tema om de valt det.
+        if ($request->ifNewExercise == "yes") {
+            $Exercise = new Exercise;
+            $Exercise->isActive = $request->ifNewExerciseActive;
+
+            // Kolla om filen finns och om den är giltig.
+            if ($request->hasFile('fileToUpload')) {
+                if ($request->file('fileToUpload')->isValid()) {
+
+                    // Hämta filen från request.
+                    $file = $request->file('fileToUpload');
+
+                    $exerciseName = $request->newExercise;
+                    $exerciseName = preg_replace("/[^[:alnum:][:space:]]/u", '', $exerciseName);
+
+                    // Skapa filnamnet. T.ex. rörelse-201711111415
+                    $fileName = mb_strtolower($exerciseName.'-'.time(), 'UTF-8');
+
+                    // Hämta filändelse. T.ex. jpg
+                    $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
+
+                    // Skapa filnamnet. T.ex. rörelse-201711111415.jpg
+                    $fileName = str_limit($fileName, 150, '').'.'.$extesion;
+
+                    $allowedVideoTypes =  array('mp4');
+
+                    // Kontrollera om filen har en giltig video filhändelse
+                    if (in_array($extesion, $allowedVideoTypes)) {
+
+                        $destinationPath = public_path('\videos\exercise');
+                        $file->move($destinationPath, $fileName);
+                        $Exercise->videoSource = $fileName;
+                    }
+                    else {
+                        // Om ingen giltig video laddades upp.
+                    }
+                }
+            }
+
+            $Exercise->save();
+        }
+
+
         return redirect('admin');
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function showStatistics()
     {
