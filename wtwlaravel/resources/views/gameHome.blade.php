@@ -184,7 +184,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         @if ($exerciseMovieVideoSource == "")
-                            <a href="" class="close-modal btn-fear btn-small">Tillbaka</a>
+                            <a class="close-modal btn-fear btn-small">Tillbaka</a>
                         @else
                             <span>
                                 Utförde du dagens rörelse?
