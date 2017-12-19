@@ -56,7 +56,7 @@ class GameHomeController extends Controller
     public function showAll(Request $request)
     {
         $current_date = Carbon::now(2);
-        //spottar ut datumet ex. 1231 eller 11
+        //spottar ut datumet ex. 1231
         $date = $current_date->month . $current_date->day;
 
         $exerciseList = Exercise::where('isActive', 1)->pluck('id')->toArray();
@@ -66,7 +66,6 @@ class GameHomeController extends Controller
 
             $exerciseMovieName = Exercise::find($exerciseList[$idOfMovie-1]);
 
-            // Funkar men får den andra aktiva (id3)
             $exerciseMovieVideoSource = $exerciseMovieName->videoSource;
         }
         else {
