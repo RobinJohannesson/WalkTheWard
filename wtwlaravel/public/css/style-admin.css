@@ -47,3 +47,8 @@
 #filter-btn {
     margin: 10px;
 }
+
+
+.custom-file-control {
+    overflow: hidden;
+}

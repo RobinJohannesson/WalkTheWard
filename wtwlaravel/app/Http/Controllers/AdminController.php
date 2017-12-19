@@ -84,6 +84,7 @@ class AdminController extends Controller
                     // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
+                    $fileName = str_limit($fileName, 150, '.'.$extesion);
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
                     $allowedVideoTypes =  array('mp4');
@@ -145,7 +146,7 @@ class AdminController extends Controller
 
 
 
-    public function newQuestion(Request $request, $id)
+    public function newQuestion(Request $request)
     {
         // Hämta PatientId från cookie
         // $patientId = $request->cookie('patientId');
@@ -200,6 +201,7 @@ class AdminController extends Controller
                     // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
+                    $fileName = str_limit($fileName, 150, '.'.$extesion);
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
                     $allowedVideoTypes =  array('mp4');
@@ -424,6 +426,7 @@ class AdminController extends Controller
                     // Hämta filändelse. T.ex. jpg
                     $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
+                    $fileName = str_limit($fileName, 150, '.'.$extesion);
 
                     $allowedImageTypes =  array('gif','png','jpg','jpeg');
 
@@ -440,8 +443,6 @@ class AdminController extends Controller
                     }
                 }
             }
-
-
 
             $Bonus->save();
         }

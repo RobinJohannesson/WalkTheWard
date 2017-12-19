@@ -21,7 +21,7 @@
         <div class="row justify-content-end">
             <div class="col-md-8 order-2 order-md-1">
                 <h1 class="text-center">Hantera bonusfrågorna</h1>
-                <form action="{{{ url("admin/adjustBonus") }}}" id="newBonusForm" method="POST">
+                <form action="{{{ url("admin/adjustBonus") }}}" id="newBonusForm" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <span>
