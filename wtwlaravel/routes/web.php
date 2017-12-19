@@ -74,6 +74,10 @@ Route::middleware('auth')->group(function () {
 
     Route::POST('admin/newQuestion', "AdminController@newQuestionSave");
 
+    Route::GET('admin/updateQuestion/{id}', "AdminController@updateQuestion");
+
+    Route::POST('admin/updateQuestion/{id}', "AdminController@updateQuestionSave");
+
     Route::GET('admin/deleteQuestion', "AdminController@showDeleteQuestion");
 
     Route::POST('admin/deleteQuestion/getQuestions', "AdminController@getQuestions");

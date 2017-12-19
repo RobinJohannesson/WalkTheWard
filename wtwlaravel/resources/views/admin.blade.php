@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <a href="{{url('/')}}/admin/newQuestion" class="btn-admin btn-trust btn-medium start-loader">Lägg till ny fråga</a>
-                    <a href="{{url('/')}}/admin/deleteQuestion" class="btn-admin btn-trust btn-medium start-loader">Ta bort frågor</a><br>
+                    <a href="{{url('/')}}/admin/deleteQuestion" class="btn-admin btn-trust btn-medium start-loader">Ta bort/ändra frågor</a><br>
                     <a href="{{url('/')}}/admin/adjustTheme" class="btn-admin btn-trust btn-medium start-loader">Skapa och hantera teman</a><br>
                     <a href="{{url('/')}}/admin/adjustBonus" class="btn-admin btn-trust btn-medium start-loader">Skapa och hantera bonusfrågorna</a><br>
                     <a href="{{url('/')}}/admin/adjustExercise" class="btn-admin btn-trust btn-medium start-loader">Skapa och hantera rörelsevideorna</a><br>

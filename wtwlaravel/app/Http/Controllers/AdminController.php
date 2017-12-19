@@ -33,7 +33,119 @@ class AdminController extends Controller
         return view('admin');
     }
 
-    public function newQuestion(Request $request)
+    public function updateQuestion(Request $request, $id)
+    {
+        $question = Question::find($id);
+        $themes = Theme::all();
+
+        return view('updateQuestion', compact(["themes","question"]));
+    }
+
+
+    public function updateQuestionSave(Request $request, $id)
+    {
+
+        $statusMessage = "";
+        $statusCode = 0;
+        $Question = null;
+        try {
+            // Skapar nytt tema om de valt det
+            if ($request->newQuestionTheme == "0") {
+                $Theme = new Theme;
+                $Theme->name = $request->newQuestionNewTheme;
+                $Theme->isActive = 1;
+                $Theme->save();
+                $newThemeId = $Theme->id;
+            }
+            else {
+                $newThemeId = $request->newQuestionTheme;
+            }
+
+            // Hämta den valda frågan
+            $Question = Question::find($id);
+
+            $Question->question = $request->newQuestion;
+            $Question->answer1 = $request->newQuestionFirstAlternative;
+            $Question->answer2 = $request->newQuestionSecondAlternative;
+            $Question->answer3 = $request->newQuestionThirdAlternative;
+            $Question->answer4 = $request->newQuestionForthAlternative;
+            $Question->correctAnswer = $request->newQuestionRightAlternative;
+
+            // Kolla om filen finns och om den är giltig.
+            if ($request->hasFile('fileToUpload')) {
+                if ($request->file('fileToUpload')->isValid()) {
+
+                    // Hämta filen från request.
+                    $file = $request->file('fileToUpload');
+
+                    // Hämta filnamnet. T.ex. my-photo.jpg
+                    $fileName = time().'-'.mb_strtolower($file->getClientOriginalName(), 'UTF-8');
+
+                    // Hämta filändelse. T.ex. jpg
+                    $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
+
+
+                    $allowedImageTypes =  array('gif','png','jpg','jpeg');
+                    $allowedVideoTypes =  array('mp4');
+
+                    // Kontrollera om filen har en giltig bild filhändelse
+                    if (in_array($extesion, $allowedImageTypes)) {
+
+                        $destinationPath = public_path('\images\question_images');
+                        $file->move($destinationPath, $fileName);
+                        $Question->imageSource = $fileName;
+                        $Question->videoSource = null;
+
+                    }
+                    // Kontrollera om filen har en giltig video filhändelse
+                    elseif (in_array($extesion, $allowedVideoTypes)) {
+
+                        $destinationPath = public_path('\videos\question_videos');
+                        $file->move($destinationPath, $fileName);
+                        $Question->videoSource = $fileName;
+                        $Question->imageSource = null;
+
+                    }
+                    else {
+                        // Om ingen giltig bild eller video laddades upp.
+                    }
+                }
+            }
+
+            $Question->themeId = $newThemeId;
+
+            $Question->save();
+
+            $statusMessage = "Frågan är nu uppdaterad!";
+            $statusCode = 1;
+
+        } catch (Exception $e) {
+            $statusMessage = "Frågan kunde INTE uppdaterad! Pröva igen.";
+            $statusCode = 0;
+        }
+
+        $request->session()->flash('statusMessage', $statusMessage);
+        $request->session()->flash('statusCode', $statusCode);
+        return redirect('admin');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function newQuestion(Request $request, $id)
     {
         // Hämta PatientId från cookie
         // $patientId = $request->cookie('patientId');
@@ -134,6 +246,12 @@ class AdminController extends Controller
         return redirect('admin');
     }
 
+
+
+
+
+
+
     public function showDeleteQuestion(Request $request) {
         $themes = Theme::orderBy('name')->get();
         return view('deleteQuestion', compact(["themes"]));
@@ -170,6 +288,14 @@ class AdminController extends Controller
 
         return redirect('admin');
     }
+
+
+
+
+
+
+
+
 
     public function theme(Request $request)
     {
@@ -223,6 +349,12 @@ class AdminController extends Controller
         return redirect('admin');
     }
 
+
+
+
+
+
+
     public function bonus(Request $request)
     {
         $bonus = Bonus_game::all();
@@ -246,6 +378,28 @@ class AdminController extends Controller
 
     public function bonusSave(Request $request)
     {
+        // Hämta en array med alla bonus ids.
+        $bonusIds = Bonus_game::where('id' ,'>' ,0)->pluck('id')->toArray();
+
+        // Hämta totala antal bonusfrågor.
+        $bonusIdsAmount = count($bonusIds);
+
+        $counter = 0;
+        while ($counter < $bonusIdsAmount) {
+            $thisTurnId = array_values($bonusIds)[$counter];
+
+            // Hämta tema checkbox value. Value 1(true) eller null(false).
+            // När man försöker hämta en unchecked checkbox får man tillbaka
+            // null då den inte skickas inte med request.
+            $checkboxIdUsageValue = $request->input($thisTurnId);
+            if ($checkboxIdUsageValue == true) {
+                // Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+                $bonus_game_checked = Bonus_game::find($thisTurnId);
+                $bonus_game_checked->delete();
+            }
+            $counter++;
+        }
+
         // Skapar ny bonus om de valt det.
         if ($request->ifNewBonus == "yes") {
             $placeIdFromForm = $request->choosePlace;
@@ -292,27 +446,7 @@ class AdminController extends Controller
             $Bonus->save();
         }
 
-        // Hämta en array med alla bonus ids.
-        $bonusIds = Bonus_game::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-        // Hämta totala antal bonusfrågor.
-        $bonusIdsAmount = count($bonusIds);
-
-        $counter = 0;
-        while ($counter < $bonusIdsAmount) {
-            $thisTurnId = array_values($bonusIds)[$counter];
-
-            // Hämta tema checkbox value. Value 1(true) eller null(false).
-            // När man försöker hämta en unchecked checkbox får man tillbaka
-            // null då den inte skickas inte med request.
-            $checkboxIdUsageValue = $request->input($thisTurnId);
-            if ($checkboxIdUsageValue == true) {
-                // Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
-                $bonus_game_checked = Bonus_game::find($thisTurnId);
-                $bonus_game_checked->delete();
-            }
-            $counter++;
-        }
 
         return redirect('admin');
     }

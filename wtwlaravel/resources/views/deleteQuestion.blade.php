@@ -46,13 +46,16 @@
                             <div class="" id="questions-holder">
                                 @foreach ($questions as $q)
                                     <div class="row no-gutters" style="border-bottom: 4px dotted black; padding: 10px 0;">
-                                        <div class="col-1">
+                                        <div class="col-md-1">
                                             <input type='checkbox' class="big-checkbox" id='deleteQuestion{{$q->id}}' name='{{$q->id}}'>
                                         </div>
-                                        <div class="col-11">
+                                        <div class="col-md-9">
                                             <label for='deleteQuestion{{$q->id}}' class='col-form-label'>
                                                 {{$q->question}}
                                             </label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a href="{{url('/')}}/admin/updateQuestion/{{$q->id}}" class="btn-small btn-trust start-loader">Ändra <i class="material-icons">mode_edit</i></a>
                                         </div>
                                     </div>
                                 @endforeach
