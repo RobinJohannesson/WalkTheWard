@@ -105,8 +105,15 @@ Route::middleware('auth')->group(function () {
 
     Route::GET('admin/showStatistics/filter', "AdminController@showStatistics");
 
+    Route::get('/clear-cache', function() {
+        $exitCode = Artisan::call('cache:clear');
+        return redirect('/');
+    });
 
 });
+
+
+
 
 Route::fallback(function(){
     return redirect('scan');
