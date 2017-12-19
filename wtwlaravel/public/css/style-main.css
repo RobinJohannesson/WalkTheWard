@@ -102,7 +102,7 @@ p {
     padding: 5px 10px;
     text-align: center;
     text-decoration: none;
-        border: none;
+    border: none;
 }
 
 .btn-small {
@@ -169,11 +169,12 @@ p {
 }
 
 .big-radio-btn, .big-checkbox{
-    margin: 0 20px;
+    margin: 0 15px;
+    position: static;
     transform: scale(2);
 }
 
 .no-padding {
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
