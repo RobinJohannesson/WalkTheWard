@@ -15,7 +15,9 @@ use App\Question_in_game;
 use App\Map;
 use App\Bonus_game;
 use App\Bonus_game_in_game;
+use App\Exercise;
 use App\Http\Controllers\Cookie;
+use Carbon\Carbon;
 
 class GameHomeController extends Controller
 {
@@ -53,6 +55,14 @@ class GameHomeController extends Controller
 
     public function showAll(Request $request)
     {
+        $current_date = Carbon::now(2);
+        //spottar ut datumet ex. 1231 eller 11
+        $date = $current_date->month . $current_date->day;
+
+        $idOfMovie = $date % 3;
+        $exerciseMovieName = Exercise::find($idOfMovie);
+        $exerciseMovieVideoSource = $exerciseMovieName->videoSource;
+
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
 
@@ -94,7 +104,7 @@ class GameHomeController extends Controller
             $totalStars += $numberOfStar;
         }
 
-        return view('gameHome', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist', 'character']));
+        return view('gameHome', compact(['totalStars', 'maxStars', 'gameId', 'distanceAmount', 'mapArea', 'placeIdlist', 'character', 'exerciseMovieVideoSource']));
     }
 
     public function showArea(Request $request)
