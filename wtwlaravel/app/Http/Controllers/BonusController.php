@@ -26,8 +26,6 @@ class BonusController extends Controller
     */
     public function index(Request $request, $id)
     {
-        $testing = "å ä ö";
-        $testing = str_repeat("_",mb_strlen($testing));
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
@@ -141,7 +139,7 @@ class BonusController extends Controller
             $bonusUrl = "/scan";
         }
 
-        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl", "testing"]));
+        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
     }
 
     /**

@@ -65,7 +65,6 @@
                     @endphp
                     {{-- <span class="letter-m">_</span><span class="letter-a">_</span><span class="letter-l">_</span><span class="letter-m">_</span><span class="letter-ö">Ö</span> --}}
                 </h2>
-                {{$testing}}
             </div>
 
         </div>
