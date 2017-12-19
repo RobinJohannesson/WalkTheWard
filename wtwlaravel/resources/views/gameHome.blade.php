@@ -183,12 +183,16 @@
                             @endif
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <span>
-                            Utförde du dagens rörelse?
-                        </span>
-                        <input class="todayMovementButton btn-trust btn-small" type="submit" value="Ja">
-                        <input class="todayMovementButton btn-anger btn-small" type="submit" value="Nej">
-                        <input class="todayMovementButton btn-fear btn-small" type="submit" value="Vill inte">
+                        @if ($exerciseMovieVideoSource == "")
+                            <a href="" class="close-modal btn-fear btn-small">Tillbaka</a>
+                        @else
+                            <span>
+                                Utförde du dagens rörelse?
+                            </span>
+                            <input class="todayMovementButton btn-trust btn-small" type="submit" value="Ja">
+                            <input class="todayMovementButton btn-anger btn-small" type="submit" value="Nej">
+                            <input class="todayMovementButton btn-fear btn-small" type="submit" value="Vill inte">
+                        @endif
                     </div>
                 </div>
             </div>
@@ -325,6 +329,11 @@
                 $('#movementModal').modal('hide');
                 video[0].currentTime = 0;
             });
+
+            $('.close-modal').click(function() {
+                $('#movementModal').modal('hide');
+            });
+
         });
         </script>
     @endsection
