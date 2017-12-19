@@ -26,6 +26,8 @@ class BonusController extends Controller
     */
     public function index(Request $request, $id)
     {
+        $testing = "å ä ö";
+        $testing = str_repeat("_",mb_strlen($testing));
         // Hämtar bonus_game Id
         $bonusGameId = $id;
         $bonusGame = Bonus_game::find($bonusGameId);
@@ -34,23 +36,29 @@ class BonusController extends Controller
         // ex. helsingborg eller lund
         $bonusGameLettersDB = $bonusGame->lettersToDiscard;
         // Gör bokstäverna stora
-        $bonusGameLetters = strToUpper($bonusGameLettersDB);
+        $bonusGameLetters = mb_strToUpper($bonusGameLettersDB);
 
         // Om de är färre än 5, skapar strängar
-        if (strlen($bonusGameLetters) <= 5) {
+        if (mb_strlen($bonusGameLetters) <= 5) {
             // lund
             $bonusGameLettersShuffledCut = $bonusGameLetters;
             // _ _ _ _ (utan mellanslag)
-            $bonusGameLettersRemain = str_repeat("_",strlen($bonusGameLetters));
+            $bonusGameLettersRemain = str_repeat("_",mb_strlen($bonusGameLetters));
         }
 
         // Kollar om staden innehåller fler än 5 bokstäver
-        if (strlen($bonusGameLetters) > 5) {
+        if (mb_strlen($bonusGameLetters) > 5) {
             // Slumpar runt bokstäverna
             // ex. hligogesnbr (helsingborg)
-            $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
+            // $bonusGameLettersShuffled = str_shuffle($bonusGameLetters);
+            $string = $bonusGameLetters;
+            $len = mb_strlen($string);
+            $sploded = array();
+            while($len-- > 0) { $sploded[] = mb_substr($string, $len, 1); }
+            shuffle($sploded);
+            $bonusGameLettersShuffled = join('', $sploded);
             // ex. esnbr (5 slumpmässiga bokstäver från helsingborg)
-            $bonusGameLettersShuffledCut = substr($bonusGameLettersShuffled, 0, 5);
+            $bonusGameLettersShuffledCut = mb_substr($bonusGameLettersShuffled, 0, 5);
 
             // ex. helsingborg
             $bonusGameLettersRemain = $bonusGameLetters;
@@ -58,29 +66,37 @@ class BonusController extends Controller
             $fiveTimes = 0;
             // Ersätter alla bokstäver som ska användas till spelet till "_"
             while ($fiveTimes < 5) {
-                $bonusGameLettersRemain = str_replace($bonusGameLettersShuffledCut[$fiveTimes],"_",$bonusGameLettersRemain);
+                // $bonusGameLettersRemain = str_replace($bonusGameLettersShuffledCut[$fiveTimes],"_",$bonusGameLettersRemain);
+                $bonusGameLettersRemain = implode("_", mb_split($bonusGameLettersShuffledCut[$fiveTimes], $bonusGameLettersRemain));
                 $fiveTimes ++;
             }
         }
         // Tar fram längden av bokstäver som ska användas för bilden bokstäverna
-        $whileBonusUnder12Int = strlen($bonusGameLettersShuffledCut);
+        $whileBonusUnder12Int = mb_strlen($bonusGameLettersShuffledCut);
         // Fyller ut till 12 bokstäver med slumpmässigt mellan a-ö
         while ( $whileBonusUnder12Int < 12) {
             $charRand = chr(rand(65,90));
-            if(strpos($bonusGameLettersShuffledCut, $charRand) === false){
+            if(mb_strpos($bonusGameLettersShuffledCut, $charRand) === false){
                 $bonusGameLettersShuffledCut .=  $charRand;
                 $whileBonusUnder12Int ++;
             }
         }
 
         // Slumpar runt bokstäverna
-        $bonusGameLettersShuffled = str_shuffle($bonusGameLettersShuffledCut);
+        $string = $bonusGameLettersShuffledCut;
+        $len = mb_strlen($string);
+        $sploded = array();
+        while($len-- > 0) { $sploded[] = mb_substr($string, $len, 1); }
+        shuffle($sploded);
+        $bonusGameLettersShuffled = join('', $sploded);
         // Gör alla bokstäver små
-        $bonusGameLettersShuffledUpper = strToUpper($bonusGameLettersShuffled);
+        $bonusGameLettersShuffledUpper = mb_strToUpper($bonusGameLettersShuffled);
         // Skapar en lista av bokstäverna
-        $bonusGameLettersArray = str_split($bonusGameLettersShuffledUpper);
+        // $bonusGameLettersArray = mb_split("UTF-8", $bonusGameLettersShuffledUpper);
+        $bonusGameLettersArray = preg_split('//u', $bonusGameLettersShuffledUpper, -1, PREG_SPLIT_NO_EMPTY);
         // Skapar en lista av återstående bokstäver
-        $bonusGameLettersShuffledRestArray = str_split($bonusGameLettersRemain);
+        // $bonusGameLettersShuffledRestArray = mb_split("UTF-8", $bonusGameLettersRemain);
+        $bonusGameLettersShuffledRestArray = preg_split('//u', $bonusGameLettersRemain, null, PREG_SPLIT_NO_EMPTY);
 
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
@@ -125,7 +141,7 @@ class BonusController extends Controller
             $bonusUrl = "/scan";
         }
 
-        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl"]));
+        return view('bonus', compact(["bonusGameLettersArray", "bonusGameLettersShuffledRestArray", "bonusGameLetters", "bonusGameImageSource", "bonusUrl", "testing"]));
     }
 
     /**

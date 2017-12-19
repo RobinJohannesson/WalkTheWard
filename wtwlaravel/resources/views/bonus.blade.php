@@ -65,6 +65,7 @@
                     @endphp
                     {{-- <span class="letter-m">_</span><span class="letter-a">_</span><span class="letter-l">_</span><span class="letter-m">_</span><span class="letter-ö">Ö</span> --}}
                 </h2>
+                {{$testing}}
             </div>
 
         </div>
@@ -103,6 +104,7 @@
                 for (var i=0; i < $bonusGameLetters.length; i++){
                     if ($bonusGameLetters.charAt(i) === char){
                         console.log("guessChar innerHTML: " + $('#guessChar' + i).innerHTML);
+                        console.log("guessChar is" + char);
                         $('#guessChar' + i).html(char);
                         $res++;
                         $bonusWord = $('#bonus-word')[0].innerText;
