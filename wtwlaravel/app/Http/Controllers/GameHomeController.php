@@ -22,31 +22,31 @@ use Carbon\Carbon;
 class GameHomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         //
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
         //
@@ -59,9 +59,20 @@ class GameHomeController extends Controller
         //spottar ut datumet ex. 1231 eller 11
         $date = $current_date->month . $current_date->day;
 
-        $idOfMovie = $date % Exercise::count();
-        $exerciseMovieName = Exercise::find($idOfMovie);
-        $exerciseMovieVideoSource = $exerciseMovieName->videoSource;
+        $exerciseList = Exercise::where('isActive', 1)->pluck('id')->toArray();
+
+        if (count($exerciseList) > 0) {
+            $idOfMovie = $date % count($exerciseList);
+
+            $exerciseMovieName = Exercise::find($exerciseList[$idOfMovie-1]);
+
+            // Funkar men får den andra aktiva (id3)
+            $exerciseMovieVideoSource = $exerciseMovieName->videoSource;
+        }
+        else {
+            $exerciseMovieVideoSource = "";
+        }
+
 
         // Hämta PatientId från cookie
         $patientId = $request->cookie('patientId');
@@ -110,48 +121,48 @@ class GameHomeController extends Controller
     public function showArea(Request $request)
     {
         try {
-        // Hämta PatientId från cookie
-        $patientId = $request->cookie('patientId');
+            // Hämta PatientId från cookie
+            $patientId = $request->cookie('patientId');
 
-        // Hämta CurrentAreaId
-        $patient = Patient::find($patientId);
+            // Hämta CurrentAreaId
+            $patient = Patient::find($patientId);
 
-        // Hämta GameId
-        $gameId = $patient->game->id;
+            // Hämta GameId
+            $gameId = $patient->game->id;
 
-        $areaId = $request->areaId;
+            $areaId = $request->areaId;
 
-        $places = Area::find($areaId)->places;
+            $places = Area::find($areaId)->places;
 
-        $mapNameObj = Map::find(1);
+            $mapNameObj = Map::find(1);
 
-        $mapName = $mapNameObj->name;
+            $mapName = $mapNameObj->name;
 
-        $areaNameObj = Area::find($areaId);
+            $areaNameObj = Area::find($areaId);
 
-        $areaName = $areaNameObj->name;
+            $areaName = $areaNameObj->name;
 
-        $mapArea = $areaName . " " . $mapName;
+            $mapArea = $areaName . " " . $mapName;
 
-        $totalStars = 0;
-        foreach ($places as $place) {
-            $pIG = Place_in_game::where('gameId', $gameId)->where('placeId', $place->id)->first();
-            if ($pIG) {
-                $totalStars += $pIG->numberOfStars;
+            $totalStars = 0;
+            foreach ($places as $place) {
+                $pIG = Place_in_game::where('gameId', $gameId)->where('placeId', $place->id)->first();
+                if ($pIG) {
+                    $totalStars += $pIG->numberOfStars;
+                }
             }
-        }
 
-        $allPlaces = 0;
-        $allPlaces = count(Area::find($areaId)->places);
+            $allPlaces = 0;
+            $allPlaces = count(Area::find($areaId)->places);
 
-        $maxStars = $allPlaces * 3;
+            $maxStars = $allPlaces * 3;
 
-        $numberCity = $areaId . "City";
+            $numberCity = $areaId . "City";
 
-        // Hämta alla stationer där användaren varit
-        // $placeIdlist = Place_in_game::where('gameId', $gameId)->pluck('placeId')->toArray();
-        //
-        // $placeIdlistcompare = array.diff();
+            // Hämta alla stationer där användaren varit
+            // $placeIdlist = Place_in_game::where('gameId', $gameId)->pluck('placeId')->toArray();
+            //
+            // $placeIdlistcompare = array.diff();
 
         }
         catch (\Exception $e) {
@@ -176,34 +187,34 @@ class GameHomeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
         //
