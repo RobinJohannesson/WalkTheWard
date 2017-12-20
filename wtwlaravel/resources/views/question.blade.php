@@ -22,6 +22,9 @@
 @section('body')
     <div class="container-fluid">
         <div class="row">
+            <span>
+                {{$latestUpdatedPlace}}
+            </span>
             <div class="col-md-10 order-2 order-md-1">
                 <p class="paragraph-size-adjust">Tema: {{ $currentTheme->name }}</p>
                 <p class="questionparagraph">{{ $question->question }}</p>

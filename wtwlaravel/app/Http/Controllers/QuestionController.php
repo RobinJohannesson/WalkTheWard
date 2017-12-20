@@ -271,10 +271,41 @@ class QuestionController extends Controller
         $patient = Patient::find($patientId);
         $areaId = $patient->game->area->id;
 
+        // Hämtar Game
+        $game = $patient->game;
+        $gameId = $game->id;
+
         $patient = Patient::find($patientId);
         $distanceInMeter = $patient->distanceInMeter;
+
+        // Hämtar alla besökta places för användaren
+        $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest()->first();
+        // Hämtar placeId från senaste besökta platsen
+        $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
+        // Just nu testar jag med båda på 6
+        // id för place måste vara 1-8 inte högre inte lägre
+        // Tar modulus med antal platser med 8, för att få fram vilken stationer de varit på
+        $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8;
+
+        // Skapar 2D arrayen
+        $arrayToCompare = array(
+            array(0,         5,      10,       15,       20,       25,       30,         35),
+            array(5,         0,      15,       20,       25,       30,       35,         40),
+            array(10,        15,     0,        25,       30,       35,       40,         45),
+            array(15,        20,     25,       0,        30,       35,       40,         45),
+            array(20,        25,     30,       35,       0,        40,       45,         50),
+            array(25,        30,     35,       40,       45,       0,        55,         60),
+            array(30,        35,     40,       45,       50,       55,       0,          60),
+            array(35,        40,     45,       50,       55,       60,       65,         0)
+        );
+
+        // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
+        $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
+        $latestUpdatedPlace = $metersWalked;
+
+        // Gamla sättet för att få fram stegen
         $distanceInMeterRandom = rand(5, 10);
-        $distanceInMeterAmount = $distanceInMeter + $distanceInMeterRandom;
+        $distanceInMeterAmount = $distanceInMeter + $metersWalked;
         // Ger distancen
         Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
 
@@ -344,7 +375,7 @@ class QuestionController extends Controller
             $newQuestionInGame->save();
         }
 
-        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'distanceInMeterRandom']));
+        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'distanceInMeterRandom', 'latestUpdatedPlace']));
         // return view('backend', compact(['testing', 'showQuestion']));
     }
     /**
