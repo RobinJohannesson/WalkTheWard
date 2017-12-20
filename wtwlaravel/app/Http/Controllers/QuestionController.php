@@ -285,7 +285,7 @@ class QuestionController extends Controller
         // Hämtar placeId från senaste besökta platsen
         $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
         // Tar modulus med antal platser med 8, för att få fram vilken stationer de varit på
-        $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8;
+        $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8; 
 
         // Skapar 2D arrayen
         $arrayToCompare = array(
@@ -306,7 +306,7 @@ class QuestionController extends Controller
         }
         else {
             // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
-            $metersWalked = $arrayToCompare[$stationId-1][$latestUpdatedPlaceId-1];
+            $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
         }
         $distanceInMeterAmount = $distanceInMeter + $metersWalked;
         // Ger distancen
