@@ -201,7 +201,7 @@
     </div>
 </div>
 </div>
-<input id="distanceInMeterRandom" type="hidden" name="distanceInMeterRandom" value="{{$distanceInMeterRandom}}">
+<input id="metersWalked" type="hidden" name="metersWalked" value="{{$metersWalked}}">
 @endsection
 
 
@@ -247,7 +247,7 @@
                 var placeId = $('#placeId').val();
                 var gameId = $('#gameId').val();
                 var questionId = $('#questionId').val();
-                var distanceInMeterRandom = $('#distanceInMeterRandom').val();
+                var metersWalked = $('#metersWalked').val();
 
                 // Skicka in data med AJAX POST
                 $.ajax({
@@ -256,7 +256,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     url: "{{url('/')}}/question/store",
-                    data: {placeId: placeId, gameId: gameId, questionId: questionId, starsAmount: starsAmount, distanceInMeterRandom: distanceInMeterRandom},
+                    data: {placeId: placeId, gameId: gameId, questionId: questionId, starsAmount: starsAmount, metersWalked: metersWalked},
                     dataType: 'json',
                     success: function(data) { // Om det LYCKADES att spara data
                         console.log(data);

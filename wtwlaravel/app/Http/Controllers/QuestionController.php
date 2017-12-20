@@ -55,7 +55,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         try {
-            $distanceInMeterAmount = $request->distanceInMeterRandom;
+            $distanceInMeterAmount = $request->metersWalked;
             $gameId = $request->gameId;
             $questionId = $request->questionId;
             Question_in_game::where(['questionId' => $questionId, 'gameId' => $gameId])->update(['isAnswered' => 1]);
@@ -302,9 +302,6 @@ class QuestionController extends Controller
         // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
         $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
         $latestUpdatedPlace = $metersWalked;
-
-        // Gamla sättet för att få fram stegen
-        $distanceInMeterRandom = rand(5, 10);
         $distanceInMeterAmount = $distanceInMeter + $metersWalked;
         // Ger distancen
         Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
@@ -375,7 +372,7 @@ class QuestionController extends Controller
             $newQuestionInGame->save();
         }
 
-        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'distanceInMeterRandom', 'latestUpdatedPlace']));
+        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'metersWalked', 'latestUpdatedPlace']));
         // return view('backend', compact(['testing', 'showQuestion']));
     }
     /**
