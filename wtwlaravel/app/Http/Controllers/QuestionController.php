@@ -16,6 +16,8 @@ use App\Map;
 use App\Bonus_game;
 use App\Bonus_game_in_game;
 use App\Http\Controllers\Cookie;
+use Carbon\Carbon;
+use App\Http\Controllers\DateTime;
 
 class QuestionController extends Controller
 {
@@ -282,8 +284,6 @@ class QuestionController extends Controller
         $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
         // Hämtar placeId från senaste besökta platsen
         $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
-        // Just nu testar jag med båda på 6
-        // id för place måste vara 1-8 inte högre inte lägre
         // Tar modulus med antal platser med 8, för att få fram vilken stationer de varit på
         $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8;
 
@@ -299,9 +299,15 @@ class QuestionController extends Controller
             array(35,        40,     45,       50,       55,       60,       65,         0)
         );
 
-        // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
-        $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
-        $latestUpdatedPlace = $metersWalked;
+        // Kollar om datumet är äldre än 1h
+        $date = $latestUpdatedPlace->updated_at;
+        if (strtotime("$date +1 hour") <= time()) {
+            $metersWalked = 0;
+        }
+        else {
+            // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
+            $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
+        }
         $distanceInMeterAmount = $distanceInMeter + $metersWalked;
         // Ger distancen
         Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
@@ -372,7 +378,7 @@ class QuestionController extends Controller
             $newQuestionInGame->save();
         }
 
-        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'metersWalked', 'latestUpdatedPlace']));
+        return view('question', compact(['currentTheme', 'question', 'gameId', 'placeId', 'metersWalked']));
         // return view('backend', compact(['testing', 'showQuestion']));
     }
     /**
