@@ -292,16 +292,15 @@ class QuestionController extends Controller
             array(35,        40,     45,       50,       55,       60,       65,         0)
         );
 
-        try {
-            if (property_exists(Place_in_game::where('gameId', $gameId)->latest("updated_at")->first()) {
-                // Hämtar senast besökt place för användaren
-                $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
-                // Hämtar placeId från senaste besökta platsen
-                $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
-            }
-            else {
-                $latestUpdatedPlaceId = $stationId;
-            }
+        $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
+        if ($latestUpdatedPlace === null) {
+            $metersWalked = 0;
+        }
+        else {
+            // Hämtar senast besökt place för användaren
+            $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
+            // Hämtar placeId från senaste besökta platsen
+            $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
             // Tar modulus med antal platser med 8, för att få fram vilken stationer de varit på
             $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8;
 
@@ -314,8 +313,6 @@ class QuestionController extends Controller
                 // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
                 $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
             }
-        } catch (Exception $e) {
-            $metersWalked = 0;
         }
 
         $distanceInMeterAmount = $distanceInMeter + $metersWalked;
