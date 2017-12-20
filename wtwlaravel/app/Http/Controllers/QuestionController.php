@@ -280,7 +280,7 @@ class QuestionController extends Controller
         $patient = Patient::find($patientId);
         $distanceInMeter = $patient->distanceInMeter;
 
-        // Hämtar alla besökta places för användaren
+        // Hämtar senast besökt place för användaren
         $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
         // Hämtar placeId från senaste besökta platsen
         $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
@@ -306,7 +306,7 @@ class QuestionController extends Controller
         }
         else {
             // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
-            $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
+            $metersWalked = $arrayToCompare[$stationId-1][$latestUpdatedPlaceId-1];
         }
         $distanceInMeterAmount = $distanceInMeter + $metersWalked;
         // Ger distancen
