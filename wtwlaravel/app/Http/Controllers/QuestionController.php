@@ -280,13 +280,6 @@ class QuestionController extends Controller
         $patient = Patient::find($patientId);
         $distanceInMeter = $patient->distanceInMeter;
 
-        // Hämtar senast besökt place för användaren
-        $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
-        // Hämtar placeId från senaste besökta platsen
-        $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
-        // Tar modulus med antal platser med 8, för att få fram vilken stationer de varit på
-        $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8; 
-
         // Skapar 2D arrayen
         $arrayToCompare = array(
             array(0,         5,      10,       15,       20,       25,       30,         35),
@@ -299,15 +292,32 @@ class QuestionController extends Controller
             array(35,        40,     45,       50,       55,       60,       65,         0)
         );
 
-        // Kollar om datumet är äldre än 1h
-        $date = $latestUpdatedPlace->updated_at;
-        if (strtotime("$date +1 hour") <= time()) {
+        try {
+            // Hämtar senast besökt place för användaren
+            $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
+            // Hämtar placeId från senaste besökta platsen
+            if (property_exists($latestUpdatedPlace->placeId)) {
+                $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
+            }
+            else {
+                $latestUpdatedPlaceId = $stationId;
+            }
+            // Tar modulus med antal platser med 8, för att få fram vilken stationer de varit på
+            $idOfLatestUpdatedStation = $latestUpdatedPlaceId % 8;
+
+            // Kollar om datumet är äldre än 1h
+            $date = $latestUpdatedPlace->updated_at;
+            if (strtotime("$date +1 hour") <= time()) {
+                $metersWalked = 0;
+            }
+            else {
+                // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
+                $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
+            }
+        } catch (Exception $e) {
             $metersWalked = 0;
         }
-        else {
-            // Avgör hur många steg användaren får beroende på vilken station man senast besökte och vilken man besöker
-            $metersWalked = $arrayToCompare[$stationId-1][$idOfLatestUpdatedStation-1];
-        }
+
         $distanceInMeterAmount = $distanceInMeter + $metersWalked;
         // Ger distancen
         Patient::where(['id' => $patientId])->update(['distanceInMeter' => $distanceInMeterAmount]);
