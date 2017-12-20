@@ -279,7 +279,7 @@ class QuestionController extends Controller
         $distanceInMeter = $patient->distanceInMeter;
 
         // Hämtar alla besökta places för användaren
-        $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest()->first();
+        $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
         // Hämtar placeId från senaste besökta platsen
         $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
         // Just nu testar jag med båda på 6
