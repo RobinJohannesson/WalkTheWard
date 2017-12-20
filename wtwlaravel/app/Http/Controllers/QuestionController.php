@@ -293,10 +293,10 @@ class QuestionController extends Controller
         );
 
         try {
-            // Hämtar senast besökt place för användaren
-            $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
-            // Hämtar placeId från senaste besökta platsen
-            if (property_exists($latestUpdatedPlace->placeId)) {
+            if (property_exists(Place_in_game::where('gameId', $gameId)->latest("updated_at")->first()) {
+                // Hämtar senast besökt place för användaren
+                $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
+                // Hämtar placeId från senaste besökta platsen
                 $latestUpdatedPlaceId = $latestUpdatedPlace->placeId;
             }
             else {
