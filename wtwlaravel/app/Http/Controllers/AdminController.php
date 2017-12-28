@@ -317,36 +317,49 @@ class AdminController extends Controller
 
     public function themeSave(Request $request)
     {
-        // Hämta en array med alla tema ids.
-        $themeIds = Theme::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-        // Hämta totala antal teman.
-        $themeIdsAmount = count($themeIds);
+        try {
+            // Hämta en array med alla tema ids.
+            $themeIds = Theme::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-        $counter = 0;
-        while ($counter < $themeIdsAmount) {
-            $thisTurnId = array_values($themeIds)[$counter];
+            // Hämta totala antal teman.
+            $themeIdsAmount = count($themeIds);
 
-            // Hämta tema checkbox value. Value 1(true) eller null(false).
-            // När man försöker hämta en unchecked checkbox får man tillbaka
-            // null då den inte skickas inte med request.
-            $checkboxIdUsageValue = $request->input($thisTurnId);
-            if ($checkboxIdUsageValue == true) {
-                Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+            $counter = 0;
+            while ($counter < $themeIdsAmount) {
+                $thisTurnId = array_values($themeIds)[$counter];
+
+                // Hämta tema checkbox value. Value 1(true) eller null(false).
+                // När man försöker hämta en unchecked checkbox får man tillbaka
+                // null då den inte skickas inte med request.
+                $checkboxIdUsageValue = $request->input($thisTurnId);
+                if ($checkboxIdUsageValue == true) {
+                    Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+                }
+                if ($checkboxIdUsageValue == false) {
+                    Theme::where(['id' => $thisTurnId])->update(['isActive' => 0]);
+                }
+                $counter++;
             }
-            if ($checkboxIdUsageValue == false) {
-                Theme::where(['id' => $thisTurnId])->update(['isActive' => 0]);
+
+            // Skapar nytt tema om de valt det.
+            if ($request->ifNewTheme == "yes") {
+                $Theme = new Theme;
+                $Theme->name = $request->newTheme;
+                $Theme->isActive = ($request->ifNewThemeActive == "1" ? 1 : 0);
+                $Theme->save();
             }
-            $counter++;
+
+            $statusMessage = "Teman är nu uppdaterad!";
+            $statusCode = 1;
+
+        } catch (Exception $e) {
+            $statusMessage = "Teman kunde INTE uppdateras! Pröva igen.";
+            $statusCode = 0;
         }
 
-        // Skapar nytt tema om de valt det.
-        if ($request->ifNewTheme == "yes") {
-            $Theme = new Theme;
-            $Theme->name = $request->newTheme;
-            $Theme->isActive = ($request->ifNewThemeActive == "1" ? 1 : 0);
-            $Theme->save();
-        }
+        $request->session()->flash('statusMessage', $statusMessage);
+        $request->session()->flash('statusCode', $statusCode);
 
         return redirect('admin');
     }
@@ -380,74 +393,84 @@ class AdminController extends Controller
 
     public function bonusSave(Request $request)
     {
-        // Hämta en array med alla bonus ids.
-        $bonusIds = Bonus_game::where('id' ,'>' ,0)->pluck('id')->toArray();
+        try {
+            // Hämta en array med alla bonus ids.
+            $bonusIds = Bonus_game::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-        // Hämta totala antal bonusfrågor.
-        $bonusIdsAmount = count($bonusIds);
+            // Hämta totala antal bonusfrågor.
+            $bonusIdsAmount = count($bonusIds);
 
-        $counter = 0;
-        while ($counter < $bonusIdsAmount) {
-            $thisTurnId = array_values($bonusIds)[$counter];
+            $counter = 0;
+            while ($counter < $bonusIdsAmount) {
+                $thisTurnId = array_values($bonusIds)[$counter];
 
-            // Hämta tema checkbox value. Value 1(true) eller null(false).
-            // När man försöker hämta en unchecked checkbox får man tillbaka
-            // null då den inte skickas inte med request.
-            $checkboxIdUsageValue = $request->input($thisTurnId);
-            if ($checkboxIdUsageValue == true) {
-                // Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
-                $bonus_game_checked = Bonus_game::find($thisTurnId);
-                $bonus_game_checked->delete();
+                // Hämta tema checkbox value. Value 1(true) eller null(false).
+                // När man försöker hämta en unchecked checkbox får man tillbaka
+                // null då den inte skickas inte med request.
+                $checkboxIdUsageValue = $request->input($thisTurnId);
+                if ($checkboxIdUsageValue == true) {
+                    // Theme::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+                    $bonus_game_checked = Bonus_game::find($thisTurnId);
+                    $bonus_game_checked->delete();
+                }
+                $counter++;
             }
-            $counter++;
-        }
 
-        // Skapar ny bonus om de valt det.
-        if ($request->ifNewBonus == "yes") {
-            $placeIdFromForm = $request->choosePlace;
-            $place = Place::find($placeIdFromForm);
-            $placeName = $place->name;
-            $Bonus = new Bonus_game;
-            $Bonus->lettersToDiscard = $placeName;
-            $Bonus->placeId = $request->choosePlace;
+            // Skapar ny bonus om de valt det.
+            if ($request->ifNewBonus == "yes") {
+                $placeIdFromForm = $request->choosePlace;
+                $place = Place::find($placeIdFromForm);
+                $placeName = $place->name;
+                $Bonus = new Bonus_game;
+                $Bonus->lettersToDiscard = $placeName;
+                $Bonus->placeId = $request->choosePlace;
 
 
 
-            // Kolla om filen finns och om den är giltig.
-            if ($request->hasFile('fileToUpload')) {
-                if ($request->file('fileToUpload')->isValid()) {
+                // Kolla om filen finns och om den är giltig.
+                if ($request->hasFile('fileToUpload')) {
+                    if ($request->file('fileToUpload')->isValid()) {
 
-                    // Hämta filen från request.
-                    $file = $request->file('fileToUpload');
+                        // Hämta filen från request.
+                        $file = $request->file('fileToUpload');
 
-                    // Hämta filnamnet. T.ex. my-photo.jpg
-                    $fileName = time().'-'.mb_strtolower($file->getClientOriginalName(), 'UTF-8');
+                        // Hämta filnamnet. T.ex. my-photo.jpg
+                        $fileName = time().'-'.mb_strtolower($file->getClientOriginalName(), 'UTF-8');
 
-                    // Hämta filändelse. T.ex. jpg
-                    $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
+                        // Hämta filändelse. T.ex. jpg
+                        $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
-                    $fileName = str_limit($fileName, 150, '').'.'.$extesion;
+                        $fileName = str_limit($fileName, 150, '').'.'.$extesion;
 
-                    $allowedImageTypes =  array('gif','png','jpg','jpeg');
+                        $allowedImageTypes =  array('gif','png','jpg','jpeg');
 
-                    // Kontrollera om filen har en giltig bild filhändelse
-                    if (in_array($extesion, $allowedImageTypes)) {
+                        // Kontrollera om filen har en giltig bild filhändelse
+                        if (in_array($extesion, $allowedImageTypes)) {
 
-                        $destinationPath = public_path('\images\bonus');
-                        $file->move($destinationPath, $fileName);
-                        $Bonus->imageSource = $fileName;
+                            $destinationPath = public_path('\images\bonus');
+                            $file->move($destinationPath, $fileName);
+                            $Bonus->imageSource = $fileName;
 
-                    }
-                    else {
-                        // Om ingen giltig bild eller video laddades upp.
+                        }
+                        else {
+                            // Om ingen giltig bild eller video laddades upp.
+                        }
                     }
                 }
+
+                $Bonus->save();
             }
 
-            $Bonus->save();
+            $statusMessage = "Bonus är nu uppdaterad!";
+            $statusCode = 1;
+
+        } catch (Exception $e) {
+            $statusMessage = "Bonus kunde INTE uppdateras! Pröva igen.";
+            $statusCode = 0;
         }
 
-
+        $request->session()->flash('statusMessage', $statusMessage);
+        $request->session()->flash('statusCode', $statusCode);
 
         return redirect('admin');
     }
@@ -461,73 +484,86 @@ class AdminController extends Controller
 
     public function exerciseSave(Request $request)
     {
-        // Hämta en array med alla rörelse ids.
-        $exerciseIds = Exercise::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-        // Hämta totala antal rörelse.
-        $exerciseIdsAmount = count($exerciseIds);
+        try {
 
-        $counter = 0;
-        while ($counter < $exerciseIdsAmount) {
-            $thisTurnId = array_values($exerciseIds)[$counter];
+            // Hämta en array med alla rörelse ids.
+            $exerciseIds = Exercise::where('id' ,'>' ,0)->pluck('id')->toArray();
 
-            // Hämta tema checkbox value. Value 1(true) eller null(false).
-            // När man försöker hämta en unchecked checkbox får man tillbaka
-            // null då den inte skickas inte med request.
-            $checkboxIdUsageValue = $request->input($thisTurnId);
-            if ($checkboxIdUsageValue == true) {
-                Exercise::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+            // Hämta totala antal rörelse.
+            $exerciseIdsAmount = count($exerciseIds);
+
+            $counter = 0;
+            while ($counter < $exerciseIdsAmount) {
+                $thisTurnId = array_values($exerciseIds)[$counter];
+
+                // Hämta tema checkbox value. Value 1(true) eller null(false).
+                // När man försöker hämta en unchecked checkbox får man tillbaka
+                // null då den inte skickas inte med request.
+                $checkboxIdUsageValue = $request->input($thisTurnId);
+                if ($checkboxIdUsageValue == true) {
+                    Exercise::where(['id' => $thisTurnId])->update(['isActive' => 1]);
+                }
+                if ($checkboxIdUsageValue == false) {
+                    Exercise::where(['id' => $thisTurnId])->update(['isActive' => 0]);
+                }
+                $counter++;
             }
-            if ($checkboxIdUsageValue == false) {
-                Exercise::where(['id' => $thisTurnId])->update(['isActive' => 0]);
-            }
-            $counter++;
-        }
 
 
 
-        // Skapar nytt tema om de valt det.
-        if ($request->ifNewExercise == "yes") {
-            $Exercise = new Exercise;
-            $Exercise->isActive = $request->ifNewExerciseActive;
+            // Skapar nytt tema om de valt det.
+            if ($request->ifNewExercise == "yes") {
+                $Exercise = new Exercise;
+                $Exercise->isActive = $request->ifNewExerciseActive;
 
-            // Kolla om filen finns och om den är giltig.
-            if ($request->hasFile('fileToUpload')) {
-                if ($request->file('fileToUpload')->isValid()) {
+                // Kolla om filen finns och om den är giltig.
+                if ($request->hasFile('fileToUpload')) {
+                    if ($request->file('fileToUpload')->isValid()) {
 
-                    // Hämta filen från request.
-                    $file = $request->file('fileToUpload');
+                        // Hämta filen från request.
+                        $file = $request->file('fileToUpload');
 
-                    $exerciseName = $request->newExercise;
-                    $exerciseName = preg_replace("/[^[:alnum:][:space:]]/u", '', $exerciseName);
+                        $exerciseName = $request->newExercise;
+                        $exerciseName = preg_replace("/[^[:alnum:][:space:]]/u", '', $exerciseName);
 
-                    // Skapa filnamnet. T.ex. rörelse-201711111415
-                    $fileName = mb_strtolower($exerciseName.'-'.time(), 'UTF-8');
+                        // Skapa filnamnet. T.ex. rörelse-201711111415
+                        $fileName = mb_strtolower($exerciseName.'-'.time(), 'UTF-8');
 
-                    // Hämta filändelse. T.ex. jpg
-                    $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
+                        // Hämta filändelse. T.ex. jpg
+                        $extesion = mb_strtolower($file->getClientOriginalExtension(), 'UTF-8');
 
-                    // Skapa filnamnet. T.ex. rörelse-201711111415.jpg
-                    $fileName = str_limit($fileName, 150, '').'.'.$extesion;
+                        // Skapa filnamnet. T.ex. rörelse-201711111415.jpg
+                        $fileName = str_limit($fileName, 150, '').'.'.$extesion;
 
-                    $allowedVideoTypes =  array('mp4');
+                        $allowedVideoTypes =  array('mp4');
 
-                    // Kontrollera om filen har en giltig video filhändelse
-                    if (in_array($extesion, $allowedVideoTypes)) {
+                        // Kontrollera om filen har en giltig video filhändelse
+                        if (in_array($extesion, $allowedVideoTypes)) {
 
-                        $destinationPath = public_path('\videos\exercise');
-                        $file->move($destinationPath, $fileName);
-                        $Exercise->videoSource = $fileName;
-                    }
-                    else {
-                        // Om ingen giltig video laddades upp.
+                            $destinationPath = public_path('\videos\exercise');
+                            $file->move($destinationPath, $fileName);
+                            $Exercise->videoSource = $fileName;
+                        }
+                        else {
+                            // Om ingen giltig video laddades upp.
+                        }
                     }
                 }
+
+                $Exercise->save();
             }
 
-            $Exercise->save();
+            $statusMessage = "Rörelser är nu uppdaterad!";
+            $statusCode = 1;
+
+        } catch (Exception $e) {
+            $statusMessage = "Rörelser kunde INTE uppdateras! Pröva igen.";
+            $statusCode = 0;
         }
 
+        $request->session()->flash('statusMessage', $statusMessage);
+        $request->session()->flash('statusCode', $statusCode);
 
         return redirect('admin');
     }

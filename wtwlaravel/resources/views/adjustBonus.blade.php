@@ -69,7 +69,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 text-left">
-                            <a href="{{url('/')}}/gameHome" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
+                            <a href="{{url('/')}}/admin" class="btn-fear btn-medium return_button start-loader">Tillbaka</a>
                         </div>
                         <div class="col-6 text-right">
                             <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Skicka">

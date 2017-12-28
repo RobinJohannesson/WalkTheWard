@@ -914,14 +914,17 @@ class DBSeeds extends Seeder
         ]);
 
         DB::table('exercises')->insert([
+            'isActive' => 1,
             'videoSource' => "balansen.mp4",
         ]);
 
         DB::table('exercises')->insert([
+            'isActive' => 1,
             'videoSource' => "muskelstyrka.mp4",
         ]);
 
         DB::table('exercises')->insert([
+            'isActive' => 1,
             'videoSource' => "upppata.mp4",
         ]);
 

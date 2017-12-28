@@ -53,18 +53,20 @@
                                         <label class="radio-inline"><input type="radio" name="roomType" value="2" required class="big-radio-btn">dubbelrum<br></label><br>
                                     </div>
                                 </div>
-
-                                <input id="characterId" type="hidden" name="characterId" value="7">
+                                <br>
+                                <input id="characterId" type="hidden" name="characterId" value="1">
 
                             </div>
                             <div class="col-sm-4 text-center">
                                 <img class="choosenCharacterImage" data-character-id="7" src="{{url('/')}}/images/characters/ballong.png" alt="En vanlig karaktär">
+                                <br>
                                 <a href="#" class="btn-interest btn-small text-center" data-toggle="modal" data-target="#characterModal" id="openCharacterModal">Välj karaktär</a>
                             </div>
 
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-12 text-right">
+                                <br>
                                 <input type="submit" id="submit_button" class="btn-trust btn-medium" value="Registrera">
                             </div>
                         </div>
@@ -101,7 +103,7 @@
                                     @foreach ($characters as $c)
 
                                         <div class="col">
-                                            <img class="characterImage" data-character-id="{{$c->id}}" src="{{url('/')}}/images/characters/{{$c->imageSource}}" alt="{{$c->name}}">
+                                            <img class="characterImage {{$c->id == 1 ? "selectedImage" : ""}}" data-character-id="{{$c->id}}" src="{{url('/')}}/images/characters/{{$c->imageSource}}" alt="{{$c->name}}">
                                         </div>
 
                                     @endforeach

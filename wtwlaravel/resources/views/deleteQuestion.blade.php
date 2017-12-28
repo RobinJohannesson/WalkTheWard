@@ -17,10 +17,10 @@
 
 
 @section('body')
-    <div class="container-fluid">
-        <div class="row justify-content-end">
-            <div class="col-md-8 order-2 order-md-1">
-                <h1 class="text-center">Radera fråga</h1>
+    <div class="container-fluid p-0">
+        <div class="row justify-content-end no-gutters">
+            <div class="col-md-10 order-2 order-md-1">
+                <h1 class="text-center">Radera/ändra fråga</h1>
                 <form action="{{{ url("admin/deleteQuestion/getQuestions") }}}" id="getQuestionsForm" method="POST">
                     {{ csrf_field() }}
 
@@ -78,7 +78,7 @@
 
 
             </div>
-            <div class="col-md-2 order-1 order-md-2">
+            <div class="col-md-1 order-1 order-md-2">
                 <div class="text-right">
                     <a href="#" data-toggle="popover" data-trigger="focus" title="Radera frågor" data-content="På den här sidan kan administratörer radera frågor." style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>

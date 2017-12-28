@@ -63,8 +63,8 @@ class GameHomeController extends Controller
 
         if (count($exerciseList) > 0) {
             $idOfMovie = $date % count($exerciseList);
-
-            $exerciseMovieName = Exercise::find($exerciseList[$idOfMovie-1]);
+            
+            $exerciseMovieName = Exercise::find($exerciseList[$idOfMovie]);
 
             $exerciseMovieVideoSource = $exerciseMovieName->videoSource;
         }
