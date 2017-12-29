@@ -36,7 +36,7 @@
 
         </div>
         <div class="row justify-content-start">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <img src="{{url('/')}}/images/map/map-white-stroke.png" class="map home_map_map" alt="Karta kommer snart!" usemap="#Map"/>
 
 
@@ -100,7 +100,7 @@
                 </map>
 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="row no-gutters justify-content-center">
 
                     <div class="col-md-12 text-center">

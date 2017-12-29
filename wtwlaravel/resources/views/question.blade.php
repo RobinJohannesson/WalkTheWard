@@ -21,16 +21,23 @@
 
 @section('body')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-10 order-2 order-md-1">
+
+        <div class="row justify-content-between no-gutters">
+            <div class="col-10">
                 <p class="paragraph-size-adjust">Tema: {{ $currentTheme->name }}</p>
-                <p class="questionparagraph">{{ $question->question }}</p>
             </div>
-            <div class="col col-md-2 order-1 order-md-2">
+            <div class="col-2">
                 <div class=" text-right">
                     <a href="#" data-toggle="popover" data-trigger="focus" title="Svara på frågan!" data-content="Du får fyra svarsalternativ till varje fråga. Svarar du inte rätt den första gången får du försöka tills du väljer rätt alternativ av svaren. " style="white-space:nowrap;"><img src="{{url('/')}}/images/icon-question.png" width="70px" id="question-mark"></a>
                 </div>
             </div>
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-md-10">
+                <h3 class="text-center">Fråga:</h3>
+                <p class="questionparagraph">{{ $question->question }}</p>
+            </div>
+
         </div>
         <div class="row justify-content-start">
             <div class="col-md-2">
@@ -60,6 +67,7 @@
             @endif
         </div>
         <div class="col-md-6">
+            {{-- <h3 class="text-center">Svarsalternativ:</h3> --}}
             <button id="answer-1" class="question-button button button-answer {{$question->correctAnswer == 1 ? "correct-answer" : ""}}">
                 {{ $question->answer1 }}
             </button>
@@ -354,7 +362,7 @@
 
             if (!($(this).hasClass("correct-answer"))){
                 $(this).off("click");
-                console.log("It's wrong dude");
+                console.log("It's wrong!");
                 $(this).addClass('answered-wrong');
                 $('#answer-message').text('Fel svar! Försök igen.');
                 document.getElementById("audio-wrong").play();

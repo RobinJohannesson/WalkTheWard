@@ -15,11 +15,9 @@
 }
 
 .questionparagraph {
-  margin-top: 10%;
   text-align: center;
-  width: 80%;
-  margin-left: auto;
   font-size: 2rem;
+  margin-top: 10px;
 }
 
 .header-margin {
@@ -85,7 +83,7 @@
     text-decoration: none;
     margin-top: 50px;
     margin-left: -370px;*/
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .home_map_pic{
@@ -169,11 +167,10 @@ h1 {
   /*margin-left: 52%;*/
   /*padding: 20px 40px;*/
 }
-/*THIS FIXES MAP LOCATION ON HOME SCREEN, BUT LEAVE UNTOUCHED FOR NOW*
+
 .home_map_map {
-  margin-left: 125px;
-  margin-top: 10px;
-}*/
+  margin: 0 auto;
+}
 
 .homemapadjust {
   margin-left: 125px;
