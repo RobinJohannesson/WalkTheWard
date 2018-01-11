@@ -231,9 +231,6 @@ class QuestionController extends Controller
             );
             return response()->json($response);
         }
-        // tagit bort länk till bonusfrågan
-        $bonusUrl = "/scan";
-        $bonusGame = $placeName;
 
         $response = array(
             'status' => 'success',
