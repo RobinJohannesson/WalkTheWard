@@ -278,15 +278,16 @@ class QuestionController extends Controller
         $distanceInMeter = $patient->distanceInMeter;
 
         // Skapar 2D arrayen
-        $arrayToCompare = array(
-            array(0,         5,      10,       15,       20,       25,       30,         35),
-            array(5,         0,      15,       20,       25,       30,       35,         40),
-            array(10,        15,     0,        25,       30,       35,       40,         45),
-            array(15,        20,     25,       0,        30,       35,       40,         45),
-            array(20,        25,     30,       35,       0,        40,       45,         50),
-            array(25,        30,     35,       40,       45,       0,        55,         60),
-            array(30,        35,     40,       45,       50,       55,       0,          60),
-            array(35,        40,     45,       50,       55,       60,       65,         0)
+        $arrayToCompare = array(                                             // STATION
+            array(0,    5,      10,     15,     20,     25,     30,     35), // 1
+            array(5,    0,      15,     20,     25,     30,     35,     40), // 2
+            array(10,   15,     0,      25,     30,     35,     40,     45), // 3
+            array(15,   20,     25,     0,      30,     35,     40,     45), // 4
+            array(20,   25,     30,     35,     0,      40,     45,     50), // 5
+            array(25,   30,     35,     40,     45,     0,      55,     60), // 6
+            array(30,   35,     40,     45,     50,     55,     0,      60), // 7
+            array(35,   40,     45,     50,     55,     60,     65,     0)   // 8
+        // STATION 1     2       3       4       5       6       7       8
         );
 
         $latestUpdatedPlace = Place_in_game::where('gameId', $gameId)->latest("updated_at")->first();
